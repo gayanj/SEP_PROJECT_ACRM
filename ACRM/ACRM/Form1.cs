@@ -42,14 +42,15 @@ namespace ACRM
             pl = new ProcessLocal();
             processList = pl.RunningProcesses();
 
-            //label1.Visible = true;
-            label1.Text = processList.Count.ToString();
+            label1.SafeInvoke(d => d.Visible = true);
+            label1.SafeInvoke(d => d.Text = processList.Count.ToString());
 
-            comboBox1.DataSource = processList;
+            comboBox1.SafeInvoke(d => d.DataSource = processList);
+
             for (int i = 0; i < processList.Count; i++)
             {
                 string processName = processList[i].ToString();
-                textBox1.AppendText("Process Name : " + processName);
+                textBox1.SafeInvoke(d => d.AppendText("Process Name : " + processName + "\n"));
             }
         }
 
@@ -59,7 +60,7 @@ namespace ACRM
 
             for (int i = 0; i < processList.Count; i++)
             {
-                textBox2.AppendText(processInfo[i] + "\n");
+                textBox2.SafeInvoke(d => d.AppendText(processInfo[i] + "\n"));
             }
         }
     }
