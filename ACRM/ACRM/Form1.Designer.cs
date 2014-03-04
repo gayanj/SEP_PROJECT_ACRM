@@ -30,6 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -37,11 +40,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.fileSysMonBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -72,6 +74,33 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "CPU";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(366, 36);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(420, 492);
+            this.textBox2.TabIndex = 6;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(506, 8);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(280, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(365, 6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(135, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Get Process Information";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -123,6 +152,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.fileSysMonBtn);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -141,32 +171,15 @@
             this.tabPage4.Text = "Network";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // fileSysMonBtn
             // 
-            this.button2.Location = new System.Drawing.Point(365, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Get Process Information";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(506, 8);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(280, 21);
-            this.comboBox1.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(366, 36);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(420, 492);
-            this.textBox2.TabIndex = 6;
+            this.fileSysMonBtn.Location = new System.Drawing.Point(7, 7);
+            this.fileSysMonBtn.Name = "fileSysMonBtn";
+            this.fileSysMonBtn.Size = new System.Drawing.Size(75, 23);
+            this.fileSysMonBtn.TabIndex = 0;
+            this.fileSysMonBtn.Text = "File System Monitor";
+            this.fileSysMonBtn.UseVisualStyleBackColor = true;
+            this.fileSysMonBtn.Click += new System.EventHandler(this.fileSysMonBtn_Click);
             // 
             // Form1
             // 
@@ -179,6 +192,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -197,6 +211,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button fileSysMonBtn;
     }
 }
 

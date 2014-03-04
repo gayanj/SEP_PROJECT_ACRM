@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Management;
 using ACRM.CPU;
 using System.Collections;
+using ACRM.HDisk;
 
 namespace ACRM
 {
@@ -61,6 +62,13 @@ namespace ACRM
             {
                 textBox2.AppendText(processInfo[i] + "\n");
             }
+        }
+
+        private void fileSysMonBtn_Click(object sender, EventArgs e)
+        {
+            FileSysMonForm fsForm1 = new FileSysMonForm();
+            fsForm1.Show();
+            fsForm1.Focus();
         }
     }
 }
