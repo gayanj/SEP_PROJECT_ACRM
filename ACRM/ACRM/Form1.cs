@@ -15,12 +15,12 @@ namespace ACRM
     public partial class Form1 : Form
     {
         private delegate void pList();
-        private delegate void pInfo(string processName);
+        private delegate void pInfo();
         private ArrayList processList;
         private ArrayList processInfo;
         private ProcessLocal pl;
         public Form1()
-        {
+        {  
             InitializeComponent();
         }
 
@@ -32,9 +32,8 @@ namespace ACRM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string processSelected = comboBox1.SelectedItem.ToString();
             pInfo pInfo = getProcessInfo;
-            IAsyncResult res2 = pInfo.BeginInvoke(processSelected,null, null);
+            IAsyncResult res2 = pInfo.BeginInvoke(null, null);
         }
 
         private void getProcessList()
@@ -42,6 +41,8 @@ namespace ACRM
             pl = new ProcessLocal();
             processList = pl.RunningProcesses();
 
+            textBox1.SafeInvoke(d => d.Clear());
+            label2.SafeInvoke(d => d.Visible = true);
             label1.SafeInvoke(d => d.Visible = true);
             label1.SafeInvoke(d => d.Text = processList.Count.ToString());
 
@@ -54,13 +55,22 @@ namespace ACRM
             }
         }
 
-        private void getProcessInfo(string processName)
+        private void getProcessInfo()
         {
-            processInfo = pl.ProcessProperties(processName);
-
-            for (int i = 0; i < processList.Count; i++)
+            if (!label1.Text.Equals("ProccessNo"))
             {
-                textBox2.SafeInvoke(d => d.AppendText(processInfo[i] + "\n"));
+                string processSelected = comboBox1.SafeInvoke(d => d.SelectedItem.ToString());
+                processInfo = pl.ProcessProperties(processSelected);
+                textBox2.SafeInvoke(d => d.Clear());
+                for (int i = 0; i < processInfo.Count; i++)
+                {
+                    string property = processInfo[i].ToString();
+                    textBox2.SafeInvoke(d => d.AppendText(property + "\n"));
+                }
+            }
+            else
+            {
+                MessageBox.Show("Press Get Processess Button First");
             }
         }
     }
