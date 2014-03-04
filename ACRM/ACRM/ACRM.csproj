@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -43,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CPU\IProcessObject.cs" />
+    <Compile Include="CPU\ProcessConnection.cs" />
+    <Compile Include="CPU\ProcessLocal.cs" />
+    <Compile Include="CPU\ProcessMethod.cs" />
+    <Compile Include="CPU\ProcessPriority.cs" />
+    <Compile Include="CPU\ProcessRemote.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
