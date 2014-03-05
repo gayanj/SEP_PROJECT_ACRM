@@ -17,7 +17,7 @@ namespace ACRM
         private delegate void pList();
         private delegate void pInfo();
         private ArrayList processList;
-        private ArrayList processInfo;
+        private ArrayList processMonitor;
         private ProcessLocal pl;
         public Form1()
         {  
@@ -59,12 +59,14 @@ namespace ACRM
         {
             if (!label1.Text.Equals("ProccessNo"))
             {
-                string processSelected = comboBox1.SafeInvoke(d => d.SelectedItem.ToString());
-                processInfo = pl.ProcessProperties(processSelected);
                 textBox2.SafeInvoke(d => d.Clear());
-                for (int i = 0; i < processInfo.Count; i++)
+                string processSelected = comboBox1.SafeInvoke(d => d.SelectedItem.ToString());
+
+                processMonitor = pl.ProcessMonitor(processSelected);
+
+                for (int i = 0; i < processMonitor.Count; i++)
                 {
-                    string property = processInfo[i].ToString();
+                    string property = processMonitor[i].ToString();
                     textBox2.SafeInvoke(d => d.AppendText(property + "\n"));
                 }
             }
