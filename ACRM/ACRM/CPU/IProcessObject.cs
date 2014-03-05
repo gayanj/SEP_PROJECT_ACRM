@@ -9,7 +9,7 @@ namespace ACRM.CPU
     interface IProcessObject
     {
         ArrayList RunningProcesses();
-        ArrayList ProcessProperties(string processName);
+        ArrayList ProcessMonitor(string processName);
         string CreateProcess(string processPath);
         void TerminateProcess(string processName);
         void SetPriority(string processName, ProcessPriority.priority priority);

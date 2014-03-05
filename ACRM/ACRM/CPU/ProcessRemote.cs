@@ -46,10 +46,10 @@ namespace ACRM.CPU
             alProcesses = ProcessMethod.RunningProcesses(connectionScope);
             return alProcesses;
         }
-        public ArrayList ProcessProperties(string processName)
+        public ArrayList ProcessMonitor(string processName)
         {
             ArrayList alProperties = new ArrayList();
-            alProperties = ProcessMethod.ProcessProperties(connectionScope,
+            alProperties = ProcessMethod.SystemMonitor(connectionScope,
                                                            processName);
             return alProperties;
         }
