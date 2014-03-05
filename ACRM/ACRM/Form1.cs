@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.Management;
 using ACRM.CPU;
 using System.Collections;
+using ACRM.HDisk; //for Disk
+using System.IO; //for Disk
 
 namespace ACRM
 {
@@ -19,9 +21,13 @@ namespace ACRM
         private ArrayList processList;
         private ArrayList processMonitor;
         private ProcessLocal pl;
+        private DriveInfo[] allDrives; //for disk
+        private WMIDisk wd;
+        private ArrayList diskModel;
         public Form1()
         {  
             InitializeComponent();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,6 +79,65 @@ namespace ACRM
             else
             {
                 MessageBox.Show("Press Get Processess Button First");
+            }
+        }
+
+        private void fileSysMonBtn_Click(object sender, EventArgs e)
+        {
+            FileSysMonForm fsForm1 = new FileSysMonForm();
+            fsForm1.Show();
+            fsForm1.Focus();
+        }
+
+        private void driveListCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selInd = driveListCombo.SelectedIndex;
+            dNameLbl.Text = allDrives[selInd].Name.ToString();
+            volLbl.Text = allDrives[selInd].VolumeLabel.ToString();
+            dTypeLbl.Text = allDrives[selInd].DriveType.ToString();
+            dFormatLbl.Text = allDrives[selInd].DriveFormat.ToString();
+            totSizeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalSize);
+            totFreeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalFreeSpace);
+            totAvaLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].AvailableFreeSpace);
+            if (allDrives[selInd].IsReady == true)
+            {
+                dStatLbl.Text = "On-Line";
+                dStatLbl.BackColor = Color.Green;
+            }
+            else
+            {
+                dStatLbl.Text = "Off-Line";
+                dStatLbl.BackColor = Color.Red;
+            }            
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Fill Volumes
+            allDrives = DriveInfo.GetDrives();
+            foreach (DriveInfo d in allDrives)
+            {
+                driveListCombo.Items.Add(d.Name);
+            }
+            driveListCombo.SelectedIndex = 0;
+
+            //Fill Physical Drives
+            wd = new WMIDisk();
+            diskModel = wd.DiskInf(wd.ms);
+            foreach (var v in diskModel)
+            {
+                phyDiskComBox.DataSource = diskModel;
+            }
+        }
+
+        private void phyDiskComBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ManagementObjectSearcher mos1 = wd.phyDiskInf(phyDiskComBox.SelectedItem.ToString());
+            ManagementObjectCollection moc = mos1.Get();
+
+            foreach (ManagementObject mo in moc)
+            {
+                lblSerial.Text = mo["SerialNumber"].ToString();
             }
         }
     }
