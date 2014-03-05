@@ -9,7 +9,8 @@ using System.Windows.Forms;
 using System.Management;
 using ACRM.CPU;
 using System.Collections;
-using ACRM.HDisk;
+using ACRM.HDisk; //for Disk
+using System.IO; //for Disk
 
 namespace ACRM
 {
@@ -20,6 +21,7 @@ namespace ACRM
         private ArrayList processList;
         private ArrayList processInfo;
         private ProcessLocal pl;
+        private DriveInfo[] allDrives; //for disk
         public Form1()
         {
             InitializeComponent();
@@ -69,6 +71,38 @@ namespace ACRM
             FileSysMonForm fsForm1 = new FileSysMonForm();
             fsForm1.Show();
             fsForm1.Focus();
+        }
+
+        private void loadDrivesBtn_Click(object sender, EventArgs e)
+        {
+            allDrives = DriveInfo.GetDrives();
+            foreach (DriveInfo d in allDrives)
+            {
+                driveListCombo.Items.Add(d.Name);
+            }
+            driveListCombo.SelectedIndex = 0;
+        }
+
+        private void driveListCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selInd = driveListCombo.SelectedIndex;
+            dNameLbl.Text = allDrives[selInd].Name.ToString();
+            volLbl.Text = allDrives[selInd].VolumeLabel.ToString();
+            dTypeLbl.Text = allDrives[selInd].DriveType.ToString();
+            dFormatLbl.Text = allDrives[selInd].DriveFormat.ToString();
+            totSizeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalSize);
+            totFreeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalFreeSpace);
+            totAvaLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].AvailableFreeSpace);
+            if (allDrives[selInd].IsReady == true)
+            {
+                dStatLbl.Text = "On-Line";
+                dStatLbl.BackColor = Color.Green;
+            }
+            else
+            {
+                dStatLbl.Text = "Off-Line";
+                dStatLbl.BackColor = Color.Red;
+            }
         }
     }
 }

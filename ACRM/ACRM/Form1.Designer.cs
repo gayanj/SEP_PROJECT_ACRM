@@ -39,8 +39,26 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.totAvaLbl = new System.Windows.Forms.Label();
+            this.totFreeLbl = new System.Windows.Forms.Label();
+            this.totSizeLbl = new System.Windows.Forms.Label();
+            this.dFormatLbl = new System.Windows.Forms.Label();
+            this.dTypeLbl = new System.Windows.Forms.Label();
+            this.volLbl = new System.Windows.Forms.Label();
+            this.dNameLbl = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.loadDrivesBtn = new System.Windows.Forms.Button();
+            this.driveListCombo = new System.Windows.Forms.ComboBox();
             this.fileSysMonBtn = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dStatLbl = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -152,6 +170,24 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.dStatLbl);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.totAvaLbl);
+            this.tabPage3.Controls.Add(this.totFreeLbl);
+            this.tabPage3.Controls.Add(this.totSizeLbl);
+            this.tabPage3.Controls.Add(this.dFormatLbl);
+            this.tabPage3.Controls.Add(this.dTypeLbl);
+            this.tabPage3.Controls.Add(this.volLbl);
+            this.tabPage3.Controls.Add(this.dNameLbl);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.loadDrivesBtn);
+            this.tabPage3.Controls.Add(this.driveListCombo);
             this.tabPage3.Controls.Add(this.fileSysMonBtn);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -160,6 +196,161 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hard Disk";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // totAvaLbl
+            // 
+            this.totAvaLbl.AutoSize = true;
+            this.totAvaLbl.Location = new System.Drawing.Point(165, 111);
+            this.totAvaLbl.Name = "totAvaLbl";
+            this.totAvaLbl.Size = new System.Drawing.Size(50, 13);
+            this.totAvaLbl.TabIndex = 16;
+            this.totAvaLbl.Text = "Available";
+            // 
+            // totFreeLbl
+            // 
+            this.totFreeLbl.AutoSize = true;
+            this.totFreeLbl.Location = new System.Drawing.Point(165, 98);
+            this.totFreeLbl.Name = "totFreeLbl";
+            this.totFreeLbl.Size = new System.Drawing.Size(28, 13);
+            this.totFreeLbl.TabIndex = 15;
+            this.totFreeLbl.Text = "Free";
+            // 
+            // totSizeLbl
+            // 
+            this.totSizeLbl.AutoSize = true;
+            this.totSizeLbl.Location = new System.Drawing.Point(165, 85);
+            this.totSizeLbl.Name = "totSizeLbl";
+            this.totSizeLbl.Size = new System.Drawing.Size(27, 13);
+            this.totSizeLbl.TabIndex = 14;
+            this.totSizeLbl.Text = "Size";
+            // 
+            // dFormatLbl
+            // 
+            this.dFormatLbl.AutoSize = true;
+            this.dFormatLbl.Location = new System.Drawing.Point(165, 72);
+            this.dFormatLbl.Name = "dFormatLbl";
+            this.dFormatLbl.Size = new System.Drawing.Size(39, 13);
+            this.dFormatLbl.TabIndex = 13;
+            this.dFormatLbl.Text = "Format";
+            // 
+            // dTypeLbl
+            // 
+            this.dTypeLbl.AutoSize = true;
+            this.dTypeLbl.Location = new System.Drawing.Point(165, 59);
+            this.dTypeLbl.Name = "dTypeLbl";
+            this.dTypeLbl.Size = new System.Drawing.Size(31, 13);
+            this.dTypeLbl.TabIndex = 12;
+            this.dTypeLbl.Text = "Type";
+            // 
+            // volLbl
+            // 
+            this.volLbl.AutoSize = true;
+            this.volLbl.Location = new System.Drawing.Point(165, 46);
+            this.volLbl.Name = "volLbl";
+            this.volLbl.Size = new System.Drawing.Size(42, 13);
+            this.volLbl.TabIndex = 11;
+            this.volLbl.Text = "Volume";
+            // 
+            // dNameLbl
+            // 
+            this.dNameLbl.AutoSize = true;
+            this.dNameLbl.Location = new System.Drawing.Point(165, 33);
+            this.dNameLbl.Name = "dNameLbl";
+            this.dNameLbl.Size = new System.Drawing.Size(35, 13);
+            this.dNameLbl.TabIndex = 10;
+            this.dNameLbl.Text = "Name";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(5, 111);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Available Free Space";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(5, 98);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Total Free Space";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 85);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Total Size";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Drive Format";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Drive Type";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Volume Label";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Drive Name";
+            // 
+            // loadDrivesBtn
+            // 
+            this.loadDrivesBtn.Location = new System.Drawing.Point(212, 7);
+            this.loadDrivesBtn.Name = "loadDrivesBtn";
+            this.loadDrivesBtn.Size = new System.Drawing.Size(75, 23);
+            this.loadDrivesBtn.TabIndex = 2;
+            this.loadDrivesBtn.Text = "Load Drives";
+            this.loadDrivesBtn.UseVisualStyleBackColor = true;
+            this.loadDrivesBtn.Click += new System.EventHandler(this.loadDrivesBtn_Click);
+            // 
+            // driveListCombo
+            // 
+            this.driveListCombo.FormattingEnabled = true;
+            this.driveListCombo.Location = new System.Drawing.Point(6, 9);
+            this.driveListCombo.Name = "driveListCombo";
+            this.driveListCombo.Size = new System.Drawing.Size(200, 21);
+            this.driveListCombo.TabIndex = 1;
+            this.driveListCombo.SelectedIndexChanged += new System.EventHandler(this.driveListCombo_SelectedIndexChanged);
+            // 
+            // fileSysMonBtn
+            // 
+            this.fileSysMonBtn.Location = new System.Drawing.Point(679, 7);
+            this.fileSysMonBtn.Name = "fileSysMonBtn";
+            this.fileSysMonBtn.Size = new System.Drawing.Size(107, 23);
+            this.fileSysMonBtn.TabIndex = 0;
+            this.fileSysMonBtn.Text = "File System Monitor";
+            this.fileSysMonBtn.UseVisualStyleBackColor = true;
+            this.fileSysMonBtn.Click += new System.EventHandler(this.fileSysMonBtn_Click);
             // 
             // tabPage4
             // 
@@ -171,15 +362,23 @@
             this.tabPage4.Text = "Network";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // fileSysMonBtn
+            // label10
             // 
-            this.fileSysMonBtn.Location = new System.Drawing.Point(7, 7);
-            this.fileSysMonBtn.Name = "fileSysMonBtn";
-            this.fileSysMonBtn.Size = new System.Drawing.Size(75, 23);
-            this.fileSysMonBtn.TabIndex = 0;
-            this.fileSysMonBtn.Text = "File System Monitor";
-            this.fileSysMonBtn.UseVisualStyleBackColor = true;
-            this.fileSysMonBtn.Click += new System.EventHandler(this.fileSysMonBtn_Click);
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(5, 124);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Drive Status";
+            // 
+            // dStatLbl
+            // 
+            this.dStatLbl.AutoSize = true;
+            this.dStatLbl.Location = new System.Drawing.Point(165, 124);
+            this.dStatLbl.Name = "dStatLbl";
+            this.dStatLbl.Size = new System.Drawing.Size(37, 13);
+            this.dStatLbl.TabIndex = 18;
+            this.dStatLbl.Text = "Status";
             // 
             // Form1
             // 
@@ -193,6 +392,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -212,6 +412,24 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button fileSysMonBtn;
+        private System.Windows.Forms.ComboBox driveListCombo;
+        private System.Windows.Forms.Button loadDrivesBtn;
+        private System.Windows.Forms.Label totAvaLbl;
+        private System.Windows.Forms.Label totFreeLbl;
+        private System.Windows.Forms.Label totSizeLbl;
+        private System.Windows.Forms.Label dFormatLbl;
+        private System.Windows.Forms.Label dTypeLbl;
+        private System.Windows.Forms.Label volLbl;
+        private System.Windows.Forms.Label dNameLbl;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label dStatLbl;
+        private System.Windows.Forms.Label label10;
     }
 }
 
