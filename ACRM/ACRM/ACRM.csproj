@@ -56,6 +56,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HDisk\DiskPerformance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HDisk\DiskPerformance.Designer.cs">
+      <DependentUpon>DiskPerformance.cs</DependentUpon>
+    </Compile>
     <Compile Include="HDisk\ExtraDiskMeth.cs" />
     <Compile Include="HDisk\FileSysMonForm.cs">
       <SubType>Form</SubType>
@@ -63,12 +69,16 @@
     <Compile Include="HDisk\FileSysMonForm.Designer.cs">
       <DependentUpon>FileSysMonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HDisk\PerfCounterHD.cs" />
     <Compile Include="HDisk\WMIConn.cs" />
     <Compile Include="HDisk\WMIDisk.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDisk\DiskPerformance.resx">
+      <DependentUpon>DiskPerformance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HDisk\FileSysMonForm.resx">
       <DependentUpon>FileSysMonForm.cs</DependentUpon>
