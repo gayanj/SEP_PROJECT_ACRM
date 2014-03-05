@@ -63,6 +63,8 @@
     <Compile Include="HDisk\FileSysMonForm.Designer.cs">
       <DependentUpon>FileSysMonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HDisk\WMIConn.cs" />
+    <Compile Include="HDisk\WMIDisk.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

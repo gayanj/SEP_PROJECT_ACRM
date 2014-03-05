@@ -22,9 +22,12 @@ namespace ACRM
         private ArrayList processInfo;
         private ProcessLocal pl;
         private DriveInfo[] allDrives; //for disk
+        private WMIDisk wd;
+        private ArrayList diskModel;
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,16 +76,6 @@ namespace ACRM
             fsForm1.Focus();
         }
 
-        private void loadDrivesBtn_Click(object sender, EventArgs e)
-        {
-            allDrives = DriveInfo.GetDrives();
-            foreach (DriveInfo d in allDrives)
-            {
-                driveListCombo.Items.Add(d.Name);
-            }
-            driveListCombo.SelectedIndex = 0;
-        }
-
         private void driveListCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selInd = driveListCombo.SelectedIndex;
@@ -102,6 +95,36 @@ namespace ACRM
             {
                 dStatLbl.Text = "Off-Line";
                 dStatLbl.BackColor = Color.Red;
+            }            
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Fill Volumes
+            allDrives = DriveInfo.GetDrives();
+            foreach (DriveInfo d in allDrives)
+            {
+                driveListCombo.Items.Add(d.Name);
+            }
+            driveListCombo.SelectedIndex = 0;
+
+            //Fill Physical Drives
+            wd = new WMIDisk();
+            diskModel = wd.DiskInf(wd.ms);
+            foreach (var v in diskModel)
+            {
+                phyDiskComBox.DataSource = diskModel;
+            }
+        }
+
+        private void phyDiskComBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ManagementObjectSearcher mos1 = wd.phyDiskInf(phyDiskComBox.SelectedItem.ToString());
+            ManagementObjectCollection moc = mos1.Get();
+
+            foreach (ManagementObject mo in moc)
+            {
+                lblSerial.Text = mo["SerialNumber"].ToString();
             }
         }
     }
