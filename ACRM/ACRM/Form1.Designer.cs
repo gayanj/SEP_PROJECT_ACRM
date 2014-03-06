@@ -252,7 +252,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(370, 531);
+            this.groupBox3.Size = new System.Drawing.Size(402, 531);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Physical Disk Info";
@@ -538,9 +538,9 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.volLbl);
             this.groupBox2.Controls.Add(this.dNameLbl);
-            this.groupBox2.Location = new System.Drawing.Point(379, 3);
+            this.groupBox2.Location = new System.Drawing.Point(411, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(250, 531);
+            this.groupBox2.Size = new System.Drawing.Size(383, 248);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Volume Info";
@@ -702,16 +702,16 @@
             // 
             this.groupBox1.Controls.Add(this.btnDiskPerf);
             this.groupBox1.Controls.Add(this.fileSysMonBtn);
-            this.groupBox1.Location = new System.Drawing.Point(635, 3);
+            this.groupBox1.Location = new System.Drawing.Point(411, 257);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(154, 531);
+            this.groupBox1.Size = new System.Drawing.Size(383, 277);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Extra Functions";
             // 
             // btnDiskPerf
             // 
-            this.btnDiskPerf.Location = new System.Drawing.Point(6, 55);
+            this.btnDiskPerf.Location = new System.Drawing.Point(6, 84);
             this.btnDiskPerf.Name = "btnDiskPerf";
             this.btnDiskPerf.Size = new System.Drawing.Size(142, 30);
             this.btnDiskPerf.TabIndex = 1;
@@ -721,7 +721,7 @@
             // 
             // fileSysMonBtn
             // 
-            this.fileSysMonBtn.Location = new System.Drawing.Point(6, 19);
+            this.fileSysMonBtn.Location = new System.Drawing.Point(6, 31);
             this.fileSysMonBtn.Name = "fileSysMonBtn";
             this.fileSysMonBtn.Size = new System.Drawing.Size(142, 30);
             this.fileSysMonBtn.TabIndex = 0;

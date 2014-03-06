@@ -44,6 +44,7 @@
             this.lblTransMax = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnStop = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,15 +207,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "I/O Rates";
             // 
+            // btnStop
+            // 
+            this.btnStop.Location = new System.Drawing.Point(93, 12);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStop.TabIndex = 16;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
             // DiskPerformance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(468, 464);
+            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnStart);
             this.Name = "DiskPerformance";
             this.Text = "DiskPerformance";
+            this.Load += new System.EventHandler(this.DiskPerformance_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -239,5 +253,6 @@
         private System.Windows.Forms.Label lblTransMax;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnStop;
     }
 }
