@@ -24,7 +24,7 @@ namespace ACRM
         private ProcessLocal pl;
         private DriveInfo[] allDrives; //for disk
         private WMIDisk wd;
-        private ArrayList diskModel;
+        private ArrayList diskModelList;
         public Form1()
         {
             InitializeComponent();
@@ -110,12 +110,23 @@ namespace ACRM
         {
             int selInd = driveListCombo.SelectedIndex;
             dNameLbl.Text = allDrives[selInd].Name.ToString();
-            volLbl.Text = allDrives[selInd].VolumeLabel.ToString();
             dTypeLbl.Text = allDrives[selInd].DriveType.ToString();
-            dFormatLbl.Text = allDrives[selInd].DriveFormat.ToString();
-            totSizeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalSize);
-            totFreeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalFreeSpace);
-            totAvaLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].AvailableFreeSpace);
+            try
+            {
+                volLbl.Text = allDrives[selInd].VolumeLabel.ToString();
+                dFormatLbl.Text = allDrives[selInd].DriveFormat.ToString();
+                totSizeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalSize);
+                totFreeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalFreeSpace);
+                totAvaLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].AvailableFreeSpace);
+            }
+            catch (IOException ex)
+            {
+                volLbl.Text = "Volume Not Ready";
+                dFormatLbl.Text = "Volume Not Ready";
+                totAvaLbl.Text = "Volume Not Ready";
+                totFreeLbl.Text = "Volume Not Ready";
+                totSizeLbl.Text = "Volume Not Ready";
+            }            
             if (allDrives[selInd].IsReady == true)
             {
                 dStatLbl.Text = "On-Line";
@@ -140,10 +151,10 @@ namespace ACRM
 
             //Fill Physical Drives
             wd = new WMIDisk();
-            diskModel = wd.DiskInf(wd.ms);
-            foreach (var v in diskModel)
+            diskModelList = wd.DiskInf(wd.ms);
+            foreach (var v in diskModelList)
             {
-                phyDiskComBox.DataSource = diskModel;
+                phyDiskComBox.DataSource = diskModelList;
             }
         }
 
@@ -154,8 +165,35 @@ namespace ACRM
 
             foreach (ManagementObject mo in moc)
             {
-                lblSerial.Text = mo["SerialNumber"].ToString();
+                lblSerial.Text = mo["SerialNumber"].ToString().Trim();
+                lblModel.Text = mo["Model"].ToString().Trim();
+                lblInterface.Text = mo["InterfaceType"].ToString();
+                lblCapacity.Text = ExtraDiskMeth.SizeSuffix(mo["Size"].ToString());
+                lblPartitions.Text = mo["Partitions"].ToString();
+                lblSig.Text = mo["Signature"].ToString();
+                if (mo["FirmwareRevision"] == null)
+                {
+                    lblFirmware.Text = "-";
+                }
+                else
+                {
+                    lblFirmware.Text = mo["FirmwareRevision"].ToString();
+                }
+                lblCylinder.Text = mo["TotalCylinders"].ToString();
+                lblSectors.Text = mo["TotalSectors"].ToString();
+                lblHeads.Text = mo["TotalHeads"].ToString();
+                lblTracks.Text = mo["TotalTracks"].ToString();
+                lblBperSec.Text = mo["BytesPerSector"].ToString();
+                lblSecPerTrack.Text = mo["SectorsPerTrack"].ToString();
+                lblTrackPerCyl.Text = mo["TracksPerCylinder"].ToString();
             }
+        }
+
+        private void btnDiskPerf_Click(object sender, EventArgs e)
+        {
+            DiskPerformance dp = new DiskPerformance();
+            dp.Show();
+            dp.Focus();
         }
     }
 }

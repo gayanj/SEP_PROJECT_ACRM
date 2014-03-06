@@ -40,5 +40,6 @@ namespace ACRM.HDisk
             ManagementObjectSearcher mos = new ManagementObjectSearcher(ms, oquery);
             return mos;
         }
+
     }
 }
