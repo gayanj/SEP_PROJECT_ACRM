@@ -10,7 +10,8 @@ using System.Management;
 using ACRM.CPU;
 using System.Collections;
 using ACRM.HDisk; //for Disk
-using System.IO; //for Disk
+using System.IO;
+using System.Threading.Tasks; //for Disk
 
 namespace ACRM
 {
@@ -25,23 +26,36 @@ namespace ACRM
         private WMIDisk wd;
         private ArrayList diskModel;
         public Form1()
-        {  
+        {
             InitializeComponent();
-            
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            pList plist = getProcessList;
-            IAsyncResult res1 = plist.BeginInvoke(null, null);
+            Task task = new Task(getProcessList);
+            task.Start();
+            await task;
+            //pList plist = getProcessList;
+            //IAsyncResult res1 = plist.BeginInvoke(null, null);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
-            pInfo pInfo = getProcessInfo;
-            IAsyncResult res2 = pInfo.BeginInvoke(null, null);
+            while (true)
+            {
+                Task task = new Task(getProcessInfo);
+                task.Start();
+                await Task.Delay(1000);
+                task.Dispose();
+            }
+            //pInfo pInfo = getProcessInfo;
+            //IAsyncResult res2 = pInfo.BeginInvoke(null, null);
         }
 
+        /// <summary>
+        /// This method is used to retrieve the current processes running in the machine
+        /// </summary>
         private void getProcessList()
         {
             pl = new ProcessLocal();
@@ -61,6 +75,9 @@ namespace ACRM
             }
         }
 
+        /// <summary>
+        /// This method is used to retrieve the CPU usage of a particular process
+        /// </summary>
         private void getProcessInfo()
         {
             if (!label1.Text.Equals("ProccessNo"))
@@ -108,7 +125,7 @@ namespace ACRM
             {
                 dStatLbl.Text = "Off-Line";
                 dStatLbl.BackColor = Color.Red;
-            }            
+            }
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)

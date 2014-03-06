@@ -101,6 +101,11 @@ namespace ACRM.CPU
             return owner;
         }
 
+        /// <summary>
+        /// This method get the list of all the current processes running in the machine
+        /// </summary>
+        /// <param name="connectionScope">Scope of the connection-No idea what that is</param>
+        /// <returns>Returns an ArrayList of the current processes</returns>
         public static ArrayList RunningProcesses(ManagementScope connectionScope)
         {
             ArrayList alProcesses = new ArrayList();
@@ -142,6 +147,13 @@ namespace ACRM.CPU
             return code;
         }
 
+
+        /// <summary>
+        /// This method is used to retrieve information about a particular process
+        /// </summary>
+        /// <param name="connectionScope">Scope of the connection-No idea what that is</param>
+        /// <param name="processName">Process selected by the combo box comes here</param>
+        /// <returns>Returns an ArrayList of the processes information</returns>
         public static ArrayList SystemMonitor(ManagementScope connectionScope,
                                                   string processName)
         {

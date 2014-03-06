@@ -6,6 +6,9 @@ using System.Text;
 
 namespace ACRM
 {
+    /// <summary>
+    /// This class can be used to update the main UI using different Threads so that the main UI will stay responsive
+    /// </summary>
     public static class ExtensionMethod
     {
         public static TResult SafeInvoke<T, TResult>(this T isi, Func<T, TResult> call) where T : ISynchronizeInvoke
