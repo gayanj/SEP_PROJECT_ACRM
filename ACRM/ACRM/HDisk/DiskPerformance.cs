@@ -13,6 +13,7 @@ namespace ACRM.HDisk
     {
         PerfCounterHD pc;
         Timer t;
+
         public DiskPerformance()
         {
             
@@ -23,8 +24,13 @@ namespace ACRM.HDisk
         {
             btnStop.Enabled = true;
             btnStart.Enabled = false;
+
             pc = new PerfCounterHD();
+
             lblTransMax.Text = "0.0";
+            toolStripStatusLabel1.Text = "Currently Monitoring";
+            statusStrip1.Refresh();
+
             t = new Timer { Enabled = true, Interval = 1000 };
             t.Tick += t_Tick;
         }
@@ -76,14 +82,21 @@ namespace ACRM.HDisk
         private void btnStop_Click(object sender, EventArgs e)
         {
             pc.destroyCounters();
+
             btnStop.Enabled = false;
             btnStart.Enabled = true;
+
+            toolStripStatusLabel1.Text = "Monitoring Stopped";
+            statusStrip1.Refresh();
+
             t.Dispose();
         }
 
         private void DiskPerformance_Load(object sender, EventArgs e)
         {
             btnStop.Enabled = false;
+            toolStripStatusLabel1.Text = "Ready To Begain";
+            statusStrip1.Refresh();
         }
 
     }
