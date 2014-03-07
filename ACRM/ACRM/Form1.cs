@@ -10,16 +10,17 @@ using System.Management;
 using ACRM.CPU;
 using System.Collections;
 using ACRM.HDisk; //for Disk
-using System.IO; //for Disk
+using System.IO;
+using System.Threading.Tasks; //for Disk
 
 namespace ACRM
 {
     public partial class Form1 : Form
     {
         private delegate void pList();
-        private delegate void pInfo(string processName);
+        private delegate void pInfo();
         private ArrayList processList;
-        private ArrayList processInfo;
+        private ArrayList processMonitor;
         private ProcessLocal pl;
         private DriveInfo[] allDrives; //for disk
         private WMIDisk wd;
@@ -27,45 +28,74 @@ namespace ACRM
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            pList plist = getProcessList;
-            IAsyncResult res1 = plist.BeginInvoke(null, null);
+            Task task = new Task(getProcessList);
+            task.Start();
+            await task;
+            //pList plist = getProcessList;
+            //IAsyncResult res1 = plist.BeginInvoke(null, null);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
-            string processSelected = comboBox1.SelectedItem.ToString();
-            pInfo pInfo = getProcessInfo;
-            IAsyncResult res2 = pInfo.BeginInvoke(processSelected,null, null);
+            while (true)
+            {
+                Task task = new Task(getProcessInfo);
+                task.Start();
+                await Task.Delay(1000);
+                task.Dispose();
+            }
+            //pInfo pInfo = getProcessInfo;
+            //IAsyncResult res2 = pInfo.BeginInvoke(null, null);
         }
 
+        /// <summary>
+        /// This method is used to retrieve the current processes running in the machine
+        /// </summary>
         private void getProcessList()
         {
             pl = new ProcessLocal();
             processList = pl.RunningProcesses();
 
-            //label1.Visible = true;
-            label1.Text = processList.Count.ToString();
+            textBox1.SafeInvoke(d => d.Clear());
+            label2.SafeInvoke(d => d.Visible = true);
+            label1.SafeInvoke(d => d.Visible = true);
+            label1.SafeInvoke(d => d.Text = processList.Count.ToString());
 
-            comboBox1.DataSource = processList;
+            comboBox1.SafeInvoke(d => d.DataSource = processList);
+
             for (int i = 0; i < processList.Count; i++)
             {
                 string processName = processList[i].ToString();
-                textBox1.AppendText("Process Name : " + processName);
+                textBox1.SafeInvoke(d => d.AppendText("Process Name : " + processName + "\n"));
             }
         }
 
-        private void getProcessInfo(string processName)
+        /// <summary>
+        /// This method is used to retrieve the CPU usage of a particular process
+        /// </summary>
+        private void getProcessInfo()
         {
-            processInfo = pl.ProcessProperties(processName);
-
-            for (int i = 0; i < processList.Count; i++)
+            if (!label1.Text.Equals("ProccessNo"))
             {
-                textBox2.AppendText(processInfo[i] + "\n");
+                textBox2.SafeInvoke(d => d.Clear());
+                string processSelected = comboBox1.SafeInvoke(d => d.SelectedItem.ToString());
+
+                processMonitor = pl.ProcessMonitor(processSelected);
+
+                for (int i = 0; i < processMonitor.Count; i++)
+                {
+                    string property = processMonitor[i].ToString();
+                    textBox2.SafeInvoke(d => d.AppendText(property + "\n"));
+                }
+            }
+            else
+            {
+                MessageBox.Show("Press Get Processess Button First");
             }
         }
 
@@ -106,7 +136,7 @@ namespace ACRM
             {
                 dStatLbl.Text = "Off-Line";
                 dStatLbl.BackColor = Color.Red;
-            }            
+            }
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
