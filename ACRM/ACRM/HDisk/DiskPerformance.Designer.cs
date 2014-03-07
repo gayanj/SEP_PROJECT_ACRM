@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,45 +46,51 @@
             this.lblTransMax = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblAvgTrans = new System.Windows.Forms.Label();
+            this.lblAvgWrite = new System.Windows.Forms.Label();
+            this.lblAvgRead = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblAvgRead = new System.Windows.Forms.Label();
-            this.lblAvgWrite = new System.Windows.Forms.Label();
-            this.lblAvgTrans = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lblAvgReadB = new System.Windows.Forms.Label();
-            this.lblAvgWriteB = new System.Windows.Forms.Label();
             this.lblAvgTransB = new System.Windows.Forms.Label();
+            this.lblAvgWriteB = new System.Windows.Forms.Label();
+            this.lblAvgReadB = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblCurrQLen = new System.Windows.Forms.Label();
-            this.lblAvgDiskQ = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lblAvgReadQ = new System.Windows.Forms.Label();
             this.lblAvgWriteQ = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lblIdleTime = new System.Windows.Forms.Label();
-            this.lblDiskTime = new System.Windows.Forms.Label();
-            this.lblIOSplit = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.lblReadTime = new System.Windows.Forms.Label();
+            this.lblAvgReadQ = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lblAvgDiskQ = new System.Windows.Forms.Label();
+            this.lblCurrQLen = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblWriteTime = new System.Windows.Forms.Label();
+            this.lblReadTime = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lblIOSplit = new System.Windows.Forms.Label();
+            this.lblDiskTime = new System.Windows.Forms.Label();
+            this.lblIdleTime = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -244,6 +252,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "I/O Requests/Sec";
             // 
+            // lblAvgTrans
+            // 
+            this.lblAvgTrans.AutoSize = true;
+            this.lblAvgTrans.Location = new System.Drawing.Point(346, 71);
+            this.lblAvgTrans.Name = "lblAvgTrans";
+            this.lblAvgTrans.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgTrans.TabIndex = 20;
+            this.lblAvgTrans.Text = "label13";
+            // 
+            // lblAvgWrite
+            // 
+            this.lblAvgWrite.AutoSize = true;
+            this.lblAvgWrite.Location = new System.Drawing.Point(346, 47);
+            this.lblAvgWrite.Name = "lblAvgWrite";
+            this.lblAvgWrite.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgWrite.TabIndex = 19;
+            this.lblAvgWrite.Text = "label12";
+            // 
+            // lblAvgRead
+            // 
+            this.lblAvgRead.AutoSize = true;
+            this.lblAvgRead.Location = new System.Drawing.Point(346, 25);
+            this.lblAvgRead.Name = "lblAvgRead";
+            this.lblAvgRead.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgRead.TabIndex = 18;
+            this.lblAvgRead.Text = "label11";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(218, 71);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Avg. Transfers/Sec";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(218, 47);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(86, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Avg. Writes/Sec";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(218, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Avg. Reads/Sec";
+            // 
             // btnStop
             // 
             this.btnStop.Location = new System.Drawing.Point(93, 12);
@@ -275,95 +337,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "I/O Bytes/Sec";
             // 
-            // label8
+            // lblAvgTransB
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(218, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Avg. Reads/Sec";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(218, 47);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Avg. Writes/Sec";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(218, 71);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 13);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Avg. Transfers/Sec";
-            // 
-            // lblAvgRead
-            // 
-            this.lblAvgRead.AutoSize = true;
-            this.lblAvgRead.Location = new System.Drawing.Point(346, 25);
-            this.lblAvgRead.Name = "lblAvgRead";
-            this.lblAvgRead.Size = new System.Drawing.Size(41, 13);
-            this.lblAvgRead.TabIndex = 18;
-            this.lblAvgRead.Text = "label11";
-            // 
-            // lblAvgWrite
-            // 
-            this.lblAvgWrite.AutoSize = true;
-            this.lblAvgWrite.Location = new System.Drawing.Point(346, 47);
-            this.lblAvgWrite.Name = "lblAvgWrite";
-            this.lblAvgWrite.Size = new System.Drawing.Size(41, 13);
-            this.lblAvgWrite.TabIndex = 19;
-            this.lblAvgWrite.Text = "label12";
-            // 
-            // lblAvgTrans
-            // 
-            this.lblAvgTrans.AutoSize = true;
-            this.lblAvgTrans.Location = new System.Drawing.Point(346, 71);
-            this.lblAvgTrans.Name = "lblAvgTrans";
-            this.lblAvgTrans.Size = new System.Drawing.Size(41, 13);
-            this.lblAvgTrans.TabIndex = 20;
-            this.lblAvgTrans.Text = "label13";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(218, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(113, 13);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "Avg. Read B/Request";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(218, 47);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(112, 13);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "Avg. Write B/Request";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(218, 71);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(126, 13);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Avg. Transfer B/Request";
-            // 
-            // lblAvgReadB
-            // 
-            this.lblAvgReadB.AutoSize = true;
-            this.lblAvgReadB.Location = new System.Drawing.Point(346, 25);
-            this.lblAvgReadB.Name = "lblAvgReadB";
-            this.lblAvgReadB.Size = new System.Drawing.Size(41, 13);
-            this.lblAvgReadB.TabIndex = 16;
-            this.lblAvgReadB.Text = "label14";
+            this.lblAvgTransB.AutoSize = true;
+            this.lblAvgTransB.Location = new System.Drawing.Point(346, 71);
+            this.lblAvgTransB.Name = "lblAvgTransB";
+            this.lblAvgTransB.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgTransB.TabIndex = 18;
+            this.lblAvgTransB.Text = "label16";
             // 
             // lblAvgWriteB
             // 
@@ -374,14 +355,41 @@
             this.lblAvgWriteB.TabIndex = 17;
             this.lblAvgWriteB.Text = "label15";
             // 
-            // lblAvgTransB
+            // lblAvgReadB
             // 
-            this.lblAvgTransB.AutoSize = true;
-            this.lblAvgTransB.Location = new System.Drawing.Point(346, 71);
-            this.lblAvgTransB.Name = "lblAvgTransB";
-            this.lblAvgTransB.Size = new System.Drawing.Size(41, 13);
-            this.lblAvgTransB.TabIndex = 18;
-            this.lblAvgTransB.Text = "label16";
+            this.lblAvgReadB.AutoSize = true;
+            this.lblAvgReadB.Location = new System.Drawing.Point(346, 25);
+            this.lblAvgReadB.Name = "lblAvgReadB";
+            this.lblAvgReadB.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgReadB.TabIndex = 16;
+            this.lblAvgReadB.Text = "label14";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(218, 71);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(126, 13);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Avg. Transfer B/Request";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(218, 47);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(112, 13);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "Avg. Write B/Request";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(218, 25);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(113, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Avg. Read B/Request";
             // 
             // groupBox3
             // 
@@ -395,10 +403,82 @@
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Location = new System.Drawing.Point(12, 302);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(444, 100);
+            this.groupBox3.Size = new System.Drawing.Size(444, 96);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Disk Queue";
+            // 
+            // lblAvgWriteQ
+            // 
+            this.lblAvgWriteQ.AutoSize = true;
+            this.lblAvgWriteQ.Location = new System.Drawing.Point(346, 49);
+            this.lblAvgWriteQ.Name = "lblAvgWriteQ";
+            this.lblAvgWriteQ.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgWriteQ.TabIndex = 7;
+            this.lblAvgWriteQ.Text = "label21";
+            // 
+            // lblAvgReadQ
+            // 
+            this.lblAvgReadQ.AutoSize = true;
+            this.lblAvgReadQ.Location = new System.Drawing.Point(346, 26);
+            this.lblAvgReadQ.Name = "lblAvgReadQ";
+            this.lblAvgReadQ.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgReadQ.TabIndex = 6;
+            this.lblAvgReadQ.Text = "label20";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(218, 49);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(92, 13);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Avg. Write Queue";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(218, 26);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(93, 13);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Avg. Read Queue";
+            // 
+            // lblAvgDiskQ
+            // 
+            this.lblAvgDiskQ.AutoSize = true;
+            this.lblAvgDiskQ.Location = new System.Drawing.Point(135, 49);
+            this.lblAvgDiskQ.Name = "lblAvgDiskQ";
+            this.lblAvgDiskQ.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgDiskQ.TabIndex = 3;
+            this.lblAvgDiskQ.Text = "label17";
+            // 
+            // lblCurrQLen
+            // 
+            this.lblCurrQLen.AutoSize = true;
+            this.lblCurrQLen.Location = new System.Drawing.Point(135, 26);
+            this.lblCurrQLen.Name = "lblCurrQLen";
+            this.lblCurrQLen.Size = new System.Drawing.Size(41, 13);
+            this.lblCurrQLen.TabIndex = 2;
+            this.lblCurrQLen.Text = "label16";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 49);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(88, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Avg. Disk Queue";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 26);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(112, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Current Queue Length";
             // 
             // groupBox4
             // 
@@ -412,165 +492,12 @@
             this.groupBox4.Controls.Add(this.label20);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Location = new System.Drawing.Point(12, 409);
+            this.groupBox4.Location = new System.Drawing.Point(462, 302);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(444, 121);
+            this.groupBox4.Size = new System.Drawing.Size(444, 96);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Disk Times";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 26);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(112, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Current Queue Length";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 48);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(88, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Avg. Disk Queue";
-            // 
-            // lblCurrQLen
-            // 
-            this.lblCurrQLen.AutoSize = true;
-            this.lblCurrQLen.Location = new System.Drawing.Point(135, 26);
-            this.lblCurrQLen.Name = "lblCurrQLen";
-            this.lblCurrQLen.Size = new System.Drawing.Size(41, 13);
-            this.lblCurrQLen.TabIndex = 2;
-            this.lblCurrQLen.Text = "label16";
-            // 
-            // lblAvgDiskQ
-            // 
-            this.lblAvgDiskQ.AutoSize = true;
-            this.lblAvgDiskQ.Location = new System.Drawing.Point(135, 48);
-            this.lblAvgDiskQ.Name = "lblAvgDiskQ";
-            this.lblAvgDiskQ.Size = new System.Drawing.Size(41, 13);
-            this.lblAvgDiskQ.TabIndex = 3;
-            this.lblAvgDiskQ.Text = "label17";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(218, 26);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(93, 13);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Avg. Read Queue";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(218, 48);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(92, 13);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Avg. Write Queue";
-            // 
-            // lblAvgReadQ
-            // 
-            this.lblAvgReadQ.AutoSize = true;
-            this.lblAvgReadQ.Location = new System.Drawing.Point(346, 26);
-            this.lblAvgReadQ.Name = "lblAvgReadQ";
-            this.lblAvgReadQ.Size = new System.Drawing.Size(41, 13);
-            this.lblAvgReadQ.TabIndex = 6;
-            this.lblAvgReadQ.Text = "label20";
-            // 
-            // lblAvgWriteQ
-            // 
-            this.lblAvgWriteQ.AutoSize = true;
-            this.lblAvgWriteQ.Location = new System.Drawing.Point(346, 48);
-            this.lblAvgWriteQ.Name = "lblAvgWriteQ";
-            this.lblAvgWriteQ.Size = new System.Drawing.Size(41, 13);
-            this.lblAvgWriteQ.TabIndex = 7;
-            this.lblAvgWriteQ.Text = "label21";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 26);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(61, 13);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "% Idle Time";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 49);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "% Disk Time";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 73);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(51, 13);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "I/O Splits";
-            // 
-            // lblIdleTime
-            // 
-            this.lblIdleTime.AutoSize = true;
-            this.lblIdleTime.Location = new System.Drawing.Point(135, 26);
-            this.lblIdleTime.Name = "lblIdleTime";
-            this.lblIdleTime.Size = new System.Drawing.Size(41, 13);
-            this.lblIdleTime.TabIndex = 3;
-            this.lblIdleTime.Text = "label21";
-            // 
-            // lblDiskTime
-            // 
-            this.lblDiskTime.AutoSize = true;
-            this.lblDiskTime.Location = new System.Drawing.Point(135, 49);
-            this.lblDiskTime.Name = "lblDiskTime";
-            this.lblDiskTime.Size = new System.Drawing.Size(41, 13);
-            this.lblDiskTime.TabIndex = 4;
-            this.lblDiskTime.Text = "label22";
-            // 
-            // lblIOSplit
-            // 
-            this.lblIOSplit.AutoSize = true;
-            this.lblIOSplit.Location = new System.Drawing.Point(135, 73);
-            this.lblIOSplit.Name = "lblIOSplit";
-            this.lblIOSplit.Size = new System.Drawing.Size(41, 13);
-            this.lblIOSplit.TabIndex = 5;
-            this.lblIOSplit.Text = "label23";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(218, 49);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(70, 13);
-            this.label24.TabIndex = 6;
-            this.label24.Text = "% Read Time";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(218, 73);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(69, 13);
-            this.label25.TabIndex = 7;
-            this.label25.Text = "% Write Time";
-            // 
-            // lblReadTime
-            // 
-            this.lblReadTime.AutoSize = true;
-            this.lblReadTime.Location = new System.Drawing.Point(349, 49);
-            this.lblReadTime.Name = "lblReadTime";
-            this.lblReadTime.Size = new System.Drawing.Size(41, 13);
-            this.lblReadTime.TabIndex = 8;
-            this.lblReadTime.Text = "label26";
             // 
             // lblWriteTime
             // 
@@ -581,20 +508,133 @@
             this.lblWriteTime.TabIndex = 9;
             this.lblWriteTime.Text = "label27";
             // 
+            // lblReadTime
+            // 
+            this.lblReadTime.AutoSize = true;
+            this.lblReadTime.Location = new System.Drawing.Point(349, 49);
+            this.lblReadTime.Name = "lblReadTime";
+            this.lblReadTime.Size = new System.Drawing.Size(41, 13);
+            this.lblReadTime.TabIndex = 8;
+            this.lblReadTime.Text = "label26";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(218, 73);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(69, 13);
+            this.label25.TabIndex = 7;
+            this.label25.Text = "% Write Time";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(218, 49);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(70, 13);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "% Read Time";
+            // 
+            // lblIOSplit
+            // 
+            this.lblIOSplit.AutoSize = true;
+            this.lblIOSplit.Location = new System.Drawing.Point(135, 73);
+            this.lblIOSplit.Name = "lblIOSplit";
+            this.lblIOSplit.Size = new System.Drawing.Size(41, 13);
+            this.lblIOSplit.TabIndex = 5;
+            this.lblIOSplit.Text = "label23";
+            // 
+            // lblDiskTime
+            // 
+            this.lblDiskTime.AutoSize = true;
+            this.lblDiskTime.Location = new System.Drawing.Point(135, 49);
+            this.lblDiskTime.Name = "lblDiskTime";
+            this.lblDiskTime.Size = new System.Drawing.Size(41, 13);
+            this.lblDiskTime.TabIndex = 4;
+            this.lblDiskTime.Text = "label22";
+            // 
+            // lblIdleTime
+            // 
+            this.lblIdleTime.AutoSize = true;
+            this.lblIdleTime.Location = new System.Drawing.Point(135, 26);
+            this.lblIdleTime.Name = "lblIdleTime";
+            this.lblIdleTime.Size = new System.Drawing.Size(41, 13);
+            this.lblIdleTime.TabIndex = 3;
+            this.lblIdleTime.Text = "label21";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 73);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(51, 13);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "I/O Splits";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 49);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "% Disk Time";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 26);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(61, 13);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "% Idle Time";
+            // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 594);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 406);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(468, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(915, 22);
             this.statusStrip1.TabIndex = 20;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.chart1);
+            this.groupBox5.Location = new System.Drawing.Point(462, 41);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(444, 254);
+            this.groupBox5.TabIndex = 21;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "% Idle Time Graph";
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Location = new System.Drawing.Point(9, 19);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(429, 229);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
             // 
             // DiskPerformance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(468, 616);
+            this.ClientSize = new System.Drawing.Size(915, 428);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -602,6 +642,8 @@
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnStart);
+            this.MaximumSize = new System.Drawing.Size(931, 467);
+            this.MinimumSize = new System.Drawing.Size(931, 467);
             this.Name = "DiskPerformance";
             this.Text = "DiskPerformance";
             this.Load += new System.EventHandler(this.DiskPerformance_Load);
@@ -613,6 +655,10 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -671,5 +717,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
