@@ -106,20 +106,19 @@ namespace ACRM.HDisk
 
             dt = new DataTable("Reads/Sec");
 
-            this.setTable();
-            
+            this.setTableChart();
+        }
+        private void setTableChart()
+        {
+            dt.Columns.Add("Seconds", typeof(int));
+            dt.Columns.Add("Value", typeof(float));
+
             chart1.Series.Add("% Disk Idle Time");
             chart1.Series["% Disk Idle Time"].ChartType = SeriesChartType.Line;
             chart1.Series["% Disk Idle Time"].XValueMember = "Seconds";
             chart1.Series["% Disk Idle Time"].YValueMembers = "Value";
             chart1.DataSource = dt;
             chart1.DataBind();
-
-        }
-        private void setTable()
-        {
-            dt.Columns.Add("Seconds", typeof(int));
-            dt.Columns.Add("Value", typeof(float));
         }
         private void updateChart()
         {
