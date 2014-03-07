@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ACRM.HDisk
 {
@@ -13,6 +14,8 @@ namespace ACRM.HDisk
     {
         PerfCounterHD pc;
         Timer t;
+        DataTable dt;
+        int count;
 
         public DiskPerformance()
         {
@@ -77,6 +80,9 @@ namespace ACRM.HDisk
                 //Exception Occurs because the program exited without stoping the performance counters
             }
 
+            this.updateChart();
+            count++;
+
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -97,6 +103,35 @@ namespace ACRM.HDisk
             btnStop.Enabled = false;
             toolStripStatusLabel1.Text = "Ready To Begain";
             statusStrip1.Refresh();
+
+            dt = new DataTable("Reads/Sec");
+
+            this.setTable();
+            
+            chart1.Series.Add("% Disk Idle Time");
+            chart1.Series["% Disk Idle Time"].ChartType = SeriesChartType.Line;
+            chart1.Series["% Disk Idle Time"].XValueMember = "Seconds";
+            chart1.Series["% Disk Idle Time"].YValueMembers = "Value";
+            chart1.DataSource = dt;
+            chart1.DataBind();
+
+        }
+        private void setTable()
+        {
+            dt.Columns.Add("Seconds", typeof(int));
+            dt.Columns.Add("Value", typeof(float));
+        }
+        private void updateChart()
+        {
+            dt.Rows.Add(count, float.Parse(lblIdleTime.Text));
+            try
+            {
+                chart1.DataBind();
+            }
+            catch (NullReferenceException ex)
+            {
+                //Occurs on forced exit
+            }
         }
 
     }
