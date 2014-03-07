@@ -22,11 +22,11 @@ namespace ACRM.HDisk
 
             logTxt.AppendText(e.ChangeType + ": " + e.FullPath + "\r\n");
 
-            logTxt.Focus();
+            //logTxt.Focus();
             logTxt.Select(curLen, (logTxt.TextLength - curLen));
             logTxt.SelectionColor = Color.Orange;
 
-            logTxt.Focus();
+            //logTxt.Focus();
             logTxt.Select(logTxt.TextLength, 0);
             logTxt.ScrollToCaret();
         }
@@ -37,11 +37,11 @@ namespace ACRM.HDisk
 
             logTxt.AppendText(e.ChangeType + ": " + e.FullPath + "\r\n");
 
-            logTxt.Focus();
+            //logTxt.Focus();
             logTxt.Select(curLen, (logTxt.TextLength - curLen));
             logTxt.SelectionColor = Color.Green;
 
-            logTxt.Focus();
+           // logTxt.Focus();
             logTxt.Select(logTxt.TextLength, 0);
             logTxt.ScrollToCaret();
         }
@@ -52,11 +52,11 @@ namespace ACRM.HDisk
 
             logTxt.AppendText(e.ChangeType + ": " + e.FullPath + "\r\n");
 
-            logTxt.Focus();
+            //logTxt.Focus();
             logTxt.Select(curLen, (logTxt.TextLength - curLen));
             logTxt.SelectionColor = Color.Red;
 
-            logTxt.Focus();
+            //logTxt.Focus();
             logTxt.Select(logTxt.TextLength, 0);
             logTxt.ScrollToCaret();
         }
@@ -68,11 +68,11 @@ namespace ACRM.HDisk
 
             logTxt.AppendText(e.ChangeType + ": " + e.FullPath + "\r\n");
 
-            logTxt.Focus();
+            //logTxt.Focus();
             logTxt.Select(curLen, (logTxt.TextLength - curLen));
             logTxt.SelectionColor = Color.Blue;
 
-            logTxt.Focus();
+            //logTxt.Focus();
             logTxt.Select(logTxt.TextLength, 0);
             logTxt.ScrollToCaret();
         }
