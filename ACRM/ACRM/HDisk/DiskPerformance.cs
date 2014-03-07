@@ -39,10 +39,36 @@ namespace ACRM.HDisk
             lblDiskWriteBytes.Text = ExtraDiskMeth.SizeSuffix(pc.AvgDiskWriteB.ToString());
             lblDiskTransByte.Text = ExtraDiskMeth.SizeSuffix(pc.DiskTransB.ToString());
 
-            if ( float.Parse(lblTransMax.Text) < float.Parse(lblDiskTrans.Text))
+            lblAvgRead.Text = pc.AvgDiskRead.ToString();
+            lblAvgWrite.Text = pc.AvgDiskWrite.ToString();
+            lblAvgTrans.Text = pc.AvgDiskTrans.ToString();
+
+            lblAvgReadB.Text = ExtraDiskMeth.SizeSuffix(pc.AvgDiskReadB.ToString());
+            lblAvgWriteB.Text = ExtraDiskMeth.SizeSuffix(pc.AvgDiskWriteB.ToString());
+            lblAvgTransB.Text = ExtraDiskMeth.SizeSuffix(pc.AvgDiskTransB.ToString());
+
+            lblCurrQLen.Text = pc.CurrQueueLen.ToString();
+            lblAvgReadQ.Text = pc.AvgDiskReadQueue.ToString();
+            lblAvgWriteQ.Text = pc.AvgDiskWriteQueue.ToString();
+            lblAvgDiskQ.Text = pc.AvgDiskQueue.ToString();
+
+            lblIOSplit.Text = pc.DiskIOSplit.ToString();
+            lblDiskTime.Text = pc.DiskTime.ToString();
+            lblIdleTime.Text = pc.DiskIdleTime.ToString();
+            lblReadTime.Text = pc.DiskReadTime.ToString();
+            lblWriteTime.Text = pc.DiskWriteTime.ToString();
+
+            try
             {
-                lblTransMax.Text = lblDiskTrans.Text;
-                lblTransMax.BackColor = Color.Red;
+                if (float.Parse(lblTransMax.Text) < float.Parse(lblDiskTrans.Text))
+                {
+                    lblTransMax.Text = lblDiskTrans.Text;
+                    lblTransMax.BackColor = Color.Red;
+                }
+            }
+            catch (FormatException ex)
+            {
+                //Exception Occurs because the program exited without stoping the performance counters
             }
 
         }

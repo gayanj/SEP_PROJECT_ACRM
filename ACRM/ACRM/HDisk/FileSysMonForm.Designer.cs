@@ -116,7 +116,7 @@
             // 
             // startBtn
             // 
-            this.startBtn.Location = new System.Drawing.Point(516, 61);
+            this.startBtn.Location = new System.Drawing.Point(516, 63);
             this.startBtn.Name = "startBtn";
             this.startBtn.Size = new System.Drawing.Size(75, 23);
             this.startBtn.TabIndex = 7;
@@ -138,6 +138,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(684, 531);
             this.Controls.Add(this.browseFolderBtn);
             this.Controls.Add(this.startBtn);
@@ -148,9 +150,9 @@
             this.Controls.Add(this.fileTypeFilterTxt);
             this.Controls.Add(this.dirTxt);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(700, 570);
-            this.MinimumSize = new System.Drawing.Size(700, 570);
+            this.MaximizeBox = false;
             this.Name = "FileSysMonForm";
+            this.ShowIcon = false;
             this.Text = "File System Monitor";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
             this.ResumeLayout(false);
