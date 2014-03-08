@@ -12,6 +12,7 @@ namespace ACRM.HDisk
 {
     public partial class DiskPerformance : Form
     {
+<<<<<<< HEAD
         //Form sometime may not initialize currectly in the IDE due to Windows Charting function not supporting .Net 3.5 Framework in Visual Studio 2012 JUST IGONRE AND CONTINUE
         PerfCounterHD pc;
         Timer t;
@@ -20,6 +21,15 @@ namespace ACRM.HDisk
 
         public DiskPerformance()
         {            
+=======
+        private PerfCounterHD pc;
+        private Timer t;
+        private DataTable dt;
+        private int count;
+
+        public DiskPerformance()
+        {
+>>>>>>> origin/CPU
             InitializeComponent();
         }
 
@@ -104,6 +114,7 @@ namespace ACRM.HDisk
             dt.Columns.Add("Seconds", typeof(int));
             dt.Columns.Add("Value", typeof(float));
 
+<<<<<<< HEAD
             chart1.Series.Add("% Disk Idle Time");
             chart1.Series["% Disk Idle Time"].ChartType = SeriesChartType.Line;
             chart1.Series["% Disk Idle Time"].XValueMember = "Seconds";
@@ -117,6 +128,20 @@ namespace ACRM.HDisk
 
             chart1.DataSource = dt;
             chart1.DataBind();
+=======
+            HDchart.Series.Add("% Disk Idle Time");
+            HDchart.Series["% Disk Idle Time"].ChartType = SeriesChartType.Line;
+            HDchart.Series["% Disk Idle Time"].XValueMember = "Seconds";
+
+            HDchart.Series["% Disk Idle Time"].YValueMembers = "Value";
+            HDchart.ChartAreas[0].AxisY.Maximum = 100;
+            HDchart.ChartAreas[0].AxisX.Minimum = 0;
+            HDchart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Seconds;
+            HDchart.ChartAreas[0].CursorX.IsUserEnabled = true;
+            HDchart.ChartAreas[0].CursorX.AutoScroll = true;
+            HDchart.DataSource = dt;
+            HDchart.DataBind();
+>>>>>>> origin/CPU
         }
 
         //Update the DataTable with new Data and Rebind to the chart
@@ -125,13 +150,14 @@ namespace ACRM.HDisk
             dt.Rows.Add(count, float.Parse(lblIdleTime.Text));
             try
             {
-                chart1.DataBind();
+                HDchart.DataBind();
             }
             catch (NullReferenceException ex)
             {
                 //Occurs on forced exit
             }
         }
+<<<<<<< HEAD
 
         //Stop Monitoring Destroy all the Counters to free Resources 
         private void btnStop_Click(object sender, EventArgs e)
@@ -146,5 +172,7 @@ namespace ACRM.HDisk
             t.Dispose();
         }
 
+=======
+>>>>>>> origin/CPU
     }
 }

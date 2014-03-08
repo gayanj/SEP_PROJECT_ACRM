@@ -83,14 +83,14 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.HDchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HDchart)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -593,7 +593,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 406);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 407);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(915, 22);
             this.statusStrip1.TabIndex = 20;
@@ -607,7 +607,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.chart1);
+            this.groupBox5.Controls.Add(this.HDchart);
             this.groupBox5.Location = new System.Drawing.Point(462, 41);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(444, 254);
@@ -615,25 +615,25 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "% Idle Time Graph";
             // 
-            // chart1
+            // HDchart
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Location = new System.Drawing.Point(9, 19);
-            this.chart1.Name = "chart1";
+            this.HDchart.ChartAreas.Add(chartArea1);
+            this.HDchart.Location = new System.Drawing.Point(9, 19);
+            this.HDchart.Name = "HDchart";
             series1.ChartArea = "ChartArea1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(429, 229);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.HDchart.Series.Add(series1);
+            this.HDchart.Size = new System.Drawing.Size(429, 229);
+            this.HDchart.TabIndex = 0;
+            this.HDchart.Text = "chart1";
             // 
             // DiskPerformance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(915, 428);
+            this.ClientSize = new System.Drawing.Size(915, 429);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
@@ -658,7 +658,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HDchart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -719,6 +719,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart HDchart;
     }
 }

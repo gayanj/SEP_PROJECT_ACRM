@@ -64,11 +64,11 @@
     <Compile Include="CPU\ProcessPriority.cs" />
     <Compile Include="CPU\ProcessRemote.cs" />
     <Compile Include="ExtensionMethod.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="ACRMForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ACRMForm.Designer.cs">
+      <DependentUpon>ACRMForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HDisk\DiskPerformance.cs">
       <SubType>Form</SubType>
@@ -88,8 +88,8 @@
     <Compile Include="HDisk\WMIDisk.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ACRMForm.resx">
+      <DependentUpon>ACRMForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HDisk\DiskPerformance.resx">
       <DependentUpon>DiskPerformance.cs</DependentUpon>
@@ -118,6 +118,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
