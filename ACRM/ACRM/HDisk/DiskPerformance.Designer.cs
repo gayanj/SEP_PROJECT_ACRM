@@ -135,27 +135,45 @@
             this.lblDiskReads.AutoSize = true;
             this.lblDiskReads.Location = new System.Drawing.Point(135, 25);
             this.lblDiskReads.Name = "lblDiskReads";
+<<<<<<< HEAD
             this.lblDiskReads.Size = new System.Drawing.Size(16, 13);
             this.lblDiskReads.TabIndex = 4;
             this.lblDiskReads.Text = "---";
+=======
+            this.lblDiskReads.Size = new System.Drawing.Size(19, 13);
+            this.lblDiskReads.TabIndex = 4;
+            this.lblDiskReads.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblDiskWrites
             // 
             this.lblDiskWrites.AutoSize = true;
             this.lblDiskWrites.Location = new System.Drawing.Point(135, 47);
             this.lblDiskWrites.Name = "lblDiskWrites";
+<<<<<<< HEAD
             this.lblDiskWrites.Size = new System.Drawing.Size(16, 13);
             this.lblDiskWrites.TabIndex = 5;
             this.lblDiskWrites.Text = "---";
+=======
+            this.lblDiskWrites.Size = new System.Drawing.Size(19, 13);
+            this.lblDiskWrites.TabIndex = 5;
+            this.lblDiskWrites.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblDiskTrans
             // 
             this.lblDiskTrans.AutoSize = true;
             this.lblDiskTrans.Location = new System.Drawing.Point(135, 71);
             this.lblDiskTrans.Name = "lblDiskTrans";
+<<<<<<< HEAD
             this.lblDiskTrans.Size = new System.Drawing.Size(16, 13);
             this.lblDiskTrans.TabIndex = 6;
             this.lblDiskTrans.Text = "---";
+=======
+            this.lblDiskTrans.Size = new System.Drawing.Size(19, 13);
+            this.lblDiskTrans.TabIndex = 6;
+            this.lblDiskTrans.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // label4
             // 
@@ -171,9 +189,15 @@
             this.lblDiskReadsBytes.AutoSize = true;
             this.lblDiskReadsBytes.Location = new System.Drawing.Point(135, 25);
             this.lblDiskReadsBytes.Name = "lblDiskReadsBytes";
+<<<<<<< HEAD
             this.lblDiskReadsBytes.Size = new System.Drawing.Size(16, 13);
             this.lblDiskReadsBytes.TabIndex = 8;
             this.lblDiskReadsBytes.Text = "---";
+=======
+            this.lblDiskReadsBytes.Size = new System.Drawing.Size(19, 13);
+            this.lblDiskReadsBytes.TabIndex = 8;
+            this.lblDiskReadsBytes.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // label5
             // 
@@ -198,27 +222,45 @@
             this.lblDiskWriteBytes.AutoSize = true;
             this.lblDiskWriteBytes.Location = new System.Drawing.Point(135, 47);
             this.lblDiskWriteBytes.Name = "lblDiskWriteBytes";
+<<<<<<< HEAD
             this.lblDiskWriteBytes.Size = new System.Drawing.Size(16, 13);
             this.lblDiskWriteBytes.TabIndex = 11;
             this.lblDiskWriteBytes.Text = "---";
+=======
+            this.lblDiskWriteBytes.Size = new System.Drawing.Size(19, 13);
+            this.lblDiskWriteBytes.TabIndex = 11;
+            this.lblDiskWriteBytes.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblDiskTransByte
             // 
             this.lblDiskTransByte.AutoSize = true;
             this.lblDiskTransByte.Location = new System.Drawing.Point(135, 71);
             this.lblDiskTransByte.Name = "lblDiskTransByte";
+<<<<<<< HEAD
             this.lblDiskTransByte.Size = new System.Drawing.Size(16, 13);
             this.lblDiskTransByte.TabIndex = 12;
             this.lblDiskTransByte.Text = "---";
+=======
+            this.lblDiskTransByte.Size = new System.Drawing.Size(19, 13);
+            this.lblDiskTransByte.TabIndex = 12;
+            this.lblDiskTransByte.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblTransMax
             // 
             this.lblTransMax.AutoSize = true;
             this.lblTransMax.Location = new System.Drawing.Point(135, 94);
             this.lblTransMax.Name = "lblTransMax";
+<<<<<<< HEAD
             this.lblTransMax.Size = new System.Drawing.Size(16, 13);
             this.lblTransMax.TabIndex = 13;
             this.lblTransMax.Text = "---";
+=======
+            this.lblTransMax.Size = new System.Drawing.Size(19, 13);
+            this.lblTransMax.TabIndex = 13;
+            this.lblTransMax.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // label7
             // 
@@ -257,27 +299,45 @@
             this.lblAvgTrans.AutoSize = true;
             this.lblAvgTrans.Location = new System.Drawing.Point(346, 71);
             this.lblAvgTrans.Name = "lblAvgTrans";
+<<<<<<< HEAD
             this.lblAvgTrans.Size = new System.Drawing.Size(16, 13);
             this.lblAvgTrans.TabIndex = 20;
             this.lblAvgTrans.Text = "---";
+=======
+            this.lblAvgTrans.Size = new System.Drawing.Size(19, 13);
+            this.lblAvgTrans.TabIndex = 20;
+            this.lblAvgTrans.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblAvgWrite
             // 
             this.lblAvgWrite.AutoSize = true;
             this.lblAvgWrite.Location = new System.Drawing.Point(346, 47);
             this.lblAvgWrite.Name = "lblAvgWrite";
+<<<<<<< HEAD
             this.lblAvgWrite.Size = new System.Drawing.Size(16, 13);
             this.lblAvgWrite.TabIndex = 19;
             this.lblAvgWrite.Text = "---";
+=======
+            this.lblAvgWrite.Size = new System.Drawing.Size(19, 13);
+            this.lblAvgWrite.TabIndex = 19;
+            this.lblAvgWrite.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblAvgRead
             // 
             this.lblAvgRead.AutoSize = true;
             this.lblAvgRead.Location = new System.Drawing.Point(346, 25);
             this.lblAvgRead.Name = "lblAvgRead";
+<<<<<<< HEAD
             this.lblAvgRead.Size = new System.Drawing.Size(16, 13);
             this.lblAvgRead.TabIndex = 18;
             this.lblAvgRead.Text = "---";
+=======
+            this.lblAvgRead.Size = new System.Drawing.Size(19, 13);
+            this.lblAvgRead.TabIndex = 18;
+            this.lblAvgRead.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // label10
             // 
@@ -342,27 +402,45 @@
             this.lblAvgTransB.AutoSize = true;
             this.lblAvgTransB.Location = new System.Drawing.Point(346, 71);
             this.lblAvgTransB.Name = "lblAvgTransB";
+<<<<<<< HEAD
             this.lblAvgTransB.Size = new System.Drawing.Size(16, 13);
             this.lblAvgTransB.TabIndex = 18;
             this.lblAvgTransB.Text = "---";
+=======
+            this.lblAvgTransB.Size = new System.Drawing.Size(19, 13);
+            this.lblAvgTransB.TabIndex = 18;
+            this.lblAvgTransB.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblAvgWriteB
             // 
             this.lblAvgWriteB.AutoSize = true;
             this.lblAvgWriteB.Location = new System.Drawing.Point(346, 47);
             this.lblAvgWriteB.Name = "lblAvgWriteB";
+<<<<<<< HEAD
             this.lblAvgWriteB.Size = new System.Drawing.Size(16, 13);
             this.lblAvgWriteB.TabIndex = 17;
             this.lblAvgWriteB.Text = "---";
+=======
+            this.lblAvgWriteB.Size = new System.Drawing.Size(19, 13);
+            this.lblAvgWriteB.TabIndex = 17;
+            this.lblAvgWriteB.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblAvgReadB
             // 
             this.lblAvgReadB.AutoSize = true;
             this.lblAvgReadB.Location = new System.Drawing.Point(346, 25);
             this.lblAvgReadB.Name = "lblAvgReadB";
+<<<<<<< HEAD
             this.lblAvgReadB.Size = new System.Drawing.Size(16, 13);
             this.lblAvgReadB.TabIndex = 16;
             this.lblAvgReadB.Text = "---";
+=======
+            this.lblAvgReadB.Size = new System.Drawing.Size(19, 13);
+            this.lblAvgReadB.TabIndex = 16;
+            this.lblAvgReadB.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // label13
             // 
@@ -413,18 +491,30 @@
             this.lblAvgWriteQ.AutoSize = true;
             this.lblAvgWriteQ.Location = new System.Drawing.Point(346, 49);
             this.lblAvgWriteQ.Name = "lblAvgWriteQ";
+<<<<<<< HEAD
             this.lblAvgWriteQ.Size = new System.Drawing.Size(16, 13);
             this.lblAvgWriteQ.TabIndex = 7;
             this.lblAvgWriteQ.Text = "---";
+=======
+            this.lblAvgWriteQ.Size = new System.Drawing.Size(19, 13);
+            this.lblAvgWriteQ.TabIndex = 7;
+            this.lblAvgWriteQ.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblAvgReadQ
             // 
             this.lblAvgReadQ.AutoSize = true;
             this.lblAvgReadQ.Location = new System.Drawing.Point(346, 26);
             this.lblAvgReadQ.Name = "lblAvgReadQ";
+<<<<<<< HEAD
             this.lblAvgReadQ.Size = new System.Drawing.Size(16, 13);
             this.lblAvgReadQ.TabIndex = 6;
             this.lblAvgReadQ.Text = "---";
+=======
+            this.lblAvgReadQ.Size = new System.Drawing.Size(19, 13);
+            this.lblAvgReadQ.TabIndex = 6;
+            this.lblAvgReadQ.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // label19
             // 
@@ -449,18 +539,30 @@
             this.lblAvgDiskQ.AutoSize = true;
             this.lblAvgDiskQ.Location = new System.Drawing.Point(135, 49);
             this.lblAvgDiskQ.Name = "lblAvgDiskQ";
+<<<<<<< HEAD
             this.lblAvgDiskQ.Size = new System.Drawing.Size(16, 13);
             this.lblAvgDiskQ.TabIndex = 3;
             this.lblAvgDiskQ.Text = "---";
+=======
+            this.lblAvgDiskQ.Size = new System.Drawing.Size(19, 13);
+            this.lblAvgDiskQ.TabIndex = 3;
+            this.lblAvgDiskQ.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblCurrQLen
             // 
             this.lblCurrQLen.AutoSize = true;
             this.lblCurrQLen.Location = new System.Drawing.Point(135, 26);
             this.lblCurrQLen.Name = "lblCurrQLen";
+<<<<<<< HEAD
             this.lblCurrQLen.Size = new System.Drawing.Size(16, 13);
             this.lblCurrQLen.TabIndex = 2;
             this.lblCurrQLen.Text = "---";
+=======
+            this.lblCurrQLen.Size = new System.Drawing.Size(19, 13);
+            this.lblCurrQLen.TabIndex = 2;
+            this.lblCurrQLen.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // label15
             // 
@@ -504,18 +606,30 @@
             this.lblWriteTime.AutoSize = true;
             this.lblWriteTime.Location = new System.Drawing.Point(349, 73);
             this.lblWriteTime.Name = "lblWriteTime";
+<<<<<<< HEAD
             this.lblWriteTime.Size = new System.Drawing.Size(16, 13);
             this.lblWriteTime.TabIndex = 9;
             this.lblWriteTime.Text = "---";
+=======
+            this.lblWriteTime.Size = new System.Drawing.Size(19, 13);
+            this.lblWriteTime.TabIndex = 9;
+            this.lblWriteTime.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblReadTime
             // 
             this.lblReadTime.AutoSize = true;
             this.lblReadTime.Location = new System.Drawing.Point(349, 49);
             this.lblReadTime.Name = "lblReadTime";
+<<<<<<< HEAD
             this.lblReadTime.Size = new System.Drawing.Size(16, 13);
             this.lblReadTime.TabIndex = 8;
             this.lblReadTime.Text = "---";
+=======
+            this.lblReadTime.Size = new System.Drawing.Size(19, 13);
+            this.lblReadTime.TabIndex = 8;
+            this.lblReadTime.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // label25
             // 
@@ -540,27 +654,45 @@
             this.lblIOSplit.AutoSize = true;
             this.lblIOSplit.Location = new System.Drawing.Point(135, 73);
             this.lblIOSplit.Name = "lblIOSplit";
+<<<<<<< HEAD
             this.lblIOSplit.Size = new System.Drawing.Size(16, 13);
             this.lblIOSplit.TabIndex = 5;
             this.lblIOSplit.Text = "---";
+=======
+            this.lblIOSplit.Size = new System.Drawing.Size(19, 13);
+            this.lblIOSplit.TabIndex = 5;
+            this.lblIOSplit.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblDiskTime
             // 
             this.lblDiskTime.AutoSize = true;
             this.lblDiskTime.Location = new System.Drawing.Point(135, 49);
             this.lblDiskTime.Name = "lblDiskTime";
+<<<<<<< HEAD
             this.lblDiskTime.Size = new System.Drawing.Size(16, 13);
             this.lblDiskTime.TabIndex = 4;
             this.lblDiskTime.Text = "---";
+=======
+            this.lblDiskTime.Size = new System.Drawing.Size(19, 13);
+            this.lblDiskTime.TabIndex = 4;
+            this.lblDiskTime.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // lblIdleTime
             // 
             this.lblIdleTime.AutoSize = true;
             this.lblIdleTime.Location = new System.Drawing.Point(135, 26);
             this.lblIdleTime.Name = "lblIdleTime";
+<<<<<<< HEAD
             this.lblIdleTime.Size = new System.Drawing.Size(16, 13);
             this.lblIdleTime.TabIndex = 3;
             this.lblIdleTime.Text = "---";
+=======
+            this.lblIdleTime.Size = new System.Drawing.Size(19, 13);
+            this.lblIdleTime.TabIndex = 3;
+            this.lblIdleTime.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc
             // 
             // label20
             // 
