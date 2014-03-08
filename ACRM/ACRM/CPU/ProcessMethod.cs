@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Management;
 using System.Text;
@@ -9,6 +10,7 @@ namespace ACRM.CPU
 {
     class ProcessMethod
     {
+        private static DataTable dt;
         public static string StartProcess(string machineName, string processPath)
         {
             ManagementClass processTask = new ManagementClass(@"\\" + machineName + @"\root\CIMV2",
@@ -154,22 +156,35 @@ namespace ACRM.CPU
         /// <param name="connectionScope">Scope of the connection-No idea what that is</param>
         /// <param name="processName">Process selected by the combo box comes here</param>
         /// <returns>Returns an ArrayList of the processes information</returns>
-        public static ArrayList SystemMonitor(ManagementScope connectionScope,
-                                                  string processName)
+        public static DataTable SystemMonitor(ManagementScope connectionScope)
         {
+            dt = new DataTable();
             ArrayList systemMonitor = new ArrayList();
-            SelectQuery systemMonitorQuery = new SelectQuery("SELECT * FROM win32_PerfFormattedData_PerfProc_Process WHERE Name='" + processName + "'");
+            SelectQuery systemMonitorQuery = new SelectQuery("SELECT Name,CreatingProcessID,PercentProcessorTime FROM win32_PerfFormattedData_PerfProc_Process");
             ManagementObjectSearcher searchProcedure = new ManagementObjectSearcher(connectionScope, systemMonitorQuery);
+            //foreach (ManagementObject item in searchProcedure.Get())
+            //{
+            //    foreach (PropertyData pd in item.Properties)
+            //    {
+            //        dt.Columns.Add(pd.Name);
+            //    }
+            //    break;
+            //}
+            dt.Columns.Add("Process Name");
+            dt.Columns.Add("Process ID");
+            dt.Columns.Add("CPU Usage");
+            int counter = 0;
             foreach (ManagementObject item in searchProcedure.Get())
             {
-                try { systemMonitor.Add("Name: " + item["Name"].ToString()); }
-                catch (SystemException) { }
-                try { systemMonitor.Add("Process ID: " + item["CreatingProcessID"].ToString()); }
-                catch (SystemException) { }
-                try { systemMonitor.Add("CPU Usage: " + item["PercentProcessorTime"].ToString()); }
-                catch (SystemException) { }
+                DataRow dr = dt.NewRow();
+                foreach (PropertyData pd in item.Properties)
+                {
+                    dr[counter++] = pd.Value;
+                }
+                dt.Rows.Add(dr);
+                counter = 0;
             }
-            return systemMonitor;
+            return dt;
         }
     }
 }

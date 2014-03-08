@@ -12,14 +12,13 @@ namespace ACRM.HDisk
 {
     public partial class DiskPerformance : Form
     {
-        PerfCounterHD pc;
-        Timer t;
-        DataTable dt;
-        int count;
+        private PerfCounterHD pc;
+        private Timer t;
+        private DataTable dt;
+        private int count;
 
         public DiskPerformance()
         {
-            
             InitializeComponent();
         }
 
@@ -138,6 +137,5 @@ namespace ACRM.HDisk
                 //Occurs on forced exit
             }
         }
-
     }
 }

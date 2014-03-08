@@ -11,91 +11,51 @@ using ACRM.CPU;
 using System.Collections;
 using ACRM.HDisk; //for Disk
 using System.IO;
-using System.Threading.Tasks; //for Disk
+using System.Threading.Tasks;
+using System.Threading; //for Disk
 
 namespace ACRM
 {
     public partial class Form1 : Form
     {
-        private delegate void pList();
-        private delegate void pInfo();
-        private ArrayList processList;
-        private ArrayList processMonitor;
         private ProcessLocal pl;
+        private System.Threading.Timer t;
         private DriveInfo[] allDrives; //for disk
         private WMIDisk wd;
         private ArrayList diskModelList;
         public Form1()
         {
             InitializeComponent();
-
+            button1.Enabled = false;
+            dataGridView1.Visible = false;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            Task task = new Task(getProcessList);
-            task.Start();
-            await task;
-            //pList plist = getProcessList;
-            //IAsyncResult res1 = plist.BeginInvoke(null, null);
-        }
-
-        private async void button2_Click(object sender, EventArgs e)
-        {
-            while (true)
-            {
-                Task task = new Task(getProcessInfo);
-                task.Start();
-                await Task.Delay(1000);
-                task.Dispose();
-            }
-            //pInfo pInfo = getProcessInfo;
-            //IAsyncResult res2 = pInfo.BeginInvoke(null, null);
-        }
-
-        /// <summary>
-        /// This method is used to retrieve the current processes running in the machine
-        /// </summary>
-        private void getProcessList()
-        {
-            pl = new ProcessLocal();
-            processList = pl.RunningProcesses();
-
-            textBox1.SafeInvoke(d => d.Clear());
-            label2.SafeInvoke(d => d.Visible = true);
-            label1.SafeInvoke(d => d.Visible = true);
-            label1.SafeInvoke(d => d.Text = processList.Count.ToString());
-
-            comboBox1.SafeInvoke(d => d.DataSource = processList);
-
-            for (int i = 0; i < processList.Count; i++)
-            {
-                string processName = processList[i].ToString();
-                textBox1.SafeInvoke(d => d.AppendText("Process Name : " + processName + "\n"));
-            }
+            t = new System.Threading.Timer(new TimerCallback(getProcessInfo), null, 0, 1000);
+            button2.Enabled = false;
+            button1.Enabled = true;
         }
 
         /// <summary>
         /// This method is used to retrieve the CPU usage of a particular process
         /// </summary>
-        private void getProcessInfo()
+        private void getProcessInfo(object sender)
         {
-            if (!label1.Text.Equals("ProccessNo"))
+            dataGridView1.SafeInvoke(d => d.Visible = true);
+            int index = Int32.Parse(dataGridView1.FirstDisplayedScrollingRowIndex.ToString());
+            pl = new ProcessLocal();
+            DataTable processMonitor = new DataTable();
+            processMonitor = pl.ProcessMonitor();
+            dataGridView1.SafeInvoke(d => d.DataSource = processMonitor);
+
+            if (index == -1)
             {
-                textBox2.SafeInvoke(d => d.Clear());
-                string processSelected = comboBox1.SafeInvoke(d => d.SelectedItem.ToString());
-
-                processMonitor = pl.ProcessMonitor(processSelected);
-
-                for (int i = 0; i < processMonitor.Count; i++)
-                {
-                    string property = processMonitor[i].ToString();
-                    textBox2.SafeInvoke(d => d.AppendText(property + "\n"));
-                }
+                dataGridView1.SafeInvoke(d => d.FirstDisplayedScrollingRowIndex = index + 1);
             }
             else
             {
-                MessageBox.Show("Press Get Processess Button First");
+                dataGridView1.SafeInvoke(d => d.FirstDisplayedScrollingRowIndex = index);
             }
         }
 
@@ -126,7 +86,7 @@ namespace ACRM
                 totAvaLbl.Text = "Volume Not Ready";
                 totFreeLbl.Text = "Volume Not Ready";
                 totSizeLbl.Text = "Volume Not Ready";
-            }            
+            }
             if (allDrives[selInd].IsReady == true)
             {
                 dStatLbl.Text = "On-Line";
@@ -194,6 +154,46 @@ namespace ACRM
             DiskPerformance dp = new DiskPerformance();
             dp.Show();
             dp.Focus();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button2.Enabled = true;
+            button1.Enabled = false;
+            t.Dispose();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // Confirm user wants to close
+            switch (MessageBox.Show(this, "Are you sure you want to close?", "Closing", MessageBoxButtons.YesNo))
+            {
+                case DialogResult.No:
+                    e.Cancel = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            int rows = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {            //Here 2 cell is target value and 1 cell is Volume
+                if (Convert.ToInt32(row.Cells[2].Value) > 90)// Or your condition 
+                {
+                    dataGridView1.Rows[rows++].Cells[2].Style.ForeColor = Color.Red;
+                }
+                else
+                {
+                    dataGridView1.Rows[rows++].Cells[2].Style.ForeColor = Color.Green;
+                }
+            }
         }
     }
 }

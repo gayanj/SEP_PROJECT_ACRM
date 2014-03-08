@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Management;
 using System.Text;
@@ -30,11 +31,10 @@ namespace ACRM.CPU
             alProcesses = ProcessMethod.RunningProcesses(connectionScope);
             return alProcesses;
         }
-        public ArrayList ProcessMonitor(string processName)
+        public DataTable ProcessMonitor()
         {
-            ArrayList alProperties = new ArrayList();
-            alProperties = ProcessMethod.SystemMonitor(connectionScope,
-                                                           processName);
+            DataTable alProperties = new DataTable();
+            alProperties = ProcessMethod.SystemMonitor(connectionScope);
             return alProperties;
         }
         public string CreateProcess(string processPath)
