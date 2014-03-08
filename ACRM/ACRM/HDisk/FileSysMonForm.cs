@@ -79,8 +79,16 @@ namespace ACRM.HDisk
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            fileSystemWatcher.Path = dirTxt.Text;
-            fileSystemWatcher.Filter = fileTypeFilterTxt.Text;
+            try
+            {
+                fileSystemWatcher.Path = dirTxt.Text;
+                fileSystemWatcher.Filter = fileTypeFilterTxt.Text;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("Fields Cannot Be Empty");
+                return;
+            }
             fileSystemWatcher.IncludeSubdirectories = subDirChkBox.Checked;
             fileSystemWatcher.EnableRaisingEvents = true;
 

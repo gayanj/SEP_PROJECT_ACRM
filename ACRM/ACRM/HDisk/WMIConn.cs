@@ -6,8 +6,14 @@ using System.Management;
 
 namespace ACRM.HDisk
 {
+    /// <summary>
+    /// Setup the WMI Connection Options and set the Management Scope for the WMI
+    /// </summary>
     class WMIConn
     {
+        /// <summary>
+        /// Setup the Connection Options so that the WMI may have the neccessary access to the components needed
+        /// </summary>
         public static ConnectionOptions WMIConnOptions()
         {
             ConnectionOptions options = new ConnectionOptions();
@@ -17,6 +23,9 @@ namespace ACRM.HDisk
             return options;
         }
 
+        /// <summary>
+        /// Set the Scope of the WMI to the current local Machine
+        /// </summary>
         public static ManagementScope WMIConneScope(string machineName, ConnectionOptions options)
         {
             ManagementScope connectScope = new ManagementScope();
