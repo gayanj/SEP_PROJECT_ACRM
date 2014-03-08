@@ -12,16 +12,6 @@ namespace ACRM.HDisk
 {
     public partial class DiskPerformance : Form
     {
-<<<<<<< HEAD
-        //Form sometime may not initialize currectly in the IDE due to Windows Charting function not supporting .Net 3.5 Framework in Visual Studio 2012 JUST IGONRE AND CONTINUE
-        PerfCounterHD pc;
-        Timer t;
-        DataTable dt;
-        int count;
-
-        public DiskPerformance()
-        {            
-=======
         private PerfCounterHD pc;
         private Timer t;
         private DataTable dt;
@@ -29,7 +19,6 @@ namespace ACRM.HDisk
 
         public DiskPerformance()
         {
->>>>>>> origin/CPU
             InitializeComponent();
         }
 
@@ -114,21 +103,6 @@ namespace ACRM.HDisk
             dt.Columns.Add("Seconds", typeof(int));
             dt.Columns.Add("Value", typeof(float));
 
-<<<<<<< HEAD
-            chart1.Series.Add("% Disk Idle Time");
-            chart1.Series["% Disk Idle Time"].ChartType = SeriesChartType.Line;
-            chart1.Series["% Disk Idle Time"].XValueMember = "Seconds";
-            chart1.Series["% Disk Idle Time"].YValueMembers = "Value";
-
-            chart1.ChartAreas[0].AxisY.Maximum = 100;
-            chart1.ChartAreas[0].AxisX.Minimum = 0;
-            chart1.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Seconds;
-            chart1.ChartAreas[0].CursorX.IsUserEnabled = true;
-            chart1.ChartAreas[0].CursorX.AutoScroll = true;
-
-            chart1.DataSource = dt;
-            chart1.DataBind();
-=======
             HDchart.Series.Add("% Disk Idle Time");
             HDchart.Series["% Disk Idle Time"].ChartType = SeriesChartType.Line;
             HDchart.Series["% Disk Idle Time"].XValueMember = "Seconds";
@@ -141,7 +115,6 @@ namespace ACRM.HDisk
             HDchart.ChartAreas[0].CursorX.AutoScroll = true;
             HDchart.DataSource = dt;
             HDchart.DataBind();
->>>>>>> origin/CPU
         }
 
         //Update the DataTable with new Data and Rebind to the chart
@@ -157,7 +130,6 @@ namespace ACRM.HDisk
                 //Occurs on forced exit
             }
         }
-<<<<<<< HEAD
 
         //Stop Monitoring Destroy all the Counters to free Resources 
         private void btnStop_Click(object sender, EventArgs e)
@@ -171,8 +143,5 @@ namespace ACRM.HDisk
 
             t.Dispose();
         }
-
-=======
->>>>>>> origin/CPU
     }
 }
