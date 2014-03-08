@@ -16,17 +16,14 @@ namespace ACRM.HDisk
             InitializeComponent();
         }
 
+        #region File System Watcher Events
         private void fileSystemWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
             int curLen = logTxt.TextLength;
 
             logTxt.AppendText(e.ChangeType + ": " + e.FullPath + "\r\n");
-
-            //logTxt.Focus();
             logTxt.Select(curLen, (logTxt.TextLength - curLen));
             logTxt.SelectionColor = Color.Orange;
-
-            //logTxt.Focus();
             logTxt.Select(logTxt.TextLength, 0);
             logTxt.ScrollToCaret();
         }
@@ -36,12 +33,8 @@ namespace ACRM.HDisk
             int curLen = logTxt.TextLength;
 
             logTxt.AppendText(e.ChangeType + ": " + e.FullPath + "\r\n");
-
-            //logTxt.Focus();
             logTxt.Select(curLen, (logTxt.TextLength - curLen));
             logTxt.SelectionColor = Color.Green;
-
-           // logTxt.Focus();
             logTxt.Select(logTxt.TextLength, 0);
             logTxt.ScrollToCaret();
         }
@@ -51,36 +44,36 @@ namespace ACRM.HDisk
             int curLen = logTxt.TextLength;
 
             logTxt.AppendText(e.ChangeType + ": " + e.FullPath + "\r\n");
-
-            //logTxt.Focus();
             logTxt.Select(curLen, (logTxt.TextLength - curLen));
             logTxt.SelectionColor = Color.Red;
-
-            //logTxt.Focus();
             logTxt.Select(logTxt.TextLength, 0);
             logTxt.ScrollToCaret();
         }
 
         private void fileSystemWatcher_Renamed(object sender, System.IO.RenamedEventArgs e)
         {
-            //logTxt.Text += e.ChangeType + ":" + e.FullPath + "\r\n";
             int curLen = logTxt.TextLength;
 
             logTxt.AppendText(e.ChangeType + ": " + e.FullPath + "\r\n");
-
-            //logTxt.Focus();
             logTxt.Select(curLen, (logTxt.TextLength - curLen));
             logTxt.SelectionColor = Color.Blue;
-
-            //logTxt.Focus();
             logTxt.Select(logTxt.TextLength, 0);
             logTxt.ScrollToCaret();
         }
+        #endregion
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            fileSystemWatcher.Path = dirTxt.Text;
-            fileSystemWatcher.Filter = fileTypeFilterTxt.Text;
+            try
+            {
+                fileSystemWatcher.Path = dirTxt.Text;
+                fileSystemWatcher.Filter = fileTypeFilterTxt.Text;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("Fields Cannot Be Empty");
+                return;
+            }
             fileSystemWatcher.IncludeSubdirectories = subDirChkBox.Checked;
             fileSystemWatcher.EnableRaisingEvents = true;
 
@@ -90,8 +83,6 @@ namespace ACRM.HDisk
         private void stopBtn_Click(object sender, EventArgs e)
         {
             fileSystemWatcher.EnableRaisingEvents = false;
-            //fileSystemWatcher.Dispose();
-
             logTxt.AppendText("Ending File System Watch.....\r\n");
             logTxt.Focus();
             logTxt.Select(logTxt.TextLength, 0);

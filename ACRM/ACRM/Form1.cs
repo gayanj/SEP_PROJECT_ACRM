@@ -22,9 +22,10 @@ namespace ACRM
         private ArrayList processList;
         private ArrayList processMonitor;
         private ProcessLocal pl;
-        private DriveInfo[] allDrives; //for disk
-        private WMIDisk wd;
-        private ArrayList diskModelList;
+        private DriveInfo[] allDrives; //For HDisk
+        private WMIDisk wd; //For HDisk
+        private ArrayList diskModelList; //For HDisk
+
         public Form1()
         {
             InitializeComponent();
@@ -99,6 +100,8 @@ namespace ACRM
             }
         }
 
+        #region Codes for Hard Disk Monitor
+        //show new File System Monitor Window
         private void fileSysMonBtn_Click(object sender, EventArgs e)
         {
             FileSysMonForm fsForm1 = new FileSysMonForm();
@@ -106,9 +109,11 @@ namespace ACRM
             fsForm1.Focus();
         }
 
+        //Fill Volume Information
         private void driveListCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {            
             int selInd = driveListCombo.SelectedIndex;
+
             dNameLbl.Text = allDrives[selInd].Name.ToString();
             dTypeLbl.Text = allDrives[selInd].DriveType.ToString();
             try
@@ -139,9 +144,9 @@ namespace ACRM
             }
         }
 
+        //File the Volumes and Physical Drives Lists
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Fill Volumes
             allDrives = DriveInfo.GetDrives();
             foreach (DriveInfo d in allDrives)
             {
@@ -149,7 +154,6 @@ namespace ACRM
             }
             driveListCombo.SelectedIndex = 0;
 
-            //Fill Physical Drives
             wd = new WMIDisk();
             diskModelList = wd.DiskInf(wd.ms);
             foreach (var v in diskModelList)
@@ -158,6 +162,7 @@ namespace ACRM
             }
         }
 
+        // Retrieve Disk Detail through WMI
         private void phyDiskComBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ManagementObjectSearcher mos1 = wd.phyDiskInf(phyDiskComBox.SelectedItem.ToString());
@@ -189,11 +194,13 @@ namespace ACRM
             }
         }
 
+        //Show New Disk Performance Window
         private void btnDiskPerf_Click(object sender, EventArgs e)
         {
             DiskPerformance dp = new DiskPerformance();
             dp.Show();
             dp.Focus();
         }
+        #endregion
     }
 }
