@@ -162,16 +162,8 @@ namespace ACRM.CPU
             ArrayList systemMonitor = new ArrayList();
             SelectQuery systemMonitorQuery = new SelectQuery("SELECT Name,CreatingProcessID,PercentProcessorTime FROM win32_PerfFormattedData_PerfProc_Process");
             ManagementObjectSearcher searchProcedure = new ManagementObjectSearcher(connectionScope, systemMonitorQuery);
-            //foreach (ManagementObject item in searchProcedure.Get())
-            //{
-            //    foreach (PropertyData pd in item.Properties)
-            //    {
-            //        dt.Columns.Add(pd.Name);
-            //    }
-            //    break;
-            //}
-            dt.Columns.Add("Process Name");
             dt.Columns.Add("Process ID");
+            dt.Columns.Add("Process Name");
             dt.Columns.Add("CPU Usage");
             int counter = 0;
             foreach (ManagementObject item in searchProcedure.Get())

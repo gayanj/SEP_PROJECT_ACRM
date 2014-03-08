@@ -1,6 +1,6 @@
 ﻿namespace ACRM
 {
-    partial class Form1
+    partial class ACRMForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,9 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cpuChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
@@ -90,15 +90,16 @@
             this.btnDiskPerf = new System.Windows.Forms.Button();
             this.fileSysMonBtn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.cpuChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.processName = new System.Windows.Forms.Label();
+            this.processNameValue = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.phyDiskInfGBox.SuspendLayout();
             this.volInfGBox.SuspendLayout();
             this.xtraFuncGBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -111,12 +112,14 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(805, 563);
+            this.tabControl1.Size = new System.Drawing.Size(862, 563);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.processNameValue);
+            this.tabPage1.Controls.Add(this.processName);
             this.tabPage1.Controls.Add(this.cpuChart);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.dataGridView1);
@@ -124,10 +127,25 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(797, 537);
+            this.tabPage1.Size = new System.Drawing.Size(854, 537);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "CPU";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cpuChart
+            // 
+            this.cpuChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.cpuChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.cpuChart.Legends.Add(legend1);
+            this.cpuChart.Location = new System.Drawing.Point(376, 35);
+            this.cpuChart.Name = "cpuChart";
+            this.cpuChart.Size = new System.Drawing.Size(470, 494);
+            this.cpuChart.TabIndex = 9;
+            this.cpuChart.Text = "chart1";
             // 
             // button1
             // 
@@ -151,6 +169,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(362, 494);
             this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // button2
@@ -707,32 +726,39 @@
             this.tabPage4.Text = "Network";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // cpuChart
+            // processName
             // 
-            chartArea1.Name = "ChartArea1";
-            this.cpuChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.cpuChart.Legends.Add(legend1);
-            this.cpuChart.Location = new System.Drawing.Point(385, 35);
-            this.cpuChart.Name = "cpuChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.cpuChart.Series.Add(series1);
-            this.cpuChart.Size = new System.Drawing.Size(404, 496);
-            this.cpuChart.TabIndex = 9;
-            this.cpuChart.Text = "chart1";
+            this.processName.AutoSize = true;
+            this.processName.Location = new System.Drawing.Point(376, 15);
+            this.processName.Name = "processName";
+            this.processName.Size = new System.Drawing.Size(62, 13);
+            this.processName.TabIndex = 10;
+            this.processName.Text = "Monitoring :";
+            this.processName.Visible = false;
             // 
-            // Form1
+            // processNameValue
+            // 
+            this.processNameValue.AutoSize = true;
+            this.processNameValue.Location = new System.Drawing.Point(445, 14);
+            this.processNameValue.Name = "processNameValue";
+            this.processNameValue.Size = new System.Drawing.Size(35, 13);
+            this.processNameValue.TabIndex = 11;
+            this.processNameValue.Text = "label1";
+            this.processNameValue.Visible = false;
+            // 
+            // ACRMForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 563);
+            this.ClientSize = new System.Drawing.Size(862, 563);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
+            this.Name = "ACRMForm";
             this.Text = "Automated Computer Resource Management System";
+            this.Load += new System.EventHandler(this.ACRMForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.phyDiskInfGBox.ResumeLayout(false);
@@ -740,7 +766,6 @@
             this.volInfGBox.ResumeLayout(false);
             this.volInfGBox.PerformLayout();
             this.xtraFuncGBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -807,6 +832,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataVisualization.Charting.Chart cpuChart;
+        private System.Windows.Forms.Label processNameValue;
+        private System.Windows.Forms.Label processName;
     }
 }
 

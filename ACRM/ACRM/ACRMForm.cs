@@ -12,18 +12,24 @@ using System.Collections;
 using ACRM.HDisk; //for Disk
 using System.IO;
 using System.Threading.Tasks;
-using System.Threading; //for Disk
+using System.Threading;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Diagnostics; //for Disk
 
 namespace ACRM
 {
-    public partial class Form1 : Form
+    public partial class ACRMForm : Form
     {
         private ProcessLocal pl;
         private System.Threading.Timer t;
+        private DataTable dt;
+        private int count;
+        private int value = 0;
+        private int index = 0;
         private DriveInfo[] allDrives; //for disk
         private WMIDisk wd;
         private ArrayList diskModelList;
-        public Form1()
+        public ACRMForm()
         {
             InitializeComponent();
             button1.Enabled = false;
@@ -48,7 +54,6 @@ namespace ACRM
             DataTable processMonitor = new DataTable();
             processMonitor = pl.ProcessMonitor();
             dataGridView1.SafeInvoke(d => d.DataSource = processMonitor);
-
             if (index == -1)
             {
                 dataGridView1.SafeInvoke(d => d.FirstDisplayedScrollingRowIndex = index + 1);
@@ -57,6 +62,9 @@ namespace ACRM
             {
                 dataGridView1.SafeInvoke(d => d.FirstDisplayedScrollingRowIndex = index);
             }
+            this.changeUsageValue();
+            this.updateChart();
+            count++;
         }
 
         private void fileSysMonBtn_Click(object sender, EventArgs e)
@@ -194,6 +202,65 @@ namespace ACRM
                     dataGridView1.Rows[rows++].Cells[2].Style.ForeColor = Color.Green;
                 }
             }
+        }
+
+        private void ACRMForm_Load(object sender, EventArgs e)
+        {
+            dt = new DataTable("CPU Usage");
+
+            this.setTableChart();
+        }
+
+        private void setTableChart()
+        {
+            dt.Columns.Add("Seconds", typeof(int));
+            dt.Columns.Add("Value", typeof(float));
+
+            cpuChart.Series.Add("CPU Usage");
+            cpuChart.Series["CPU Usage"].ChartType = SeriesChartType.Line;
+            cpuChart.Series["CPU Usage"].XValueMember = "Seconds";
+
+            cpuChart.Series["CPU Usage"].YValueMembers = "Value";
+            cpuChart.ChartAreas[0].AxisY.Maximum = 100;
+            cpuChart.ChartAreas[0].AxisX.Minimum = 0;
+            cpuChart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Seconds;
+            cpuChart.ChartAreas[0].CursorX.IsUserEnabled = true;
+            cpuChart.ChartAreas[0].CursorX.AutoScroll = true;
+            cpuChart.DataSource = dt;
+            cpuChart.DataBind();
+        }
+
+        private void updateChart()
+        {
+            dt.Rows.Add(count, value);
+            try
+            {
+                this.cpuChart.SafeInvoke(e => e.DataBind());
+            }
+            catch (NullReferenceException ex)
+            {
+                //Occurs on forced exit
+            }
+        }
+
+        private void changeUsageValue()
+        {
+            value = Int32.Parse(dataGridView1[2, index].Value.ToString());
+        }
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (var series in cpuChart.Series)
+            {
+                series.Points.Clear();
+            }
+            dt.Clear();
+            count = 0;
+            index = dataGridView1.CurrentCell.RowIndex;
+            processName.Visible = true;
+            processNameValue.Visible = true;
+            processNameValue.Text = dataGridView1[1, index].Value.ToString();
+            this.changeUsageValue();
         }
     }
 }
