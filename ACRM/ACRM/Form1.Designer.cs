@@ -388,126 +388,126 @@
             this.lblSig.AutoSize = true;
             this.lblSig.Location = new System.Drawing.Point(165, 165);
             this.lblSig.Name = "lblSig";
-            this.lblSig.Size = new System.Drawing.Size(41, 13);
+            this.lblSig.Size = new System.Drawing.Size(19, 13);
             this.lblSig.TabIndex = 35;
-            this.lblSig.Text = "label23";
+            this.lblSig.Text = "----";
             // 
             // lblTrackPerCyl
             // 
             this.lblTrackPerCyl.AutoSize = true;
             this.lblTrackPerCyl.Location = new System.Drawing.Point(165, 347);
             this.lblTrackPerCyl.Name = "lblTrackPerCyl";
-            this.lblTrackPerCyl.Size = new System.Drawing.Size(41, 13);
+            this.lblTrackPerCyl.Size = new System.Drawing.Size(19, 13);
             this.lblTrackPerCyl.TabIndex = 34;
-            this.lblTrackPerCyl.Text = "label22";
+            this.lblTrackPerCyl.Text = "----";
             // 
             // lblSecPerTrack
             // 
             this.lblSecPerTrack.AutoSize = true;
             this.lblSecPerTrack.Location = new System.Drawing.Point(165, 324);
             this.lblSecPerTrack.Name = "lblSecPerTrack";
-            this.lblSecPerTrack.Size = new System.Drawing.Size(41, 13);
+            this.lblSecPerTrack.Size = new System.Drawing.Size(19, 13);
             this.lblSecPerTrack.TabIndex = 33;
-            this.lblSecPerTrack.Text = "label21";
+            this.lblSecPerTrack.Text = "----";
             // 
             // lblBperSec
             // 
             this.lblBperSec.AutoSize = true;
             this.lblBperSec.Location = new System.Drawing.Point(165, 302);
             this.lblBperSec.Name = "lblBperSec";
-            this.lblBperSec.Size = new System.Drawing.Size(41, 13);
+            this.lblBperSec.Size = new System.Drawing.Size(19, 13);
             this.lblBperSec.TabIndex = 32;
-            this.lblBperSec.Text = "label20";
+            this.lblBperSec.Text = "----";
             // 
             // lblTracks
             // 
             this.lblTracks.AutoSize = true;
             this.lblTracks.Location = new System.Drawing.Point(165, 279);
             this.lblTracks.Name = "lblTracks";
-            this.lblTracks.Size = new System.Drawing.Size(41, 13);
+            this.lblTracks.Size = new System.Drawing.Size(19, 13);
             this.lblTracks.TabIndex = 31;
-            this.lblTracks.Text = "label19";
+            this.lblTracks.Text = "----";
             // 
             // lblHeads
             // 
             this.lblHeads.AutoSize = true;
             this.lblHeads.Location = new System.Drawing.Point(165, 257);
             this.lblHeads.Name = "lblHeads";
-            this.lblHeads.Size = new System.Drawing.Size(41, 13);
+            this.lblHeads.Size = new System.Drawing.Size(19, 13);
             this.lblHeads.TabIndex = 30;
-            this.lblHeads.Text = "label18";
+            this.lblHeads.Text = "----";
             // 
             // lblSectors
             // 
             this.lblSectors.AutoSize = true;
             this.lblSectors.Location = new System.Drawing.Point(165, 235);
             this.lblSectors.Name = "lblSectors";
-            this.lblSectors.Size = new System.Drawing.Size(41, 13);
+            this.lblSectors.Size = new System.Drawing.Size(19, 13);
             this.lblSectors.TabIndex = 29;
-            this.lblSectors.Text = "label17";
+            this.lblSectors.Text = "----";
             // 
             // lblCylinder
             // 
             this.lblCylinder.AutoSize = true;
             this.lblCylinder.Location = new System.Drawing.Point(165, 210);
             this.lblCylinder.Name = "lblCylinder";
-            this.lblCylinder.Size = new System.Drawing.Size(41, 13);
+            this.lblCylinder.Size = new System.Drawing.Size(19, 13);
             this.lblCylinder.TabIndex = 28;
-            this.lblCylinder.Text = "label16";
+            this.lblCylinder.Text = "----";
             // 
             // lblFirmware
             // 
             this.lblFirmware.AutoSize = true;
             this.lblFirmware.Location = new System.Drawing.Point(165, 188);
             this.lblFirmware.Name = "lblFirmware";
-            this.lblFirmware.Size = new System.Drawing.Size(41, 13);
+            this.lblFirmware.Size = new System.Drawing.Size(19, 13);
             this.lblFirmware.TabIndex = 27;
-            this.lblFirmware.Text = "label15";
+            this.lblFirmware.Text = "----";
             // 
             // lblPartitions
             // 
             this.lblPartitions.AutoSize = true;
             this.lblPartitions.Location = new System.Drawing.Point(165, 142);
             this.lblPartitions.Name = "lblPartitions";
-            this.lblPartitions.Size = new System.Drawing.Size(41, 13);
+            this.lblPartitions.Size = new System.Drawing.Size(19, 13);
             this.lblPartitions.TabIndex = 26;
-            this.lblPartitions.Text = "label14";
+            this.lblPartitions.Text = "----";
             // 
             // lblCapacity
             // 
             this.lblCapacity.AutoSize = true;
             this.lblCapacity.Location = new System.Drawing.Point(165, 120);
             this.lblCapacity.Name = "lblCapacity";
-            this.lblCapacity.Size = new System.Drawing.Size(41, 13);
+            this.lblCapacity.Size = new System.Drawing.Size(19, 13);
             this.lblCapacity.TabIndex = 25;
-            this.lblCapacity.Text = "label13";
+            this.lblCapacity.Text = "----";
             // 
             // lblInterface
             // 
             this.lblInterface.AutoSize = true;
             this.lblInterface.Location = new System.Drawing.Point(165, 98);
             this.lblInterface.Name = "lblInterface";
-            this.lblInterface.Size = new System.Drawing.Size(41, 13);
+            this.lblInterface.Size = new System.Drawing.Size(19, 13);
             this.lblInterface.TabIndex = 24;
-            this.lblInterface.Text = "label12";
+            this.lblInterface.Text = "----";
             // 
             // lblModel
             // 
             this.lblModel.AutoSize = true;
             this.lblModel.Location = new System.Drawing.Point(165, 52);
             this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(41, 13);
+            this.lblModel.Size = new System.Drawing.Size(19, 13);
             this.lblModel.TabIndex = 23;
-            this.lblModel.Text = "label11";
+            this.lblModel.Text = "----";
             // 
             // lblSerial
             // 
             this.lblSerial.AutoSize = true;
             this.lblSerial.Location = new System.Drawing.Point(165, 76);
             this.lblSerial.Name = "lblSerial";
-            this.lblSerial.Size = new System.Drawing.Size(33, 13);
+            this.lblSerial.Size = new System.Drawing.Size(19, 13);
             this.lblSerial.TabIndex = 22;
-            this.lblSerial.Text = "Serial";
+            this.lblSerial.Text = "----";
             // 
             // phyDiskComBox
             // 
@@ -559,9 +559,9 @@
             this.dStatLbl.AutoSize = true;
             this.dStatLbl.Location = new System.Drawing.Point(163, 211);
             this.dStatLbl.Name = "dStatLbl";
-            this.dStatLbl.Size = new System.Drawing.Size(37, 13);
+            this.dStatLbl.Size = new System.Drawing.Size(19, 13);
             this.dStatLbl.TabIndex = 18;
-            this.dStatLbl.Text = "Status";
+            this.dStatLbl.Text = "----";
             // 
             // hdlb15
             // 
@@ -595,9 +595,9 @@
             this.totAvaLbl.AutoSize = true;
             this.totAvaLbl.Location = new System.Drawing.Point(163, 189);
             this.totAvaLbl.Name = "totAvaLbl";
-            this.totAvaLbl.Size = new System.Drawing.Size(50, 13);
+            this.totAvaLbl.Size = new System.Drawing.Size(19, 13);
             this.totAvaLbl.TabIndex = 16;
-            this.totAvaLbl.Text = "Available";
+            this.totAvaLbl.Text = "----";
             // 
             // hdlb17
             // 
@@ -613,9 +613,9 @@
             this.totFreeLbl.AutoSize = true;
             this.totFreeLbl.Location = new System.Drawing.Point(163, 166);
             this.totFreeLbl.Name = "totFreeLbl";
-            this.totFreeLbl.Size = new System.Drawing.Size(28, 13);
+            this.totFreeLbl.Size = new System.Drawing.Size(19, 13);
             this.totFreeLbl.TabIndex = 15;
-            this.totFreeLbl.Text = "Free";
+            this.totFreeLbl.Text = "----";
             // 
             // hdlb18
             // 
@@ -631,9 +631,9 @@
             this.totSizeLbl.AutoSize = true;
             this.totSizeLbl.Location = new System.Drawing.Point(163, 143);
             this.totSizeLbl.Name = "totSizeLbl";
-            this.totSizeLbl.Size = new System.Drawing.Size(27, 13);
+            this.totSizeLbl.Size = new System.Drawing.Size(19, 13);
             this.totSizeLbl.TabIndex = 14;
-            this.totSizeLbl.Text = "Size";
+            this.totSizeLbl.Text = "----";
             // 
             // hdlb19
             // 
@@ -649,9 +649,9 @@
             this.dFormatLbl.AutoSize = true;
             this.dFormatLbl.Location = new System.Drawing.Point(163, 121);
             this.dFormatLbl.Name = "dFormatLbl";
-            this.dFormatLbl.Size = new System.Drawing.Size(39, 13);
+            this.dFormatLbl.Size = new System.Drawing.Size(19, 13);
             this.dFormatLbl.TabIndex = 13;
-            this.dFormatLbl.Text = "Format";
+            this.dFormatLbl.Text = "----";
             // 
             // hdlb20
             // 
@@ -667,9 +667,9 @@
             this.dTypeLbl.AutoSize = true;
             this.dTypeLbl.Location = new System.Drawing.Point(163, 99);
             this.dTypeLbl.Name = "dTypeLbl";
-            this.dTypeLbl.Size = new System.Drawing.Size(31, 13);
+            this.dTypeLbl.Size = new System.Drawing.Size(19, 13);
             this.dTypeLbl.TabIndex = 12;
-            this.dTypeLbl.Text = "Type";
+            this.dTypeLbl.Text = "----";
             // 
             // hdlb21
             // 
@@ -685,18 +685,18 @@
             this.volLbl.AutoSize = true;
             this.volLbl.Location = new System.Drawing.Point(163, 77);
             this.volLbl.Name = "volLbl";
-            this.volLbl.Size = new System.Drawing.Size(42, 13);
+            this.volLbl.Size = new System.Drawing.Size(19, 13);
             this.volLbl.TabIndex = 11;
-            this.volLbl.Text = "Volume";
+            this.volLbl.Text = "----";
             // 
             // dNameLbl
             // 
             this.dNameLbl.AutoSize = true;
             this.dNameLbl.Location = new System.Drawing.Point(163, 53);
             this.dNameLbl.Name = "dNameLbl";
-            this.dNameLbl.Size = new System.Drawing.Size(35, 13);
+            this.dNameLbl.Size = new System.Drawing.Size(19, 13);
             this.dNameLbl.TabIndex = 10;
-            this.dNameLbl.Text = "Name";
+            this.dNameLbl.Text = "----";
             // 
             // xtraFuncGBox
             // 
