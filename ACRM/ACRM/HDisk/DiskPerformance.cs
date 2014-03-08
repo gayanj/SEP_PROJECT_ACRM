@@ -112,25 +112,25 @@ namespace ACRM.HDisk
             dt.Columns.Add("Seconds", typeof(int));
             dt.Columns.Add("Value", typeof(float));
 
-            chart1.Series.Add("% Disk Idle Time");
-            chart1.Series["% Disk Idle Time"].ChartType = SeriesChartType.Line;
-            chart1.Series["% Disk Idle Time"].XValueMember = "Seconds";
+            HDchart.Series.Add("% Disk Idle Time");
+            HDchart.Series["% Disk Idle Time"].ChartType = SeriesChartType.Line;
+            HDchart.Series["% Disk Idle Time"].XValueMember = "Seconds";
 
-            chart1.Series["% Disk Idle Time"].YValueMembers = "Value";
-            chart1.ChartAreas[0].AxisY.Maximum = 100;
-            chart1.ChartAreas[0].AxisX.Minimum = 0;
-            chart1.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Seconds;
-            chart1.ChartAreas[0].CursorX.IsUserEnabled = true;
-            chart1.ChartAreas[0].CursorX.AutoScroll = true;
-            chart1.DataSource = dt;
-            chart1.DataBind();
+            HDchart.Series["% Disk Idle Time"].YValueMembers = "Value";
+            HDchart.ChartAreas[0].AxisY.Maximum = 100;
+            HDchart.ChartAreas[0].AxisX.Minimum = 0;
+            HDchart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Seconds;
+            HDchart.ChartAreas[0].CursorX.IsUserEnabled = true;
+            HDchart.ChartAreas[0].CursorX.AutoScroll = true;
+            HDchart.DataSource = dt;
+            HDchart.DataBind();
         }
         private void updateChart()
         {
             dt.Rows.Add(count, float.Parse(lblIdleTime.Text));
             try
             {
-                chart1.DataBind();
+                HDchart.DataBind();
             }
             catch (NullReferenceException ex)
             {
