@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -87,6 +90,7 @@
             this.btnDiskPerf = new System.Windows.Forms.Button();
             this.fileSysMonBtn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cpuChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -94,6 +98,7 @@
             this.phyDiskInfGBox.SuspendLayout();
             this.volInfGBox.SuspendLayout();
             this.xtraFuncGBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -112,6 +117,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cpuChart);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.button2);
@@ -701,6 +707,22 @@
             this.tabPage4.Text = "Network";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // cpuChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.cpuChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.cpuChart.Legends.Add(legend1);
+            this.cpuChart.Location = new System.Drawing.Point(385, 35);
+            this.cpuChart.Name = "cpuChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.cpuChart.Series.Add(series1);
+            this.cpuChart.Size = new System.Drawing.Size(404, 496);
+            this.cpuChart.TabIndex = 9;
+            this.cpuChart.Text = "chart1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -718,6 +740,7 @@
             this.volInfGBox.ResumeLayout(false);
             this.volInfGBox.PerformLayout();
             this.xtraFuncGBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -783,6 +806,7 @@
         private System.Windows.Forms.Button btnDiskPerf;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart cpuChart;
     }
 }
 
