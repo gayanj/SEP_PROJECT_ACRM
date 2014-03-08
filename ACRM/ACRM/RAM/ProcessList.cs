@@ -36,7 +36,7 @@ namespace RAM
                     {
                         sb.Append("Window Title:\t" + p.MainWindowTitle.ToString() + Environment.NewLine);
                         sb.Append("Process Name:\t" + p.ProcessName.ToString() + Environment.NewLine);
-                        sb.Append("Window Handle:\t" + p.MainWindowHandle.ToString() + Environment.NewLine);
+                        sb.Append("Window Handle:\t" + p.MainWindowHandle.ToString() + Environment.NewLine); //context specific unique identifier of a process title window
                         sb.Append("Memory Allocation:\t" +m.convertToBytes((ulong)p.PrivateMemorySize64).ToString()+" MB" + Environment.NewLine);
                         sb.Append(Environment.NewLine);
                     }
@@ -51,7 +51,7 @@ namespace RAM
         public static string ListAllByImageName()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (Process p in Process.GetProcesses("."))
+            foreach (Process p in Process.GetProcesses(".")) //represents a dll or exe that is loaded into process
             {
                 try
                 {

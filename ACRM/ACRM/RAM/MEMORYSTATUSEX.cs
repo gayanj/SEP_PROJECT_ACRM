@@ -20,7 +20,7 @@ namespace RAM
         public ulong ullTotalPageFile; //The current committed memory limit for the system or the current process.
         public ulong ullAvailPageFile; //The maximum amount of memory the current process can commit in bytes.
         public ulong ullTotalVirtual; //The size of the user-mode portion of the virtual address space of the calling process, in bytes.
-        public ulong ullAvailVirtual;
+        public ulong ullAvailVirtual; //The amount of unreserved and uncommitted memory currently in the user-mode portion of the virtual address space of the calling process, in bytes.
         public ulong ullAvailExtendedVirtual;
         public static uint graphMemory;
 
@@ -36,7 +36,7 @@ namespace RAM
         public void setValues()
         {
             MEMORYSTATUSEX statusEx=new MEMORYSTATUSEX();
-            bool Success = GlobalMemoryStatusEx(statusEx);
+            bool Success = GlobalMemoryStatusEx(statusEx); //to determine how much memory your application can allocate without severely impacting other applications.
             this.dwMemoryLoad = statusEx.dwMemoryLoad;
             graphMemory = this.dwMemoryLoad;
             Console.WriteLine("from main" + graphMemory);

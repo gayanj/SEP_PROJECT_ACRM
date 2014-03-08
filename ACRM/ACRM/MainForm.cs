@@ -243,7 +243,7 @@ namespace ACRM
 
             newSeries.Color = Color.OrangeRed;
 
-            newSeries.XValueType = ChartValueType.DateTime;
+            newSeries.XValueType = ChartValueType.Time;
 
             chart1.Series.Add(newSeries);
 
