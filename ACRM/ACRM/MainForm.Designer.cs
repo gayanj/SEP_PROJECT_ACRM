@@ -320,9 +320,9 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(500, 443);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(71, 13);
+            this.label29.Size = new System.Drawing.Size(106, 13);
             this.label29.TabIndex = 6;
-            this.label29.Text = "Memory Type";
+            this.label29.Text = "InterleaveDataDepth";
             // 
             // label28
             // 
@@ -338,9 +338,9 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(85, 491);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(35, 13);
+            this.label27.Size = new System.Drawing.Size(73, 13);
             this.label27.TabIndex = 4;
-            this.label27.Text = "Name";
+            this.label27.Text = "Serial Number";
             // 
             // label26
             // 
@@ -768,13 +768,13 @@
             this.tabPage4.Text = "Network";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 602);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Automated Computer Resource Management System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);

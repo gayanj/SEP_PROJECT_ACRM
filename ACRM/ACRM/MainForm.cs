@@ -170,10 +170,10 @@ namespace ACRM
         {
             MEMORYSTATUSEX m = new MEMORYSTATUSEX();
             label31.Text = wmi.info[5];
-            label32.Text = wmi.info[13];
-            label33.Text = wmi.info[16];
-            label34.Text = wmi.info[25];
-            label35.Text = wmi.info[14];
+            label32.Text = wmi.info[4];
+            label33.Text = wmi.info[6];
+            label34.Text = wmi.info[7]+" MHz";
+            label35.Text = wmi.info[8];
             label36.Text = wmi.info[2]+" Bytes";
 
             ThreadStart addDataThreadStart = new ThreadStart(AddDataThreadLoop);
@@ -235,7 +235,7 @@ namespace ACRM
             chart1.Series.Clear();
 
 
-            Series newSeries = new Series("Series1");
+            Series newSeries = new Series("Physical Memory usage");
 
             newSeries.ChartType = SeriesChartType.Line;
 
