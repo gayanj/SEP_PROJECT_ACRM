@@ -12,16 +12,30 @@ namespace ACRM.HDisk
 {
     public partial class DiskPerformance : Form
     {
-        private PerfCounterHD pc;
-        private Timer t;
-        private DataTable dt;
-        private int count;
+        //Form sometime may not initialize currectly in the IDE due to Windows Charting function not supporting .Net 3.5 Framework in Visual Studio 2012 JUST IGONRE AND CONTINUE
+        PerfCounterHD pc;
+        Timer t;
+        DataTable dt;
+        int count;
 
         public DiskPerformance()
         {
             InitializeComponent();
         }
 
+        //Initialize the window, DataTable to Store MonitorData and the Chart
+        private void DiskPerformance_Load(object sender, EventArgs e)
+        {
+            btnStop.Enabled = false;
+            toolStripStatusLabel1.Text = "Ready To Begain";
+            statusStrip1.Refresh();
+
+            dt = new DataTable("Reads/Sec");
+
+            this.setTableChart();
+        }
+
+        //Start Monitoring
         private void btnStart_Click(object sender, EventArgs e)
         {
             btnStop.Enabled = true;
@@ -37,6 +51,7 @@ namespace ACRM.HDisk
             t.Tick += t_Tick;
         }
 
+        //Update Labels and the Graph every 1 Second Interval
         void t_Tick(object sender, EventArgs e)
         {
             lblDiskReads.Text = pc.DiskReads.ToString();
@@ -81,32 +96,9 @@ namespace ACRM.HDisk
 
             this.updateChart();
             count++;
-
         }
 
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            pc.destroyCounters();
-
-            btnStop.Enabled = false;
-            btnStart.Enabled = true;
-
-            toolStripStatusLabel1.Text = "Monitoring Stopped";
-            statusStrip1.Refresh();
-
-            t.Dispose();
-        }
-
-        private void DiskPerformance_Load(object sender, EventArgs e)
-        {
-            btnStop.Enabled = false;
-            toolStripStatusLabel1.Text = "Ready To Begain";
-            statusStrip1.Refresh();
-
-            dt = new DataTable("Reads/Sec");
-
-            this.setTableChart();
-        }
+        //Initialize the chart settings and the DataTable
         private void setTableChart()
         {
             dt.Columns.Add("Seconds", typeof(int));
@@ -115,16 +107,19 @@ namespace ACRM.HDisk
             HDchart.Series.Add("% Disk Idle Time");
             HDchart.Series["% Disk Idle Time"].ChartType = SeriesChartType.Line;
             HDchart.Series["% Disk Idle Time"].XValueMember = "Seconds";
-
             HDchart.Series["% Disk Idle Time"].YValueMembers = "Value";
+
             HDchart.ChartAreas[0].AxisY.Maximum = 100;
             HDchart.ChartAreas[0].AxisX.Minimum = 0;
             HDchart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Seconds;
             HDchart.ChartAreas[0].CursorX.IsUserEnabled = true;
             HDchart.ChartAreas[0].CursorX.AutoScroll = true;
+
             HDchart.DataSource = dt;
             HDchart.DataBind();
         }
+
+        //Update the DataTable with new Data and Rebind to the chart
         private void updateChart()
         {
             dt.Rows.Add(count, float.Parse(lblIdleTime.Text));
@@ -137,5 +132,19 @@ namespace ACRM.HDisk
                 //Occurs on forced exit
             }
         }
+
+        //Stop Monitoring Destroy all the Counters to free Resources 
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            pc.destroyCounters();
+
+            btnStop.Enabled = false;
+            btnStart.Enabled = true;
+            toolStripStatusLabel1.Text = "Monitoring Stopped";
+            statusStrip1.Refresh();
+
+            t.Dispose();
+        }
+
     }
 }

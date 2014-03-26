@@ -69,6 +69,14 @@
     <Compile Include="ACRMForm.Designer.cs">
       <DependentUpon>ACRMForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs" />
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs" />
     <Compile Include="HDisk\DiskPerformance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,9 +95,14 @@
     <Compile Include="HDisk\WMIDisk.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RAM\MEMORYSTATUSEX.cs" />
+    <Compile Include="RAM\ProcessList.cs" />
+    <Compile Include="RAM\wmiMemory.cs" />
     <EmbeddedResource Include="ACRMForm.resx">
       <DependentUpon>ACRMForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx" />
+    <EmbeddedResource Include="Form2.resx" />
     <EmbeddedResource Include="HDisk\DiskPerformance.resx">
       <DependentUpon>DiskPerformance.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +133,15 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\searchii.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\playiv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\pausei.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

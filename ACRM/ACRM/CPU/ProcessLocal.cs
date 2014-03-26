@@ -31,6 +31,10 @@ namespace ACRM.CPU
             alProcesses = ProcessMethod.RunningProcesses(connectionScope);
             return alProcesses;
         }
+        /// <summary>
+        /// This method calls the SystemMonitor method in the ProcessMethod class and returns a data table with the process information
+        /// </summary>
+        /// <returns>Datatable</returns>
         public DataTable ProcessMonitor()
         {
             DataTable alProperties = new DataTable();

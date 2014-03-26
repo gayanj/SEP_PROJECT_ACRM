@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Management;
 using System.Text;
+using ACRM;
 
 namespace ACRM.CPU
 {
@@ -153,18 +154,26 @@ namespace ACRM.CPU
         /// <summary>
         /// This method is used to retrieve information about a particular process
         /// </summary>
-        /// <param name="connectionScope">Scope of the connection-No idea what that is</param>
+        /// <param name="connectionScope">Scope of the connection - Defines the scope in which the methods are being called</param>
         /// <param name="processName">Process selected by the combo box comes here</param>
         /// <returns>Returns an ArrayList of the processes information</returns>
         public static DataTable SystemMonitor(ManagementScope connectionScope)
         {
             dt = new DataTable();
-            ArrayList systemMonitor = new ArrayList();
             SelectQuery systemMonitorQuery = new SelectQuery("SELECT Name,CreatingProcessID,PercentProcessorTime FROM win32_PerfFormattedData_PerfProc_Process");
             ManagementObjectSearcher searchProcedure = new ManagementObjectSearcher(connectionScope, systemMonitorQuery);
-            dt.Columns.Add("Process ID");
-            dt.Columns.Add("Process Name");
-            dt.Columns.Add("CPU Usage");
+            if (!dt.Columns.Contains("Process ID"))
+            {
+                dt.Columns.Add("Process ID");
+            }
+            if (!dt.Columns.Contains("Process Name"))
+            {
+                dt.Columns.Add("Process Name");
+            }
+            if (!dt.Columns.Contains("CPU Usage"))
+            {
+                dt.Columns.Add("CPU Usage");
+            }
             int counter = 0;
             foreach (ManagementObject item in searchProcedure.Get())
             {
