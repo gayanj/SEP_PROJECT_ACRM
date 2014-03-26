@@ -52,7 +52,6 @@ namespace ACRM.HDisk
         }
 
         #region Counter Initialization
-        //Disk Time data gaher counters
         private void InitPerfCountersTime()
         {
             this.diskTime.CategoryName = "PhysicalDisk";
@@ -76,7 +75,6 @@ namespace ACRM.HDisk
             this.diskIOSplit.InstanceName = "_Total";
         }
 
-        //Disk Queue data gather counters
         private void InitPerfCountersQueue()
         {
             this.avgDiskQueue.CategoryName = "PhysicalDisk";
@@ -96,7 +94,6 @@ namespace ACRM.HDisk
             this.currQueueLen.InstanceName = "_Total";
         }
 
-        //Average Disk IO data gather counters
         private void InitPerfCoutersAvg()
         {
             this.avgDiskRead.CategoryName = "PhysicalDisk";
@@ -124,7 +121,6 @@ namespace ACRM.HDisk
             this.avgDiskTransB.InstanceName = "_Total";
         }
 
-        //Disk IO data gather counters
         private void InitPerfCountersIO()
         {
             this.diskReads.CategoryName = "PhysicalDisk";
@@ -153,7 +149,7 @@ namespace ACRM.HDisk
         }
         #endregion
 
-        #region Disk IO Returns
+        #region IO Returns
         public float DiskReads { get { return diskReads.NextValue(); } }
         public float DiskWrites { get { return diskWrites.NextValue(); } }
         public float DiskTransfers { get { return diskTransfers.NextValue(); } }
@@ -162,7 +158,7 @@ namespace ACRM.HDisk
         public float DiskTransB { get { return diskTransB.NextValue(); } }
         #endregion
 
-        #region Average Disk IO Returns
+        #region Average IO Returns
         public float AvgDiskRead { get { return avgDiskRead.NextValue(); } }
         public float AvgDiskWrite { get { return avgDiskWrite.NextValue(); } }
         public float AvgDiskTrans { get { return avgDiskTrans.NextValue(); } }
@@ -172,14 +168,14 @@ namespace ACRM.HDisk
         public float AvgDiskTransB { get { return avgDiskTransB.NextValue(); } }
         #endregion
 
-        #region Disk Queue Returns
+        #region Queue Returns
         public float AvgDiskQueue { get { return avgDiskQueue.NextValue(); } }
         public float AvgDiskReadQueue { get { return avgDiskReadQueue.NextValue(); } }
         public float AvgDiskWriteQueue { get { return avgDiskWriteQueue.NextValue(); } }
         public float CurrQueueLen { get { return currQueueLen.NextValue(); } }
         #endregion
 
-        #region Disk Time Returns
+        #region Time Returns
         public float DiskTime { get { return diskTime.NextValue(); } }
         public float DiskReadTime { get { return diskReadTime.NextValue(); } }
         public float DiskWriteTime { get { return diskWriteTime.NextValue(); } }

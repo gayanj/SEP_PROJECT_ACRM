@@ -8,7 +8,6 @@ namespace ACRM.HDisk
     public class ExtraDiskMeth
     {
         static readonly string[] SizeSuffixes = { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
-
         public static string SizeSuffix(Int64 value)
         {
             int mag = (int)Math.Log(value, 1024);

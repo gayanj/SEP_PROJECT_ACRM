@@ -15,7 +15,7 @@ namespace ACRM.HDisk
 
         //set Connection options and Defines the Connection Namespace for local Machine
         public WMIDisk()
-        {            
+        {
             ms = new ManagementScope();
             options = WMIConn.WMIConnOptions();
             ms = WMIConn.WMIConneScope(Environment.MachineName, options);

@@ -11,14 +11,14 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing && (components != null))
+        //    {
+        //        components.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
         #region Windows Form Designer generated code
 
@@ -28,15 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.processNameValue = new System.Windows.Forms.Label();
+            this.processName = new System.Windows.Forms.Label();
             this.cpuChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.phyDiskInfGBox = new System.Windows.Forms.GroupBox();
             this.hdlb14 = new System.Windows.Forms.Label();
@@ -90,16 +109,23 @@
             this.btnDiskPerf = new System.Windows.Forms.Button();
             this.fileSysMonBtn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.processName = new System.Windows.Forms.Label();
-            this.processNameValue = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.phyDiskInfGBox.SuspendLayout();
             this.volInfGBox.SuspendLayout();
             this.xtraFuncGBox.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -132,15 +158,35 @@
             this.tabPage1.Text = "CPU";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // processNameValue
+            // 
+            this.processNameValue.AutoSize = true;
+            this.processNameValue.Location = new System.Drawing.Point(445, 14);
+            this.processNameValue.Name = "processNameValue";
+            this.processNameValue.Size = new System.Drawing.Size(35, 13);
+            this.processNameValue.TabIndex = 11;
+            this.processNameValue.Text = "label1";
+            this.processNameValue.Visible = false;
+            // 
+            // processName
+            // 
+            this.processName.AutoSize = true;
+            this.processName.Location = new System.Drawing.Point(376, 15);
+            this.processName.Name = "processName";
+            this.processName.Size = new System.Drawing.Size(62, 13);
+            this.processName.TabIndex = 10;
+            this.processName.Text = "Monitoring :";
+            this.processName.Visible = false;
+            // 
             // cpuChart
             // 
             this.cpuChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.cpuChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.cpuChart.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.cpuChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.cpuChart.Legends.Add(legend5);
             this.cpuChart.Location = new System.Drawing.Point(376, 35);
             this.cpuChart.Name = "cpuChart";
             this.cpuChart.Size = new System.Drawing.Size(470, 494);
@@ -184,13 +230,162 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.label36);
+            this.tabPage2.Controls.Add(this.label35);
+            this.tabPage2.Controls.Add(this.label34);
+            this.tabPage2.Controls.Add(this.label33);
+            this.tabPage2.Controls.Add(this.label32);
+            this.tabPage2.Controls.Add(this.label31);
+            this.tabPage2.Controls.Add(this.label30);
+            this.tabPage2.Controls.Add(this.label29);
+            this.tabPage2.Controls.Add(this.label28);
+            this.tabPage2.Controls.Add(this.label27);
+            this.tabPage2.Controls.Add(this.label26);
+            this.tabPage2.Controls.Add(this.label25);
+            this.tabPage2.Controls.Add(this.chart1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(797, 537);
+            this.tabPage2.Size = new System.Drawing.Size(854, 537);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "RAM";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(712, 470);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(107, 37);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "Memory Info";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(637, 429);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(41, 13);
+            this.label36.TabIndex = 25;
+            this.label36.Text = "label36";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(637, 381);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(41, 13);
+            this.label35.TabIndex = 24;
+            this.label35.Text = "label35";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(634, 324);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(41, 13);
+            this.label34.TabIndex = 23;
+            this.label34.Text = "label34";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(225, 429);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(41, 13);
+            this.label33.TabIndex = 22;
+            this.label33.Text = "label33";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(225, 381);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(41, 13);
+            this.label32.TabIndex = 21;
+            this.label32.Text = "label32";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(222, 324);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(41, 13);
+            this.label31.TabIndex = 20;
+            this.label31.Text = "label31";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(506, 429);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(54, 13);
+            this.label30.TabIndex = 19;
+            this.label30.Text = "Capcacity";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(506, 381);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(106, 13);
+            this.label29.TabIndex = 18;
+            this.label29.Text = "InterleaveDataDepth";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(506, 323);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(38, 13);
+            this.label28.TabIndex = 17;
+            this.label28.Text = "Speed";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(91, 429);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(73, 13);
+            this.label27.TabIndex = 16;
+            this.label27.Text = "Serial Number";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(91, 381);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(70, 13);
+            this.label26.TabIndex = 15;
+            this.label26.Text = "Manufacturer";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(91, 324);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(61, 13);
+            this.label25.TabIndex = 14;
+            this.label25.Text = "Data Width";
+            // 
+            // chart1
+            // 
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart1.Legends.Add(legend6);
+            this.chart1.Location = new System.Drawing.Point(22, 6);
+            this.chart1.Name = "chart1";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
+            this.chart1.Size = new System.Drawing.Size(777, 282);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
             // 
             // tabPage3
             // 
@@ -200,7 +395,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(797, 537);
+            this.tabPage3.Size = new System.Drawing.Size(854, 537);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hard Disk";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -375,294 +570,126 @@
             this.lblSig.AutoSize = true;
             this.lblSig.Location = new System.Drawing.Point(165, 165);
             this.lblSig.Name = "lblSig";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblSig.Size = new System.Drawing.Size(16, 13);
+            this.lblSig.Size = new System.Drawing.Size(41, 13);
             this.lblSig.TabIndex = 35;
-            this.lblSig.Text = "---";
-=======
-            this.lblSig.Size = new System.Drawing.Size(19, 13);
-            this.lblSig.TabIndex = 35;
-            this.lblSig.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblSig.Size = new System.Drawing.Size(19, 13);
-            this.lblSig.TabIndex = 35;
-            this.lblSig.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblSig.Text = "label23";
             // 
             // lblTrackPerCyl
             // 
             this.lblTrackPerCyl.AutoSize = true;
             this.lblTrackPerCyl.Location = new System.Drawing.Point(165, 347);
             this.lblTrackPerCyl.Name = "lblTrackPerCyl";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblTrackPerCyl.Size = new System.Drawing.Size(16, 13);
+            this.lblTrackPerCyl.Size = new System.Drawing.Size(41, 13);
             this.lblTrackPerCyl.TabIndex = 34;
-            this.lblTrackPerCyl.Text = "---";
-=======
-            this.lblTrackPerCyl.Size = new System.Drawing.Size(19, 13);
-            this.lblTrackPerCyl.TabIndex = 34;
-            this.lblTrackPerCyl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblTrackPerCyl.Size = new System.Drawing.Size(19, 13);
-            this.lblTrackPerCyl.TabIndex = 34;
-            this.lblTrackPerCyl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblTrackPerCyl.Text = "label22";
             // 
             // lblSecPerTrack
             // 
             this.lblSecPerTrack.AutoSize = true;
             this.lblSecPerTrack.Location = new System.Drawing.Point(165, 324);
             this.lblSecPerTrack.Name = "lblSecPerTrack";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblSecPerTrack.Size = new System.Drawing.Size(16, 13);
+            this.lblSecPerTrack.Size = new System.Drawing.Size(41, 13);
             this.lblSecPerTrack.TabIndex = 33;
-            this.lblSecPerTrack.Text = "---";
-=======
-            this.lblSecPerTrack.Size = new System.Drawing.Size(19, 13);
-            this.lblSecPerTrack.TabIndex = 33;
-            this.lblSecPerTrack.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblSecPerTrack.Size = new System.Drawing.Size(19, 13);
-            this.lblSecPerTrack.TabIndex = 33;
-            this.lblSecPerTrack.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblSecPerTrack.Text = "label21";
             // 
             // lblBperSec
             // 
             this.lblBperSec.AutoSize = true;
             this.lblBperSec.Location = new System.Drawing.Point(165, 302);
             this.lblBperSec.Name = "lblBperSec";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblBperSec.Size = new System.Drawing.Size(16, 13);
+            this.lblBperSec.Size = new System.Drawing.Size(41, 13);
             this.lblBperSec.TabIndex = 32;
-            this.lblBperSec.Text = "---";
-=======
-            this.lblBperSec.Size = new System.Drawing.Size(19, 13);
-            this.lblBperSec.TabIndex = 32;
-            this.lblBperSec.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblBperSec.Size = new System.Drawing.Size(19, 13);
-            this.lblBperSec.TabIndex = 32;
-            this.lblBperSec.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblBperSec.Text = "label20";
             // 
             // lblTracks
             // 
             this.lblTracks.AutoSize = true;
             this.lblTracks.Location = new System.Drawing.Point(165, 279);
             this.lblTracks.Name = "lblTracks";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblTracks.Size = new System.Drawing.Size(16, 13);
+            this.lblTracks.Size = new System.Drawing.Size(41, 13);
             this.lblTracks.TabIndex = 31;
-            this.lblTracks.Text = "---";
-=======
-            this.lblTracks.Size = new System.Drawing.Size(19, 13);
-            this.lblTracks.TabIndex = 31;
-            this.lblTracks.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblTracks.Size = new System.Drawing.Size(19, 13);
-            this.lblTracks.TabIndex = 31;
-            this.lblTracks.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblTracks.Text = "label19";
             // 
             // lblHeads
             // 
             this.lblHeads.AutoSize = true;
             this.lblHeads.Location = new System.Drawing.Point(165, 257);
             this.lblHeads.Name = "lblHeads";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblHeads.Size = new System.Drawing.Size(16, 13);
+            this.lblHeads.Size = new System.Drawing.Size(41, 13);
             this.lblHeads.TabIndex = 30;
-            this.lblHeads.Text = "---";
-=======
-            this.lblHeads.Size = new System.Drawing.Size(19, 13);
-            this.lblHeads.TabIndex = 30;
-            this.lblHeads.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblHeads.Size = new System.Drawing.Size(19, 13);
-            this.lblHeads.TabIndex = 30;
-            this.lblHeads.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblHeads.Text = "label18";
             // 
             // lblSectors
             // 
             this.lblSectors.AutoSize = true;
             this.lblSectors.Location = new System.Drawing.Point(165, 235);
             this.lblSectors.Name = "lblSectors";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblSectors.Size = new System.Drawing.Size(16, 13);
+            this.lblSectors.Size = new System.Drawing.Size(41, 13);
             this.lblSectors.TabIndex = 29;
-            this.lblSectors.Text = "---";
-=======
-            this.lblSectors.Size = new System.Drawing.Size(19, 13);
-            this.lblSectors.TabIndex = 29;
-            this.lblSectors.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblSectors.Size = new System.Drawing.Size(19, 13);
-            this.lblSectors.TabIndex = 29;
-            this.lblSectors.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblSectors.Text = "label17";
             // 
             // lblCylinder
             // 
             this.lblCylinder.AutoSize = true;
             this.lblCylinder.Location = new System.Drawing.Point(165, 210);
             this.lblCylinder.Name = "lblCylinder";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblCylinder.Size = new System.Drawing.Size(16, 13);
+            this.lblCylinder.Size = new System.Drawing.Size(41, 13);
             this.lblCylinder.TabIndex = 28;
-            this.lblCylinder.Text = "---";
-=======
-            this.lblCylinder.Size = new System.Drawing.Size(19, 13);
-            this.lblCylinder.TabIndex = 28;
-            this.lblCylinder.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblCylinder.Size = new System.Drawing.Size(19, 13);
-            this.lblCylinder.TabIndex = 28;
-            this.lblCylinder.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblCylinder.Text = "label16";
             // 
             // lblFirmware
             // 
             this.lblFirmware.AutoSize = true;
             this.lblFirmware.Location = new System.Drawing.Point(165, 188);
             this.lblFirmware.Name = "lblFirmware";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblFirmware.Size = new System.Drawing.Size(16, 13);
+            this.lblFirmware.Size = new System.Drawing.Size(41, 13);
             this.lblFirmware.TabIndex = 27;
-            this.lblFirmware.Text = "---";
-=======
-            this.lblFirmware.Size = new System.Drawing.Size(19, 13);
-            this.lblFirmware.TabIndex = 27;
-            this.lblFirmware.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblFirmware.Size = new System.Drawing.Size(19, 13);
-            this.lblFirmware.TabIndex = 27;
-            this.lblFirmware.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblFirmware.Text = "label15";
             // 
             // lblPartitions
             // 
             this.lblPartitions.AutoSize = true;
             this.lblPartitions.Location = new System.Drawing.Point(165, 142);
             this.lblPartitions.Name = "lblPartitions";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblPartitions.Size = new System.Drawing.Size(16, 13);
+            this.lblPartitions.Size = new System.Drawing.Size(41, 13);
             this.lblPartitions.TabIndex = 26;
-            this.lblPartitions.Text = "---";
-=======
-            this.lblPartitions.Size = new System.Drawing.Size(19, 13);
-            this.lblPartitions.TabIndex = 26;
-            this.lblPartitions.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblPartitions.Size = new System.Drawing.Size(19, 13);
-            this.lblPartitions.TabIndex = 26;
-            this.lblPartitions.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblPartitions.Text = "label14";
             // 
             // lblCapacity
             // 
             this.lblCapacity.AutoSize = true;
             this.lblCapacity.Location = new System.Drawing.Point(165, 120);
             this.lblCapacity.Name = "lblCapacity";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblCapacity.Size = new System.Drawing.Size(16, 13);
+            this.lblCapacity.Size = new System.Drawing.Size(41, 13);
             this.lblCapacity.TabIndex = 25;
-            this.lblCapacity.Text = "---";
-=======
-            this.lblCapacity.Size = new System.Drawing.Size(19, 13);
-            this.lblCapacity.TabIndex = 25;
-            this.lblCapacity.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblCapacity.Size = new System.Drawing.Size(19, 13);
-            this.lblCapacity.TabIndex = 25;
-            this.lblCapacity.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblCapacity.Text = "label13";
             // 
             // lblInterface
             // 
             this.lblInterface.AutoSize = true;
             this.lblInterface.Location = new System.Drawing.Point(165, 98);
             this.lblInterface.Name = "lblInterface";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblInterface.Size = new System.Drawing.Size(16, 13);
+            this.lblInterface.Size = new System.Drawing.Size(41, 13);
             this.lblInterface.TabIndex = 24;
-            this.lblInterface.Text = "---";
-=======
-            this.lblInterface.Size = new System.Drawing.Size(19, 13);
-            this.lblInterface.TabIndex = 24;
-            this.lblInterface.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblInterface.Size = new System.Drawing.Size(19, 13);
-            this.lblInterface.TabIndex = 24;
-            this.lblInterface.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblInterface.Text = "label12";
             // 
             // lblModel
             // 
             this.lblModel.AutoSize = true;
             this.lblModel.Location = new System.Drawing.Point(165, 52);
             this.lblModel.Name = "lblModel";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblModel.Size = new System.Drawing.Size(16, 13);
+            this.lblModel.Size = new System.Drawing.Size(41, 13);
             this.lblModel.TabIndex = 23;
-            this.lblModel.Text = "---";
-=======
-            this.lblModel.Size = new System.Drawing.Size(19, 13);
-            this.lblModel.TabIndex = 23;
-            this.lblModel.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblModel.Size = new System.Drawing.Size(19, 13);
-            this.lblModel.TabIndex = 23;
-            this.lblModel.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblModel.Text = "label11";
             // 
             // lblSerial
             // 
             this.lblSerial.AutoSize = true;
             this.lblSerial.Location = new System.Drawing.Point(165, 76);
             this.lblSerial.Name = "lblSerial";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.lblSerial.Size = new System.Drawing.Size(16, 13);
+            this.lblSerial.Size = new System.Drawing.Size(33, 13);
             this.lblSerial.TabIndex = 22;
-            this.lblSerial.Text = "---";
-=======
-            this.lblSerial.Size = new System.Drawing.Size(19, 13);
-            this.lblSerial.TabIndex = 22;
-            this.lblSerial.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.lblSerial.Size = new System.Drawing.Size(19, 13);
-            this.lblSerial.TabIndex = 22;
-            this.lblSerial.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.lblSerial.Text = "Serial";
             // 
             // phyDiskComBox
             // 
@@ -714,21 +741,9 @@
             this.dStatLbl.AutoSize = true;
             this.dStatLbl.Location = new System.Drawing.Point(163, 211);
             this.dStatLbl.Name = "dStatLbl";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.dStatLbl.Size = new System.Drawing.Size(16, 13);
+            this.dStatLbl.Size = new System.Drawing.Size(37, 13);
             this.dStatLbl.TabIndex = 18;
-            this.dStatLbl.Text = "---";
-=======
-            this.dStatLbl.Size = new System.Drawing.Size(19, 13);
-            this.dStatLbl.TabIndex = 18;
-            this.dStatLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.dStatLbl.Size = new System.Drawing.Size(19, 13);
-            this.dStatLbl.TabIndex = 18;
-            this.dStatLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.dStatLbl.Text = "Status";
             // 
             // hdlb15
             // 
@@ -762,21 +777,9 @@
             this.totAvaLbl.AutoSize = true;
             this.totAvaLbl.Location = new System.Drawing.Point(163, 189);
             this.totAvaLbl.Name = "totAvaLbl";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.totAvaLbl.Size = new System.Drawing.Size(16, 13);
+            this.totAvaLbl.Size = new System.Drawing.Size(50, 13);
             this.totAvaLbl.TabIndex = 16;
-            this.totAvaLbl.Text = "---";
-=======
-            this.totAvaLbl.Size = new System.Drawing.Size(19, 13);
-            this.totAvaLbl.TabIndex = 16;
-            this.totAvaLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.totAvaLbl.Size = new System.Drawing.Size(19, 13);
-            this.totAvaLbl.TabIndex = 16;
-            this.totAvaLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.totAvaLbl.Text = "Available";
             // 
             // hdlb17
             // 
@@ -792,21 +795,9 @@
             this.totFreeLbl.AutoSize = true;
             this.totFreeLbl.Location = new System.Drawing.Point(163, 166);
             this.totFreeLbl.Name = "totFreeLbl";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.totFreeLbl.Size = new System.Drawing.Size(16, 13);
+            this.totFreeLbl.Size = new System.Drawing.Size(28, 13);
             this.totFreeLbl.TabIndex = 15;
-            this.totFreeLbl.Text = "---";
-=======
-            this.totFreeLbl.Size = new System.Drawing.Size(19, 13);
-            this.totFreeLbl.TabIndex = 15;
-            this.totFreeLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.totFreeLbl.Size = new System.Drawing.Size(19, 13);
-            this.totFreeLbl.TabIndex = 15;
-            this.totFreeLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.totFreeLbl.Text = "Free";
             // 
             // hdlb18
             // 
@@ -822,21 +813,9 @@
             this.totSizeLbl.AutoSize = true;
             this.totSizeLbl.Location = new System.Drawing.Point(163, 143);
             this.totSizeLbl.Name = "totSizeLbl";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.totSizeLbl.Size = new System.Drawing.Size(16, 13);
+            this.totSizeLbl.Size = new System.Drawing.Size(27, 13);
             this.totSizeLbl.TabIndex = 14;
-            this.totSizeLbl.Text = "---";
-=======
-            this.totSizeLbl.Size = new System.Drawing.Size(19, 13);
-            this.totSizeLbl.TabIndex = 14;
-            this.totSizeLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.totSizeLbl.Size = new System.Drawing.Size(19, 13);
-            this.totSizeLbl.TabIndex = 14;
-            this.totSizeLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.totSizeLbl.Text = "Size";
             // 
             // hdlb19
             // 
@@ -852,21 +831,9 @@
             this.dFormatLbl.AutoSize = true;
             this.dFormatLbl.Location = new System.Drawing.Point(163, 121);
             this.dFormatLbl.Name = "dFormatLbl";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.dFormatLbl.Size = new System.Drawing.Size(16, 13);
+            this.dFormatLbl.Size = new System.Drawing.Size(39, 13);
             this.dFormatLbl.TabIndex = 13;
-            this.dFormatLbl.Text = "---";
-=======
-            this.dFormatLbl.Size = new System.Drawing.Size(19, 13);
-            this.dFormatLbl.TabIndex = 13;
-            this.dFormatLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.dFormatLbl.Size = new System.Drawing.Size(19, 13);
-            this.dFormatLbl.TabIndex = 13;
-            this.dFormatLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.dFormatLbl.Text = "Format";
             // 
             // hdlb20
             // 
@@ -882,21 +849,9 @@
             this.dTypeLbl.AutoSize = true;
             this.dTypeLbl.Location = new System.Drawing.Point(163, 99);
             this.dTypeLbl.Name = "dTypeLbl";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.dTypeLbl.Size = new System.Drawing.Size(16, 13);
+            this.dTypeLbl.Size = new System.Drawing.Size(31, 13);
             this.dTypeLbl.TabIndex = 12;
-            this.dTypeLbl.Text = "---";
-=======
-            this.dTypeLbl.Size = new System.Drawing.Size(19, 13);
-            this.dTypeLbl.TabIndex = 12;
-            this.dTypeLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.dTypeLbl.Size = new System.Drawing.Size(19, 13);
-            this.dTypeLbl.TabIndex = 12;
-            this.dTypeLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.dTypeLbl.Text = "Type";
             // 
             // hdlb21
             // 
@@ -912,42 +867,18 @@
             this.volLbl.AutoSize = true;
             this.volLbl.Location = new System.Drawing.Point(163, 77);
             this.volLbl.Name = "volLbl";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.volLbl.Size = new System.Drawing.Size(16, 13);
+            this.volLbl.Size = new System.Drawing.Size(42, 13);
             this.volLbl.TabIndex = 11;
-            this.volLbl.Text = "---";
-=======
-            this.volLbl.Size = new System.Drawing.Size(19, 13);
-            this.volLbl.TabIndex = 11;
-            this.volLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.volLbl.Size = new System.Drawing.Size(19, 13);
-            this.volLbl.TabIndex = 11;
-            this.volLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.volLbl.Text = "Volume";
             // 
             // dNameLbl
             // 
             this.dNameLbl.AutoSize = true;
             this.dNameLbl.Location = new System.Drawing.Point(163, 53);
             this.dNameLbl.Name = "dNameLbl";
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
-            this.dNameLbl.Size = new System.Drawing.Size(16, 13);
+            this.dNameLbl.Size = new System.Drawing.Size(35, 13);
             this.dNameLbl.TabIndex = 10;
-            this.dNameLbl.Text = "---";
-=======
-            this.dNameLbl.Size = new System.Drawing.Size(19, 13);
-            this.dNameLbl.TabIndex = 10;
-            this.dNameLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
-=======
-            this.dNameLbl.Size = new System.Drawing.Size(19, 13);
-            this.dNameLbl.TabIndex = 10;
-            this.dNameLbl.Text = "----";
->>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
+            this.dNameLbl.Text = "Name";
             // 
             // xtraFuncGBox
             // 
@@ -982,33 +913,81 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button4);
+            this.tabPage4.Controls.Add(this.button5);
+            this.tabPage4.Controls.Add(this.listBox1);
+            this.tabPage4.Controls.Add(this.label39);
+            this.tabPage4.Controls.Add(this.button6);
+            this.tabPage4.Controls.Add(this.label38);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(797, 537);
+            this.tabPage4.Size = new System.Drawing.Size(854, 537);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Network";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // processName
+            // listBox1
             // 
-            this.processName.AutoSize = true;
-            this.processName.Location = new System.Drawing.Point(376, 15);
-            this.processName.Name = "processName";
-            this.processName.Size = new System.Drawing.Size(62, 13);
-            this.processName.TabIndex = 10;
-            this.processName.Text = "Monitoring :";
-            this.processName.Visible = false;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(243, 234);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(411, 186);
+            this.listBox1.TabIndex = 11;
+            this.listBox1.Visible = false;
             // 
-            // processNameValue
+            // label39
             // 
-            this.processNameValue.AutoSize = true;
-            this.processNameValue.Location = new System.Drawing.Point(445, 14);
-            this.processNameValue.Name = "processNameValue";
-            this.processNameValue.Size = new System.Drawing.Size(35, 13);
-            this.processNameValue.TabIndex = 11;
-            this.processNameValue.Text = "label1";
-            this.processNameValue.Visible = false;
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(192, 180);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(279, 20);
+            this.label39.TabIndex = 10;
+            this.label39.Text = "Total No of network Interfaces found : ";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(146, 116);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(204, 24);
+            this.label38.TabIndex = 8;
+            this.label38.Text = "Interface Information for";
+            // 
+            // button4
+            // 
+            this.button4.Image = global::ACRM.Properties.Resources.pausei;
+            this.button4.Location = new System.Drawing.Point(633, 176);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 31);
+            this.button4.TabIndex = 13;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Image = global::ACRM.Properties.Resources.playiv;
+            this.button5.Location = new System.Drawing.Point(537, 176);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 31);
+            this.button5.TabIndex = 12;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Image = global::ACRM.Properties.Resources.searchii;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button6.Location = new System.Drawing.Point(603, 116);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(79, 37);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "Search";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // ACRMForm
             // 
@@ -1024,14 +1003,18 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.phyDiskInfGBox.ResumeLayout(false);
             this.phyDiskInfGBox.PerformLayout();
             this.volInfGBox.ResumeLayout(false);
             this.volInfGBox.PerformLayout();
             this.xtraFuncGBox.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -1098,6 +1081,26 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart cpuChart;
         private System.Windows.Forms.Label processNameValue;
         private System.Windows.Forms.Label processName;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        public System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label38;
     }
 }
 
