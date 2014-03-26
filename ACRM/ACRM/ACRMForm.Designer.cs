@@ -376,9 +376,15 @@
             this.lblSig.Location = new System.Drawing.Point(165, 165);
             this.lblSig.Name = "lblSig";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblSig.Size = new System.Drawing.Size(16, 13);
             this.lblSig.TabIndex = 35;
             this.lblSig.Text = "---";
+=======
+            this.lblSig.Size = new System.Drawing.Size(19, 13);
+            this.lblSig.TabIndex = 35;
+            this.lblSig.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblSig.Size = new System.Drawing.Size(19, 13);
             this.lblSig.TabIndex = 35;
@@ -391,9 +397,15 @@
             this.lblTrackPerCyl.Location = new System.Drawing.Point(165, 347);
             this.lblTrackPerCyl.Name = "lblTrackPerCyl";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblTrackPerCyl.Size = new System.Drawing.Size(16, 13);
             this.lblTrackPerCyl.TabIndex = 34;
             this.lblTrackPerCyl.Text = "---";
+=======
+            this.lblTrackPerCyl.Size = new System.Drawing.Size(19, 13);
+            this.lblTrackPerCyl.TabIndex = 34;
+            this.lblTrackPerCyl.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblTrackPerCyl.Size = new System.Drawing.Size(19, 13);
             this.lblTrackPerCyl.TabIndex = 34;
@@ -406,9 +418,15 @@
             this.lblSecPerTrack.Location = new System.Drawing.Point(165, 324);
             this.lblSecPerTrack.Name = "lblSecPerTrack";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblSecPerTrack.Size = new System.Drawing.Size(16, 13);
             this.lblSecPerTrack.TabIndex = 33;
             this.lblSecPerTrack.Text = "---";
+=======
+            this.lblSecPerTrack.Size = new System.Drawing.Size(19, 13);
+            this.lblSecPerTrack.TabIndex = 33;
+            this.lblSecPerTrack.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblSecPerTrack.Size = new System.Drawing.Size(19, 13);
             this.lblSecPerTrack.TabIndex = 33;
@@ -421,9 +439,15 @@
             this.lblBperSec.Location = new System.Drawing.Point(165, 302);
             this.lblBperSec.Name = "lblBperSec";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblBperSec.Size = new System.Drawing.Size(16, 13);
             this.lblBperSec.TabIndex = 32;
             this.lblBperSec.Text = "---";
+=======
+            this.lblBperSec.Size = new System.Drawing.Size(19, 13);
+            this.lblBperSec.TabIndex = 32;
+            this.lblBperSec.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblBperSec.Size = new System.Drawing.Size(19, 13);
             this.lblBperSec.TabIndex = 32;
@@ -436,9 +460,15 @@
             this.lblTracks.Location = new System.Drawing.Point(165, 279);
             this.lblTracks.Name = "lblTracks";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblTracks.Size = new System.Drawing.Size(16, 13);
             this.lblTracks.TabIndex = 31;
             this.lblTracks.Text = "---";
+=======
+            this.lblTracks.Size = new System.Drawing.Size(19, 13);
+            this.lblTracks.TabIndex = 31;
+            this.lblTracks.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblTracks.Size = new System.Drawing.Size(19, 13);
             this.lblTracks.TabIndex = 31;
@@ -451,9 +481,15 @@
             this.lblHeads.Location = new System.Drawing.Point(165, 257);
             this.lblHeads.Name = "lblHeads";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblHeads.Size = new System.Drawing.Size(16, 13);
             this.lblHeads.TabIndex = 30;
             this.lblHeads.Text = "---";
+=======
+            this.lblHeads.Size = new System.Drawing.Size(19, 13);
+            this.lblHeads.TabIndex = 30;
+            this.lblHeads.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblHeads.Size = new System.Drawing.Size(19, 13);
             this.lblHeads.TabIndex = 30;
@@ -466,9 +502,15 @@
             this.lblSectors.Location = new System.Drawing.Point(165, 235);
             this.lblSectors.Name = "lblSectors";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblSectors.Size = new System.Drawing.Size(16, 13);
             this.lblSectors.TabIndex = 29;
             this.lblSectors.Text = "---";
+=======
+            this.lblSectors.Size = new System.Drawing.Size(19, 13);
+            this.lblSectors.TabIndex = 29;
+            this.lblSectors.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblSectors.Size = new System.Drawing.Size(19, 13);
             this.lblSectors.TabIndex = 29;
@@ -481,9 +523,15 @@
             this.lblCylinder.Location = new System.Drawing.Point(165, 210);
             this.lblCylinder.Name = "lblCylinder";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblCylinder.Size = new System.Drawing.Size(16, 13);
             this.lblCylinder.TabIndex = 28;
             this.lblCylinder.Text = "---";
+=======
+            this.lblCylinder.Size = new System.Drawing.Size(19, 13);
+            this.lblCylinder.TabIndex = 28;
+            this.lblCylinder.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblCylinder.Size = new System.Drawing.Size(19, 13);
             this.lblCylinder.TabIndex = 28;
@@ -496,9 +544,15 @@
             this.lblFirmware.Location = new System.Drawing.Point(165, 188);
             this.lblFirmware.Name = "lblFirmware";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblFirmware.Size = new System.Drawing.Size(16, 13);
             this.lblFirmware.TabIndex = 27;
             this.lblFirmware.Text = "---";
+=======
+            this.lblFirmware.Size = new System.Drawing.Size(19, 13);
+            this.lblFirmware.TabIndex = 27;
+            this.lblFirmware.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblFirmware.Size = new System.Drawing.Size(19, 13);
             this.lblFirmware.TabIndex = 27;
@@ -511,9 +565,15 @@
             this.lblPartitions.Location = new System.Drawing.Point(165, 142);
             this.lblPartitions.Name = "lblPartitions";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblPartitions.Size = new System.Drawing.Size(16, 13);
             this.lblPartitions.TabIndex = 26;
             this.lblPartitions.Text = "---";
+=======
+            this.lblPartitions.Size = new System.Drawing.Size(19, 13);
+            this.lblPartitions.TabIndex = 26;
+            this.lblPartitions.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblPartitions.Size = new System.Drawing.Size(19, 13);
             this.lblPartitions.TabIndex = 26;
@@ -526,9 +586,15 @@
             this.lblCapacity.Location = new System.Drawing.Point(165, 120);
             this.lblCapacity.Name = "lblCapacity";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblCapacity.Size = new System.Drawing.Size(16, 13);
             this.lblCapacity.TabIndex = 25;
             this.lblCapacity.Text = "---";
+=======
+            this.lblCapacity.Size = new System.Drawing.Size(19, 13);
+            this.lblCapacity.TabIndex = 25;
+            this.lblCapacity.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblCapacity.Size = new System.Drawing.Size(19, 13);
             this.lblCapacity.TabIndex = 25;
@@ -541,9 +607,15 @@
             this.lblInterface.Location = new System.Drawing.Point(165, 98);
             this.lblInterface.Name = "lblInterface";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblInterface.Size = new System.Drawing.Size(16, 13);
             this.lblInterface.TabIndex = 24;
             this.lblInterface.Text = "---";
+=======
+            this.lblInterface.Size = new System.Drawing.Size(19, 13);
+            this.lblInterface.TabIndex = 24;
+            this.lblInterface.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblInterface.Size = new System.Drawing.Size(19, 13);
             this.lblInterface.TabIndex = 24;
@@ -556,9 +628,15 @@
             this.lblModel.Location = new System.Drawing.Point(165, 52);
             this.lblModel.Name = "lblModel";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblModel.Size = new System.Drawing.Size(16, 13);
             this.lblModel.TabIndex = 23;
             this.lblModel.Text = "---";
+=======
+            this.lblModel.Size = new System.Drawing.Size(19, 13);
+            this.lblModel.TabIndex = 23;
+            this.lblModel.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblModel.Size = new System.Drawing.Size(19, 13);
             this.lblModel.TabIndex = 23;
@@ -571,9 +649,15 @@
             this.lblSerial.Location = new System.Drawing.Point(165, 76);
             this.lblSerial.Name = "lblSerial";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.lblSerial.Size = new System.Drawing.Size(16, 13);
             this.lblSerial.TabIndex = 22;
             this.lblSerial.Text = "---";
+=======
+            this.lblSerial.Size = new System.Drawing.Size(19, 13);
+            this.lblSerial.TabIndex = 22;
+            this.lblSerial.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.lblSerial.Size = new System.Drawing.Size(19, 13);
             this.lblSerial.TabIndex = 22;
@@ -631,9 +715,15 @@
             this.dStatLbl.Location = new System.Drawing.Point(163, 211);
             this.dStatLbl.Name = "dStatLbl";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.dStatLbl.Size = new System.Drawing.Size(16, 13);
             this.dStatLbl.TabIndex = 18;
             this.dStatLbl.Text = "---";
+=======
+            this.dStatLbl.Size = new System.Drawing.Size(19, 13);
+            this.dStatLbl.TabIndex = 18;
+            this.dStatLbl.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.dStatLbl.Size = new System.Drawing.Size(19, 13);
             this.dStatLbl.TabIndex = 18;
@@ -673,9 +763,15 @@
             this.totAvaLbl.Location = new System.Drawing.Point(163, 189);
             this.totAvaLbl.Name = "totAvaLbl";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.totAvaLbl.Size = new System.Drawing.Size(16, 13);
             this.totAvaLbl.TabIndex = 16;
             this.totAvaLbl.Text = "---";
+=======
+            this.totAvaLbl.Size = new System.Drawing.Size(19, 13);
+            this.totAvaLbl.TabIndex = 16;
+            this.totAvaLbl.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.totAvaLbl.Size = new System.Drawing.Size(19, 13);
             this.totAvaLbl.TabIndex = 16;
@@ -697,9 +793,15 @@
             this.totFreeLbl.Location = new System.Drawing.Point(163, 166);
             this.totFreeLbl.Name = "totFreeLbl";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.totFreeLbl.Size = new System.Drawing.Size(16, 13);
             this.totFreeLbl.TabIndex = 15;
             this.totFreeLbl.Text = "---";
+=======
+            this.totFreeLbl.Size = new System.Drawing.Size(19, 13);
+            this.totFreeLbl.TabIndex = 15;
+            this.totFreeLbl.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.totFreeLbl.Size = new System.Drawing.Size(19, 13);
             this.totFreeLbl.TabIndex = 15;
@@ -721,9 +823,15 @@
             this.totSizeLbl.Location = new System.Drawing.Point(163, 143);
             this.totSizeLbl.Name = "totSizeLbl";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.totSizeLbl.Size = new System.Drawing.Size(16, 13);
             this.totSizeLbl.TabIndex = 14;
             this.totSizeLbl.Text = "---";
+=======
+            this.totSizeLbl.Size = new System.Drawing.Size(19, 13);
+            this.totSizeLbl.TabIndex = 14;
+            this.totSizeLbl.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.totSizeLbl.Size = new System.Drawing.Size(19, 13);
             this.totSizeLbl.TabIndex = 14;
@@ -745,9 +853,15 @@
             this.dFormatLbl.Location = new System.Drawing.Point(163, 121);
             this.dFormatLbl.Name = "dFormatLbl";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.dFormatLbl.Size = new System.Drawing.Size(16, 13);
             this.dFormatLbl.TabIndex = 13;
             this.dFormatLbl.Text = "---";
+=======
+            this.dFormatLbl.Size = new System.Drawing.Size(19, 13);
+            this.dFormatLbl.TabIndex = 13;
+            this.dFormatLbl.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.dFormatLbl.Size = new System.Drawing.Size(19, 13);
             this.dFormatLbl.TabIndex = 13;
@@ -769,9 +883,15 @@
             this.dTypeLbl.Location = new System.Drawing.Point(163, 99);
             this.dTypeLbl.Name = "dTypeLbl";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.dTypeLbl.Size = new System.Drawing.Size(16, 13);
             this.dTypeLbl.TabIndex = 12;
             this.dTypeLbl.Text = "---";
+=======
+            this.dTypeLbl.Size = new System.Drawing.Size(19, 13);
+            this.dTypeLbl.TabIndex = 12;
+            this.dTypeLbl.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.dTypeLbl.Size = new System.Drawing.Size(19, 13);
             this.dTypeLbl.TabIndex = 12;
@@ -793,9 +913,15 @@
             this.volLbl.Location = new System.Drawing.Point(163, 77);
             this.volLbl.Name = "volLbl";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.volLbl.Size = new System.Drawing.Size(16, 13);
             this.volLbl.TabIndex = 11;
             this.volLbl.Text = "---";
+=======
+            this.volLbl.Size = new System.Drawing.Size(19, 13);
+            this.volLbl.TabIndex = 11;
+            this.volLbl.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.volLbl.Size = new System.Drawing.Size(19, 13);
             this.volLbl.TabIndex = 11;
@@ -808,9 +934,15 @@
             this.dNameLbl.Location = new System.Drawing.Point(163, 53);
             this.dNameLbl.Name = "dNameLbl";
 <<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
+<<<<<<< HEAD:ACRM/ACRM/ACRMForm.Designer.cs
             this.dNameLbl.Size = new System.Drawing.Size(16, 13);
             this.dNameLbl.TabIndex = 10;
             this.dNameLbl.Text = "---";
+=======
+            this.dNameLbl.Size = new System.Drawing.Size(19, 13);
+            this.dNameLbl.TabIndex = 10;
+            this.dNameLbl.Text = "----";
+>>>>>>> 617b520078dc133d7b90c7b7dc2b12260abd04fc:ACRM/ACRM/Form1.Designer.cs
 =======
             this.dNameLbl.Size = new System.Drawing.Size(19, 13);
             this.dNameLbl.TabIndex = 10;
