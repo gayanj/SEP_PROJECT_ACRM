@@ -77,6 +77,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form2.Designer.cs" />
+    <Compile Include="HDisk\DirSizeExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HDisk\DirSizeExplorer.Designer.cs">
+      <DependentUpon>DirSizeExplorer.cs</DependentUpon>
+    </Compile>
     <Compile Include="HDisk\DiskPerformance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx" />
     <EmbeddedResource Include="Form2.resx" />
+    <EmbeddedResource Include="HDisk\DirSizeExplorer.resx">
+      <DependentUpon>DirSizeExplorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HDisk\DiskPerformance.resx">
       <DependentUpon>DiskPerformance.cs</DependentUpon>
     </EmbeddedResource>

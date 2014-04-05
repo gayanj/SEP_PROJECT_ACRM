@@ -550,6 +550,13 @@ namespace ACRM
         {
             monitoring = false;
         }
+
+        private void btnDirExplorer_Click(object sender, EventArgs e)
+        {
+            DirSizeExplorer dse = new DirSizeExplorer();
+            dse.Show();
+            dse.Focus();
+        }
     }
 }
 

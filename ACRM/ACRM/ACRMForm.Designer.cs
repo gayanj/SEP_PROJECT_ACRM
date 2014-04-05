@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.processNameValue = new System.Windows.Forms.Label();
@@ -109,12 +109,13 @@
             this.btnDiskPerf = new System.Windows.Forms.Button();
             this.fileSysMonBtn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label39 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
+            this.label38 = new System.Windows.Forms.Label();
+            this.btnDirExplorer = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
@@ -183,10 +184,10 @@
             this.cpuChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea5.Name = "ChartArea1";
-            this.cpuChart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.cpuChart.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.cpuChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.cpuChart.Legends.Add(legend1);
             this.cpuChart.Location = new System.Drawing.Point(376, 35);
             this.cpuChart.Name = "cpuChart";
             this.cpuChart.Size = new System.Drawing.Size(470, 494);
@@ -373,16 +374,16 @@
             // 
             // chart1
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(22, 6);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(777, 282);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -882,6 +883,7 @@
             // 
             // xtraFuncGBox
             // 
+            this.xtraFuncGBox.Controls.Add(this.btnDirExplorer);
             this.xtraFuncGBox.Controls.Add(this.btnDiskPerf);
             this.xtraFuncGBox.Controls.Add(this.fileSysMonBtn);
             this.xtraFuncGBox.Location = new System.Drawing.Point(411, 257);
@@ -927,35 +929,6 @@
             this.tabPage4.Text = "Network";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(243, 234);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(411, 186);
-            this.listBox1.TabIndex = 11;
-            this.listBox1.Visible = false;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(192, 180);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(279, 20);
-            this.label39.TabIndex = 10;
-            this.label39.Text = "Total No of network Interfaces found : ";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(146, 116);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(204, 24);
-            this.label38.TabIndex = 8;
-            this.label38.Text = "Interface Information for";
-            // 
             // button4
             // 
             this.button4.Image = global::ACRM.Properties.Resources.pausei;
@@ -976,6 +949,25 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(243, 234);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(411, 186);
+            this.listBox1.TabIndex = 11;
+            this.listBox1.Visible = false;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(192, 180);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(279, 20);
+            this.label39.TabIndex = 10;
+            this.label39.Text = "Total No of network Interfaces found : ";
+            // 
             // button6
             // 
             this.button6.Image = global::ACRM.Properties.Resources.searchii;
@@ -988,6 +980,26 @@
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(146, 116);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(204, 24);
+            this.label38.TabIndex = 8;
+            this.label38.Text = "Interface Information for";
+            // 
+            // btnDirExplorer
+            // 
+            this.btnDirExplorer.Location = new System.Drawing.Point(7, 121);
+            this.btnDirExplorer.Name = "btnDirExplorer";
+            this.btnDirExplorer.Size = new System.Drawing.Size(142, 30);
+            this.btnDirExplorer.TabIndex = 2;
+            this.btnDirExplorer.Text = "Dir Explorer";
+            this.btnDirExplorer.UseVisualStyleBackColor = true;
+            this.btnDirExplorer.Click += new System.EventHandler(this.btnDirExplorer_Click);
             // 
             // ACRMForm
             // 
@@ -1015,6 +1027,7 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -1101,6 +1114,7 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button btnDirExplorer;
     }
 }
 
