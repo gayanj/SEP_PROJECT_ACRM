@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.label1 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -84,6 +84,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.HDchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblElapsedTime = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -245,7 +246,7 @@
             this.groupBox1.Controls.Add(this.lblDiskReads);
             this.groupBox1.Controls.Add(this.lblDiskWrites);
             this.groupBox1.Controls.Add(this.lblDiskTrans);
-            this.groupBox1.Location = new System.Drawing.Point(12, 41);
+            this.groupBox1.Location = new System.Drawing.Point(12, 299);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(444, 133);
             this.groupBox1.TabIndex = 15;
@@ -330,9 +331,9 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.lblDiskWriteBytes);
             this.groupBox2.Controls.Add(this.lblDiskTransByte);
-            this.groupBox2.Location = new System.Drawing.Point(12, 180);
+            this.groupBox2.Location = new System.Drawing.Point(459, 301);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(444, 115);
+            this.groupBox2.Size = new System.Drawing.Size(425, 131);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "I/O Bytes/Sec";
@@ -401,9 +402,9 @@
             this.groupBox3.Controls.Add(this.lblCurrQLen);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Location = new System.Drawing.Point(12, 302);
+            this.groupBox3.Location = new System.Drawing.Point(12, 438);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(444, 96);
+            this.groupBox3.Size = new System.Drawing.Size(444, 105);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Disk Queue";
@@ -492,9 +493,9 @@
             this.groupBox4.Controls.Add(this.label20);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Location = new System.Drawing.Point(462, 302);
+            this.groupBox4.Location = new System.Drawing.Point(462, 438);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(444, 96);
+            this.groupBox4.Size = new System.Drawing.Size(422, 105);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Disk Times";
@@ -593,9 +594,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 407);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 549);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(915, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(894, 22);
             this.statusStrip1.TabIndex = 20;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -608,32 +609,46 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.HDchart);
-            this.groupBox5.Location = new System.Drawing.Point(462, 41);
+            this.groupBox5.Location = new System.Drawing.Point(12, 41);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(444, 254);
+            this.groupBox5.Size = new System.Drawing.Size(872, 254);
             this.groupBox5.TabIndex = 21;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "% Idle Time Graph";
+            this.groupBox5.Text = "% Disk Times";
             // 
             // HDchart
             // 
             chartArea1.Name = "ChartArea1";
             this.HDchart.ChartAreas.Add(chartArea1);
-            this.HDchart.Location = new System.Drawing.Point(9, 19);
+            legend1.Name = "Legend1";
+            this.HDchart.Legends.Add(legend1);
+            this.HDchart.Location = new System.Drawing.Point(9, 20);
             this.HDchart.Name = "HDchart";
-            series1.ChartArea = "ChartArea1";
-            series1.Name = "Series1";
-            this.HDchart.Series.Add(series1);
-            this.HDchart.Size = new System.Drawing.Size(429, 229);
+            this.HDchart.Size = new System.Drawing.Size(857, 228);
             this.HDchart.TabIndex = 0;
             this.HDchart.Text = "chart1";
+            // 
+            // lblElapsedTime
+            // 
+            this.lblElapsedTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblElapsedTime.AutoSize = true;
+            this.lblElapsedTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblElapsedTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblElapsedTime.ForeColor = System.Drawing.Color.Red;
+            this.lblElapsedTime.Location = new System.Drawing.Point(767, 12);
+            this.lblElapsedTime.Name = "lblElapsedTime";
+            this.lblElapsedTime.Size = new System.Drawing.Size(35, 27);
+            this.lblElapsedTime.TabIndex = 22;
+            this.lblElapsedTime.Text = "   ";
+            this.lblElapsedTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DiskPerformance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(915, 429);
+            this.ClientSize = new System.Drawing.Size(894, 571);
+            this.Controls.Add(this.lblElapsedTime);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
@@ -642,8 +657,8 @@
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnStart);
-            this.MaximumSize = new System.Drawing.Size(931, 467);
-            this.MinimumSize = new System.Drawing.Size(931, 467);
+            this.MaximumSize = new System.Drawing.Size(910, 610);
+            this.MinimumSize = new System.Drawing.Size(910, 610);
             this.Name = "DiskPerformance";
             this.Text = "DiskPerformance";
             this.Load += new System.EventHandler(this.DiskPerformance_Load);
@@ -720,5 +735,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataVisualization.Charting.Chart HDchart;
+        private System.Windows.Forms.Label lblElapsedTime;
     }
 }
