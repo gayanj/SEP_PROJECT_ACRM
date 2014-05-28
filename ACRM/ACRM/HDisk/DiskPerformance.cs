@@ -1,10 +1,13 @@
-﻿using System;
+﻿using ACRM.HDisk.IntelliMon;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -29,34 +32,36 @@ namespace ACRM.HDisk
         private void DiskPerformance_Load(object sender, EventArgs e)
         {
             stopW = new Stopwatch();
-            btnStop.Enabled = false;
-            toolStripStatusLabel1.Text = "Ready To Begain";
-            statusStrip1.Refresh();
-
             recordTable = new DataTable("Disk Data Records");
 
-            this.setTableChart();
-        }
+            btnStop.Enabled = false;
 
+            toolStripStatusLabel1.Text = "Ready To Begain";
+            statusStrip1.Refresh();            
+
+            this.setTableChart();
+            this.fillHostList();
+        }
+                
         //Start Monitoring
         private void btnStart_Click(object sender, EventArgs e)
         {
-            btnStop.Enabled = true;
-            btnStart.Enabled = false;
+            perfCountObj = new PerfCounterHD(hostListComboBox.SelectedItem.ToString());
 
-            perfCountObj = new PerfCounterHD();
+            btnStop.Enabled = true;
+            btnStart.Enabled = false;            
 
             lblTransMax.Text = "0.0";
             toolStripStatusLabel1.Text = "Currently Monitoring";
             statusStrip1.Refresh();
 
-            stopW.Start();
+            stopW.Start(); //ready the clock
 
             timer = new Timer { Enabled = true, Interval = 1000 };
             timer.Tick += t_Tick;
         }
 
-        //Update Labels and the Graph every 1 Second Interval
+        //Update Labels, the Graph at 1 Second Interval
         void t_Tick(object sender, EventArgs e)
         {
             lblElapsedTime.Text = stopW.Elapsed.ToString().Substring(0, 8);
@@ -177,5 +182,21 @@ namespace ACRM.HDisk
             timer.Dispose();
         }
 
+        private void fillHostList()
+        {
+            string hostName = Dns.GetHostName();
+            IPHostEntry IPhostentry = Dns.GetHostEntry(hostName);
+
+            foreach (IPAddress ipAdd in IPhostentry.AddressList)
+            {
+                if (ipAdd.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    IPHostEntry remoteAdd = Dns.GetHostEntry(ipAdd);
+                    hostListComboBox.Items.Add(remoteAdd.HostName);
+                }
+            }
+
+            hostListComboBox.SelectedIndex = 0;
+        }
     }
 }

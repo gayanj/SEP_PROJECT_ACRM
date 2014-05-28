@@ -96,6 +96,7 @@
     <Compile Include="HDisk\FileSysMonForm.Designer.cs">
       <DependentUpon>FileSysMonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HDisk\IntelliMon\DiskDataHandler.cs" />
     <Compile Include="HDisk\PerfCounterHD.cs" />
     <Compile Include="HDisk\WMIConn.cs" />
     <Compile Include="HDisk\WMIDisk.cs" />

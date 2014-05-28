@@ -85,6 +85,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.HDchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblElapsedTime = new System.Windows.Forms.Label();
+            this.hostListComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -642,12 +643,21 @@
             this.lblElapsedTime.Text = "   ";
             this.lblElapsedTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // hostListComboBox
+            // 
+            this.hostListComboBox.FormattingEnabled = true;
+            this.hostListComboBox.Location = new System.Drawing.Point(174, 14);
+            this.hostListComboBox.Name = "hostListComboBox";
+            this.hostListComboBox.Size = new System.Drawing.Size(156, 21);
+            this.hostListComboBox.TabIndex = 23;
+            // 
             // DiskPerformance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(894, 571);
+            this.Controls.Add(this.hostListComboBox);
             this.Controls.Add(this.lblElapsedTime);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.statusStrip1);
@@ -736,5 +746,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataVisualization.Charting.Chart HDchart;
         private System.Windows.Forms.Label lblElapsedTime;
+        private System.Windows.Forms.ComboBox hostListComboBox;
     }
 }
