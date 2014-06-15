@@ -86,6 +86,14 @@
             this.HDchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblElapsedTime = new System.Windows.Forms.Label();
             this.hostListComboBox = new System.Windows.Forms.ComboBox();
+            this.btnIdleTime = new System.Windows.Forms.Button();
+            this.btnDiskTime = new System.Windows.Forms.Button();
+            this.btnDiskQueue = new System.Windows.Forms.Button();
+            this.btnAvgTrans = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -137,27 +145,27 @@
             this.lblDiskReads.AutoSize = true;
             this.lblDiskReads.Location = new System.Drawing.Point(135, 25);
             this.lblDiskReads.Name = "lblDiskReads";
-            this.lblDiskReads.Size = new System.Drawing.Size(35, 13);
+            this.lblDiskReads.Size = new System.Drawing.Size(10, 13);
             this.lblDiskReads.TabIndex = 4;
-            this.lblDiskReads.Text = "label4";
+            this.lblDiskReads.Text = "-";
             // 
             // lblDiskWrites
             // 
             this.lblDiskWrites.AutoSize = true;
             this.lblDiskWrites.Location = new System.Drawing.Point(135, 47);
             this.lblDiskWrites.Name = "lblDiskWrites";
-            this.lblDiskWrites.Size = new System.Drawing.Size(35, 13);
+            this.lblDiskWrites.Size = new System.Drawing.Size(10, 13);
             this.lblDiskWrites.TabIndex = 5;
-            this.lblDiskWrites.Text = "label4";
+            this.lblDiskWrites.Text = "-";
             // 
             // lblDiskTrans
             // 
             this.lblDiskTrans.AutoSize = true;
             this.lblDiskTrans.Location = new System.Drawing.Point(135, 71);
             this.lblDiskTrans.Name = "lblDiskTrans";
-            this.lblDiskTrans.Size = new System.Drawing.Size(35, 13);
+            this.lblDiskTrans.Size = new System.Drawing.Size(10, 13);
             this.lblDiskTrans.TabIndex = 6;
-            this.lblDiskTrans.Text = "label4";
+            this.lblDiskTrans.Text = "-";
             // 
             // label4
             // 
@@ -173,9 +181,9 @@
             this.lblDiskReadsBytes.AutoSize = true;
             this.lblDiskReadsBytes.Location = new System.Drawing.Point(135, 25);
             this.lblDiskReadsBytes.Name = "lblDiskReadsBytes";
-            this.lblDiskReadsBytes.Size = new System.Drawing.Size(35, 13);
+            this.lblDiskReadsBytes.Size = new System.Drawing.Size(10, 13);
             this.lblDiskReadsBytes.TabIndex = 8;
-            this.lblDiskReadsBytes.Text = "label5";
+            this.lblDiskReadsBytes.Text = "-";
             // 
             // label5
             // 
@@ -200,27 +208,27 @@
             this.lblDiskWriteBytes.AutoSize = true;
             this.lblDiskWriteBytes.Location = new System.Drawing.Point(135, 47);
             this.lblDiskWriteBytes.Name = "lblDiskWriteBytes";
-            this.lblDiskWriteBytes.Size = new System.Drawing.Size(35, 13);
+            this.lblDiskWriteBytes.Size = new System.Drawing.Size(10, 13);
             this.lblDiskWriteBytes.TabIndex = 11;
-            this.lblDiskWriteBytes.Text = "label7";
+            this.lblDiskWriteBytes.Text = "-";
             // 
             // lblDiskTransByte
             // 
             this.lblDiskTransByte.AutoSize = true;
             this.lblDiskTransByte.Location = new System.Drawing.Point(135, 71);
             this.lblDiskTransByte.Name = "lblDiskTransByte";
-            this.lblDiskTransByte.Size = new System.Drawing.Size(35, 13);
+            this.lblDiskTransByte.Size = new System.Drawing.Size(10, 13);
             this.lblDiskTransByte.TabIndex = 12;
-            this.lblDiskTransByte.Text = "label8";
+            this.lblDiskTransByte.Text = "-";
             // 
             // lblTransMax
             // 
             this.lblTransMax.AutoSize = true;
             this.lblTransMax.Location = new System.Drawing.Point(135, 94);
             this.lblTransMax.Name = "lblTransMax";
-            this.lblTransMax.Size = new System.Drawing.Size(35, 13);
+            this.lblTransMax.Size = new System.Drawing.Size(10, 13);
             this.lblTransMax.TabIndex = 13;
-            this.lblTransMax.Text = "label7";
+            this.lblTransMax.Text = "-";
             // 
             // label7
             // 
@@ -259,27 +267,27 @@
             this.lblAvgTrans.AutoSize = true;
             this.lblAvgTrans.Location = new System.Drawing.Point(346, 71);
             this.lblAvgTrans.Name = "lblAvgTrans";
-            this.lblAvgTrans.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgTrans.Size = new System.Drawing.Size(10, 13);
             this.lblAvgTrans.TabIndex = 20;
-            this.lblAvgTrans.Text = "label13";
+            this.lblAvgTrans.Text = "-";
             // 
             // lblAvgWrite
             // 
             this.lblAvgWrite.AutoSize = true;
             this.lblAvgWrite.Location = new System.Drawing.Point(346, 47);
             this.lblAvgWrite.Name = "lblAvgWrite";
-            this.lblAvgWrite.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgWrite.Size = new System.Drawing.Size(10, 13);
             this.lblAvgWrite.TabIndex = 19;
-            this.lblAvgWrite.Text = "label12";
+            this.lblAvgWrite.Text = "-";
             // 
             // lblAvgRead
             // 
             this.lblAvgRead.AutoSize = true;
             this.lblAvgRead.Location = new System.Drawing.Point(346, 25);
             this.lblAvgRead.Name = "lblAvgRead";
-            this.lblAvgRead.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgRead.Size = new System.Drawing.Size(10, 13);
             this.lblAvgRead.TabIndex = 18;
-            this.lblAvgRead.Text = "label11";
+            this.lblAvgRead.Text = "-";
             // 
             // label10
             // 
@@ -344,27 +352,27 @@
             this.lblAvgTransB.AutoSize = true;
             this.lblAvgTransB.Location = new System.Drawing.Point(346, 71);
             this.lblAvgTransB.Name = "lblAvgTransB";
-            this.lblAvgTransB.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgTransB.Size = new System.Drawing.Size(10, 13);
             this.lblAvgTransB.TabIndex = 18;
-            this.lblAvgTransB.Text = "label16";
+            this.lblAvgTransB.Text = "-";
             // 
             // lblAvgWriteB
             // 
             this.lblAvgWriteB.AutoSize = true;
             this.lblAvgWriteB.Location = new System.Drawing.Point(346, 47);
             this.lblAvgWriteB.Name = "lblAvgWriteB";
-            this.lblAvgWriteB.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgWriteB.Size = new System.Drawing.Size(10, 13);
             this.lblAvgWriteB.TabIndex = 17;
-            this.lblAvgWriteB.Text = "label15";
+            this.lblAvgWriteB.Text = "-";
             // 
             // lblAvgReadB
             // 
             this.lblAvgReadB.AutoSize = true;
             this.lblAvgReadB.Location = new System.Drawing.Point(346, 25);
             this.lblAvgReadB.Name = "lblAvgReadB";
-            this.lblAvgReadB.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgReadB.Size = new System.Drawing.Size(10, 13);
             this.lblAvgReadB.TabIndex = 16;
-            this.lblAvgReadB.Text = "label14";
+            this.lblAvgReadB.Text = "-";
             // 
             // label13
             // 
@@ -415,18 +423,18 @@
             this.lblAvgWriteQ.AutoSize = true;
             this.lblAvgWriteQ.Location = new System.Drawing.Point(346, 49);
             this.lblAvgWriteQ.Name = "lblAvgWriteQ";
-            this.lblAvgWriteQ.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgWriteQ.Size = new System.Drawing.Size(10, 13);
             this.lblAvgWriteQ.TabIndex = 7;
-            this.lblAvgWriteQ.Text = "label21";
+            this.lblAvgWriteQ.Text = "-";
             // 
             // lblAvgReadQ
             // 
             this.lblAvgReadQ.AutoSize = true;
             this.lblAvgReadQ.Location = new System.Drawing.Point(346, 26);
             this.lblAvgReadQ.Name = "lblAvgReadQ";
-            this.lblAvgReadQ.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgReadQ.Size = new System.Drawing.Size(10, 13);
             this.lblAvgReadQ.TabIndex = 6;
-            this.lblAvgReadQ.Text = "label20";
+            this.lblAvgReadQ.Text = "-";
             // 
             // label19
             // 
@@ -451,18 +459,18 @@
             this.lblAvgDiskQ.AutoSize = true;
             this.lblAvgDiskQ.Location = new System.Drawing.Point(135, 49);
             this.lblAvgDiskQ.Name = "lblAvgDiskQ";
-            this.lblAvgDiskQ.Size = new System.Drawing.Size(41, 13);
+            this.lblAvgDiskQ.Size = new System.Drawing.Size(10, 13);
             this.lblAvgDiskQ.TabIndex = 3;
-            this.lblAvgDiskQ.Text = "label17";
+            this.lblAvgDiskQ.Text = "-";
             // 
             // lblCurrQLen
             // 
             this.lblCurrQLen.AutoSize = true;
             this.lblCurrQLen.Location = new System.Drawing.Point(135, 26);
             this.lblCurrQLen.Name = "lblCurrQLen";
-            this.lblCurrQLen.Size = new System.Drawing.Size(41, 13);
+            this.lblCurrQLen.Size = new System.Drawing.Size(10, 13);
             this.lblCurrQLen.TabIndex = 2;
-            this.lblCurrQLen.Text = "label16";
+            this.lblCurrQLen.Text = "-";
             // 
             // label15
             // 
@@ -506,18 +514,18 @@
             this.lblWriteTime.AutoSize = true;
             this.lblWriteTime.Location = new System.Drawing.Point(349, 73);
             this.lblWriteTime.Name = "lblWriteTime";
-            this.lblWriteTime.Size = new System.Drawing.Size(41, 13);
+            this.lblWriteTime.Size = new System.Drawing.Size(10, 13);
             this.lblWriteTime.TabIndex = 9;
-            this.lblWriteTime.Text = "label27";
+            this.lblWriteTime.Text = "-";
             // 
             // lblReadTime
             // 
             this.lblReadTime.AutoSize = true;
             this.lblReadTime.Location = new System.Drawing.Point(349, 49);
             this.lblReadTime.Name = "lblReadTime";
-            this.lblReadTime.Size = new System.Drawing.Size(41, 13);
+            this.lblReadTime.Size = new System.Drawing.Size(10, 13);
             this.lblReadTime.TabIndex = 8;
-            this.lblReadTime.Text = "label26";
+            this.lblReadTime.Text = "-";
             // 
             // label25
             // 
@@ -542,27 +550,27 @@
             this.lblIOSplit.AutoSize = true;
             this.lblIOSplit.Location = new System.Drawing.Point(135, 73);
             this.lblIOSplit.Name = "lblIOSplit";
-            this.lblIOSplit.Size = new System.Drawing.Size(41, 13);
+            this.lblIOSplit.Size = new System.Drawing.Size(10, 13);
             this.lblIOSplit.TabIndex = 5;
-            this.lblIOSplit.Text = "label23";
+            this.lblIOSplit.Text = "-";
             // 
             // lblDiskTime
             // 
             this.lblDiskTime.AutoSize = true;
             this.lblDiskTime.Location = new System.Drawing.Point(135, 49);
             this.lblDiskTime.Name = "lblDiskTime";
-            this.lblDiskTime.Size = new System.Drawing.Size(41, 13);
+            this.lblDiskTime.Size = new System.Drawing.Size(10, 13);
             this.lblDiskTime.TabIndex = 4;
-            this.lblDiskTime.Text = "label22";
+            this.lblDiskTime.Text = "-";
             // 
             // lblIdleTime
             // 
             this.lblIdleTime.AutoSize = true;
             this.lblIdleTime.Location = new System.Drawing.Point(135, 26);
             this.lblIdleTime.Name = "lblIdleTime";
-            this.lblIdleTime.Size = new System.Drawing.Size(41, 13);
+            this.lblIdleTime.Size = new System.Drawing.Size(10, 13);
             this.lblIdleTime.TabIndex = 3;
-            this.lblIdleTime.Text = "label21";
+            this.lblIdleTime.Text = "-";
             // 
             // label20
             // 
@@ -609,6 +617,14 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label26);
+            this.groupBox5.Controls.Add(this.label23);
+            this.groupBox5.Controls.Add(this.label22);
+            this.groupBox5.Controls.Add(this.label21);
+            this.groupBox5.Controls.Add(this.btnAvgTrans);
+            this.groupBox5.Controls.Add(this.btnDiskQueue);
+            this.groupBox5.Controls.Add(this.btnDiskTime);
+            this.groupBox5.Controls.Add(this.btnIdleTime);
             this.groupBox5.Controls.Add(this.HDchart);
             this.groupBox5.Location = new System.Drawing.Point(12, 41);
             this.groupBox5.Name = "groupBox5";
@@ -625,7 +641,7 @@
             this.HDchart.Legends.Add(legend1);
             this.HDchart.Location = new System.Drawing.Point(9, 20);
             this.HDchart.Name = "HDchart";
-            this.HDchart.Size = new System.Drawing.Size(857, 228);
+            this.HDchart.Size = new System.Drawing.Size(751, 228);
             this.HDchart.TabIndex = 0;
             this.HDchart.Text = "chart1";
             // 
@@ -636,11 +652,11 @@
             this.lblElapsedTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblElapsedTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblElapsedTime.ForeColor = System.Drawing.Color.Red;
-            this.lblElapsedTime.Location = new System.Drawing.Point(767, 12);
+            this.lblElapsedTime.Location = new System.Drawing.Point(751, 12);
             this.lblElapsedTime.Name = "lblElapsedTime";
-            this.lblElapsedTime.Size = new System.Drawing.Size(35, 27);
+            this.lblElapsedTime.Size = new System.Drawing.Size(127, 27);
             this.lblElapsedTime.TabIndex = 22;
-            this.lblElapsedTime.Text = "   ";
+            this.lblElapsedTime.Text = "   00:00:00";
             this.lblElapsedTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hostListComboBox
@@ -650,6 +666,86 @@
             this.hostListComboBox.Name = "hostListComboBox";
             this.hostListComboBox.Size = new System.Drawing.Size(156, 21);
             this.hostListComboBox.TabIndex = 23;
+            // 
+            // btnIdleTime
+            // 
+            this.btnIdleTime.BackColor = System.Drawing.Color.Green;
+            this.btnIdleTime.Location = new System.Drawing.Point(779, 52);
+            this.btnIdleTime.Name = "btnIdleTime";
+            this.btnIdleTime.Size = new System.Drawing.Size(75, 23);
+            this.btnIdleTime.TabIndex = 1;
+            this.btnIdleTime.Text = "Showing";
+            this.btnIdleTime.UseVisualStyleBackColor = false;
+            this.btnIdleTime.Click += new System.EventHandler(this.btnIdleTime_Click);
+            // 
+            // btnDiskTime
+            // 
+            this.btnDiskTime.BackColor = System.Drawing.Color.Green;
+            this.btnDiskTime.Location = new System.Drawing.Point(779, 94);
+            this.btnDiskTime.Name = "btnDiskTime";
+            this.btnDiskTime.Size = new System.Drawing.Size(75, 23);
+            this.btnDiskTime.TabIndex = 2;
+            this.btnDiskTime.Text = "Showing";
+            this.btnDiskTime.UseVisualStyleBackColor = false;
+            this.btnDiskTime.Click += new System.EventHandler(this.btnDiskTime_Click);
+            // 
+            // btnDiskQueue
+            // 
+            this.btnDiskQueue.BackColor = System.Drawing.Color.Green;
+            this.btnDiskQueue.Location = new System.Drawing.Point(779, 136);
+            this.btnDiskQueue.Name = "btnDiskQueue";
+            this.btnDiskQueue.Size = new System.Drawing.Size(75, 23);
+            this.btnDiskQueue.TabIndex = 3;
+            this.btnDiskQueue.Text = "Showing";
+            this.btnDiskQueue.UseVisualStyleBackColor = false;
+            this.btnDiskQueue.Click += new System.EventHandler(this.btnDiskQueue_Click);
+            // 
+            // btnAvgTrans
+            // 
+            this.btnAvgTrans.BackColor = System.Drawing.Color.Green;
+            this.btnAvgTrans.Location = new System.Drawing.Point(779, 178);
+            this.btnAvgTrans.Name = "btnAvgTrans";
+            this.btnAvgTrans.Size = new System.Drawing.Size(75, 23);
+            this.btnAvgTrans.TabIndex = 4;
+            this.btnAvgTrans.Text = "Showing";
+            this.btnAvgTrans.UseVisualStyleBackColor = false;
+            this.btnAvgTrans.Click += new System.EventHandler(this.btnAvgTrans_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(786, 36);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(61, 13);
+            this.label21.TabIndex = 5;
+            this.label21.Text = "% Idle Time";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(784, 78);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 13);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "% Disk Time";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(772, 120);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(88, 13);
+            this.label23.TabIndex = 7;
+            this.label23.Text = "Avg. Disk Queue";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(766, 162);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(100, 13);
+            this.label26.TabIndex = 8;
+            this.label26.Text = "Avg. Transfers/Sec";
             // 
             // DiskPerformance
             // 
@@ -683,6 +779,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HDchart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -747,5 +844,13 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart HDchart;
         private System.Windows.Forms.Label lblElapsedTime;
         private System.Windows.Forms.ComboBox hostListComboBox;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnAvgTrans;
+        private System.Windows.Forms.Button btnDiskQueue;
+        private System.Windows.Forms.Button btnDiskTime;
+        private System.Windows.Forms.Button btnIdleTime;
     }
 }

@@ -22,6 +22,10 @@ namespace ACRM.HDisk
         DataTable recordTable;
         Stopwatch stopW;
         int updateCount;
+        bool isIdleTimeEnabled = true;
+        bool isDiskTimeEnabled = true;
+        bool isDiskQueueEnabled = true;
+        bool isAvgTransEnabled = true;
 
         public DiskPerformance()
         {
@@ -41,6 +45,15 @@ namespace ACRM.HDisk
 
             this.setTableChart();
             this.fillHostList();
+            this.disableButtons(false);
+        }
+
+        private void disableButtons(bool status)
+        {
+            btnAvgTrans.Enabled = status;
+            btnDiskQueue.Enabled = status;
+            btnDiskTime.Enabled = status;
+            btnIdleTime.Enabled = status;
         }
                 
         //Start Monitoring
@@ -56,6 +69,8 @@ namespace ACRM.HDisk
             statusStrip1.Refresh();
 
             stopW.Start(); //ready the clock
+
+            this.disableButtons(true);
 
             timer = new Timer { Enabled = true, Interval = 1000 };
             timer.Tick += t_Tick;
@@ -100,6 +115,10 @@ namespace ACRM.HDisk
                     lblTransMax.Text = lblDiskTrans.Text;
                     lblTransMax.BackColor = Color.Red;
                 }
+                if (float.Parse(lblIdleTime.Text) > 30.00f)
+                {
+                    lblIdleTime.BackColor = Color.Red;
+                }
             }
             catch (FormatException ex)
             {
@@ -124,20 +143,20 @@ namespace ACRM.HDisk
             HDchart.Series["% Disk Idle Time (1)"].XValueMember = "Count";
             HDchart.Series["% Disk Idle Time (1)"].YValueMembers = "Idle Time";
 
-            HDchart.Series.Add("% Disk Time (100)");
-            HDchart.Series["% Disk Time (100)"].ChartType = SeriesChartType.Line;
-            HDchart.Series["% Disk Time (100)"].XValueMember = "Count";
-            HDchart.Series["% Disk Time (100)"].YValueMembers = "Disk Time";
+            HDchart.Series.Add("% Disk Time (10)");
+            HDchart.Series["% Disk Time (10)"].ChartType = SeriesChartType.Line;
+            HDchart.Series["% Disk Time (10)"].XValueMember = "Count";
+            HDchart.Series["% Disk Time (10)"].YValueMembers = "Disk Time";
 
-            HDchart.Series.Add("Avg. Disk Queue");
-            HDchart.Series["Avg. Disk Queue"].ChartType = SeriesChartType.Line;
-            HDchart.Series["Avg. Disk Queue"].XValueMember = "Count";
-            HDchart.Series["Avg. Disk Queue"].YValueMembers = "Avg Disk Queue";
+            HDchart.Series.Add("Avg. Disk Queue (100)");
+            HDchart.Series["Avg. Disk Queue (100)"].ChartType = SeriesChartType.Line;
+            HDchart.Series["Avg. Disk Queue (100)"].XValueMember = "Count";
+            HDchart.Series["Avg. Disk Queue (100)"].YValueMembers = "Avg Disk Queue";
 
-            HDchart.Series.Add("Avg. Transfer Req");
-            HDchart.Series["Avg. Transfer Req"].ChartType = SeriesChartType.Line;
-            HDchart.Series["Avg. Transfer Req"].XValueMember = "Count";
-            HDchart.Series["Avg. Transfer Req"].YValueMembers = "Avg Transfer Req";
+            HDchart.Series.Add("Avg. Transfer Req (1000)");
+            HDchart.Series["Avg. Transfer Req (1000)"].ChartType = SeriesChartType.Line;
+            HDchart.Series["Avg. Transfer Req (1000)"].XValueMember = "Count";
+            HDchart.Series["Avg. Transfer Req (1000)"].YValueMembers = "Avg Transfer Req";
 
             HDchart.ChartAreas[0].AxisY.Maximum = 100;
             HDchart.ChartAreas[0].AxisX.Minimum = 0;
@@ -176,6 +195,7 @@ namespace ACRM.HDisk
 
             btnStop.Enabled = false;
             btnStart.Enabled = true;
+            this.disableButtons(false);
             toolStripStatusLabel1.Text = "Monitoring Stopped";
             statusStrip1.Refresh();
 
@@ -197,6 +217,78 @@ namespace ACRM.HDisk
             }
 
             hostListComboBox.SelectedIndex = 0;
+        }
+
+        private void btnIdleTime_Click(object sender, EventArgs e)
+        {
+            if (isIdleTimeEnabled == true)
+            {
+                btnIdleTime.Text = "Hiden";
+                btnIdleTime.BackColor = Color.Red;
+                HDchart.Series["% Disk Idle Time (1)"].Enabled = false;
+                isIdleTimeEnabled = false;
+            }
+            else
+            {
+                btnIdleTime.Text = "Showing";
+                btnIdleTime.BackColor = Color.Green;
+                HDchart.Series["% Disk Idle Time (1)"].Enabled = true;
+                isIdleTimeEnabled = true;
+            }
+        }
+
+        private void btnDiskTime_Click(object sender, EventArgs e)
+        {
+            if (isDiskTimeEnabled == true)
+            {
+                btnDiskTime.Text = "Hiden";
+                btnDiskTime.BackColor = Color.Red;
+                HDchart.Series["% Disk Time (10)"].Enabled = false;
+                isDiskTimeEnabled = false;
+            }
+            else
+            {
+                btnDiskTime.Text = "Showing";
+                btnDiskTime.BackColor = Color.Green;
+                HDchart.Series["% Disk Time (10)"].Enabled = true;
+                isDiskTimeEnabled = true;
+            }
+        }
+
+        private void btnDiskQueue_Click(object sender, EventArgs e)
+        {
+            if (isDiskQueueEnabled == true)
+            {
+                btnDiskQueue.Text = "Hiden";
+                btnDiskQueue.BackColor = Color.Red;
+                HDchart.Series["Avg. Disk Queue (100)"].Enabled = false;
+                isDiskQueueEnabled = false;
+            }
+            else
+            {
+                btnDiskQueue.Text = "Showing";
+                btnDiskQueue.BackColor = Color.Green;
+                HDchart.Series["Avg. Disk Queue (100)"].Enabled = true;
+                isDiskQueueEnabled = true;
+            }
+        }
+
+        private void btnAvgTrans_Click(object sender, EventArgs e)
+        {
+            if (isAvgTransEnabled == true)
+            {
+                btnAvgTrans.Text = "Hiden";
+                btnAvgTrans.BackColor = Color.Red;
+                HDchart.Series["Avg. Transfer Req (1000)"].Enabled = false;
+                isAvgTransEnabled = false;
+            }
+            else
+            {
+                btnAvgTrans.Text = "Showing";
+                btnAvgTrans.BackColor = Color.Green;
+                HDchart.Series["Avg. Transfer Req (1000)"].Enabled = true;
+                isAvgTransEnabled = true;
+            }
         }
     }
 }
