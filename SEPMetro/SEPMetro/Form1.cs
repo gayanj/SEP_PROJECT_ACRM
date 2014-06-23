@@ -31,7 +31,9 @@ namespace SEPMetro
 
         private void metroDiskTile_Click(object sender, EventArgs e)
         {
-
+            DiskMonitorMain dmm = new DiskMonitorMain();
+            dmm.Show();
+            dmm.Focus();
         }
     }
 }

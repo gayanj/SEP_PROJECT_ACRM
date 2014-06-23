@@ -79,6 +79,12 @@
     <Compile Include="CPU\ProcessMethod.cs" />
     <Compile Include="CPU\ProcessPriority.cs" />
     <Compile Include="CPU\ProcessRemote.cs" />
+    <Compile Include="DiskMonitorMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiskMonitorMain.Designer.cs">
+      <DependentUpon>DiskMonitorMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExtensionMethod.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -86,6 +92,42 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HDisk\DirSizeExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HDisk\DirSizeExplorer.designer.cs">
+      <DependentUpon>DirSizeExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDisk\DiskPerformance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HDisk\DiskPerformance.designer.cs">
+      <DependentUpon>DiskPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDisk\DriveDetail.cs" />
+    <Compile Include="HDisk\ExtraDiskMeth.cs" />
+    <Compile Include="HDisk\FileSysMonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HDisk\FileSysMonForm.designer.cs">
+      <DependentUpon>FileSysMonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDisk\IntelliMon\DiskDataHandler.cs" />
+    <Compile Include="HDisk\IntelliMon\InteliMonitorConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HDisk\IntelliMon\InteliMonitorConfig.designer.cs">
+      <DependentUpon>InteliMonitorConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDisk\IntelliMon\MonitorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HDisk\IntelliMon\MonitorWindow.designer.cs">
+      <DependentUpon>MonitorWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDisk\PerfCounterHD.cs" />
+    <Compile Include="HDisk\WMIConn.cs" />
+    <Compile Include="HDisk\WMIDisk.cs" />
     <Compile Include="IdleCheckForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,8 +181,26 @@
     <EmbeddedResource Include="Configuration.resx">
       <DependentUpon>Configuration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DiskMonitorMain.resx">
+      <DependentUpon>DiskMonitorMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDisk\DirSizeExplorer.resx">
+      <DependentUpon>DirSizeExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDisk\DiskPerformance.resx">
+      <DependentUpon>DiskPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDisk\FileSysMonForm.resx">
+      <DependentUpon>FileSysMonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDisk\IntelliMon\InteliMonitorConfig.resx">
+      <DependentUpon>InteliMonitorConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDisk\IntelliMon\MonitorWindow.resx">
+      <DependentUpon>MonitorWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdleCheckForm.resx">
       <DependentUpon>IdleCheckForm.cs</DependentUpon>
@@ -194,9 +254,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HDisk\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
