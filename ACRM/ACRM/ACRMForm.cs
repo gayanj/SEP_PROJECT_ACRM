@@ -16,7 +16,8 @@ using System.Threading;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Diagnostics;
 using RAM;
-using System.Net.NetworkInformation; //for Disk
+using System.Net.NetworkInformation;
+using ACRM.HDisk.IntelliMon; //for Disk
 
 namespace ACRM
 {
@@ -31,6 +32,7 @@ namespace ACRM
         private DriveInfo[] allDrives; //for disk
         private WMIDisk wd;
         private ArrayList diskModelList;
+        bool loadReady = false;
         wmiMemory wmi = new wmiMemory();
         private Thread addDataRunner;
         private Random rand = new Random();
@@ -128,18 +130,28 @@ namespace ACRM
         //File the Volumes and Physical Drives Lists
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            allDrives = DriveInfo.GetDrives();
-            foreach (DriveInfo d in allDrives)
-            {
-                driveListCombo.Items.Add(d.Name);
-            }
-            driveListCombo.SelectedIndex = 0;
+            this.loadDiskDetails();
+        }
 
-            wd = new WMIDisk();
-            diskModelList = wd.DiskInf(wd.ms);
-            foreach (var v in diskModelList)
+        private void loadDiskDetails()
+        {
+            if (loadReady == false)
             {
-                phyDiskComBox.DataSource = diskModelList;
+                allDrives = DriveInfo.GetDrives();
+                foreach (DriveInfo d in allDrives)
+                {
+                    driveListCombo.Items.Add(d.Name);
+                }
+                driveListCombo.SelectedIndex = 0;
+
+                wd = new WMIDisk();
+                diskModelList = wd.DiskInf(wd.ms);
+                foreach (var v in diskModelList)
+                {
+                    phyDiskComBox.DataSource = diskModelList;
+                }
+
+                loadReady = true;
             }
         }
 
@@ -157,7 +169,7 @@ namespace ACRM
                 lblInterface.Text = mo["InterfaceType"].ToString();
                 lblCapacity.Text = ExtraDiskMeth.SizeSuffix(mo["Size"].ToString());
                 lblPartitions.Text = mo["Partitions"].ToString();
-                lblSig.Text = mo["Signature"].ToString();
+                //lblSig.Text = mo["Signature"].ToString();
                 if (mo["FirmwareRevision"] == null)
                 {
                     lblFirmware.Text = "-";
@@ -556,6 +568,13 @@ namespace ACRM
             DirSizeExplorer dse = new DirSizeExplorer();
             dse.Show();
             dse.Focus();
+        }
+
+        private void btnInteliMonitor_Click(object sender, EventArgs e)
+        {
+            InteliMonitorConfig imc = new InteliMonitorConfig();
+            imc.Show();
+            imc.Focus();
         }
     }
 }

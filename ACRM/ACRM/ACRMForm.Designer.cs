@@ -106,6 +106,7 @@
             this.volLbl = new System.Windows.Forms.Label();
             this.dNameLbl = new System.Windows.Forms.Label();
             this.xtraFuncGBox = new System.Windows.Forms.GroupBox();
+            this.btnDirExplorer = new System.Windows.Forms.Button();
             this.btnDiskPerf = new System.Windows.Forms.Button();
             this.fileSysMonBtn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -115,7 +116,7 @@
             this.label39 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.label38 = new System.Windows.Forms.Label();
-            this.btnDirExplorer = new System.Windows.Forms.Button();
+            this.btnInteliMonitor = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
@@ -883,6 +884,7 @@
             // 
             // xtraFuncGBox
             // 
+            this.xtraFuncGBox.Controls.Add(this.btnInteliMonitor);
             this.xtraFuncGBox.Controls.Add(this.btnDirExplorer);
             this.xtraFuncGBox.Controls.Add(this.btnDiskPerf);
             this.xtraFuncGBox.Controls.Add(this.fileSysMonBtn);
@@ -893,9 +895,19 @@
             this.xtraFuncGBox.TabStop = false;
             this.xtraFuncGBox.Text = "Extra Functions";
             // 
+            // btnDirExplorer
+            // 
+            this.btnDirExplorer.Location = new System.Drawing.Point(7, 103);
+            this.btnDirExplorer.Name = "btnDirExplorer";
+            this.btnDirExplorer.Size = new System.Drawing.Size(142, 30);
+            this.btnDirExplorer.TabIndex = 2;
+            this.btnDirExplorer.Text = "Dir Explorer";
+            this.btnDirExplorer.UseVisualStyleBackColor = true;
+            this.btnDirExplorer.Click += new System.EventHandler(this.btnDirExplorer_Click);
+            // 
             // btnDiskPerf
             // 
-            this.btnDiskPerf.Location = new System.Drawing.Point(6, 84);
+            this.btnDiskPerf.Location = new System.Drawing.Point(7, 67);
             this.btnDiskPerf.Name = "btnDiskPerf";
             this.btnDiskPerf.Size = new System.Drawing.Size(142, 30);
             this.btnDiskPerf.TabIndex = 1;
@@ -991,15 +1003,15 @@
             this.label38.TabIndex = 8;
             this.label38.Text = "Interface Information for";
             // 
-            // btnDirExplorer
+            // btnInteliMonitor
             // 
-            this.btnDirExplorer.Location = new System.Drawing.Point(7, 121);
-            this.btnDirExplorer.Name = "btnDirExplorer";
-            this.btnDirExplorer.Size = new System.Drawing.Size(142, 30);
-            this.btnDirExplorer.TabIndex = 2;
-            this.btnDirExplorer.Text = "Dir Explorer";
-            this.btnDirExplorer.UseVisualStyleBackColor = true;
-            this.btnDirExplorer.Click += new System.EventHandler(this.btnDirExplorer_Click);
+            this.btnInteliMonitor.Location = new System.Drawing.Point(7, 139);
+            this.btnInteliMonitor.Name = "btnInteliMonitor";
+            this.btnInteliMonitor.Size = new System.Drawing.Size(141, 37);
+            this.btnInteliMonitor.TabIndex = 3;
+            this.btnInteliMonitor.Text = "Intelligent Monitor";
+            this.btnInteliMonitor.UseVisualStyleBackColor = true;
+            this.btnInteliMonitor.Click += new System.EventHandler(this.btnInteliMonitor_Click);
             // 
             // ACRMForm
             // 
@@ -1115,6 +1127,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button btnDirExplorer;
+        private System.Windows.Forms.Button btnInteliMonitor;
     }
 }
 
