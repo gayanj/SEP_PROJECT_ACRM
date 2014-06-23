@@ -129,7 +129,7 @@
             // 
             // metroStyleManager1
             // 
-            this.metroStyleManager1.OwnerForm = null;
+            //this.metroStyleManager1.OwnerForm = null;
             this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
