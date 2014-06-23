@@ -30,7 +30,7 @@
         {
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroDiskTile = new MetroFramework.Controls.MetroTile();
             this.CPU = new MetroFramework.Controls.MetroTile();
             this.RAM = new MetroFramework.Controls.MetroTile();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager();
@@ -40,7 +40,7 @@
             // metroPanel1
             // 
             this.metroPanel1.Controls.Add(this.metroTile2);
-            this.metroPanel1.Controls.Add(this.metroTile1);
+            this.metroPanel1.Controls.Add(this.metroDiskTile);
             this.metroPanel1.Controls.Add(this.CPU);
             this.metroPanel1.Controls.Add(this.RAM);
             this.metroPanel1.CustomBackground = false;
@@ -76,21 +76,22 @@
             this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTile2.TileCount = 0;
             // 
-            // metroTile1
+            // metroDiskTile
             // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.CustomBackground = false;
-            this.metroTile1.CustomForeColor = false;
-            this.metroTile1.Location = new System.Drawing.Point(12, 179);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.PaintTileCount = true;
-            this.metroTile1.Size = new System.Drawing.Size(388, 373);
-            this.metroTile1.Style = MetroFramework.MetroColorStyle.Magenta;
-            this.metroTile1.StyleManager = null;
-            this.metroTile1.TabIndex = 4;
-            this.metroTile1.Text = "DISK";
-            this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTile1.TileCount = 0;
+            this.metroDiskTile.ActiveControl = null;
+            this.metroDiskTile.CustomBackground = false;
+            this.metroDiskTile.CustomForeColor = false;
+            this.metroDiskTile.Location = new System.Drawing.Point(12, 179);
+            this.metroDiskTile.Name = "metroDiskTile";
+            this.metroDiskTile.PaintTileCount = true;
+            this.metroDiskTile.Size = new System.Drawing.Size(388, 373);
+            this.metroDiskTile.Style = MetroFramework.MetroColorStyle.Magenta;
+            this.metroDiskTile.StyleManager = null;
+            this.metroDiskTile.TabIndex = 4;
+            this.metroDiskTile.Text = "DISK";
+            this.metroDiskTile.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroDiskTile.TileCount = 0;
+            this.metroDiskTile.Click += new System.EventHandler(this.metroDiskTile_Click);
             // 
             // CPU
             // 
@@ -128,7 +129,9 @@
             // 
             // metroStyleManager1
             // 
-          
+            this.metroStyleManager1.OwnerForm = null;
+            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // Form1
             // 
@@ -147,7 +150,7 @@
 
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroTile metroTile2;
-        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile metroDiskTile;
         private MetroFramework.Controls.MetroTile CPU;
         private MetroFramework.Controls.MetroTile RAM;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;

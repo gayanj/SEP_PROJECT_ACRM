@@ -28,5 +28,10 @@ namespace SEPMetro
             ACRM.ACRMForm c = new ACRM.ACRMForm();
             c.ShowDialog();
         }
+
+        private void metroDiskTile_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
