@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework">
-      <HintPath>..\..\..\SEP\RAM\RAM\packages\ModernUI.1.1.0.1\lib\net40\MetroFramework.dll</HintPath>
+      <HintPath>..\packages\ModernUI.1.1.0.1\lib\net45\MetroFramework.dll</HintPath>
     </Reference>
     <Reference Include="NotificationWindow">
       <HintPath>..\..\..\SEP\SEP_PROJECT_ACRM\ACRM\NotificationWindow.dll</HintPath>
