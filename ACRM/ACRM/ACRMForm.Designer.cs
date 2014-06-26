@@ -28,11 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+=======
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+>>>>>>> origin/master
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.processNameValue = new System.Windows.Forms.Label();
@@ -106,6 +114,7 @@
             this.volLbl = new System.Windows.Forms.Label();
             this.dNameLbl = new System.Windows.Forms.Label();
             this.xtraFuncGBox = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
             this.btnDiskPerf = new System.Windows.Forms.Button();
             this.fileSysMonBtn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -115,6 +124,19 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+=======
+            this.btnDirExplorer = new System.Windows.Forms.Button();
+            this.btnDiskPerf = new System.Windows.Forms.Button();
+            this.fileSysMonBtn = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label38 = new System.Windows.Forms.Label();
+            this.btnInteliMonitor = new System.Windows.Forms.Button();
+>>>>>>> origin/master
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
@@ -183,10 +205,17 @@
             this.cpuChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+<<<<<<< HEAD
             chartArea5.Name = "ChartArea1";
             this.cpuChart.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.cpuChart.Legends.Add(legend5);
+=======
+            chartArea1.Name = "ChartArea1";
+            this.cpuChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.cpuChart.Legends.Add(legend1);
+>>>>>>> origin/master
             this.cpuChart.Location = new System.Drawing.Point(376, 35);
             this.cpuChart.Name = "cpuChart";
             this.cpuChart.Size = new System.Drawing.Size(470, 494);
@@ -373,6 +402,7 @@
             // 
             // chart1
             // 
+<<<<<<< HEAD
             chartArea6.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea6);
             legend6.Name = "Legend1";
@@ -383,6 +413,18 @@
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chart1.Series.Add(series3);
+=======
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(22, 6);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+>>>>>>> origin/master
             this.chart1.Size = new System.Drawing.Size(777, 282);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -882,6 +924,11 @@
             // 
             // xtraFuncGBox
             // 
+<<<<<<< HEAD
+=======
+            this.xtraFuncGBox.Controls.Add(this.btnInteliMonitor);
+            this.xtraFuncGBox.Controls.Add(this.btnDirExplorer);
+>>>>>>> origin/master
             this.xtraFuncGBox.Controls.Add(this.btnDiskPerf);
             this.xtraFuncGBox.Controls.Add(this.fileSysMonBtn);
             this.xtraFuncGBox.Location = new System.Drawing.Point(411, 257);
@@ -891,9 +938,25 @@
             this.xtraFuncGBox.TabStop = false;
             this.xtraFuncGBox.Text = "Extra Functions";
             // 
+<<<<<<< HEAD
             // btnDiskPerf
             // 
             this.btnDiskPerf.Location = new System.Drawing.Point(6, 84);
+=======
+            // btnDirExplorer
+            // 
+            this.btnDirExplorer.Location = new System.Drawing.Point(7, 103);
+            this.btnDirExplorer.Name = "btnDirExplorer";
+            this.btnDirExplorer.Size = new System.Drawing.Size(142, 30);
+            this.btnDirExplorer.TabIndex = 2;
+            this.btnDirExplorer.Text = "Dir Explorer";
+            this.btnDirExplorer.UseVisualStyleBackColor = true;
+            this.btnDirExplorer.Click += new System.EventHandler(this.btnDirExplorer_Click);
+            // 
+            // btnDiskPerf
+            // 
+            this.btnDiskPerf.Location = new System.Drawing.Point(7, 67);
+>>>>>>> origin/master
             this.btnDiskPerf.Name = "btnDiskPerf";
             this.btnDiskPerf.Size = new System.Drawing.Size(142, 30);
             this.btnDiskPerf.TabIndex = 1;
@@ -927,6 +990,7 @@
             this.tabPage4.Text = "Network";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+<<<<<<< HEAD
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -956,6 +1020,8 @@
             this.label38.TabIndex = 8;
             this.label38.Text = "Interface Information for";
             // 
+=======
+>>>>>>> origin/master
             // button4
             // 
             this.button4.Image = global::ACRM.Properties.Resources.pausei;
@@ -976,6 +1042,28 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+<<<<<<< HEAD
+=======
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(243, 234);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(411, 186);
+            this.listBox1.TabIndex = 11;
+            this.listBox1.Visible = false;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(192, 180);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(279, 20);
+            this.label39.TabIndex = 10;
+            this.label39.Text = "Total No of network Interfaces found : ";
+            // 
+>>>>>>> origin/master
             // button6
             // 
             this.button6.Image = global::ACRM.Properties.Resources.searchii;
@@ -989,6 +1077,29 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+<<<<<<< HEAD
+=======
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(146, 116);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(204, 24);
+            this.label38.TabIndex = 8;
+            this.label38.Text = "Interface Information for";
+            // 
+            // btnInteliMonitor
+            // 
+            this.btnInteliMonitor.Location = new System.Drawing.Point(7, 139);
+            this.btnInteliMonitor.Name = "btnInteliMonitor";
+            this.btnInteliMonitor.Size = new System.Drawing.Size(141, 37);
+            this.btnInteliMonitor.TabIndex = 3;
+            this.btnInteliMonitor.Text = "Intelligent Monitor";
+            this.btnInteliMonitor.UseVisualStyleBackColor = true;
+            this.btnInteliMonitor.Click += new System.EventHandler(this.btnInteliMonitor_Click);
+            // 
+>>>>>>> origin/master
             // ACRMForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1015,6 +1126,10 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         }
 
         #endregion
@@ -1101,6 +1216,11 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label38;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.Button btnDirExplorer;
+        private System.Windows.Forms.Button btnInteliMonitor;
+>>>>>>> origin/master
     }
 }
 

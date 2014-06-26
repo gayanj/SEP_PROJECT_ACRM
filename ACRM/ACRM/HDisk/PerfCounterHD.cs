@@ -43,16 +43,16 @@ namespace ACRM.HDisk
         private PerformanceCounter diskIOSplit = new PerformanceCounter();
         #endregion
 
-        public PerfCounterHD()
+        public PerfCounterHD(string maName)
         {
-            InitPerfCountersIO();
-            InitPerfCountersQueue();
-            InitPerfCountersTime();
-            InitPerfCoutersAvg();
+            InitPerfCountersIO(maName);
+            InitPerfCountersQueue(maName);
+            InitPerfCountersTime(maName);
+            InitPerfCoutersAvg(maName);
         }
 
         #region Counter Initialization
-        private void InitPerfCountersTime()
+        private void InitPerfCountersTime(string machineName)
         {
             this.diskTime.CategoryName = "PhysicalDisk";
             this.diskTime.CounterName = "% Disk Time";
@@ -75,7 +75,7 @@ namespace ACRM.HDisk
             this.diskIOSplit.InstanceName = "_Total";
         }
 
-        private void InitPerfCountersQueue()
+        private void InitPerfCountersQueue(string machineName)
         {
             this.avgDiskQueue.CategoryName = "PhysicalDisk";
             this.avgDiskQueue.CounterName = "Avg. Disk Queue Length";
@@ -94,7 +94,7 @@ namespace ACRM.HDisk
             this.currQueueLen.InstanceName = "_Total";
         }
 
-        private void InitPerfCoutersAvg()
+        private void InitPerfCoutersAvg(string machineName)
         {
             this.avgDiskRead.CategoryName = "PhysicalDisk";
             this.avgDiskRead.CounterName = "Avg. Disk sec/Read";
@@ -121,7 +121,7 @@ namespace ACRM.HDisk
             this.avgDiskTransB.InstanceName = "_Total";
         }
 
-        private void InitPerfCountersIO()
+        private void InitPerfCountersIO(string machineName)
         {
             this.diskReads.CategoryName = "PhysicalDisk";
             this.diskReads.CounterName = "Disk Reads/sec";

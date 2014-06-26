@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FFB16338-AB6A-4B9A-9ABC-214AAEF36920}</ProjectGuid>
+    <ProjectGuid>{0578EEBB-A1FD-4893-92AB-ACD251B85C5B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ACRM</RootNamespace>
-    <AssemblyName>ACRM</AssemblyName>
+    <RootNamespace>SEPMetro</RootNamespace>
+    <AssemblyName>SEPMetro</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,26 +30,23 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FirstFloor.ModernUI">
-      <HintPath>..\packages\ModernUI.WPF.1.0.5\lib\net45\FirstFloor.ModernUI.dll</HintPath>
-    </Reference>
     <Reference Include="MetroFramework">
-      <HintPath>..\packages\ModernUI.1.1.0.1\lib\net35\MetroFramework.dll</HintPath>
+      <HintPath>..\packages\ModernUI.1.1.0.1\lib\net45\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="NotificationWindow">
+      <HintPath>..\..\..\SEP\SEP_PROJECT_ACRM\ACRM\NotificationWindow.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Windows.Forms.DataVisualization">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Windows.Forms.DataVisualization.Design">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -59,6 +54,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACRMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ACRMForm.designer.cs">
+      <DependentUpon>ACRMForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Browser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Browser.Designer.cs">
+      <DependentUpon>Browser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration.Designer.cs">
+      <DependentUpon>Configuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CPU\Browsers.cs" />
     <Compile Include="CPU\IProcessObject.cs" />
     <Compile Include="CPU\ProcessConnection.cs" />
     <Compile Include="CPU\ProcessLocal.cs" />
@@ -66,82 +80,79 @@
     <Compile Include="CPU\ProcessPriority.cs" />
     <Compile Include="CPU\ProcessRemote.cs" />
     <Compile Include="ExtensionMethod.cs" />
-    <Compile Include="ACRMForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ACRMForm.Designer.cs">
-      <DependentUpon>ACRMForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs" />
-    <Compile Include="Form2.cs">
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdleCheckForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs" />
-    <Compile Include="HDisk\DirSizeExplorer.cs">
+    <Compile Include="IdleCheckForm.Designer.cs">
+      <DependentUpon>IdleCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemoryAnalytics.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HDisk\DirSizeExplorer.Designer.cs">
-      <DependentUpon>DirSizeExplorer.cs</DependentUpon>
+    <Compile Include="MemoryAnalytics.Designer.cs">
+      <DependentUpon>MemoryAnalytics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.Designer.cs" />
-    <Compile Include="HDisk\DiskPerformance.cs">
+    <Compile Include="MemoryCounters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HDisk\DiskPerformance.Designer.cs">
-      <DependentUpon>DiskPerformance.cs</DependentUpon>
+    <Compile Include="MemoryCounters.Designer.cs">
+      <DependentUpon>MemoryCounters.cs</DependentUpon>
     </Compile>
-    <Compile Include="HDisk\ExtraDiskMeth.cs" />
-    <Compile Include="HDisk\FileSysMonForm.cs">
+    <Compile Include="MonitorBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HDisk\FileSysMonForm.Designer.cs">
-      <DependentUpon>FileSysMonForm.cs</DependentUpon>
+    <Compile Include="MonitorBrowser.Designer.cs">
+      <DependentUpon>MonitorBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="HDisk\IntelliMon\DiskDataHandler.cs" />
-    <Compile Include="HDisk\IntelliMon\InteliMonitorConfig.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HDisk\IntelliMon\InteliMonitorConfig.Designer.cs">
-      <DependentUpon>InteliMonitorConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HDisk\IntelliMon\MonitorWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HDisk\IntelliMon\MonitorWindow.Designer.cs">
-      <DependentUpon>MonitorWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HDisk\PerfCounterHD.cs" />
-    <Compile Include="HDisk\WMIConn.cs" />
-    <Compile Include="HDisk\WMIDisk.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RAM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAM.Designer.cs">
+      <DependentUpon>RAM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAM\ApplicationIdleTimer.cs" />
+    <Compile Include="RAM\MemoryScanner.cs" />
     <Compile Include="RAM\MEMORYSTATUSEX.cs" />
+    <Compile Include="RAM\Native.cs" />
     <Compile Include="RAM\ProcessList.cs" />
     <Compile Include="RAM\wmiMemory.cs" />
+    <Compile Include="SystemMemoryInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemMemoryInfo.Designer.cs">
+      <DependentUpon>SystemMemoryInfo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ACRMForm.resx">
       <DependentUpon>ACRMForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx" />
-    <EmbeddedResource Include="Form2.resx" />
-    <EmbeddedResource Include="HDisk\DirSizeExplorer.resx">
-      <DependentUpon>DirSizeExplorer.cs</DependentUpon>
+    <EmbeddedResource Include="Browser.resx">
+      <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx" />
-    <EmbeddedResource Include="Form2.resx" />
-    <EmbeddedResource Include="HDisk\DiskPerformance.resx">
-      <DependentUpon>DiskPerformance.cs</DependentUpon>
+    <EmbeddedResource Include="Configuration.resx">
+      <DependentUpon>Configuration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HDisk\FileSysMonForm.resx">
-      <DependentUpon>FileSysMonForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HDisk\IntelliMon\InteliMonitorConfig.resx">
-      <DependentUpon>InteliMonitorConfig.cs</DependentUpon>
+    <EmbeddedResource Include="IdleCheckForm.resx">
+      <DependentUpon>IdleCheckForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HDisk\IntelliMon\MonitorWindow.resx">
-      <DependentUpon>MonitorWindow.cs</DependentUpon>
+    <EmbeddedResource Include="MemoryAnalytics.resx">
+      <DependentUpon>MemoryAnalytics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemoryCounters.resx">
+      <DependentUpon>MemoryCounters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonitorBrowser.resx">
+      <DependentUpon>MonitorBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,10 +162,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
-    <None Include="packages.config" />
+    <EmbeddedResource Include="RAM.resx">
+      <DependentUpon>RAM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemMemoryInfo.resx">
+      <DependentUpon>SystemMemoryInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -166,16 +180,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <Content Include="Image1.jpg" />
+    <Content Include="Resources\a.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\searchii.png" />
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\playiv.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="images\pausei.png" />
+    <Folder Include="HDisk\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

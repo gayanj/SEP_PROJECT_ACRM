@@ -9,19 +9,14 @@ using System.Windows.Forms;
 using System.Management;
 using ACRM.CPU;
 using System.Collections;
-using ACRM.HDisk; //for Disk
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Diagnostics;
 using RAM;
-<<<<<<< HEAD
-using System.Net.NetworkInformation; //for Disk
-=======
 using System.Net.NetworkInformation;
-using ACRM.HDisk.IntelliMon; //for Disk
->>>>>>> origin/master
+using SEPMetro; //for Disk
 
 namespace ACRM
 {
@@ -34,12 +29,7 @@ namespace ACRM
         private int value = 0;
         private int index = 0;
         private DriveInfo[] allDrives; //for disk
-        private WMIDisk wd;
         private ArrayList diskModelList;
-<<<<<<< HEAD
-=======
-        bool loadReady = false;
->>>>>>> origin/master
         wmiMemory wmi = new wmiMemory();
         private Thread addDataRunner;
         private Random rand = new Random();
@@ -53,15 +43,15 @@ namespace ACRM
         public ACRMForm()
         {
             InitializeComponent();
-            button1.Enabled = false;
+            metroButton2.Enabled = false;
             dataGridView1.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             t = new System.Threading.Timer(new TimerCallback(getProcessInfo), null, 0, 1000);
-            button2.Enabled = false;
-            button1.Enabled = true;
+            metroButton1.Enabled = false;
+            metroButton2.Enabled = true;
         }
 
         /// <summary>
@@ -74,9 +64,7 @@ namespace ACRM
             int index = Int32.Parse(dataGridView1.FirstDisplayedScrollingRowIndex.ToString());
             pl = new ProcessLocal();
             DataTable processMonitor = new DataTable();
-            processMonitor.BeginLoadData();
             processMonitor = pl.ProcessMonitor();
-            processMonitor.EndLoadData();
             dataGridView1.SafeInvoke(d => d.DataSource = processMonitor);
             if (index == -1)
             {
@@ -86,7 +74,8 @@ namespace ACRM
             {
                 dataGridView1.SafeInvoke(d => d.FirstDisplayedScrollingRowIndex = index);
             }
-            updateChart();
+            this.changeUsageValue();
+            this.updateChart();
             count++;
         }
 
@@ -94,139 +83,38 @@ namespace ACRM
         //show new File System Monitor Window
         private void fileSysMonBtn_Click(object sender, EventArgs e)
         {
-            FileSysMonForm fsForm1 = new FileSysMonForm();
-            fsForm1.Show();
-            fsForm1.Focus();
+
         }
 
         //Fill Volume Information
         private void driveListCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selInd = driveListCombo.SelectedIndex;
-
-            dNameLbl.Text = allDrives[selInd].Name.ToString();
-            dTypeLbl.Text = allDrives[selInd].DriveType.ToString();
-            try
-            {
-                volLbl.Text = allDrives[selInd].VolumeLabel.ToString();
-                dFormatLbl.Text = allDrives[selInd].DriveFormat.ToString();
-                totSizeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalSize);
-                totFreeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalFreeSpace);
-                totAvaLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].AvailableFreeSpace);
-            }
-            catch (IOException ex)
-            {
-                volLbl.Text = "Volume Not Ready";
-                dFormatLbl.Text = "Volume Not Ready";
-                totAvaLbl.Text = "Volume Not Ready";
-                totFreeLbl.Text = "Volume Not Ready";
-                totSizeLbl.Text = "Volume Not Ready";
-            }
-            if (allDrives[selInd].IsReady == true)
-            {
-                dStatLbl.Text = "On-Line";
-                dStatLbl.BackColor = Color.Green;
-            }
-            else
-            {
-                dStatLbl.Text = "Off-Line";
-                dStatLbl.BackColor = Color.Red;
-            }
+            
         }
 
         //File the Volumes and Physical Drives Lists
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            allDrives = DriveInfo.GetDrives();
-            foreach (DriveInfo d in allDrives)
-            {
-                driveListCombo.Items.Add(d.Name);
-            }
-            driveListCombo.SelectedIndex = 0;
 
-            wd = new WMIDisk();
-            diskModelList = wd.DiskInf(wd.ms);
-            foreach (var v in diskModelList)
-            {
-                phyDiskComBox.DataSource = diskModelList;
-=======
-            this.loadDiskDetails();
-        }
-
-        private void loadDiskDetails()
-        {
-            if (loadReady == false)
-            {
-                allDrives = DriveInfo.GetDrives();
-                foreach (DriveInfo d in allDrives)
-                {
-                    driveListCombo.Items.Add(d.Name);
-                }
-                driveListCombo.SelectedIndex = 0;
-
-                wd = new WMIDisk();
-                diskModelList = wd.DiskInf(wd.ms);
-                foreach (var v in diskModelList)
-                {
-                    phyDiskComBox.DataSource = diskModelList;
-                }
-
-                loadReady = true;
->>>>>>> origin/master
-            }
         }
 
         // Retrieve Disk Detail through WMI
         private void phyDiskComBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ManagementObjectSearcher mos1 = wd.phyDiskInf(phyDiskComBox.SelectedItem.ToString());
-            ManagementObjectCollection moc = mos1.Get();
-
-            foreach (ManagementObject mo in moc)
-            {
-
-                lblSerial.Text = mo["SerialNumber"].ToString().Trim();
-                lblModel.Text = mo["Model"].ToString().Trim();
-                lblInterface.Text = mo["InterfaceType"].ToString();
-                lblCapacity.Text = ExtraDiskMeth.SizeSuffix(mo["Size"].ToString());
-                lblPartitions.Text = mo["Partitions"].ToString();
-<<<<<<< HEAD
-                lblSig.Text = mo["Signature"].ToString();
-=======
-                //lblSig.Text = mo["Signature"].ToString();
->>>>>>> origin/master
-                if (mo["FirmwareRevision"] == null)
-                {
-                    lblFirmware.Text = "-";
-                }
-                else
-                {
-                    lblFirmware.Text = mo["FirmwareRevision"].ToString();
-                }
-                lblCylinder.Text = mo["TotalCylinders"].ToString();
-                lblSectors.Text = mo["TotalSectors"].ToString();
-                lblHeads.Text = mo["TotalHeads"].ToString();
-                lblTracks.Text = mo["TotalTracks"].ToString();
-                lblBperSec.Text = mo["BytesPerSector"].ToString();
-                lblSecPerTrack.Text = mo["SectorsPerTrack"].ToString();
-                lblTrackPerCyl.Text = mo["TracksPerCylinder"].ToString();
-            }
+            
         }
 
         //Show New Disk Performance Window
         private void btnDiskPerf_Click(object sender, EventArgs e)
         {
-            DiskPerformance dp = new DiskPerformance();
-            dp.Show();
-            dp.Focus();
+            
         }
         #endregion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button2.Enabled = true;
-            button1.Enabled = false;
+            metroButton1.Enabled = true;
+            metroButton2.Enabled = false;
             t.Dispose();
         }
 
@@ -268,20 +156,6 @@ namespace ACRM
             dt = new DataTable("CPU Usage");
 
             this.setTableChart();
-            MEMORYSTATUSEX m = new MEMORYSTATUSEX();
-            label31.Text = wmi.info[5];
-            label32.Text = wmi.info[4];
-            label33.Text = wmi.info[6];
-            label34.Text = wmi.info[7] + " MHz";
-            label35.Text = wmi.info[8];
-            label36.Text = wmi.info[2] + " Bytes";
-
-            ThreadStart addDataThreadStart = new ThreadStart(AddDataThreadLoop);
-
-            addDataRunner = new Thread(addDataThreadStart);
-
-            addDataDel += new AddDataDelegate(AddData);
-
 
             //add series into chart
             startTrending_Click(null, new EventArgs());
@@ -324,109 +198,11 @@ namespace ACRM
             DateTime minValue = DateTime.Now;
 
             DateTime maxValue = minValue.AddSeconds(120);
-
-
-            chart1.ChartAreas[0].AxisX.Minimum = minValue.ToOADate();
-
-            chart1.ChartAreas[0].AxisX.Maximum = maxValue.ToOADate();
-
-
-
-            chart1.Series.Clear();
-
-
-            Series newSeries = new Series("Physical Memory usage");
-
-            newSeries.ChartType = SeriesChartType.Line;
-
-            newSeries.BorderWidth = 2;
-
-            newSeries.Color = Color.OrangeRed;
-
-            newSeries.XValueType = ChartValueType.Time;
-
-            chart1.Series.Add(newSeries);
-
-
-
             //start thread to add data into chart
 
             addDataRunner.Start();
 
         }
-
-        private void AddDataThreadLoop()
-        {
-
-            while (true)
-            {
-
-                chart1.Invoke(addDataDel);
-
-
-                Thread.Sleep(1000);
-
-            }
-
-        }
-
-        public void AddData()
-        {
-
-            DateTime timeStamp = DateTime.Now;
-
-
-            foreach (Series ptSeries in chart1.Series)
-            {
-
-                AddNewPoint(timeStamp, ptSeries);
-
-            }
-
-        }
-        public void AddNewPoint(DateTime timeStamp, System.Windows.Forms.DataVisualization.Charting.Series ptSeries)
-        {
-            MEMORYSTATUSEX statusEx = new MEMORYSTATUSEX();
-            statusEx.setValues();
-            double newVal = 0;
-            //double newVal = Convert.ToDouble(MEMORYSTATUSEX.graphMemory);
-            //Console.WriteLine(statusEx.dwMemoryLoad.ToString());
-            //chart1.Series["Series1"].Points.AddXY(timeStamp, newVal);
-            if (ptSeries.Points.Count > 0)
-            {
-
-                newVal = ptSeries.Points[ptSeries.Points.Count - 1].YValues[0] + Convert.ToDouble(MEMORYSTATUSEX.graphMemory);
-
-            }
-
-
-            if (newVal < 0)
-
-                newVal = 0;
-
-            ptSeries.Points.AddXY(timeStamp.ToOADate(), Convert.ToDouble(MEMORYSTATUSEX.graphMemory));
-
-
-            double removeBefore = timeStamp.AddSeconds((double)(90) * (-1)).ToOADate();
-
-            while (ptSeries.Points[0].XValue < removeBefore)
-            {
-
-                ptSeries.Points.RemoveAt(0);
-
-            }
-
-
-            chart1.ChartAreas[0].AxisX.Minimum = ptSeries.Points[0].XValue;
-
-            chart1.ChartAreas[0].AxisX.Maximum = DateTime.FromOADate(ptSeries.Points[0].XValue).AddMinutes(2).ToOADate();
-
-
-            chart1.Invalidate();
-
-
-        }
-
 
         private void setTableChart()
         {
@@ -452,13 +228,17 @@ namespace ACRM
             dt.Rows.Add(count, value);
             try
             {
-                value = Int32.Parse(dataGridView1[2, index].Value.ToString());
                 this.cpuChart.SafeInvoke(e => e.DataBind());
             }
             catch (NullReferenceException ex)
             {
                 //Occurs on forced exit
             }
+        }
+
+        private void changeUsageValue()
+        {
+            value = Int32.Parse(dataGridView1[2, index].Value.ToString());
         }
 
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -473,34 +253,16 @@ namespace ACRM
             processName.Visible = true;
             processNameValue.Visible = true;
             processNameValue.Text = dataGridView1[1, index].Value.ToString();
-            updateChart();
+            this.changeUsageValue();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
-            f.ShowDialog();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            int count = 0;
-            listBox1.Items.Clear();
-            if (nics == null)
-            {
-                nics = NetworkInterface.GetAllNetworkInterfaces();
-            }
-            foreach (NetworkInterface adapter in nics)
-            {
-                if ((adapter.GetIPv4Statistics().BytesReceived > 0) && (!adapter.Description.Contains("Teredo")))
-                {
-                    count++;
-                    this.SetText(adapter.Description);
-                    this.SetText(String.Empty.PadLeft(adapter.Description.Length, '='));
-                }
-            }
-            label39.Text = "Total No of network Interfaces found : " + count;
-            listBox1.Visible = true;
+
         }
 
         private void ThreadProcSafe()
@@ -546,31 +308,7 @@ namespace ACRM
 
         private void SetText(string information)
         {
-            if (listBox1.InvokeRequired)
-            {
 
-                SetTextCallback d = new SetTextCallback(SetText);
-                try
-                {
-                    this.Invoke(d, new object[] { information });
-
-                }
-                catch (ObjectDisposedException e)
-                {
-
-                }
-            }
-            else
-            {
-                if (information.Equals("clear"))
-                {
-                    listBox1.Items.Clear();
-                }
-                else
-                {
-                    listBox1.Items.Add(information);
-                }
-            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -588,23 +326,32 @@ namespace ACRM
         {
             monitoring = false;
         }
-<<<<<<< HEAD
-=======
 
-        private void btnDirExplorer_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
-            DirSizeExplorer dse = new DirSizeExplorer();
-            dse.Show();
-            dse.Focus();
+
         }
 
-        private void btnInteliMonitor_Click(object sender, EventArgs e)
+        private void metroButton1_Click(object sender, EventArgs e)
         {
-            InteliMonitorConfig imc = new InteliMonitorConfig();
-            imc.Show();
-            imc.Focus();
+            t = new System.Threading.Timer(new TimerCallback(getProcessInfo), null, 0, 1000);
+            metroButton1.Enabled = false;
+            metroButton2.Enabled = true;
         }
->>>>>>> origin/master
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            metroButton1.Enabled = true;
+            metroButton2.Enabled = false;
+            t.Dispose();
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            MonitorBrowser m = new MonitorBrowser();
+            m.ShowDialog();
+        }
     }
 }
 
+    
