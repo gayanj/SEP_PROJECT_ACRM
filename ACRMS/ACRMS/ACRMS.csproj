@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ACRMS</RootNamespace>
     <AssemblyName>ACRMS</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework">
@@ -38,6 +41,9 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,10 +60,70 @@
     <Compile Include="ACRMS_Main.Designer.cs">
       <DependentUpon>ACRMS_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="DISK\DirSizeExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DISK\DirSizeExplorer.designer.cs">
+      <DependentUpon>DirSizeExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DISK\DiskMainGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DISK\DiskMainGUI.Designer.cs">
+      <DependentUpon>DiskMainGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DISK\DiskPerformance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DISK\DiskPerformance.designer.cs">
+      <DependentUpon>DiskPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DISK\DriveDetail.cs" />
+    <Compile Include="DISK\ExtraDiskMeth.cs" />
+    <Compile Include="DISK\FileSysMonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DISK\FileSysMonForm.designer.cs">
+      <DependentUpon>FileSysMonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DISK\IntelliMon\DiskDataHandler.cs" />
+    <Compile Include="DISK\IntelliMon\InteliMonitorConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DISK\IntelliMon\InteliMonitorConfig.designer.cs">
+      <DependentUpon>InteliMonitorConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DISK\IntelliMon\MonitorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DISK\IntelliMon\MonitorWindow.designer.cs">
+      <DependentUpon>MonitorWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DISK\PerfCounterHD.cs" />
+    <Compile Include="DISK\WMIConn.cs" />
+    <Compile Include="DISK\WMIDisk.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ACRMS_Main.resx">
       <DependentUpon>ACRMS_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DISK\DirSizeExplorer.resx">
+      <DependentUpon>DirSizeExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DISK\DiskMainGUI.resx">
+      <DependentUpon>DiskMainGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DISK\DiskPerformance.resx">
+      <DependentUpon>DiskPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DISK\FileSysMonForm.resx">
+      <DependentUpon>FileSysMonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DISK\IntelliMon\InteliMonitorConfig.resx">
+      <DependentUpon>InteliMonitorConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DISK\IntelliMon\MonitorWindow.resx">
+      <DependentUpon>MonitorWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -67,7 +133,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -80,7 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CPU\" />
-    <Folder Include="DISK\" />
     <Folder Include="NETWORK\" />
     <Folder Include="RAM\" />
   </ItemGroup>

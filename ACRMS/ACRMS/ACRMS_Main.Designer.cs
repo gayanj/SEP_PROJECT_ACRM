@@ -70,6 +70,7 @@
             this.DISK_Button.TabIndex = 2;
             this.DISK_Button.Text = "DISK";
             this.DISK_Button.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.DISK_Button.Click += new System.EventHandler(this.DISK_Button_Click);
             // 
             // NETWORK_Button
             // 
