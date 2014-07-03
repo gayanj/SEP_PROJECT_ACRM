@@ -51,7 +51,6 @@ namespace ACRMS.DISK.IntelliMon
         private void timer_Tick(object sender, EventArgs e)
         {
             lblTimer.Text = stw.Elapsed.ToString().Substring(0, 8);
-            
         }
     }
 }

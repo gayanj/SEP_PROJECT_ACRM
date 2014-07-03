@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.label1 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -83,17 +83,17 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnAvgTrans = new System.Windows.Forms.Button();
+            this.btnDiskQueue = new System.Windows.Forms.Button();
+            this.btnDiskTime = new System.Windows.Forms.Button();
+            this.btnIdleTime = new System.Windows.Forms.Button();
             this.HDchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblElapsedTime = new System.Windows.Forms.Label();
             this.hostListComboBox = new System.Windows.Forms.ComboBox();
-            this.btnIdleTime = new System.Windows.Forms.Button();
-            this.btnDiskTime = new System.Windows.Forms.Button();
-            this.btnDiskQueue = new System.Windows.Forms.Button();
-            this.btnAvgTrans = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -633,12 +633,92 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "% Disk Times";
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(766, 162);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(100, 13);
+            this.label26.TabIndex = 8;
+            this.label26.Text = "Avg. Transfers/Sec";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(772, 120);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(88, 13);
+            this.label23.TabIndex = 7;
+            this.label23.Text = "Avg. Disk Queue";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(784, 78);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 13);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "% Disk Time";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(786, 36);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(61, 13);
+            this.label21.TabIndex = 5;
+            this.label21.Text = "% Idle Time";
+            // 
+            // btnAvgTrans
+            // 
+            this.btnAvgTrans.BackColor = System.Drawing.Color.Green;
+            this.btnAvgTrans.Location = new System.Drawing.Point(779, 178);
+            this.btnAvgTrans.Name = "btnAvgTrans";
+            this.btnAvgTrans.Size = new System.Drawing.Size(75, 23);
+            this.btnAvgTrans.TabIndex = 4;
+            this.btnAvgTrans.Text = "Showing";
+            this.btnAvgTrans.UseVisualStyleBackColor = false;
+            this.btnAvgTrans.Click += new System.EventHandler(this.btnAvgTrans_Click);
+            // 
+            // btnDiskQueue
+            // 
+            this.btnDiskQueue.BackColor = System.Drawing.Color.Green;
+            this.btnDiskQueue.Location = new System.Drawing.Point(779, 136);
+            this.btnDiskQueue.Name = "btnDiskQueue";
+            this.btnDiskQueue.Size = new System.Drawing.Size(75, 23);
+            this.btnDiskQueue.TabIndex = 3;
+            this.btnDiskQueue.Text = "Showing";
+            this.btnDiskQueue.UseVisualStyleBackColor = false;
+            this.btnDiskQueue.Click += new System.EventHandler(this.btnDiskQueue_Click);
+            // 
+            // btnDiskTime
+            // 
+            this.btnDiskTime.BackColor = System.Drawing.Color.Green;
+            this.btnDiskTime.Location = new System.Drawing.Point(779, 94);
+            this.btnDiskTime.Name = "btnDiskTime";
+            this.btnDiskTime.Size = new System.Drawing.Size(75, 23);
+            this.btnDiskTime.TabIndex = 2;
+            this.btnDiskTime.Text = "Showing";
+            this.btnDiskTime.UseVisualStyleBackColor = false;
+            this.btnDiskTime.Click += new System.EventHandler(this.btnDiskTime_Click);
+            // 
+            // btnIdleTime
+            // 
+            this.btnIdleTime.BackColor = System.Drawing.Color.Green;
+            this.btnIdleTime.Location = new System.Drawing.Point(779, 52);
+            this.btnIdleTime.Name = "btnIdleTime";
+            this.btnIdleTime.Size = new System.Drawing.Size(75, 23);
+            this.btnIdleTime.TabIndex = 1;
+            this.btnIdleTime.Text = "Showing";
+            this.btnIdleTime.UseVisualStyleBackColor = false;
+            this.btnIdleTime.Click += new System.EventHandler(this.btnIdleTime_Click);
+            // 
             // HDchart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.HDchart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.HDchart.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.HDchart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.HDchart.Legends.Add(legend3);
             this.HDchart.Location = new System.Drawing.Point(9, 20);
             this.HDchart.Name = "HDchart";
             this.HDchart.Size = new System.Drawing.Size(751, 228);
@@ -667,86 +747,6 @@
             this.hostListComboBox.Size = new System.Drawing.Size(156, 21);
             this.hostListComboBox.TabIndex = 23;
             // 
-            // btnIdleTime
-            // 
-            this.btnIdleTime.BackColor = System.Drawing.Color.Green;
-            this.btnIdleTime.Location = new System.Drawing.Point(779, 52);
-            this.btnIdleTime.Name = "btnIdleTime";
-            this.btnIdleTime.Size = new System.Drawing.Size(75, 23);
-            this.btnIdleTime.TabIndex = 1;
-            this.btnIdleTime.Text = "Showing";
-            this.btnIdleTime.UseVisualStyleBackColor = false;
-            this.btnIdleTime.Click += new System.EventHandler(this.btnIdleTime_Click);
-            // 
-            // btnDiskTime
-            // 
-            this.btnDiskTime.BackColor = System.Drawing.Color.Green;
-            this.btnDiskTime.Location = new System.Drawing.Point(779, 94);
-            this.btnDiskTime.Name = "btnDiskTime";
-            this.btnDiskTime.Size = new System.Drawing.Size(75, 23);
-            this.btnDiskTime.TabIndex = 2;
-            this.btnDiskTime.Text = "Showing";
-            this.btnDiskTime.UseVisualStyleBackColor = false;
-            this.btnDiskTime.Click += new System.EventHandler(this.btnDiskTime_Click);
-            // 
-            // btnDiskQueue
-            // 
-            this.btnDiskQueue.BackColor = System.Drawing.Color.Green;
-            this.btnDiskQueue.Location = new System.Drawing.Point(779, 136);
-            this.btnDiskQueue.Name = "btnDiskQueue";
-            this.btnDiskQueue.Size = new System.Drawing.Size(75, 23);
-            this.btnDiskQueue.TabIndex = 3;
-            this.btnDiskQueue.Text = "Showing";
-            this.btnDiskQueue.UseVisualStyleBackColor = false;
-            this.btnDiskQueue.Click += new System.EventHandler(this.btnDiskQueue_Click);
-            // 
-            // btnAvgTrans
-            // 
-            this.btnAvgTrans.BackColor = System.Drawing.Color.Green;
-            this.btnAvgTrans.Location = new System.Drawing.Point(779, 178);
-            this.btnAvgTrans.Name = "btnAvgTrans";
-            this.btnAvgTrans.Size = new System.Drawing.Size(75, 23);
-            this.btnAvgTrans.TabIndex = 4;
-            this.btnAvgTrans.Text = "Showing";
-            this.btnAvgTrans.UseVisualStyleBackColor = false;
-            this.btnAvgTrans.Click += new System.EventHandler(this.btnAvgTrans_Click);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(786, 36);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(61, 13);
-            this.label21.TabIndex = 5;
-            this.label21.Text = "% Idle Time";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(784, 78);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(65, 13);
-            this.label22.TabIndex = 6;
-            this.label22.Text = "% Disk Time";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(772, 120);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(88, 13);
-            this.label23.TabIndex = 7;
-            this.label23.Text = "Avg. Disk Queue";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(766, 162);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(100, 13);
-            this.label26.TabIndex = 8;
-            this.label26.Text = "Avg. Transfers/Sec";
-            // 
             // DiskPerformance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -763,10 +763,12 @@
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnStart);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(910, 610);
             this.MinimumSize = new System.Drawing.Size(910, 610);
             this.Name = "DiskPerformance";
-            this.Text = "DiskPerformance";
+            this.ShowIcon = false;
+            this.Text = "Disk Performance Monitor";
             this.Load += new System.EventHandler(this.DiskPerformance_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -68,7 +68,6 @@ namespace ACRMS.DISK
                 lblInterface.Text = mo["InterfaceType"].ToString();
                 lblCapacity.Text = ExtraDiskMeth.SizeSuffix(mo["Size"].ToString());
                 lblPartitions.Text = mo["Partitions"].ToString();
-                //lblSig.Text = mo["Signature"].ToString();
                 if (mo["FirmwareRevision"] == null)
                 {
                     lblFirmware.Text = "-";

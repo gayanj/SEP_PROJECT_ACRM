@@ -51,7 +51,7 @@
             this.hdlb17 = new System.Windows.Forms.Label();
             this.volInfGBox = new System.Windows.Forms.GroupBox();
             this.totFreeLbl = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.diskInfGBox = new System.Windows.Forms.GroupBox();
             this.hdlb14 = new System.Windows.Forms.Label();
             this.hdlb13 = new System.Windows.Forms.Label();
             this.hdlb12 = new System.Windows.Forms.Label();
@@ -60,13 +60,11 @@
             this.hdlb9 = new System.Windows.Forms.Label();
             this.hdlb8 = new System.Windows.Forms.Label();
             this.hdlb7 = new System.Windows.Forms.Label();
-            this.hdlb6 = new System.Windows.Forms.Label();
             this.hdlb5 = new System.Windows.Forms.Label();
             this.hdlb4 = new System.Windows.Forms.Label();
             this.hdlb3 = new System.Windows.Forms.Label();
             this.hdlb2 = new System.Windows.Forms.Label();
             this.hdlb1 = new System.Windows.Forms.Label();
-            this.lblSig = new System.Windows.Forms.Label();
             this.lblTrackPerCyl = new System.Windows.Forms.Label();
             this.lblSecPerTrack = new System.Windows.Forms.Label();
             this.lblBperSec = new System.Windows.Forms.Label();
@@ -83,7 +81,7 @@
             this.phyDiskComBox = new System.Windows.Forms.ComboBox();
             this.xtraFuncGBox.SuspendLayout();
             this.volInfGBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.diskInfGBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // dFormatLbl
@@ -91,18 +89,18 @@
             this.dFormatLbl.AutoSize = true;
             this.dFormatLbl.Location = new System.Drawing.Point(163, 121);
             this.dFormatLbl.Name = "dFormatLbl";
-            this.dFormatLbl.Size = new System.Drawing.Size(39, 13);
+            this.dFormatLbl.Size = new System.Drawing.Size(19, 13);
             this.dFormatLbl.TabIndex = 13;
-            this.dFormatLbl.Text = "Format";
+            this.dFormatLbl.Text = "----";
             // 
             // dTypeLbl
             // 
             this.dTypeLbl.AutoSize = true;
             this.dTypeLbl.Location = new System.Drawing.Point(163, 99);
             this.dTypeLbl.Name = "dTypeLbl";
-            this.dTypeLbl.Size = new System.Drawing.Size(31, 13);
+            this.dTypeLbl.Size = new System.Drawing.Size(19, 13);
             this.dTypeLbl.TabIndex = 12;
-            this.dTypeLbl.Text = "Type";
+            this.dTypeLbl.Text = "----";
             // 
             // hdlb21
             // 
@@ -118,18 +116,18 @@
             this.volLbl.AutoSize = true;
             this.volLbl.Location = new System.Drawing.Point(163, 77);
             this.volLbl.Name = "volLbl";
-            this.volLbl.Size = new System.Drawing.Size(42, 13);
+            this.volLbl.Size = new System.Drawing.Size(19, 13);
             this.volLbl.TabIndex = 11;
-            this.volLbl.Text = "Volume";
+            this.volLbl.Text = "----";
             // 
             // dNameLbl
             // 
             this.dNameLbl.AutoSize = true;
             this.dNameLbl.Location = new System.Drawing.Point(163, 53);
             this.dNameLbl.Name = "dNameLbl";
-            this.dNameLbl.Size = new System.Drawing.Size(35, 13);
+            this.dNameLbl.Size = new System.Drawing.Size(19, 13);
             this.dNameLbl.TabIndex = 10;
-            this.dNameLbl.Text = "Name";
+            this.dNameLbl.Text = "----";
             // 
             // hdlb20
             // 
@@ -142,9 +140,9 @@
             // 
             // btnInteliMonitor
             // 
-            this.btnInteliMonitor.Location = new System.Drawing.Point(7, 139);
+            this.btnInteliMonitor.Location = new System.Drawing.Point(167, 67);
             this.btnInteliMonitor.Name = "btnInteliMonitor";
-            this.btnInteliMonitor.Size = new System.Drawing.Size(141, 37);
+            this.btnInteliMonitor.Size = new System.Drawing.Size(141, 30);
             this.btnInteliMonitor.TabIndex = 3;
             this.btnInteliMonitor.Text = "Intelligent Monitor";
             this.btnInteliMonitor.UseVisualStyleBackColor = true;
@@ -158,18 +156,18 @@
             this.xtraFuncGBox.Controls.Add(this.fileSysMonBtn);
             this.xtraFuncGBox.Location = new System.Drawing.Point(394, 269);
             this.xtraFuncGBox.Name = "xtraFuncGBox";
-            this.xtraFuncGBox.Size = new System.Drawing.Size(383, 187);
+            this.xtraFuncGBox.Size = new System.Drawing.Size(323, 113);
             this.xtraFuncGBox.TabIndex = 26;
             this.xtraFuncGBox.TabStop = false;
             this.xtraFuncGBox.Text = "Extra Functions";
             // 
             // btnDirExplorer
             // 
-            this.btnDirExplorer.Location = new System.Drawing.Point(7, 103);
+            this.btnDirExplorer.Location = new System.Drawing.Point(166, 31);
             this.btnDirExplorer.Name = "btnDirExplorer";
             this.btnDirExplorer.Size = new System.Drawing.Size(142, 30);
             this.btnDirExplorer.TabIndex = 2;
-            this.btnDirExplorer.Text = "Dir Explorer";
+            this.btnDirExplorer.Text = "Directory Mapper";
             this.btnDirExplorer.UseVisualStyleBackColor = true;
             this.btnDirExplorer.Click += new System.EventHandler(this.btnDirExplorer_Click);
             // 
@@ -216,9 +214,9 @@
             this.totSizeLbl.AutoSize = true;
             this.totSizeLbl.Location = new System.Drawing.Point(163, 143);
             this.totSizeLbl.Name = "totSizeLbl";
-            this.totSizeLbl.Size = new System.Drawing.Size(27, 13);
+            this.totSizeLbl.Size = new System.Drawing.Size(19, 13);
             this.totSizeLbl.TabIndex = 14;
-            this.totSizeLbl.Text = "Size";
+            this.totSizeLbl.Text = "----";
             // 
             // driveListCombo
             // 
@@ -234,9 +232,9 @@
             this.dStatLbl.AutoSize = true;
             this.dStatLbl.Location = new System.Drawing.Point(163, 211);
             this.dStatLbl.Name = "dStatLbl";
-            this.dStatLbl.Size = new System.Drawing.Size(37, 13);
+            this.dStatLbl.Size = new System.Drawing.Size(19, 13);
             this.dStatLbl.TabIndex = 18;
-            this.dStatLbl.Text = "Status";
+            this.dStatLbl.Text = "----";
             // 
             // hdlb15
             // 
@@ -270,9 +268,9 @@
             this.totAvaLbl.AutoSize = true;
             this.totAvaLbl.Location = new System.Drawing.Point(163, 189);
             this.totAvaLbl.Name = "totAvaLbl";
-            this.totAvaLbl.Size = new System.Drawing.Size(50, 13);
+            this.totAvaLbl.Size = new System.Drawing.Size(19, 13);
             this.totAvaLbl.TabIndex = 16;
-            this.totAvaLbl.Text = "Available";
+            this.totAvaLbl.Text = "----";
             // 
             // hdlb17
             // 
@@ -304,62 +302,60 @@
             this.volInfGBox.Controls.Add(this.dNameLbl);
             this.volInfGBox.Location = new System.Drawing.Point(394, 12);
             this.volInfGBox.Name = "volInfGBox";
-            this.volInfGBox.Size = new System.Drawing.Size(383, 248);
+            this.volInfGBox.Size = new System.Drawing.Size(323, 248);
             this.volInfGBox.TabIndex = 27;
             this.volInfGBox.TabStop = false;
-            this.volInfGBox.Text = "Volume Info";
+            this.volInfGBox.Text = "Volume Information";
             // 
             // totFreeLbl
             // 
             this.totFreeLbl.AutoSize = true;
             this.totFreeLbl.Location = new System.Drawing.Point(163, 166);
             this.totFreeLbl.Name = "totFreeLbl";
-            this.totFreeLbl.Size = new System.Drawing.Size(28, 13);
+            this.totFreeLbl.Size = new System.Drawing.Size(19, 13);
             this.totFreeLbl.TabIndex = 15;
-            this.totFreeLbl.Text = "Free";
+            this.totFreeLbl.Text = "----";
             // 
-            // groupBox1
+            // diskInfGBox
             // 
-            this.groupBox1.Controls.Add(this.hdlb14);
-            this.groupBox1.Controls.Add(this.hdlb13);
-            this.groupBox1.Controls.Add(this.hdlb12);
-            this.groupBox1.Controls.Add(this.hdlb11);
-            this.groupBox1.Controls.Add(this.hdlb10);
-            this.groupBox1.Controls.Add(this.hdlb9);
-            this.groupBox1.Controls.Add(this.hdlb8);
-            this.groupBox1.Controls.Add(this.hdlb7);
-            this.groupBox1.Controls.Add(this.hdlb6);
-            this.groupBox1.Controls.Add(this.hdlb5);
-            this.groupBox1.Controls.Add(this.hdlb4);
-            this.groupBox1.Controls.Add(this.hdlb3);
-            this.groupBox1.Controls.Add(this.hdlb2);
-            this.groupBox1.Controls.Add(this.hdlb1);
-            this.groupBox1.Controls.Add(this.lblSig);
-            this.groupBox1.Controls.Add(this.lblTrackPerCyl);
-            this.groupBox1.Controls.Add(this.lblSecPerTrack);
-            this.groupBox1.Controls.Add(this.lblBperSec);
-            this.groupBox1.Controls.Add(this.lblTracks);
-            this.groupBox1.Controls.Add(this.lblHeads);
-            this.groupBox1.Controls.Add(this.lblSectors);
-            this.groupBox1.Controls.Add(this.lblCylinder);
-            this.groupBox1.Controls.Add(this.lblFirmware);
-            this.groupBox1.Controls.Add(this.lblPartitions);
-            this.groupBox1.Controls.Add(this.lblCapacity);
-            this.groupBox1.Controls.Add(this.lblInterface);
-            this.groupBox1.Controls.Add(this.lblModel);
-            this.groupBox1.Controls.Add(this.lblSerial);
-            this.groupBox1.Controls.Add(this.phyDiskComBox);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(376, 444);
-            this.groupBox1.TabIndex = 28;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.diskInfGBox.Controls.Add(this.hdlb14);
+            this.diskInfGBox.Controls.Add(this.hdlb13);
+            this.diskInfGBox.Controls.Add(this.hdlb12);
+            this.diskInfGBox.Controls.Add(this.hdlb11);
+            this.diskInfGBox.Controls.Add(this.hdlb10);
+            this.diskInfGBox.Controls.Add(this.hdlb9);
+            this.diskInfGBox.Controls.Add(this.hdlb8);
+            this.diskInfGBox.Controls.Add(this.hdlb7);
+            this.diskInfGBox.Controls.Add(this.hdlb5);
+            this.diskInfGBox.Controls.Add(this.hdlb4);
+            this.diskInfGBox.Controls.Add(this.hdlb3);
+            this.diskInfGBox.Controls.Add(this.hdlb2);
+            this.diskInfGBox.Controls.Add(this.hdlb1);
+            this.diskInfGBox.Controls.Add(this.lblTrackPerCyl);
+            this.diskInfGBox.Controls.Add(this.lblSecPerTrack);
+            this.diskInfGBox.Controls.Add(this.lblBperSec);
+            this.diskInfGBox.Controls.Add(this.lblTracks);
+            this.diskInfGBox.Controls.Add(this.lblHeads);
+            this.diskInfGBox.Controls.Add(this.lblSectors);
+            this.diskInfGBox.Controls.Add(this.lblCylinder);
+            this.diskInfGBox.Controls.Add(this.lblFirmware);
+            this.diskInfGBox.Controls.Add(this.lblPartitions);
+            this.diskInfGBox.Controls.Add(this.lblCapacity);
+            this.diskInfGBox.Controls.Add(this.lblInterface);
+            this.diskInfGBox.Controls.Add(this.lblModel);
+            this.diskInfGBox.Controls.Add(this.lblSerial);
+            this.diskInfGBox.Controls.Add(this.phyDiskComBox);
+            this.diskInfGBox.Location = new System.Drawing.Point(12, 12);
+            this.diskInfGBox.Name = "diskInfGBox";
+            this.diskInfGBox.Size = new System.Drawing.Size(376, 370);
+            this.diskInfGBox.TabIndex = 28;
+            this.diskInfGBox.TabStop = false;
+            this.diskInfGBox.Text = "Disk Information";
             // 
             // hdlb14
             // 
             this.hdlb14.AutoSize = true;
-            this.hdlb14.Location = new System.Drawing.Point(6, 347);
+            this.hdlb14.Location = new System.Drawing.Point(6, 324);
             this.hdlb14.Name = "hdlb14";
             this.hdlb14.Size = new System.Drawing.Size(99, 13);
             this.hdlb14.TabIndex = 78;
@@ -368,7 +364,7 @@
             // hdlb13
             // 
             this.hdlb13.AutoSize = true;
-            this.hdlb13.Location = new System.Drawing.Point(6, 324);
+            this.hdlb13.Location = new System.Drawing.Point(6, 301);
             this.hdlb13.Name = "hdlb13";
             this.hdlb13.Size = new System.Drawing.Size(93, 13);
             this.hdlb13.TabIndex = 77;
@@ -377,7 +373,7 @@
             // hdlb12
             // 
             this.hdlb12.AutoSize = true;
-            this.hdlb12.Location = new System.Drawing.Point(6, 302);
+            this.hdlb12.Location = new System.Drawing.Point(6, 279);
             this.hdlb12.Name = "hdlb12";
             this.hdlb12.Size = new System.Drawing.Size(86, 13);
             this.hdlb12.TabIndex = 76;
@@ -386,7 +382,7 @@
             // hdlb11
             // 
             this.hdlb11.AutoSize = true;
-            this.hdlb11.Location = new System.Drawing.Point(6, 279);
+            this.hdlb11.Location = new System.Drawing.Point(6, 256);
             this.hdlb11.Name = "hdlb11";
             this.hdlb11.Size = new System.Drawing.Size(72, 13);
             this.hdlb11.TabIndex = 75;
@@ -395,7 +391,7 @@
             // hdlb10
             // 
             this.hdlb10.AutoSize = true;
-            this.hdlb10.Location = new System.Drawing.Point(6, 257);
+            this.hdlb10.Location = new System.Drawing.Point(6, 234);
             this.hdlb10.Name = "hdlb10";
             this.hdlb10.Size = new System.Drawing.Size(70, 13);
             this.hdlb10.TabIndex = 74;
@@ -404,7 +400,7 @@
             // hdlb9
             // 
             this.hdlb9.AutoSize = true;
-            this.hdlb9.Location = new System.Drawing.Point(6, 235);
+            this.hdlb9.Location = new System.Drawing.Point(6, 212);
             this.hdlb9.Name = "hdlb9";
             this.hdlb9.Size = new System.Drawing.Size(75, 13);
             this.hdlb9.TabIndex = 73;
@@ -413,7 +409,7 @@
             // hdlb8
             // 
             this.hdlb8.AutoSize = true;
-            this.hdlb8.Location = new System.Drawing.Point(6, 211);
+            this.hdlb8.Location = new System.Drawing.Point(6, 188);
             this.hdlb8.Name = "hdlb8";
             this.hdlb8.Size = new System.Drawing.Size(81, 13);
             this.hdlb8.TabIndex = 72;
@@ -422,20 +418,11 @@
             // hdlb7
             // 
             this.hdlb7.AutoSize = true;
-            this.hdlb7.Location = new System.Drawing.Point(6, 189);
+            this.hdlb7.Location = new System.Drawing.Point(6, 166);
             this.hdlb7.Name = "hdlb7";
             this.hdlb7.Size = new System.Drawing.Size(93, 13);
             this.hdlb7.TabIndex = 71;
             this.hdlb7.Text = "Firmware Revision";
-            // 
-            // hdlb6
-            // 
-            this.hdlb6.AutoSize = true;
-            this.hdlb6.Location = new System.Drawing.Point(6, 166);
-            this.hdlb6.Name = "hdlb6";
-            this.hdlb6.Size = new System.Drawing.Size(52, 13);
-            this.hdlb6.TabIndex = 70;
-            this.hdlb6.Text = "Signature";
             // 
             // hdlb5
             // 
@@ -482,131 +469,122 @@
             this.hdlb1.TabIndex = 65;
             this.hdlb1.Text = "Disk Model";
             // 
-            // lblSig
-            // 
-            this.lblSig.AutoSize = true;
-            this.lblSig.Location = new System.Drawing.Point(165, 165);
-            this.lblSig.Name = "lblSig";
-            this.lblSig.Size = new System.Drawing.Size(41, 13);
-            this.lblSig.TabIndex = 64;
-            this.lblSig.Text = "label23";
-            // 
             // lblTrackPerCyl
             // 
             this.lblTrackPerCyl.AutoSize = true;
-            this.lblTrackPerCyl.Location = new System.Drawing.Point(165, 347);
+            this.lblTrackPerCyl.Location = new System.Drawing.Point(165, 324);
             this.lblTrackPerCyl.Name = "lblTrackPerCyl";
-            this.lblTrackPerCyl.Size = new System.Drawing.Size(41, 13);
+            this.lblTrackPerCyl.Size = new System.Drawing.Size(19, 13);
             this.lblTrackPerCyl.TabIndex = 63;
-            this.lblTrackPerCyl.Text = "label22";
+            this.lblTrackPerCyl.Text = "----";
             // 
             // lblSecPerTrack
             // 
             this.lblSecPerTrack.AutoSize = true;
-            this.lblSecPerTrack.Location = new System.Drawing.Point(165, 324);
+            this.lblSecPerTrack.Location = new System.Drawing.Point(165, 301);
             this.lblSecPerTrack.Name = "lblSecPerTrack";
-            this.lblSecPerTrack.Size = new System.Drawing.Size(41, 13);
+            this.lblSecPerTrack.Size = new System.Drawing.Size(19, 13);
             this.lblSecPerTrack.TabIndex = 62;
-            this.lblSecPerTrack.Text = "label21";
+            this.lblSecPerTrack.Text = "----";
             // 
             // lblBperSec
             // 
             this.lblBperSec.AutoSize = true;
-            this.lblBperSec.Location = new System.Drawing.Point(165, 302);
+            this.lblBperSec.Location = new System.Drawing.Point(165, 279);
             this.lblBperSec.Name = "lblBperSec";
-            this.lblBperSec.Size = new System.Drawing.Size(41, 13);
+            this.lblBperSec.Size = new System.Drawing.Size(19, 13);
             this.lblBperSec.TabIndex = 61;
-            this.lblBperSec.Text = "label20";
+            this.lblBperSec.Text = "----";
             // 
             // lblTracks
             // 
             this.lblTracks.AutoSize = true;
-            this.lblTracks.Location = new System.Drawing.Point(165, 279);
+            this.lblTracks.Location = new System.Drawing.Point(165, 256);
             this.lblTracks.Name = "lblTracks";
-            this.lblTracks.Size = new System.Drawing.Size(41, 13);
+            this.lblTracks.Size = new System.Drawing.Size(19, 13);
             this.lblTracks.TabIndex = 60;
-            this.lblTracks.Text = "label19";
+            this.lblTracks.Text = "----";
             // 
             // lblHeads
             // 
             this.lblHeads.AutoSize = true;
-            this.lblHeads.Location = new System.Drawing.Point(165, 257);
+            this.lblHeads.Location = new System.Drawing.Point(165, 234);
             this.lblHeads.Name = "lblHeads";
-            this.lblHeads.Size = new System.Drawing.Size(41, 13);
+            this.lblHeads.Size = new System.Drawing.Size(19, 13);
             this.lblHeads.TabIndex = 59;
-            this.lblHeads.Text = "label18";
+            this.lblHeads.Text = "----";
             // 
             // lblSectors
             // 
             this.lblSectors.AutoSize = true;
-            this.lblSectors.Location = new System.Drawing.Point(165, 235);
+            this.lblSectors.Location = new System.Drawing.Point(165, 212);
             this.lblSectors.Name = "lblSectors";
-            this.lblSectors.Size = new System.Drawing.Size(41, 13);
+            this.lblSectors.Size = new System.Drawing.Size(19, 13);
             this.lblSectors.TabIndex = 58;
-            this.lblSectors.Text = "label17";
+            this.lblSectors.Text = "----";
             // 
             // lblCylinder
             // 
             this.lblCylinder.AutoSize = true;
-            this.lblCylinder.Location = new System.Drawing.Point(165, 210);
+            this.lblCylinder.Location = new System.Drawing.Point(165, 187);
             this.lblCylinder.Name = "lblCylinder";
-            this.lblCylinder.Size = new System.Drawing.Size(41, 13);
+            this.lblCylinder.Size = new System.Drawing.Size(19, 13);
             this.lblCylinder.TabIndex = 57;
-            this.lblCylinder.Text = "label16";
+            this.lblCylinder.Text = "----";
             // 
             // lblFirmware
             // 
             this.lblFirmware.AutoSize = true;
-            this.lblFirmware.Location = new System.Drawing.Point(165, 188);
+            this.lblFirmware.Location = new System.Drawing.Point(165, 165);
             this.lblFirmware.Name = "lblFirmware";
-            this.lblFirmware.Size = new System.Drawing.Size(41, 13);
+            this.lblFirmware.Size = new System.Drawing.Size(19, 13);
             this.lblFirmware.TabIndex = 56;
-            this.lblFirmware.Text = "label15";
+            this.lblFirmware.Text = "----";
             // 
             // lblPartitions
             // 
             this.lblPartitions.AutoSize = true;
             this.lblPartitions.Location = new System.Drawing.Point(165, 142);
             this.lblPartitions.Name = "lblPartitions";
-            this.lblPartitions.Size = new System.Drawing.Size(41, 13);
+            this.lblPartitions.Size = new System.Drawing.Size(19, 13);
             this.lblPartitions.TabIndex = 55;
-            this.lblPartitions.Text = "label14";
+            this.lblPartitions.Text = "----";
             // 
             // lblCapacity
             // 
             this.lblCapacity.AutoSize = true;
             this.lblCapacity.Location = new System.Drawing.Point(165, 120);
             this.lblCapacity.Name = "lblCapacity";
-            this.lblCapacity.Size = new System.Drawing.Size(41, 13);
+            this.lblCapacity.Size = new System.Drawing.Size(19, 13);
             this.lblCapacity.TabIndex = 54;
-            this.lblCapacity.Text = "label13";
+            this.lblCapacity.Text = "----";
             // 
             // lblInterface
             // 
             this.lblInterface.AutoSize = true;
             this.lblInterface.Location = new System.Drawing.Point(165, 98);
             this.lblInterface.Name = "lblInterface";
-            this.lblInterface.Size = new System.Drawing.Size(41, 13);
+            this.lblInterface.Size = new System.Drawing.Size(19, 13);
             this.lblInterface.TabIndex = 53;
-            this.lblInterface.Text = "label12";
+            this.lblInterface.Text = "----";
             // 
             // lblModel
             // 
             this.lblModel.AutoSize = true;
             this.lblModel.Location = new System.Drawing.Point(165, 52);
             this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(41, 13);
+            this.lblModel.Size = new System.Drawing.Size(19, 13);
             this.lblModel.TabIndex = 52;
-            this.lblModel.Text = "label11";
+            this.lblModel.Text = "----";
             // 
             // lblSerial
             // 
             this.lblSerial.AutoSize = true;
             this.lblSerial.Location = new System.Drawing.Point(165, 76);
             this.lblSerial.Name = "lblSerial";
-            this.lblSerial.Size = new System.Drawing.Size(33, 13);
+            this.lblSerial.Size = new System.Drawing.Size(19, 13);
             this.lblSerial.TabIndex = 51;
-            this.lblSerial.Text = "Serial";
+            this.lblSerial.Text = "----";
             // 
             // phyDiskComBox
             // 
@@ -622,18 +600,25 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 467);
-            this.Controls.Add(this.groupBox1);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(724, 391);
+            this.Controls.Add(this.diskInfGBox);
             this.Controls.Add(this.xtraFuncGBox);
             this.Controls.Add(this.volInfGBox);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(740, 430);
+            this.MinimumSize = new System.Drawing.Size(740, 430);
             this.Name = "DiskMainGUI";
-            this.Text = "DiskMainGUI";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Disk Monitor";
             this.Load += new System.EventHandler(this.DiskMainGUI_Load);
             this.xtraFuncGBox.ResumeLayout(false);
             this.volInfGBox.ResumeLayout(false);
             this.volInfGBox.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.diskInfGBox.ResumeLayout(false);
+            this.diskInfGBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -663,7 +648,7 @@
         private System.Windows.Forms.Label hdlb17;
         private System.Windows.Forms.GroupBox volInfGBox;
         private System.Windows.Forms.Label totFreeLbl;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox diskInfGBox;
         private System.Windows.Forms.Label hdlb14;
         private System.Windows.Forms.Label hdlb13;
         private System.Windows.Forms.Label hdlb12;
@@ -672,13 +657,11 @@
         private System.Windows.Forms.Label hdlb9;
         private System.Windows.Forms.Label hdlb8;
         private System.Windows.Forms.Label hdlb7;
-        private System.Windows.Forms.Label hdlb6;
         private System.Windows.Forms.Label hdlb5;
         private System.Windows.Forms.Label hdlb4;
         private System.Windows.Forms.Label hdlb3;
         private System.Windows.Forms.Label hdlb2;
         private System.Windows.Forms.Label hdlb1;
-        private System.Windows.Forms.Label lblSig;
         private System.Windows.Forms.Label lblTrackPerCyl;
         private System.Windows.Forms.Label lblSecPerTrack;
         private System.Windows.Forms.Label lblBperSec;

@@ -23,7 +23,7 @@ namespace ACRMS.DISK
             connectScope.Path = new ManagementPath(@"\\" + machineName + @"\root\CIMV2");
             connectScope.Options = options;
             connectScope.Connect();
-            
+
             return connectScope;
         }
     }

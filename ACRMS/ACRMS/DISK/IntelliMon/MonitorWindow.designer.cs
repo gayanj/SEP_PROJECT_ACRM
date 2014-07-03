@@ -81,7 +81,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(204, 111);
+            this.ClientSize = new System.Drawing.Size(200, 107);
             this.ControlBox = false;
             this.Controls.Add(this.lblClientIp);
             this.Controls.Add(this.lblClientName);
@@ -92,7 +92,7 @@
             this.MinimizeBox = false;
             this.Name = "MonitorWindow";
             this.ShowIcon = false;
-            this.Text = "MonitorWindow";
+            this.Text = "Monitor Window";
             this.Load += new System.EventHandler(this.MonitorWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

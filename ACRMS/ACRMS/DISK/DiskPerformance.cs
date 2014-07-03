@@ -16,7 +16,6 @@ namespace ACRMS.DISK
 {
     public partial class DiskPerformance : Form
     {
-        //Form sometime may not initialize currectly in the IDE due to Windows Charting function not supporting .Net 3.5 Framework in Visual Studio 2012 JUST IGONRE AND CONTINUE
         PerfCounterHD perfCountObj;
         Timer timer;
         DataTable recordTable;
@@ -41,7 +40,7 @@ namespace ACRMS.DISK
             btnStop.Enabled = false;
 
             toolStripStatusLabel1.Text = "Ready To Begain";
-            statusStrip1.Refresh();            
+            statusStrip1.Refresh();
 
             this.setTableChart();
             this.fillHostList();
@@ -55,14 +54,14 @@ namespace ACRMS.DISK
             btnDiskTime.Enabled = status;
             btnIdleTime.Enabled = status;
         }
-                
+
         //Start Monitoring
         private void btnStart_Click(object sender, EventArgs e)
         {
             perfCountObj = new PerfCounterHD(hostListComboBox.SelectedItem.ToString());
 
             btnStop.Enabled = true;
-            btnStart.Enabled = false;            
+            btnStart.Enabled = false;
 
             lblTransMax.Text = "0.0";
             toolStripStatusLabel1.Text = "Currently Monitoring";
@@ -171,8 +170,8 @@ namespace ACRMS.DISK
         //Update the DataTable with new Data and Rebind to the chart
         private void updateChart()
         {
-            recordTable.Rows.Add(updateCount, float.Parse(lblIdleTime.Text), float.Parse(lblDiskTime.Text)*10,
-                float.Parse(lblAvgDiskQ.Text)*100, float.Parse(lblAvgTrans.Text)*1000);
+            recordTable.Rows.Add(updateCount, float.Parse(lblIdleTime.Text), float.Parse(lblDiskTime.Text) * 10,
+                float.Parse(lblAvgDiskQ.Text) * 100, float.Parse(lblAvgTrans.Text) * 1000);
 
             try
             {

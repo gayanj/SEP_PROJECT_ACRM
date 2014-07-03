@@ -78,7 +78,6 @@
     <Compile Include="DISK\DiskPerformance.designer.cs">
       <DependentUpon>DiskPerformance.cs</DependentUpon>
     </Compile>
-    <Compile Include="DISK\DriveDetail.cs" />
     <Compile Include="DISK\ExtraDiskMeth.cs" />
     <Compile Include="DISK\FileSysMonForm.cs">
       <SubType>Form</SubType>
@@ -86,7 +85,6 @@
     <Compile Include="DISK\FileSysMonForm.designer.cs">
       <DependentUpon>FileSysMonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DISK\IntelliMon\DiskDataHandler.cs" />
     <Compile Include="DISK\IntelliMon\InteliMonitorConfig.cs">
       <SubType>Form</SubType>
     </Compile>

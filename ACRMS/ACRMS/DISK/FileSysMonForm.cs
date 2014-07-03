@@ -41,7 +41,7 @@ namespace ACRMS.DISK
             logTxt.Select(curLen, (logTxt.TextLength - curLen));
             logTxt.SelectionColor = Color.Green;
 
-           // logTxt.Focus();
+            // logTxt.Focus();
             logTxt.Select(logTxt.TextLength, 0);
             logTxt.ScrollToCaret();
         }

@@ -34,7 +34,6 @@
             this.btnAddClient = new System.Windows.Forms.Button();
             this.btnScanNetwork = new System.Windows.Forms.Button();
             this.groupConfig = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -96,7 +95,7 @@
             this.groupBox1.Controls.Add(this.listBoxClientList);
             this.groupBox1.Location = new System.Drawing.Point(6, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(267, 325);
+            this.groupBox1.Size = new System.Drawing.Size(279, 325);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search For Clients";
@@ -124,24 +123,14 @@
             // groupConfig
             // 
             this.groupConfig.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupConfig.Controls.Add(this.groupBox2);
             this.groupConfig.Controls.Add(this.groupBox3);
             this.groupConfig.Controls.Add(this.groupBox1);
             this.groupConfig.Location = new System.Drawing.Point(12, 48);
             this.groupConfig.Name = "groupConfig";
-            this.groupConfig.Size = new System.Drawing.Size(777, 350);
+            this.groupConfig.Size = new System.Drawing.Size(789, 350);
             this.groupConfig.TabIndex = 4;
             this.groupConfig.TabStop = false;
             this.groupConfig.Text = "Configure";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(485, 19);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 325);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Search The Watchlist";
             // 
             // groupBox3
             // 
@@ -157,7 +146,7 @@
             this.groupBox3.Controls.Add(this.txtClientAddrs);
             this.groupBox3.Location = new System.Drawing.Point(212, 19);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(267, 325);
+            this.groupBox3.Size = new System.Drawing.Size(217, 325);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Add Known Clients";
@@ -198,9 +187,9 @@
             this.lblHostIp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHostIp.Location = new System.Drawing.Point(80, 163);
             this.lblHostIp.Name = "lblHostIp";
-            this.lblHostIp.Size = new System.Drawing.Size(51, 20);
+            this.lblHostIp.Size = new System.Drawing.Size(29, 20);
             this.lblHostIp.TabIndex = 3;
-            this.lblHostIp.Text = "label1";
+            this.lblHostIp.Text = "----";
             // 
             // lblHostName
             // 
@@ -208,9 +197,9 @@
             this.lblHostName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHostName.Location = new System.Drawing.Point(80, 113);
             this.lblHostName.Name = "lblHostName";
-            this.lblHostName.Size = new System.Drawing.Size(51, 20);
+            this.lblHostName.Size = new System.Drawing.Size(29, 20);
             this.lblHostName.TabIndex = 2;
-            this.lblHostName.Text = "label1";
+            this.lblHostName.Text = "----";
             // 
             // btnAddClientMnul
             // 
@@ -242,7 +231,7 @@
             this.dgvWatchList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvWatchList.Location = new System.Drawing.Point(3, 16);
             this.dgvWatchList.Name = "dgvWatchList";
-            this.dgvWatchList.Size = new System.Drawing.Size(795, 233);
+            this.dgvWatchList.Size = new System.Drawing.Size(798, 233);
             this.dgvWatchList.TabIndex = 5;
             this.dgvWatchList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWatchList_CellContentClick);
             // 
@@ -268,9 +257,9 @@
             this.groupWatchList.Controls.Add(this.dgvWatchList);
             this.groupWatchList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupWatchList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupWatchList.Location = new System.Drawing.Point(0, 407);
+            this.groupWatchList.Location = new System.Drawing.Point(0, 409);
             this.groupWatchList.Name = "groupWatchList";
-            this.groupWatchList.Size = new System.Drawing.Size(801, 252);
+            this.groupWatchList.Size = new System.Drawing.Size(804, 252);
             this.groupWatchList.TabIndex = 5;
             this.groupWatchList.TabStop = false;
             this.groupWatchList.Text = "Watchlist";
@@ -322,13 +311,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(801, 659);
+            this.ClientSize = new System.Drawing.Size(804, 661);
             this.Controls.Add(this.groupWatchList);
             this.Controls.Add(this.groupConfig);
             this.Controls.Add(this.lblStatus);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(820, 700);
+            this.MinimumSize = new System.Drawing.Size(820, 700);
             this.Name = "InteliMonitorConfig";
-            this.Text = "InteliMonitorConfig";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InteliMonitorConfig_FormClosing);
+            this.ShowIcon = false;
+            this.Text = "Intelli Monitor - Configure";
             this.Load += new System.EventHandler(this.InteliMonitorConfig_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupConfig.ResumeLayout(false);
@@ -371,6 +363,5 @@
         private System.Windows.Forms.DataGridViewButtonColumn StartMonitor;
         private System.Windows.Forms.DataGridViewButtonColumn removeRow;
         private System.Windows.Forms.DataGridViewButtonColumn chngStatus;
-        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

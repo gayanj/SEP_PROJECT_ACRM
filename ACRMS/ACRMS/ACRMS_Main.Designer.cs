@@ -110,6 +110,7 @@
             this.Controls.Add(this.CPU_Button);
             this.Controls.Add(this.metroTile1);
             this.Name = "ACRMS_Main";
+            this.ShowIcon = false;
             this.Text = "ACRMS";
             this.ResumeLayout(false);
 

@@ -78,7 +78,7 @@
             // 
             this.treeView.Location = new System.Drawing.Point(12, 39);
             this.treeView.Name = "treeView";
-            this.treeView.Size = new System.Drawing.Size(365, 215);
+            this.treeView.Size = new System.Drawing.Size(365, 230);
             this.treeView.TabIndex = 4;
             this.treeView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView_NodeMouseDoubleClick);
             // 
@@ -86,14 +86,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 282);
+            this.ClientSize = new System.Drawing.Size(384, 281);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.cBoxDriveList);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(400, 320);
+            this.MinimumSize = new System.Drawing.Size(400, 320);
             this.Name = "DirSizeExplorer";
-            this.Text = "DirSizeExplorer";
+            this.ShowIcon = false;
+            this.Text = "Directory Mapper";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DirSizeExplorer_FormClosing);
             this.Load += new System.EventHandler(this.DirSizeExplorer_Load);
             this.ResumeLayout(false);

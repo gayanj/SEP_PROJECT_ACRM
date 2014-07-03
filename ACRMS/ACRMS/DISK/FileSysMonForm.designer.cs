@@ -151,6 +151,8 @@
             this.Controls.Add(this.dirTxt);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(700, 570);
+            this.MinimumSize = new System.Drawing.Size(700, 570);
             this.Name = "FileSysMonForm";
             this.ShowIcon = false;
             this.Text = "File System Monitor";

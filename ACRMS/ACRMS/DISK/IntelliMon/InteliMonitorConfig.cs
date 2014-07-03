@@ -12,7 +12,6 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace ACRMS.DISK.IntelliMon
 {
@@ -25,19 +24,9 @@ namespace ACRMS.DISK.IntelliMon
         {
             InitializeComponent();
         }
-                
+
         private void InteliMonitorConfig_Load(object sender, EventArgs e)
         {
-            FileStream fs = new FileStream(@"D:\watchlist.xml", FileMode.Open, FileAccess.Read);
-            dsWatchlist.ReadXml(fs);
-            dgvWatchList.DataSource = dsWatchlist.Tables[0];
-            foreach (DataGridViewRow row in dgvWatchList.Rows)
-            {
-                row.Cells[0].Value = "Start";
-                row.Cells[1].Value = "Remove";
-                row.Cells[2].Value = "Enable";
-            }
-            dgvWatchList.Refresh();
 
             timer = new Timer { Enabled = true, Interval = 1000 };
             timer.Tick += timer_Tick;
@@ -103,7 +92,7 @@ namespace ACRMS.DISK.IntelliMon
             PingReply pingReply = ping.Send(hostName);
             hostIp = pingReply.Address.ToString();
 
-            dsWatchlist.Tables[0].Rows.Add(clientName, clientIp, hostIp, DateTime.Now.Date.ToString().Substring(0,9), false);
+            dsWatchlist.Tables[0].Rows.Add(clientName, clientIp, hostIp, DateTime.Now.Date.ToString().Substring(0, 9), false);
 
             dgvWatchList.DataSource = dsWatchlist.Tables[0];
 
@@ -131,7 +120,7 @@ namespace ACRMS.DISK.IntelliMon
             PingReply pingReply = ping.Send(hostName);
             hostIp = pingReply.Address.ToString();
 
-            dsWatchlist.Tables[0].Rows.Add(clientName, clientIp, hostIp, DateTime.Now.Date.ToString().Substring(0,9), true);
+            dsWatchlist.Tables[0].Rows.Add(clientName, clientIp, hostIp, DateTime.Now.Date.ToString().Substring(0, 9), true);
 
             dgvWatchList.DataSource = dsWatchlist.Tables[0];
 
@@ -150,7 +139,7 @@ namespace ACRMS.DISK.IntelliMon
             {
                 if (dsWatchlist.Tables[0].Rows[e.RowIndex][4].Equals(true))
                 {
-                    mw = new MonitorWindow(dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[0].ToString(), 
+                    mw = new MonitorWindow(dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[0].ToString(),
                         dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[1].ToString());
 
                     dgvWatchList.Refresh();
@@ -215,21 +204,6 @@ namespace ACRMS.DISK.IntelliMon
             else
             {
                 lblStatus.BackColor = Color.Green;
-            }
-        }
-
-        private void InteliMonitorConfig_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(DataSet));
-            
-            try
-            {
-                FileStream fs = new FileStream(@"D:\watchlist.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                xml.Serialize(fs, dsWatchlist);
-            }
-            catch (Exception ex)
-            {
-
             }
         }
     }
