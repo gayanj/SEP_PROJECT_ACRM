@@ -60,6 +60,18 @@
     <Compile Include="ACRMS_Main.Designer.cs">
       <DependentUpon>ACRMS_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="CPU\CPU_classes\IProcessObject.cs" />
+    <Compile Include="CPU\CPU_classes\ProcessConnection.cs" />
+    <Compile Include="CPU\CPU_classes\ProcessLocal.cs" />
+    <Compile Include="CPU\CPU_classes\ProcessMethod.cs" />
+    <Compile Include="CPU\CPU_classes\ProcessPriority.cs" />
+    <Compile Include="CPU\CPU_classes\ProcessRemote.cs" />
+    <Compile Include="CPU\CPU_Main_Window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CPU\CPU_Main_Window.Designer.cs">
+      <DependentUpon>CPU_Main_Window.cs</DependentUpon>
+    </Compile>
     <Compile Include="DISK\DirSizeExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +117,9 @@
     <EmbeddedResource Include="ACRMS_Main.resx">
       <DependentUpon>ACRMS_Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CPU\CPU_Main_Window.resx">
+      <DependentUpon>CPU_Main_Window.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DISK\DirSizeExplorer.resx">
       <DependentUpon>DirSizeExplorer.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,7 +160,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CPU\" />
     <Folder Include="NETWORK\" />
     <Folder Include="RAM\" />
   </ItemGroup>

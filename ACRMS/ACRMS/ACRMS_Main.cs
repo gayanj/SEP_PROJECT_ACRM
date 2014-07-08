@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ACRMS.CPU;
 
 namespace ACRMS
 {
@@ -23,6 +24,13 @@ namespace ACRMS
             mainDiskWindow.Show();
             mainDiskWindow.Focus();
 
+        }
+
+        private void CPU_Button_Click(object sender, EventArgs e)
+        {
+            CPU_Main_Window cpuMainWindow = new CPU_Main_Window();
+            cpuMainWindow.Show();
+            cpuMainWindow.Focus();
         }
     }
 }

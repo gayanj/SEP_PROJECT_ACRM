@@ -24,7 +24,7 @@ namespace ACRM
     public partial class ACRMForm : Form
     {
         private ProcessLocal pl;
-        private System.Threading.Timer t;
+        private System.Windows.Forms.Timer t;
         private DataTable dt;
         private int count;
         private int value = 0;
@@ -52,7 +52,8 @@ namespace ACRM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            t = new System.Threading.Timer(new TimerCallback(getProcessInfo), null, 0, 1000);
+            t = new System.Windows.Forms.Timer { Enabled = true, Interval = 1000 };
+            t.Tick += t_Tick;
             button2.Enabled = false;
             button1.Enabled = true;
         }
@@ -60,28 +61,22 @@ namespace ACRM
         /// <summary>
         /// This method is used to retrieve the CPU usage of a particular process
         /// </summary>
-        private void getProcessInfo(object sender)
+        private void t_Tick(object sender, EventArgs e)
         {
-            dataGridView1.SafeInvoke(d => d.Visible = true);
+            dataGridView1.Visible = true;
+            int index_2 = dataGridView1.VerticalScrollingOffset;
             //keep track of the previous scroll position
-            int index = Int32.Parse(dataGridView1.FirstDisplayedScrollingRowIndex.ToString());
+            int index = dataGridView1.FirstDisplayedScrollingRowIndex;
             pl = new ProcessLocal();
-            DataTable processMonitor = new DataTable();
-            processMonitor.BeginLoadData();
-            processMonitor = pl.ProcessMonitor();
-            processMonitor.EndLoadData();
-            dataGridView1.SafeInvoke(d => d.DataSource = processMonitor);
-            if (index == -1)
+            dataGridView1.DataSource = pl.ProcessMonitor();
+            if (index >= 0)
             {
-                dataGridView1.SafeInvoke(d => d.FirstDisplayedScrollingRowIndex = index + 1);
-            }
-            else
-            {
-                dataGridView1.SafeInvoke(d => d.FirstDisplayedScrollingRowIndex = index);
+                dataGridView1.FirstDisplayedScrollingRowIndex = index;
             }
             updateChart();
             count++;
         }
+
 
         #region Codes for Hard Disk Monitor
         //show new File System Monitor Window

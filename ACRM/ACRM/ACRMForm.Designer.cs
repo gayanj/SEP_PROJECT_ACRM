@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.processNameValue = new System.Windows.Forms.Label();
@@ -106,6 +106,7 @@
             this.volLbl = new System.Windows.Forms.Label();
             this.dNameLbl = new System.Windows.Forms.Label();
             this.xtraFuncGBox = new System.Windows.Forms.GroupBox();
+            this.btnInteliMonitor = new System.Windows.Forms.Button();
             this.btnDirExplorer = new System.Windows.Forms.Button();
             this.btnDiskPerf = new System.Windows.Forms.Button();
             this.fileSysMonBtn = new System.Windows.Forms.Button();
@@ -116,7 +117,6 @@
             this.label39 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.label38 = new System.Windows.Forms.Label();
-            this.btnInteliMonitor = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
@@ -185,10 +185,10 @@
             this.cpuChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.cpuChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.cpuChart.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.cpuChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.cpuChart.Legends.Add(legend5);
             this.cpuChart.Location = new System.Drawing.Point(376, 35);
             this.cpuChart.Name = "cpuChart";
             this.cpuChart.Size = new System.Drawing.Size(470, 494);
@@ -375,16 +375,16 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart1.Legends.Add(legend6);
             this.chart1.Location = new System.Drawing.Point(22, 6);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(777, 282);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -895,6 +895,16 @@
             this.xtraFuncGBox.TabStop = false;
             this.xtraFuncGBox.Text = "Extra Functions";
             // 
+            // btnInteliMonitor
+            // 
+            this.btnInteliMonitor.Location = new System.Drawing.Point(7, 139);
+            this.btnInteliMonitor.Name = "btnInteliMonitor";
+            this.btnInteliMonitor.Size = new System.Drawing.Size(141, 37);
+            this.btnInteliMonitor.TabIndex = 3;
+            this.btnInteliMonitor.Text = "Intelligent Monitor";
+            this.btnInteliMonitor.UseVisualStyleBackColor = true;
+            this.btnInteliMonitor.Click += new System.EventHandler(this.btnInteliMonitor_Click);
+            // 
             // btnDirExplorer
             // 
             this.btnDirExplorer.Location = new System.Drawing.Point(7, 103);
@@ -1002,16 +1012,6 @@
             this.label38.Size = new System.Drawing.Size(204, 24);
             this.label38.TabIndex = 8;
             this.label38.Text = "Interface Information for";
-            // 
-            // btnInteliMonitor
-            // 
-            this.btnInteliMonitor.Location = new System.Drawing.Point(7, 139);
-            this.btnInteliMonitor.Name = "btnInteliMonitor";
-            this.btnInteliMonitor.Size = new System.Drawing.Size(141, 37);
-            this.btnInteliMonitor.TabIndex = 3;
-            this.btnInteliMonitor.Text = "Intelligent Monitor";
-            this.btnInteliMonitor.UseVisualStyleBackColor = true;
-            this.btnInteliMonitor.Click += new System.EventHandler(this.btnInteliMonitor_Click);
             // 
             // ACRMForm
             // 

@@ -5,13 +5,12 @@ using System.Data;
 using System.Linq;
 using System.Management;
 using System.Text;
-using ACRM;
+using ACRMS;
 
-namespace ACRM.CPU
+namespace ACRMS.CPU
 {
     class ProcessMethod
     {
-        private static DataTable dt;
         public static string StartProcess(string machineName, string processPath)
         {
             ManagementClass processTask = new ManagementClass(@"\\" + machineName + @"\root\CIMV2",
@@ -155,23 +154,23 @@ namespace ACRM.CPU
         /// This method is used to retrieve information about a particular process
         /// </summary>
         /// <param name="connectionScope">Scope of the connection - Defines the scope in which the methods are being called</param>
-        /// <param name="processName">Process selected by the combo box comes here</param>
         /// <returns>Returns an ArrayList of the processes information</returns>
-        public static DataTable SystemMonitor(ManagementScope connectionScope)
+        public static Hashtable SystemMonitor(ManagementScope connectionScope)
         {
             Hashtable processes = new Hashtable();
-            ArrayList arr;
-            SelectQuery systemMonitorQuery = new SelectQuery("SELECT Name,CreatingProcessID,PercentProcessorTime FROM win32_PerfFormattedData_PerfProc_Process");
+            ArrayList arrprocesses;
+            SelectQuery systemMonitorQuery = new SelectQuery("SELECT Name,IDProcess,PercentProcessorTime FROM win32_PerfFormattedData_PerfProc_Process");
             ManagementObjectSearcher searchProcedure = new ManagementObjectSearcher(connectionScope, systemMonitorQuery);
             foreach (ManagementObject item in searchProcedure.Get())
             {
-                arr = new ArrayList();
-                arr.Add(item.Properties["Name"].Value);
-                arr.Add(item.Properties["CreatingProcessID"].Value);
-                arr.Add(item.Properties["PercentProcessorTime"].Value);
+                arrprocesses = new ArrayList();
+                arrprocesses.Add(item.Properties["Name"].Value);
+                arrprocesses.Add(item.Properties["IDProcess"].Value);
+                arrprocesses.Add(item.Properties["PercentProcessorTime"].Value);
 
-                processes.Add(item["Name"].ToString(), arr);
+                processes.Add(item["Name"].ToString(), arrprocesses);
             }
+            return processes;
         }
     }
 }

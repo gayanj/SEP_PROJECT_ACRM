@@ -46,6 +46,7 @@
             this.CPU_Button.TabIndex = 0;
             this.CPU_Button.Text = "CPU";
             this.CPU_Button.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.CPU_Button.Click += new System.EventHandler(this.CPU_Button_Click);
             // 
             // RAM_Button
             // 
