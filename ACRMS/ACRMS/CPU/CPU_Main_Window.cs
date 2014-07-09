@@ -31,6 +31,7 @@ namespace ACRMS.CPU
             processTable.Columns.Add("Process Name");
             processTable.Columns.Add("PID");
             processTable.Columns.Add("CPU Usage");
+            processTable.PrimaryKey = new DataColumn[] { processTable.Columns["PID"] };
             chartTable = new DataTable("CPU Usage");
             setTableChart();
             getHashTable();
@@ -77,13 +78,36 @@ namespace ACRMS.CPU
             //processTable.Clear();
             foreach (DictionaryEntry item in processSet)
             {
-                ArrayList row = (ArrayList)item.Value;
-                DataRow dr = processTable.Select("PID = '" + row[1].ToString() + "'").FirstOrDefault();
-                if (!(dr==null))
+                ArrayList rowItem = (ArrayList)item.Value;
+                if (!rowItem[1].ToString().Equals("0"))
                 {
-                    dr[2] = row[2].ToString();
+                    bool contains = processTable.AsEnumerable().Any(row => rowItem[1].ToString() == row.Field<String>("PID"));
+                    if (contains)
+                    {
+                        var dr = processTable.Select("PID = '" + rowItem[1].ToString() + "'").FirstOrDefault();
+                        dr[2] = rowItem[2].ToString();
+                    }
+                    else
+                    {
+                        addNewRows(rowItem);
+                    }
                 }
             }
+        }
+
+        private void addNewRows(ArrayList rowItem)
+        {
+            bool contains = processTable.AsEnumerable().Any(row => rowItem[0].ToString() == row.Field<String>("Process Name"));
+            if (contains)
+            {
+                var drName = processTable.Select("[" + processTable.Columns[0].ColumnName + "] = '" + rowItem[0].ToString() + "'").FirstOrDefault();
+                processTable.Rows.Remove(drName);
+            }
+            DataRow dr = processTable.NewRow();
+            dr[0] = rowItem[0].ToString();
+            dr[1] = rowItem[1].ToString();
+            dr[2] = rowItem[2].ToString();
+            processTable.Rows.Add(dr);
         }
 
         private void setProcessTable()
@@ -92,12 +116,13 @@ namespace ACRMS.CPU
             foreach (DictionaryEntry item in processSet)
             {
                 ArrayList row = (ArrayList)item.Value;
-
-                dr = processTable.NewRow();
-                dr[0] = row[0].ToString();
-                dr[1] = row[1].ToString();
-                dr[2] = row[2].ToString();
-                processTable.Rows.Add(dr);
+                if (!row[1].ToString().Equals("0")){
+                    dr = processTable.NewRow();
+                    dr[0] = row[0].ToString();
+                    dr[1] = row[1].ToString();
+                    dr[2] = row[2].ToString();
+                    processTable.Rows.Add(dr);
+                }
             }
         }
 
