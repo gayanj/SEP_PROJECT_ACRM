@@ -15,7 +15,7 @@ namespace ACRMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ACRMS_Main());
+            Application.Run(new ACRM_MetroMain());
         }
     }
 }
