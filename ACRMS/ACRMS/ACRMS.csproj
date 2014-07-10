@@ -38,6 +38,10 @@
     <Reference Include="MetroFramework">
       <HintPath>..\..\SEPMetro\packages\ModernUI.1.1.0.1\lib\net40\MetroFramework.dll</HintPath>
     </Reference>
+    <Reference Include="NotificationWindow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NotificationWindow.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -120,6 +124,54 @@
     <Compile Include="DISK\WMIDisk.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RAM\ApplicationIdleTimer.cs" />
+    <Compile Include="RAM\Browser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAM\Browser.designer.cs">
+      <DependentUpon>Browser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAM\Configuration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAM\Configuration.designer.cs">
+      <DependentUpon>Configuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAM\IdleCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAM\IdleCheckForm.designer.cs">
+      <DependentUpon>IdleCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAM\MemoryAnalytics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAM\MemoryAnalytics.designer.cs">
+      <DependentUpon>MemoryAnalytics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAM\MemoryCounters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAM\MemoryCounters.designer.cs">
+      <DependentUpon>MemoryCounters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAM\MemoryScanner.cs" />
+    <Compile Include="RAM\MEMORYSTATUSEX.cs" />
+    <Compile Include="RAM\Native.cs" />
+    <Compile Include="RAM\ProcessList.cs" />
+    <Compile Include="RAM\RAM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAM\RAM.designer.cs">
+      <DependentUpon>RAM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAM\SystemMemoryInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAM\SystemMemoryInfo.designer.cs">
+      <DependentUpon>SystemMemoryInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAM\wmiMemory.cs" />
     <EmbeddedResource Include="ACRMS_Main.resx">
       <DependentUpon>ACRMS_Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +209,27 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RAM\Browser.resx">
+      <DependentUpon>Browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAM\Configuration.resx">
+      <DependentUpon>Configuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAM\IdleCheckForm.resx">
+      <DependentUpon>IdleCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAM\MemoryAnalytics.resx">
+      <DependentUpon>MemoryAnalytics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAM\MemoryCounters.resx">
+      <DependentUpon>MemoryCounters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAM\RAM.resx">
+      <DependentUpon>RAM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAM\SystemMemoryInfo.resx">
+      <DependentUpon>SystemMemoryInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -170,7 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NETWORK\" />
-    <Folder Include="RAM\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cpu.png" />
@@ -198,6 +270,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cpu2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\a.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

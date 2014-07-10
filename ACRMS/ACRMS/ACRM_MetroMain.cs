@@ -16,5 +16,11 @@ namespace ACRMS
         {
             InitializeComponent();
         }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            SEPMetro.RAM r=new SEPMetro.RAM();
+            r.ShowDialog();
+        }
     }
 }
