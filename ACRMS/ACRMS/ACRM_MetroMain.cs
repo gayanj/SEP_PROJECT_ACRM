@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SEPMetro;
 
 namespace ACRMS
 {
@@ -21,6 +22,18 @@ namespace ACRMS
         {
             SEPMetro.RAM r=new SEPMetro.RAM();
             r.ShowDialog();
+        }
+
+        private void metroTile3_Click(object sender, EventArgs e)
+        {
+            CPU.CPU_Main_Window c = new CPU.CPU_Main_Window();
+            c.ShowDialog();
+        }
+
+        private void metroTile5_Click(object sender, EventArgs e)
+        {
+            BatteryForm b = new BatteryForm();
+            b.ShowDialog();
         }
     }
 }

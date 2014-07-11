@@ -122,6 +122,42 @@
     <Compile Include="DISK\PerfCounterHD.cs" />
     <Compile Include="DISK\WMIConn.cs" />
     <Compile Include="DISK\WMIDisk.cs" />
+    <Compile Include="Power\Battery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Power\Battery.designer.cs">
+      <DependentUpon>Battery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Power\BatteryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Power\BatteryForm.designer.cs">
+      <DependentUpon>BatteryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Power\Power.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Power\Power.designer.cs">
+      <DependentUpon>Power.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Power\PowerScheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Power\PowerScheme.designer.cs">
+      <DependentUpon>PowerScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Power\SysPowerCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Power\SysPowerCap.designer.cs">
+      <DependentUpon>SysPowerCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Power\SysPowerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Power\SysPowerInfo.designer.cs">
+      <DependentUpon>SysPowerInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RAM\ApplicationIdleTimer.cs" />
@@ -198,6 +234,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DISK\IntelliMon\MonitorWindow.resx">
       <DependentUpon>MonitorWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Power\Battery.resx">
+      <DependentUpon>Battery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Power\BatteryForm.resx">
+      <DependentUpon>BatteryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Power\Power.resx">
+      <DependentUpon>Power.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Power\PowerScheme.resx">
+      <DependentUpon>PowerScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Power\SysPowerCap.resx">
+      <DependentUpon>SysPowerCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Power\SysPowerInfo.resx">
+      <DependentUpon>SysPowerInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
