@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ACRMS.DISK;
+using ACRMS.DISK.IntelliMon;
 using SEPMetro;
 
 namespace ACRMS
@@ -34,6 +36,12 @@ namespace ACRMS
         {
             BatteryForm b = new BatteryForm();
             b.ShowDialog();
+        }
+
+        private void metroTile4_Click(object sender, EventArgs e)
+        {
+            DiskMainGUI d = new DiskMainGUI();
+            d.ShowDialog();
         }
     }
 }

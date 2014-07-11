@@ -90,7 +90,7 @@ namespace ACRMS.DISK
 
             lblAvgRead.Text = perfCountObj.AvgDiskRead.ToString();
             lblAvgWrite.Text = perfCountObj.AvgDiskWrite.ToString();
-            lblAvgTrans.Text = perfCountObj.AvgDiskTrans.ToString();
+            lblDiskReads.Text = perfCountObj.AvgDiskTrans.ToString();
 
             lblAvgReadB.Text = ExtraDiskMeth.SizeSuffix(perfCountObj.AvgDiskReadB.ToString());
             lblAvgWriteB.Text = ExtraDiskMeth.SizeSuffix(perfCountObj.AvgDiskWriteB.ToString());
@@ -171,7 +171,7 @@ namespace ACRMS.DISK
         private void updateChart()
         {
             recordTable.Rows.Add(updateCount, float.Parse(lblIdleTime.Text), float.Parse(lblDiskTime.Text) * 10,
-                float.Parse(lblAvgDiskQ.Text) * 100, float.Parse(lblAvgTrans.Text) * 1000);
+                float.Parse(lblAvgDiskQ.Text) * 100, float.Parse(lblDiskReads.Text) * 1000);
 
             try
             {
@@ -288,6 +288,56 @@ namespace ACRMS.DISK
                 HDchart.Series["Avg. Transfer Req (1000)"].Enabled = true;
                 isAvgTransEnabled = true;
             }
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            perfCountObj = new PerfCounterHD(hostListComboBox.SelectedItem.ToString());
+
+            btnStop.Enabled = true;
+            btnStart.Enabled = false;
+
+            lblTransMax.Text = "0.0";
+            toolStripStatusLabel1.Text = "Currently Monitoring";
+            statusStrip1.Refresh();
+
+            stopW.Start(); //ready the clock
+
+            this.disableButtons(true);
+
+            timer = new Timer { Enabled = true, Interval = 1000 };
+            timer.Tick += t_Tick;
+        }
+
+        private void metroButton1_Click_1(object sender, EventArgs e)
+        {
+            stopW.Stop();
+            stopW.Reset();
+
+            perfCountObj.destroyCounters();
+
+            btnStop.Enabled = false;
+            btnStart.Enabled = true;
+            this.disableButtons(false);
+            toolStripStatusLabel1.Text = "Monitoring Stopped";
+            statusStrip1.Refresh();
+
+            timer.Dispose();
+        }
+
+        private void HDchart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDiskReads_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

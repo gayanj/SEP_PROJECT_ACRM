@@ -29,17 +29,19 @@
         private void InitializeComponent()
         {
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dirTxt = new System.Windows.Forms.TextBox();
-            this.fileTypeFilterTxt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.subDirChkBox = new System.Windows.Forms.CheckBox();
             this.logTxt = new System.Windows.Forms.RichTextBox();
-            this.stopBtn = new System.Windows.Forms.Button();
-            this.startBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.browseFolderBtn = new System.Windows.Forms.Button();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.subDirChkBox = new MetroFramework.Controls.MetroCheckBox();
+            this.browseFolderBtn = new MetroFramework.Controls.MetroButton();
+            this.startBtn = new MetroFramework.Controls.MetroButton();
+            this.stopBtn = new MetroFramework.Controls.MetroButton();
+            this.dirTxt = new MetroFramework.Controls.MetroTextBox();
+            this.fileTypeFilterTxt = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
+            this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileSystemWatcher
@@ -51,88 +53,173 @@
             this.fileSystemWatcher.Deleted += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Deleted);
             this.fileSystemWatcher.Renamed += new System.IO.RenamedEventHandler(this.fileSystemWatcher_Renamed);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Directory";
-            // 
-            // dirTxt
-            // 
-            this.dirTxt.Location = new System.Drawing.Point(93, 13);
-            this.dirTxt.Name = "dirTxt";
-            this.dirTxt.Size = new System.Drawing.Size(100, 20);
-            this.dirTxt.TabIndex = 1;
-            this.dirTxt.Text = "C:\\";
-            // 
-            // fileTypeFilterTxt
-            // 
-            this.fileTypeFilterTxt.Location = new System.Drawing.Point(93, 40);
-            this.fileTypeFilterTxt.Name = "fileTypeFilterTxt";
-            this.fileTypeFilterTxt.Size = new System.Drawing.Size(100, 20);
-            this.fileTypeFilterTxt.TabIndex = 2;
-            this.fileTypeFilterTxt.Text = "*.*";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "File Type Filter";
-            // 
-            // subDirChkBox
-            // 
-            this.subDirChkBox.AutoSize = true;
-            this.subDirChkBox.Location = new System.Drawing.Point(93, 67);
-            this.subDirChkBox.Name = "subDirChkBox";
-            this.subDirChkBox.Size = new System.Drawing.Size(128, 17);
-            this.subDirChkBox.TabIndex = 4;
-            this.subDirChkBox.Text = "Include Sub Directory";
-            this.subDirChkBox.UseVisualStyleBackColor = true;
-            // 
             // logTxt
             // 
             this.logTxt.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logTxt.Location = new System.Drawing.Point(15, 90);
+            this.logTxt.Location = new System.Drawing.Point(15, 140);
             this.logTxt.Name = "logTxt";
             this.logTxt.Size = new System.Drawing.Size(657, 429);
             this.logTxt.TabIndex = 5;
             this.logTxt.Text = "";
             // 
-            // stopBtn
+            // metroPanel1
             // 
-            this.stopBtn.Location = new System.Drawing.Point(597, 63);
-            this.stopBtn.Name = "stopBtn";
-            this.stopBtn.Size = new System.Drawing.Size(75, 23);
-            this.stopBtn.TabIndex = 6;
-            this.stopBtn.Text = "Stop";
-            this.stopBtn.UseVisualStyleBackColor = true;
-            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
+            this.metroPanel1.Controls.Add(this.fileTypeFilterTxt);
+            this.metroPanel1.Controls.Add(this.dirTxt);
+            this.metroPanel1.Controls.Add(this.stopBtn);
+            this.metroPanel1.Controls.Add(this.startBtn);
+            this.metroPanel1.Controls.Add(this.browseFolderBtn);
+            this.metroPanel1.Controls.Add(this.subDirChkBox);
+            this.metroPanel1.Controls.Add(this.metroLabel2);
+            this.metroPanel1.Controls.Add(this.metroLabel1);
+            this.metroPanel1.CustomBackground = false;
+            this.metroPanel1.HorizontalScrollbar = false;
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(-2, -2);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(703, 630);
+            this.metroPanel1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroPanel1.StyleManager = null;
+            this.metroPanel1.TabIndex = 9;
+            this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel1.VerticalScrollbar = false;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
             // 
-            // startBtn
+            // metroLabel1
             // 
-            this.startBtn.Location = new System.Drawing.Point(516, 63);
-            this.startBtn.Name = "startBtn";
-            this.startBtn.Size = new System.Drawing.Size(75, 23);
-            this.startBtn.TabIndex = 7;
-            this.startBtn.Text = "Start";
-            this.startBtn.UseVisualStyleBackColor = true;
-            this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.CustomBackground = false;
+            this.metroLabel1.CustomForeColor = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel1.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel1.Location = new System.Drawing.Point(17, 15);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(80, 25);
+            this.metroLabel1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel1.StyleManager = null;
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "Directory";
+            this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel1.UseStyleColors = false;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.CustomBackground = false;
+            this.metroLabel2.CustomForeColor = true;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel2.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel2.Location = new System.Drawing.Point(17, 47);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(119, 25);
+            this.metroLabel2.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel2.StyleManager = null;
+            this.metroLabel2.TabIndex = 3;
+            this.metroLabel2.Text = "File Type Filter";
+            this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel2.UseStyleColors = false;
+            // 
+            // subDirChkBox
+            // 
+            this.subDirChkBox.AutoSize = true;
+            this.subDirChkBox.CustomBackground = false;
+            this.subDirChkBox.CustomForeColor = true;
+            this.subDirChkBox.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.subDirChkBox.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.subDirChkBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.subDirChkBox.Location = new System.Drawing.Point(31, 110);
+            this.subDirChkBox.Name = "subDirChkBox";
+            this.subDirChkBox.Size = new System.Drawing.Size(198, 25);
+            this.subDirChkBox.Style = MetroFramework.MetroColorStyle.Blue;
+            this.subDirChkBox.StyleManager = null;
+            this.subDirChkBox.TabIndex = 9;
+            this.subDirChkBox.Text = "Include Sub Directory";
+            this.subDirChkBox.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.subDirChkBox.UseStyleColors = false;
+            this.subDirChkBox.UseVisualStyleBackColor = true;
             // 
             // browseFolderBtn
             // 
-            this.browseFolderBtn.Location = new System.Drawing.Point(199, 11);
+            this.browseFolderBtn.Highlight = false;
+            this.browseFolderBtn.Location = new System.Drawing.Point(271, 9);
             this.browseFolderBtn.Name = "browseFolderBtn";
-            this.browseFolderBtn.Size = new System.Drawing.Size(75, 23);
-            this.browseFolderBtn.TabIndex = 8;
+            this.browseFolderBtn.Size = new System.Drawing.Size(98, 27);
+            this.browseFolderBtn.Style = MetroFramework.MetroColorStyle.Blue;
+            this.browseFolderBtn.StyleManager = null;
+            this.browseFolderBtn.TabIndex = 10;
             this.browseFolderBtn.Text = "Browse";
-            this.browseFolderBtn.UseVisualStyleBackColor = true;
-            this.browseFolderBtn.Click += new System.EventHandler(this.browseFolderBtn_Click);
+            this.browseFolderBtn.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.browseFolderBtn.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // startBtn
+            // 
+            this.startBtn.Highlight = false;
+            this.startBtn.Location = new System.Drawing.Point(446, 81);
+            this.startBtn.Name = "startBtn";
+            this.startBtn.Size = new System.Drawing.Size(99, 35);
+            this.startBtn.Style = MetroFramework.MetroColorStyle.Blue;
+            this.startBtn.StyleManager = null;
+            this.startBtn.TabIndex = 11;
+            this.startBtn.Text = "Start";
+            this.startBtn.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.startBtn.Click += new System.EventHandler(this.metroButton1_Click_1);
+            // 
+            // stopBtn
+            // 
+            this.stopBtn.Highlight = false;
+            this.stopBtn.Location = new System.Drawing.Point(575, 81);
+            this.stopBtn.Name = "stopBtn";
+            this.stopBtn.Size = new System.Drawing.Size(99, 35);
+            this.stopBtn.Style = MetroFramework.MetroColorStyle.Blue;
+            this.stopBtn.StyleManager = null;
+            this.stopBtn.TabIndex = 12;
+            this.stopBtn.Text = "Stop";
+            this.stopBtn.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.stopBtn.Click += new System.EventHandler(this.metroButton1_Click_2);
+            // 
+            // dirTxt
+            // 
+            this.dirTxt.CustomBackground = false;
+            this.dirTxt.CustomForeColor = false;
+            this.dirTxt.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.dirTxt.FontWeight = MetroFramework.MetroTextBoxWeight.Regular;
+            this.dirTxt.Location = new System.Drawing.Point(155, 11);
+            this.dirTxt.Multiline = false;
+            this.dirTxt.Name = "dirTxt";
+            this.dirTxt.SelectedText = "";
+            this.dirTxt.Size = new System.Drawing.Size(110, 23);
+            this.dirTxt.Style = MetroFramework.MetroColorStyle.Blue;
+            this.dirTxt.StyleManager = null;
+            this.dirTxt.TabIndex = 13;
+            this.dirTxt.Text = "C:\\";
+            this.dirTxt.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.dirTxt.UseStyleColors = false;
+            // 
+            // fileTypeFilterTxt
+            // 
+            this.fileTypeFilterTxt.CustomBackground = false;
+            this.fileTypeFilterTxt.CustomForeColor = false;
+            this.fileTypeFilterTxt.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.fileTypeFilterTxt.FontWeight = MetroFramework.MetroTextBoxWeight.Regular;
+            this.fileTypeFilterTxt.Location = new System.Drawing.Point(155, 43);
+            this.fileTypeFilterTxt.Multiline = false;
+            this.fileTypeFilterTxt.Name = "fileTypeFilterTxt";
+            this.fileTypeFilterTxt.SelectedText = "";
+            this.fileTypeFilterTxt.Size = new System.Drawing.Size(110, 23);
+            this.fileTypeFilterTxt.Style = MetroFramework.MetroColorStyle.Blue;
+            this.fileTypeFilterTxt.StyleManager = null;
+            this.fileTypeFilterTxt.TabIndex = 14;
+            this.fileTypeFilterTxt.Text = "*.*";
+            this.fileTypeFilterTxt.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.fileTypeFilterTxt.UseStyleColors = false;
             // 
             // FileSysMonForm
             // 
@@ -140,40 +227,34 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(684, 531);
-            this.Controls.Add(this.browseFolderBtn);
-            this.Controls.Add(this.startBtn);
-            this.Controls.Add(this.stopBtn);
+            this.ClientSize = new System.Drawing.Size(696, 620);
             this.Controls.Add(this.logTxt);
-            this.Controls.Add(this.subDirChkBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.fileTypeFilterTxt);
-            this.Controls.Add(this.dirTxt);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.metroPanel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(700, 570);
-            this.MinimumSize = new System.Drawing.Size(700, 570);
+            this.MinimumSize = new System.Drawing.Size(0, 570);
             this.Name = "FileSysMonForm";
             this.ShowIcon = false;
             this.Text = "File System Monitor";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
+            this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.IO.FileSystemWatcher fileSystemWatcher;
-        private System.Windows.Forms.Button startBtn;
-        private System.Windows.Forms.Button stopBtn;
         private System.Windows.Forms.RichTextBox logTxt;
-        private System.Windows.Forms.CheckBox subDirChkBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox fileTypeFilterTxt;
-        private System.Windows.Forms.TextBox dirTxt;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button browseFolderBtn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroButton browseFolderBtn;
+        private MetroFramework.Controls.MetroCheckBox subDirChkBox;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroButton startBtn;
+        private MetroFramework.Controls.MetroButton stopBtn;
+        private MetroFramework.Controls.MetroTextBox fileTypeFilterTxt;
+        private MetroFramework.Controls.MetroTextBox dirTxt;
     }
 }

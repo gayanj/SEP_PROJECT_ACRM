@@ -43,21 +43,7 @@ namespace ACRMS.DISK.IntelliMon
 
         private void btnScanNetwork_Click(object sender, EventArgs e)
         {
-            int count = 0;
-            string hostName = Dns.GetHostName();
-            IPHostEntry ipHostEntry = Dns.GetHostEntry(hostName);
-
-            foreach (IPAddress ipAddr in ipHostEntry.AddressList)
-            {
-                if (ipAddr.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    IPHostEntry remoteAdd = Dns.GetHostEntry(ipAddr);
-                    listBoxClientList.Items.Add(remoteAdd.AddressList[count].ToString());
-                }
-                count++;
-            }
-            listBoxClientList.SelectedIndex = 0;
-            btnAddClient.Enabled = true;
+            
         }
 
         private void btnManSearch_Click(object sender, EventArgs e)
@@ -79,30 +65,7 @@ namespace ACRMS.DISK.IntelliMon
 
         private void btnAddClient_Click(object sender, EventArgs e)
         {
-            string clientIp;
-            string clientName;
-            string hostName;
-            string hostIp;
-
-            clientIp = listBoxClientList.SelectedItem.ToString();
-            IPHostEntry remoteadd = Dns.GetHostEntry(clientIp);
-            clientName = remoteadd.HostName.ToString();
-            hostName = Dns.GetHostName();
-            Ping ping = new Ping();
-            PingReply pingReply = ping.Send(hostName);
-            hostIp = pingReply.Address.ToString();
-
-            dsWatchlist.Tables[0].Rows.Add(clientName, clientIp, hostIp, DateTime.Now.Date.ToString().Substring(0, 9), false);
-
-            dgvWatchList.DataSource = dsWatchlist.Tables[0];
-
-            foreach (DataGridViewRow row in dgvWatchList.Rows)
-            {
-                row.Cells[0].Value = "Start";
-                row.Cells[1].Value = "Remove";
-                row.Cells[2].Value = "Enable";
-            }
-            dgvWatchList.Refresh();
+         
         }
 
         private void btnAddClientMnul_Click(object sender, EventArgs e)
@@ -205,6 +168,117 @@ namespace ACRMS.DISK.IntelliMon
             {
                 lblStatus.BackColor = Color.Green;
             }
+        }
+
+        private void btnScanNetwork1_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            string hostName = Dns.GetHostName();
+            IPHostEntry ipHostEntry = Dns.GetHostEntry(hostName);
+
+            foreach (IPAddress ipAddr in ipHostEntry.AddressList)
+            {
+                if (ipAddr.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    IPHostEntry remoteAdd = Dns.GetHostEntry(ipAddr);
+                    listBoxClientList.Items.Add(remoteAdd.AddressList[count].ToString());
+                }
+                count++;
+            }
+            listBoxClientList.SelectedIndex = 0;
+            btnAddClient.Enabled = true;
+        }
+
+        private void btnScanNetwork1_Click_1(object sender, EventArgs e)
+        {
+            int count = 0;
+            string hostName = Dns.GetHostName();
+            IPHostEntry ipHostEntry = Dns.GetHostEntry(hostName);
+
+            foreach (IPAddress ipAddr in ipHostEntry.AddressList)
+            {
+                if (ipAddr.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    IPHostEntry remoteAdd = Dns.GetHostEntry(ipAddr);
+                    listBoxClientList.Items.Add(remoteAdd.AddressList[count].ToString());
+                }
+                count++;
+            }
+            listBoxClientList.SelectedIndex = 0;
+            btnAddClient.Enabled = true;
+        }
+
+        private void btnAddClient1_Click(object sender, EventArgs e)
+        {
+            string clientIp;
+            string clientName;
+            string hostName;
+            string hostIp;
+
+            clientIp = listBoxClientList.SelectedItem.ToString();
+            IPHostEntry remoteadd = Dns.GetHostEntry(clientIp);
+            clientName = remoteadd.HostName.ToString();
+            hostName = Dns.GetHostName();
+            Ping ping = new Ping();
+            PingReply pingReply = ping.Send(hostName);
+            hostIp = pingReply.Address.ToString();
+
+            dsWatchlist.Tables[0].Rows.Add(clientName, clientIp, hostIp, DateTime.Now.Date.ToString().Substring(0, 9), false);
+
+            dgvWatchList.DataSource = dsWatchlist.Tables[0];
+
+            foreach (DataGridViewRow row in dgvWatchList.Rows)
+            {
+                row.Cells[0].Value = "Start";
+                row.Cells[1].Value = "Remove";
+                row.Cells[2].Value = "Enable";
+            }
+            dgvWatchList.Refresh();
+        }
+
+        private void btnManSearch1_Click(object sender, EventArgs e)
+        {
+            string client = txtClientAddrs.Text.ToString();
+            try
+            {
+                IPHostEntry remoteAdd = Dns.GetHostEntry(client);
+                lblHostName.Text = remoteAdd.HostName.ToString();
+                lblHostIp.Text = client;
+            }
+            catch (SocketException ex)
+            {
+                MessageBox.Show("Invalid Address or Host Name. Please Recheck and Try Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            btnAddClientMnul.Enabled = true;
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            string clientIp;
+            string clientName;
+            string hostName;
+            string hostIp;
+
+            clientIp = lblHostIp.Text;
+            IPHostEntry remoteadd = Dns.GetHostEntry(clientIp);
+            clientName = remoteadd.HostName.ToString();
+            hostName = Dns.GetHostName();
+            Ping ping = new Ping();
+            PingReply pingReply = ping.Send(hostName);
+            hostIp = pingReply.Address.ToString();
+
+            dsWatchlist.Tables[0].Rows.Add(clientName, clientIp, hostIp, DateTime.Now.Date.ToString().Substring(0, 9), true);
+
+            dgvWatchList.DataSource = dsWatchlist.Tables[0];
+
+            foreach (DataGridViewRow row in dgvWatchList.Rows)
+            {
+                row.Cells[0].Value = "Start";
+                row.Cells[1].Value = "Remove";
+                row.Cells[2].Value = "Enable";
+            }
+            dgvWatchList.Refresh();
         }
     }
 }

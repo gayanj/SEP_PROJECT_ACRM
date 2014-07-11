@@ -52,5 +52,14 @@ namespace ACRMS.DISK.IntelliMon
         {
             lblTimer.Text = stw.Elapsed.ToString().Substring(0, 8);
         }
+
+        private void btnStop1_Click(object sender, EventArgs e)
+        {
+            perfCounter.destroyCounters();
+            stw.Stop();
+            stw.Reset();
+            timer.Dispose();
+            this.Close();
+        }
     }
 }

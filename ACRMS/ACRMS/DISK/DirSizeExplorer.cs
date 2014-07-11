@@ -182,5 +182,37 @@ namespace ACRMS.DISK
             stop = true;
         }
 
+        private void btnStart1_Click(object sender, EventArgs e)
+        {
+            if (cBoxDriveList.Text != string.Empty)
+            {
+                stop = false;
+
+                btnStop.Enabled = true;
+                btnStart.Enabled = false;
+
+                scanFiles(cBoxDriveList.Text);
+                this.Text = "Done";
+
+                btnStop.Enabled = false;
+                btnStart.Enabled = true;
+            }
+        }
+
+        private void btnStop1_Click(object sender, EventArgs e)
+        {
+            stop = true;
+        }
+
+        private void btnClear1_Click(object sender, EventArgs e)
+        {
+            treeView.Nodes.Clear();
+        }
+
+        private void cBoxDriveList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

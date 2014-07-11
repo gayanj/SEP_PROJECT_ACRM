@@ -103,5 +103,32 @@ namespace ACRMS.DISK
             folderBrowserDialog.ShowDialog();
             dirTxt.Text = folderBrowserDialog.SelectedPath;
         }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog.ShowDialog();
+            dirTxt.Text = folderBrowserDialog.SelectedPath;
+        }
+
+        private void metroButton1_Click_1(object sender, EventArgs e)
+        {
+            fileSystemWatcher.Path = dirTxt.Text;
+            fileSystemWatcher.Filter = fileTypeFilterTxt.Text;
+            fileSystemWatcher.IncludeSubdirectories = subDirChkBox.Checked;
+            fileSystemWatcher.EnableRaisingEvents = true;
+
+            logTxt.AppendText("Watching " + dirTxt.Text + " for changes.....\r\n");
+        }
+
+        private void metroButton1_Click_2(object sender, EventArgs e)
+        {
+            fileSystemWatcher.EnableRaisingEvents = false;
+            //fileSystemWatcher.Dispose();
+
+            logTxt.AppendText("Ending File System Watch.....\r\n");
+            logTxt.Focus();
+            logTxt.Select(logTxt.TextLength, 0);
+            logTxt.ScrollToCaret();
+        }
     }
 }
