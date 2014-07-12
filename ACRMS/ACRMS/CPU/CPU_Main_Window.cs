@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using ACRMS.CPU.CPU_classes;
+using Npgsql;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -392,7 +393,7 @@ namespace ACRMS.CPU
                 DataTable processes = new DataTable();
                 DatabaseFactory.connectToDatabase();
                 string query = "select filename from malicious where filename = '" + Path.GetFileName(filename) + "'";
-                NpgsqlCommand objCommand = new NpgsqlCommand(query,DatabaseFactory.getCurrentConnection());
+                NpgsqlCommand objCommand = new NpgsqlCommand(query, DatabaseFactory.getCurrentConnection());
                 NpgsqlDataReader dr = objCommand.ExecuteReader();
                 DatabaseFactory.closeConnection();
 
@@ -488,7 +489,7 @@ namespace ACRMS.CPU
         private void metroButton4_Click(object sender, EventArgs e)
         {
             int selectedRowIndex = dataGridView3.CurrentCell.RowIndex;
-            string fileName = dataGridView3[0,index2].Value.ToString();
+            string fileName = dataGridView3[0, index2].Value.ToString();
 
             DataTable processes = new DataTable();
             DatabaseFactory.connectToDatabase();
@@ -528,6 +529,21 @@ namespace ACRMS.CPU
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index2 = dataGridView3.CurrentCell.RowIndex;
+        }
+
+        private void metroButton7_Click(object sender, EventArgs e)
+        {
+            Process[] localByName = Process.GetProcessesByName("iexplore");
+            if (localByName.Length == 0)
+            {
+                MessageBox.Show("Internet Explorer is not running");
+            }
+            else
+            {
+                Browser_IE bIE = new Browser_IE();
+                bIE.getBroswerInfo();
+                dataGridView4.DataSource = bIE.getBrowserTable();
+            }
         }
     }
 }

@@ -66,6 +66,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TraceEvent">
+      <HintPath>..\dlls\TraceEvent.dll</HintPath>
+    </Reference>
     <Reference Include="VirusTotal.NET, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dlls\VirusTotal.NET.dll</HintPath>
@@ -84,6 +87,7 @@
     <Compile Include="ACRM_MetroMain.Designer.cs">
       <DependentUpon>ACRM_MetroMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="CPU\CPU_classes\Browser_IE.cs" />
     <Compile Include="CPU\CPU_classes\DatabaseFactory.cs" />
     <Compile Include="CPU\CPU_classes\IProcessObject.cs" />
     <Compile Include="CPU\CPU_classes\ProcessConnection.cs" />
@@ -152,6 +156,16 @@
     <Compile Include="NETWORK\ProcessInfo.designer.cs">
       <DependentUpon>ProcessInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="NETWORK\RealtimeMonitoring\DatabaseFactory.cs" />
+    <Compile Include="NETWORK\RealtimeMonitoring\ExtensionMethod.cs" />
+    <Compile Include="NETWORK\RealtimeMonitoring\NetworkMonitor.cs" />
+    <Compile Include="NETWORK\RealtimeMonitoring\NetworkRealtime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NETWORK\RealtimeMonitoring\NetworkRealtime.Designer.cs">
+      <DependentUpon>NetworkRealtime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NETWORK\RealtimeMonitoring\TimeoutHandler.cs" />
     <Compile Include="NETWORK\TcpRow.cs" />
     <Compile Include="NETWORK\TcpTable.cs" />
     <Compile Include="Power\Battery.cs">
@@ -272,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NETWORK\ProcessInfo.resx">
       <DependentUpon>ProcessInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NETWORK\RealtimeMonitoring\NetworkRealtime.resx">
+      <DependentUpon>NetworkRealtime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Power\Battery.resx">
       <DependentUpon>Battery.cs</DependentUpon>

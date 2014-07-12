@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Network;
 
 namespace SEPMetro
 {
@@ -207,6 +208,13 @@ namespace SEPMetro
         private void metroButton2_Click_2(object sender, EventArgs e)
         {
             monitoring = false;
+        }
+
+        private void metroButton2_Click_3(object sender, EventArgs e)
+        {
+            NetworkRealtime realtimeNetworkMonitor = new NetworkRealtime();
+            realtimeNetworkMonitor.Show();
+            realtimeNetworkMonitor.Focus();
         }
     }
 }

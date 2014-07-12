@@ -108,6 +108,17 @@
         <RemoveFolder Id="RemoveDLL7" On="uninstall" />
       </Component>
 
+      <Component Id="TraceEvent" Guid="CC9FFFA5-E546-486C-985E-9EFD1FB292E6">
+        <File Id="FILE_TraceEvent" Source="..\BuildOutput\TraceEvent.dll"/>
+        <RegistryValue Root="HKCU"
+               Key="Software\Microsoft\ACRMS\TraceEvent"
+               Name="installed"
+               Type="integer"
+               Value="1"
+               KeyPath="yes" />
+        <RemoveFolder Id="RemoveDLL8" On="uninstall" />
+      </Component>
+
       <Component Id="ACRMS" Guid="CF7300A2-CA04-477F-82E6-7B5D055530ED">
         <File Id="FILE_ACRMS" Source="..\BuildOutput\ACRMS.exe"/>
         <RegistryValue Root="HKCU"
@@ -189,6 +200,7 @@
       <ComponentRef Id="Npgsql" />
       <ComponentRef Id="RestSharp" />
       <ComponentRef Id="VirusTotal.NET" />
+      <ComponentRef Id="TraceEvent" />
       <ComponentRef Id="ACRMS" />
       <ComponentRef Id="ACRMS.exe" />
       <ComponentRef Id="AppMenu" />

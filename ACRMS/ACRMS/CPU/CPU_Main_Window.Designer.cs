@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.Monitor = new MetroFramework.Controls.MetroTabPage();
             this.cpuChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -55,6 +55,10 @@
             this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.metroButton7 = new MetroFramework.Controls.MetroButton();
             this.metroTabControl1.SuspendLayout();
             this.Monitor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
@@ -66,6 +70,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.Settings.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.metroTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -73,12 +79,13 @@
             this.metroTabControl1.Controls.Add(this.Monitor);
             this.metroTabControl1.Controls.Add(this.Analysis);
             this.metroTabControl1.Controls.Add(this.Settings);
+            this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.CustomBackground = false;
             this.metroTabControl1.FontSize = MetroFramework.MetroTabControlSize.Medium;
             this.metroTabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Light;
             this.metroTabControl1.Location = new System.Drawing.Point(12, 12);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 3;
             this.metroTabControl1.Size = new System.Drawing.Size(687, 510);
             this.metroTabControl1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTabControl1.StyleManager = null;
@@ -111,8 +118,8 @@
             // 
             // cpuChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.cpuChart.ChartAreas.Add(chartArea1);
+            chartArea6.Name = "ChartArea1";
+            this.cpuChart.ChartAreas.Add(chartArea6);
             this.cpuChart.Location = new System.Drawing.Point(355, 3);
             this.cpuChart.Name = "cpuChart";
             this.cpuChart.Size = new System.Drawing.Size(324, 465);
@@ -460,6 +467,68 @@
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroLabel3.UseStyleColors = false;
             // 
+            // metroTabPage1
+            // 
+            this.metroTabPage1.Controls.Add(this.metroButton7);
+            this.metroTabPage1.Controls.Add(this.dataGridView4);
+            this.metroTabPage1.Controls.Add(this.metroLabel5);
+            this.metroTabPage1.CustomBackground = false;
+            this.metroTabPage1.HorizontalScrollbar = false;
+            this.metroTabPage1.HorizontalScrollbarBarColor = true;
+            this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage1.HorizontalScrollbarSize = 10;
+            this.metroTabPage1.Location = new System.Drawing.Point(4, 35);
+            this.metroTabPage1.Name = "metroTabPage1";
+            this.metroTabPage1.Size = new System.Drawing.Size(679, 471);
+            this.metroTabPage1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTabPage1.StyleManager = null;
+            this.metroTabPage1.TabIndex = 3;
+            this.metroTabPage1.Text = "Browsers";
+            this.metroTabPage1.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTabPage1.VerticalScrollbar = false;
+            this.metroTabPage1.VerticalScrollbarBarColor = true;
+            this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.CustomBackground = false;
+            this.metroLabel5.CustomForeColor = false;
+            this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel5.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel5.Location = new System.Drawing.Point(3, 13);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(106, 19);
+            this.metroLabel5.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel5.StyleManager = null;
+            this.metroLabel5.TabIndex = 2;
+            this.metroLabel5.Text = "Internet Explorer";
+            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroLabel5.UseStyleColors = false;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(3, 35);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(673, 400);
+            this.dataGridView4.TabIndex = 3;
+            // 
+            // metroButton7
+            // 
+            this.metroButton7.Highlight = false;
+            this.metroButton7.Location = new System.Drawing.Point(3, 441);
+            this.metroButton7.Name = "metroButton7";
+            this.metroButton7.Size = new System.Drawing.Size(122, 23);
+            this.metroButton7.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton7.StyleManager = null;
+            this.metroButton7.TabIndex = 4;
+            this.metroButton7.Text = "Get Tab CPU Usage";
+            this.metroButton7.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton7.Click += new System.EventHandler(this.metroButton7_Click);
+            // 
             // CPU_Main_Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -482,6 +551,9 @@
             this.Settings.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.metroTabPage1.ResumeLayout(false);
+            this.metroTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -514,5 +586,9 @@
         private MetroFramework.Controls.MetroButton setTime;
         private MetroFramework.Controls.MetroButton setUsage;
         private MetroFramework.Controls.MetroButton metroButton6;
+        private MetroFramework.Controls.MetroTabPage metroTabPage1;
+        private MetroFramework.Controls.MetroButton metroButton7;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
     }
 }

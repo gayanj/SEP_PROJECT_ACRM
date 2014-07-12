@@ -210,12 +210,19 @@ namespace SEPMetro
             PowerStatus ps = SystemInformation.PowerStatus;
             while (true)
             {
-                if (this.InvokeRequired)
-                    this.Invoke(new Action(() => batteryPercentage = ps.BatteryLifePercent.ToString() + i.ToString()));
-                else
-                    batteryPercentage = ps.BatteryLifePercent.ToString() + i.ToString();
+                try
+                {
+                    if (this.InvokeRequired)
+                        this.Invoke(new Action(() => batteryPercentage = ps.BatteryLifePercent.ToString() + i.ToString()));
+                    else
+                        batteryPercentage = ps.BatteryLifePercent.ToString() + i.ToString();
 
-                i++;
+                    i++;
+                }
+                catch (ObjectDisposedException e)
+                {
+
+                }
             }
         }
 
