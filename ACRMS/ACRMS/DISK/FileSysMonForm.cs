@@ -112,12 +112,19 @@ namespace ACRMS.DISK
 
         private void metroButton1_Click_1(object sender, EventArgs e)
         {
-            fileSystemWatcher.Path = dirTxt.Text;
-            fileSystemWatcher.Filter = fileTypeFilterTxt.Text;
-            fileSystemWatcher.IncludeSubdirectories = subDirChkBox.Checked;
-            fileSystemWatcher.EnableRaisingEvents = true;
+            try
+            {
+                fileSystemWatcher.Path = dirTxt.Text;
+                fileSystemWatcher.Filter = fileTypeFilterTxt.Text;
+                fileSystemWatcher.IncludeSubdirectories = subDirChkBox.Checked;
+                fileSystemWatcher.EnableRaisingEvents = true;
 
-            logTxt.AppendText("Watching " + dirTxt.Text + " for changes.....\r\n");
+                logTxt.AppendText("Watching " + dirTxt.Text + " for changes.....\r\n");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid Directory, Please Try Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void metroButton1_Click_2(object sender, EventArgs e)

@@ -41,7 +41,7 @@
     </Reference>
     <Reference Include="MetroFramework, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\BuildOutput\MetroFramework.dll</HintPath>
+      <HintPath>..\packages\ModernUI.1.1.0.1\lib\net45\MetroFramework.dll</HintPath>
     </Reference>
     <Reference Include="NotificationWindow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -323,6 +323,7 @@
       <DependentUpon>SystemMemoryInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -131,13 +131,14 @@
             this.metroPanel1.Controls.Add(this.hdlb5);
             this.metroPanel1.Controls.Add(this.hdlb7);
             this.metroPanel1.CustomBackground = false;
+            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroPanel1.HorizontalScrollbar = false;
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(0, -1);
+            this.metroPanel1.Location = new System.Drawing.Point(0, 0);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(1361, 744);
+            this.metroPanel1.Size = new System.Drawing.Size(1256, 660);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroPanel1.StyleManager = null;
             this.metroPanel1.TabIndex = 29;
@@ -150,7 +151,7 @@
             // btnInteliMonitor
             // 
             this.btnInteliMonitor.Highlight = false;
-            this.btnInteliMonitor.Location = new System.Drawing.Point(563, 677);
+            this.btnInteliMonitor.Location = new System.Drawing.Point(545, 611);
             this.btnInteliMonitor.Name = "btnInteliMonitor";
             this.btnInteliMonitor.Size = new System.Drawing.Size(132, 41);
             this.btnInteliMonitor.Style = MetroFramework.MetroColorStyle.Blue;
@@ -163,7 +164,7 @@
             // btnDirExplorer
             // 
             this.btnDirExplorer.Highlight = false;
-            this.btnDirExplorer.Location = new System.Drawing.Point(387, 677);
+            this.btnDirExplorer.Location = new System.Drawing.Point(369, 611);
             this.btnDirExplorer.Name = "btnDirExplorer";
             this.btnDirExplorer.Size = new System.Drawing.Size(123, 41);
             this.btnDirExplorer.Style = MetroFramework.MetroColorStyle.Blue;
@@ -176,7 +177,7 @@
             // btnDiskPerf
             // 
             this.btnDiskPerf.Highlight = false;
-            this.btnDiskPerf.Location = new System.Drawing.Point(209, 677);
+            this.btnDiskPerf.Location = new System.Drawing.Point(191, 611);
             this.btnDiskPerf.Name = "btnDiskPerf";
             this.btnDiskPerf.Size = new System.Drawing.Size(129, 41);
             this.btnDiskPerf.Style = MetroFramework.MetroColorStyle.Blue;
@@ -189,7 +190,7 @@
             // fileSysMonBtn
             // 
             this.fileSysMonBtn.Highlight = false;
-            this.fileSysMonBtn.Location = new System.Drawing.Point(38, 677);
+            this.fileSysMonBtn.Location = new System.Drawing.Point(20, 611);
             this.fileSysMonBtn.Name = "fileSysMonBtn";
             this.fileSysMonBtn.Size = new System.Drawing.Size(131, 41);
             this.fileSysMonBtn.Style = MetroFramework.MetroColorStyle.Blue;
@@ -208,7 +209,7 @@
             this.dStatLbl.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.dStatLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.dStatLbl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.dStatLbl.Location = new System.Drawing.Point(1117, 561);
+            this.dStatLbl.Location = new System.Drawing.Point(991, 561);
             this.dStatLbl.Name = "dStatLbl";
             this.dStatLbl.Size = new System.Drawing.Size(33, 25);
             this.dStatLbl.Style = MetroFramework.MetroColorStyle.Blue;
@@ -227,9 +228,9 @@
             this.hdlb22.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb22.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb22.Location = new System.Drawing.Point(934, 561);
+            this.hdlb22.Location = new System.Drawing.Point(808, 561);
             this.hdlb22.Name = "hdlb22";
-            this.hdlb22.Size = new System.Drawing.Size(121, 25);
+            this.hdlb22.Size = new System.Drawing.Size(119, 25);
             this.hdlb22.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb22.StyleManager = null;
             this.hdlb22.TabIndex = 121;
@@ -246,7 +247,7 @@
             this.totAvaLbl.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.totAvaLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.totAvaLbl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.totAvaLbl.Location = new System.Drawing.Point(1117, 498);
+            this.totAvaLbl.Location = new System.Drawing.Point(991, 498);
             this.totAvaLbl.Name = "totAvaLbl";
             this.totAvaLbl.Size = new System.Drawing.Size(33, 25);
             this.totAvaLbl.Style = MetroFramework.MetroColorStyle.Blue;
@@ -265,9 +266,9 @@
             this.hdlb21.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb21.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb21.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb21.Location = new System.Drawing.Point(934, 498);
+            this.hdlb21.Location = new System.Drawing.Point(808, 498);
             this.hdlb21.Name = "hdlb21";
-            this.hdlb21.Size = new System.Drawing.Size(167, 25);
+            this.hdlb21.Size = new System.Drawing.Size(166, 25);
             this.hdlb21.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb21.StyleManager = null;
             this.hdlb21.TabIndex = 119;
@@ -284,7 +285,7 @@
             this.totFreeLbl.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.totFreeLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.totFreeLbl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.totFreeLbl.Location = new System.Drawing.Point(1117, 430);
+            this.totFreeLbl.Location = new System.Drawing.Point(991, 430);
             this.totFreeLbl.Name = "totFreeLbl";
             this.totFreeLbl.Size = new System.Drawing.Size(33, 25);
             this.totFreeLbl.Style = MetroFramework.MetroColorStyle.Blue;
@@ -303,9 +304,9 @@
             this.hdlb20.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb20.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb20.Location = new System.Drawing.Point(934, 430);
+            this.hdlb20.Location = new System.Drawing.Point(808, 430);
             this.hdlb20.Name = "hdlb20";
-            this.hdlb20.Size = new System.Drawing.Size(136, 25);
+            this.hdlb20.Size = new System.Drawing.Size(133, 25);
             this.hdlb20.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb20.StyleManager = null;
             this.hdlb20.TabIndex = 117;
@@ -322,7 +323,7 @@
             this.totSizeLbl.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.totSizeLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.totSizeLbl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.totSizeLbl.Location = new System.Drawing.Point(1117, 364);
+            this.totSizeLbl.Location = new System.Drawing.Point(991, 364);
             this.totSizeLbl.Name = "totSizeLbl";
             this.totSizeLbl.Size = new System.Drawing.Size(33, 25);
             this.totSizeLbl.Style = MetroFramework.MetroColorStyle.Blue;
@@ -341,9 +342,9 @@
             this.hdlb19.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb19.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb19.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb19.Location = new System.Drawing.Point(934, 364);
+            this.hdlb19.Location = new System.Drawing.Point(808, 364);
             this.hdlb19.Name = "hdlb19";
-            this.hdlb19.Size = new System.Drawing.Size(84, 25);
+            this.hdlb19.Size = new System.Drawing.Size(81, 25);
             this.hdlb19.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb19.StyleManager = null;
             this.hdlb19.TabIndex = 115;
@@ -360,7 +361,7 @@
             this.dFormatLbl.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.dFormatLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.dFormatLbl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.dFormatLbl.Location = new System.Drawing.Point(1117, 291);
+            this.dFormatLbl.Location = new System.Drawing.Point(991, 291);
             this.dFormatLbl.Name = "dFormatLbl";
             this.dFormatLbl.Size = new System.Drawing.Size(33, 25);
             this.dFormatLbl.Style = MetroFramework.MetroColorStyle.Blue;
@@ -379,9 +380,9 @@
             this.hdlb18.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb18.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb18.Location = new System.Drawing.Point(934, 291);
+            this.hdlb18.Location = new System.Drawing.Point(808, 291);
             this.hdlb18.Name = "hdlb18";
-            this.hdlb18.Size = new System.Drawing.Size(129, 25);
+            this.hdlb18.Size = new System.Drawing.Size(127, 25);
             this.hdlb18.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb18.StyleManager = null;
             this.hdlb18.TabIndex = 113;
@@ -398,7 +399,7 @@
             this.dTypeLbl.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.dTypeLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.dTypeLbl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.dTypeLbl.Location = new System.Drawing.Point(1117, 218);
+            this.dTypeLbl.Location = new System.Drawing.Point(991, 218);
             this.dTypeLbl.Name = "dTypeLbl";
             this.dTypeLbl.Size = new System.Drawing.Size(33, 25);
             this.dTypeLbl.Style = MetroFramework.MetroColorStyle.Blue;
@@ -417,9 +418,9 @@
             this.hdlb17.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb17.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb17.Location = new System.Drawing.Point(934, 218);
+            this.hdlb17.Location = new System.Drawing.Point(808, 218);
             this.hdlb17.Name = "hdlb17";
-            this.hdlb17.Size = new System.Drawing.Size(112, 25);
+            this.hdlb17.Size = new System.Drawing.Size(108, 25);
             this.hdlb17.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb17.StyleManager = null;
             this.hdlb17.TabIndex = 111;
@@ -436,7 +437,7 @@
             this.volLbl.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.volLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.volLbl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.volLbl.Location = new System.Drawing.Point(1117, 150);
+            this.volLbl.Location = new System.Drawing.Point(991, 150);
             this.volLbl.Name = "volLbl";
             this.volLbl.Size = new System.Drawing.Size(33, 25);
             this.volLbl.Style = MetroFramework.MetroColorStyle.Blue;
@@ -455,9 +456,9 @@
             this.hdlb16.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb16.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb16.Location = new System.Drawing.Point(934, 150);
+            this.hdlb16.Location = new System.Drawing.Point(808, 150);
             this.hdlb16.Name = "hdlb16";
-            this.hdlb16.Size = new System.Drawing.Size(116, 25);
+            this.hdlb16.Size = new System.Drawing.Size(114, 25);
             this.hdlb16.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb16.StyleManager = null;
             this.hdlb16.TabIndex = 109;
@@ -474,7 +475,7 @@
             this.dNameLbl.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.dNameLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.dNameLbl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.dNameLbl.Location = new System.Drawing.Point(1117, 90);
+            this.dNameLbl.Location = new System.Drawing.Point(991, 90);
             this.dNameLbl.Name = "dNameLbl";
             this.dNameLbl.Size = new System.Drawing.Size(33, 25);
             this.dNameLbl.Style = MetroFramework.MetroColorStyle.Blue;
@@ -493,9 +494,9 @@
             this.hdlb15.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb15.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb15.Location = new System.Drawing.Point(934, 90);
+            this.hdlb15.Location = new System.Drawing.Point(808, 90);
             this.hdlb15.Name = "hdlb15";
-            this.hdlb15.Size = new System.Drawing.Size(122, 25);
+            this.hdlb15.Size = new System.Drawing.Size(120, 25);
             this.hdlb15.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb15.StyleManager = null;
             this.hdlb15.TabIndex = 107;
@@ -511,9 +512,9 @@
             this.driveListCombo.FontWeight = MetroFramework.MetroLinkWeight.Regular;
             this.driveListCombo.FormattingEnabled = true;
             this.driveListCombo.ItemHeight = 23;
-            this.driveListCombo.Location = new System.Drawing.Point(934, 32);
+            this.driveListCombo.Location = new System.Drawing.Point(808, 32);
             this.driveListCombo.Name = "driveListCombo";
-            this.driveListCombo.Size = new System.Drawing.Size(232, 29);
+            this.driveListCombo.Size = new System.Drawing.Size(324, 29);
             this.driveListCombo.Style = MetroFramework.MetroColorStyle.Blue;
             this.driveListCombo.StyleManager = null;
             this.driveListCombo.TabIndex = 106;
@@ -530,7 +531,7 @@
             this.phyDiskComBox.ItemHeight = 23;
             this.phyDiskComBox.Location = new System.Drawing.Point(20, 32);
             this.phyDiskComBox.Name = "phyDiskComBox";
-            this.phyDiskComBox.Size = new System.Drawing.Size(216, 29);
+            this.phyDiskComBox.Size = new System.Drawing.Size(318, 29);
             this.phyDiskComBox.Style = MetroFramework.MetroColorStyle.Blue;
             this.phyDiskComBox.StyleManager = null;
             this.phyDiskComBox.TabIndex = 105;
@@ -546,7 +547,7 @@
             this.lblTrackPerCyl.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblTrackPerCyl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTrackPerCyl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblTrackPerCyl.Location = new System.Drawing.Point(597, 291);
+            this.lblTrackPerCyl.Location = new System.Drawing.Point(597, 351);
             this.lblTrackPerCyl.Name = "lblTrackPerCyl";
             this.lblTrackPerCyl.Size = new System.Drawing.Size(33, 25);
             this.lblTrackPerCyl.Style = MetroFramework.MetroColorStyle.Blue;
@@ -565,7 +566,7 @@
             this.lblSecPerTrack.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblSecPerTrack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblSecPerTrack.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblSecPerTrack.Location = new System.Drawing.Point(597, 218);
+            this.lblSecPerTrack.Location = new System.Drawing.Point(597, 278);
             this.lblSecPerTrack.Name = "lblSecPerTrack";
             this.lblSecPerTrack.Size = new System.Drawing.Size(33, 25);
             this.lblSecPerTrack.Style = MetroFramework.MetroColorStyle.Blue;
@@ -584,7 +585,7 @@
             this.lblBperSec.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblBperSec.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblBperSec.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblBperSec.Location = new System.Drawing.Point(597, 150);
+            this.lblBperSec.Location = new System.Drawing.Point(597, 218);
             this.lblBperSec.Name = "lblBperSec";
             this.lblBperSec.Size = new System.Drawing.Size(33, 25);
             this.lblBperSec.Style = MetroFramework.MetroColorStyle.Blue;
@@ -603,7 +604,7 @@
             this.lblTracks.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblTracks.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTracks.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblTracks.Location = new System.Drawing.Point(597, 90);
+            this.lblTracks.Location = new System.Drawing.Point(597, 150);
             this.lblTracks.Name = "lblTracks";
             this.lblTracks.Size = new System.Drawing.Size(33, 25);
             this.lblTracks.Style = MetroFramework.MetroColorStyle.Blue;
@@ -622,7 +623,7 @@
             this.lblHeads.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblHeads.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblHeads.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblHeads.Location = new System.Drawing.Point(597, 364);
+            this.lblHeads.Location = new System.Drawing.Point(597, 424);
             this.lblHeads.Name = "lblHeads";
             this.lblHeads.Size = new System.Drawing.Size(33, 25);
             this.lblHeads.Style = MetroFramework.MetroColorStyle.Blue;
@@ -794,9 +795,9 @@
             this.hdlb14.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb14.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb14.Location = new System.Drawing.Point(424, 291);
+            this.hdlb14.Location = new System.Drawing.Point(424, 364);
             this.hdlb14.Name = "hdlb14";
-            this.hdlb14.Size = new System.Drawing.Size(156, 25);
+            this.hdlb14.Size = new System.Drawing.Size(153, 25);
             this.hdlb14.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb14.StyleManager = null;
             this.hdlb14.TabIndex = 91;
@@ -813,9 +814,9 @@
             this.hdlb13.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb13.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb13.Location = new System.Drawing.Point(424, 218);
+            this.hdlb13.Location = new System.Drawing.Point(424, 291);
             this.hdlb13.Name = "hdlb13";
-            this.hdlb13.Size = new System.Drawing.Size(141, 25);
+            this.hdlb13.Size = new System.Drawing.Size(138, 25);
             this.hdlb13.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb13.StyleManager = null;
             this.hdlb13.TabIndex = 90;
@@ -832,9 +833,9 @@
             this.hdlb12.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb12.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb12.Location = new System.Drawing.Point(424, 150);
+            this.hdlb12.Location = new System.Drawing.Point(424, 218);
             this.hdlb12.Name = "hdlb12";
-            this.hdlb12.Size = new System.Drawing.Size(133, 25);
+            this.hdlb12.Size = new System.Drawing.Size(132, 25);
             this.hdlb12.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb12.StyleManager = null;
             this.hdlb12.TabIndex = 89;
@@ -870,9 +871,9 @@
             this.hdlb11.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb11.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb11.Location = new System.Drawing.Point(424, 90);
+            this.hdlb11.Location = new System.Drawing.Point(424, 150);
             this.hdlb11.Name = "hdlb11";
-            this.hdlb11.Size = new System.Drawing.Size(111, 25);
+            this.hdlb11.Size = new System.Drawing.Size(109, 25);
             this.hdlb11.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb11.StyleManager = null;
             this.hdlb11.TabIndex = 88;
@@ -908,7 +909,7 @@
             this.hdlb10.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb10.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb10.Location = new System.Drawing.Point(424, 364);
+            this.hdlb10.Location = new System.Drawing.Point(424, 430);
             this.hdlb10.Name = "hdlb10";
             this.hdlb10.Size = new System.Drawing.Size(126, 25);
             this.hdlb10.Style = MetroFramework.MetroColorStyle.Blue;
@@ -929,7 +930,7 @@
             this.hdlb3.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.hdlb3.Location = new System.Drawing.Point(20, 218);
             this.hdlb3.Name = "hdlb3";
-            this.hdlb3.Size = new System.Drawing.Size(118, 25);
+            this.hdlb3.Size = new System.Drawing.Size(117, 25);
             this.hdlb3.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb3.StyleManager = null;
             this.hdlb3.TabIndex = 81;
@@ -946,7 +947,7 @@
             this.hdlb9.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb9.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb9.Location = new System.Drawing.Point(16, 561);
+            this.hdlb9.Location = new System.Drawing.Point(20, 561);
             this.hdlb9.Name = "hdlb9";
             this.hdlb9.Size = new System.Drawing.Size(118, 25);
             this.hdlb9.Style = MetroFramework.MetroColorStyle.Blue;
@@ -984,7 +985,7 @@
             this.hdlb8.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb8.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb8.Location = new System.Drawing.Point(16, 498);
+            this.hdlb8.Location = new System.Drawing.Point(20, 498);
             this.hdlb8.Name = "hdlb8";
             this.hdlb8.Size = new System.Drawing.Size(133, 25);
             this.hdlb8.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1022,9 +1023,9 @@
             this.hdlb7.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb7.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb7.Location = new System.Drawing.Point(17, 434);
+            this.hdlb7.Location = new System.Drawing.Point(20, 430);
             this.hdlb7.Name = "hdlb7";
-            this.hdlb7.Size = new System.Drawing.Size(133, 25);
+            this.hdlb7.Size = new System.Drawing.Size(134, 25);
             this.hdlb7.Style = MetroFramework.MetroColorStyle.Blue;
             this.hdlb7.StyleManager = null;
             this.hdlb7.TabIndex = 84;
@@ -1037,9 +1038,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1350, 730);
+            this.ClientSize = new System.Drawing.Size(1256, 660);
             this.Controls.Add(this.metroPanel1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1272, 699);
+            this.MinimumSize = new System.Drawing.Size(1272, 699);
             this.Name = "DiskMainGUI";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

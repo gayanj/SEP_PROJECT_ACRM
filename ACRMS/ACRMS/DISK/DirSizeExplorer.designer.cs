@@ -72,9 +72,9 @@
             // btnClear
             // 
             this.btnClear.Highlight = false;
-            this.btnClear.Location = new System.Drawing.Point(302, 12);
+            this.btnClear.Location = new System.Drawing.Point(302, 6);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(75, 29);
             this.btnClear.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnClear.StyleManager = null;
             this.btnClear.TabIndex = 5;
@@ -85,9 +85,9 @@
             // btnStop
             // 
             this.btnStop.Highlight = false;
-            this.btnStop.Location = new System.Drawing.Point(221, 12);
+            this.btnStop.Location = new System.Drawing.Point(221, 6);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStop.Size = new System.Drawing.Size(75, 29);
             this.btnStop.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnStop.StyleManager = null;
             this.btnStop.TabIndex = 4;
@@ -98,9 +98,9 @@
             // btnStart
             // 
             this.btnStart.Highlight = false;
-            this.btnStart.Location = new System.Drawing.Point(140, 12);
+            this.btnStart.Location = new System.Drawing.Point(140, 6);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(75, 29);
             this.btnStart.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnStart.StyleManager = null;
             this.btnStart.TabIndex = 3;
@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 282);
+            this.ClientSize = new System.Drawing.Size(384, 281);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.metroPanel1);
             this.MaximizeBox = false;

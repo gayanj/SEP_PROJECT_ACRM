@@ -39,9 +39,6 @@ namespace ACRMS.DISK
 
             btnStop.Enabled = false;
 
-            toolStripStatusLabel1.Text = "Ready To Begain";
-            statusStrip1.Refresh();
-
             this.setTableChart();
             this.fillHostList();
             this.disableButtons(false);
@@ -64,9 +61,7 @@ namespace ACRMS.DISK
             btnStart.Enabled = false;
 
             lblTransMax.Text = "0.0";
-            toolStripStatusLabel1.Text = "Currently Monitoring";
-            statusStrip1.Refresh();
-
+            
             stopW.Start(); //ready the clock
 
             this.disableButtons(true);
@@ -195,9 +190,7 @@ namespace ACRMS.DISK
             btnStop.Enabled = false;
             btnStart.Enabled = true;
             this.disableButtons(false);
-            toolStripStatusLabel1.Text = "Monitoring Stopped";
-            statusStrip1.Refresh();
-
+            
             timer.Dispose();
         }
 
@@ -298,9 +291,7 @@ namespace ACRMS.DISK
             btnStart.Enabled = false;
 
             lblTransMax.Text = "0.0";
-            toolStripStatusLabel1.Text = "Currently Monitoring";
-            statusStrip1.Refresh();
-
+            
             stopW.Start(); //ready the clock
 
             this.disableButtons(true);
@@ -319,9 +310,7 @@ namespace ACRMS.DISK
             btnStop.Enabled = false;
             btnStart.Enabled = true;
             this.disableButtons(false);
-            toolStripStatusLabel1.Text = "Monitoring Stopped";
-            statusStrip1.Refresh();
-
+            
             timer.Dispose();
         }
 

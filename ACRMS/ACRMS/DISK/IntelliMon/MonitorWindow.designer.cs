@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.btnStop = new MetroFramework.Controls.MetroButton();
-            this.lblClientName = new MetroFramework.Controls.MetroLabel();
-            this.lblClientIp = new MetroFramework.Controls.MetroLabel();
             this.lblTimer = new MetroFramework.Controls.MetroLabel();
+            this.lblClientIp = new MetroFramework.Controls.MetroLabel();
+            this.lblClientName = new MetroFramework.Controls.MetroLabel();
+            this.btnStop = new MetroFramework.Controls.MetroButton();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,13 +43,14 @@
             this.metroPanel1.Controls.Add(this.lblClientName);
             this.metroPanel1.Controls.Add(this.btnStop);
             this.metroPanel1.CustomBackground = false;
+            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroPanel1.HorizontalScrollbar = false;
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(0, -1);
+            this.metroPanel1.Location = new System.Drawing.Point(0, 0);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(200, 140);
+            this.metroPanel1.Size = new System.Drawing.Size(231, 115);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroPanel1.StyleManager = null;
             this.metroPanel1.TabIndex = 5;
@@ -59,37 +60,24 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
-            // btnStop
+            // lblTimer
             // 
-            this.btnStop.Highlight = false;
-            this.btnStop.Location = new System.Drawing.Point(58, 76);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(75, 23);
-            this.btnStop.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnStop.StyleManager = null;
-            this.btnStop.TabIndex = 2;
-            this.btnStop.Text = "Stop";
-            this.btnStop.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnStop.Click += new System.EventHandler(this.btnStop1_Click);
-            // 
-            // lblClientName
-            // 
-            this.lblClientName.AutoSize = true;
-            this.lblClientName.CustomBackground = false;
-            this.lblClientName.CustomForeColor = true;
-            this.lblClientName.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblClientName.FontWeight = MetroFramework.MetroLabelWeight.Light;
-            this.lblClientName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblClientName.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblClientName.Location = new System.Drawing.Point(12, 40);
-            this.lblClientName.Name = "lblClientName";
-            this.lblClientName.Size = new System.Drawing.Size(46, 25);
-            this.lblClientName.Style = MetroFramework.MetroColorStyle.Blue;
-            this.lblClientName.StyleManager = null;
-            this.lblClientName.TabIndex = 3;
-            this.lblClientName.Text = "Host";
-            this.lblClientName.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.lblClientName.UseStyleColors = false;
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.CustomBackground = false;
+            this.lblTimer.CustomForeColor = true;
+            this.lblTimer.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblTimer.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTimer.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.lblTimer.Location = new System.Drawing.Point(83, 9);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(74, 25);
+            this.lblTimer.Style = MetroFramework.MetroColorStyle.Blue;
+            this.lblTimer.StyleManager = null;
+            this.lblTimer.TabIndex = 5;
+            this.lblTimer.Text = "00:00:00";
+            this.lblTimer.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblTimer.UseStyleColors = false;
             // 
             // lblClientIp
             // 
@@ -110,31 +98,44 @@
             this.lblClientIp.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lblClientIp.UseStyleColors = false;
             // 
-            // lblTimer
+            // lblClientName
             // 
-            this.lblTimer.AutoSize = true;
-            this.lblTimer.CustomBackground = false;
-            this.lblTimer.CustomForeColor = true;
-            this.lblTimer.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblTimer.FontWeight = MetroFramework.MetroLabelWeight.Light;
-            this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTimer.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblTimer.Location = new System.Drawing.Point(58, 10);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(74, 25);
-            this.lblTimer.Style = MetroFramework.MetroColorStyle.Blue;
-            this.lblTimer.StyleManager = null;
-            this.lblTimer.TabIndex = 5;
-            this.lblTimer.Text = "00:00:00";
-            this.lblTimer.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.lblTimer.UseStyleColors = false;
+            this.lblClientName.AutoSize = true;
+            this.lblClientName.CustomBackground = false;
+            this.lblClientName.CustomForeColor = true;
+            this.lblClientName.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblClientName.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.lblClientName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblClientName.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.lblClientName.Location = new System.Drawing.Point(12, 40);
+            this.lblClientName.Name = "lblClientName";
+            this.lblClientName.Size = new System.Drawing.Size(46, 25);
+            this.lblClientName.Style = MetroFramework.MetroColorStyle.Blue;
+            this.lblClientName.StyleManager = null;
+            this.lblClientName.TabIndex = 3;
+            this.lblClientName.Text = "Host";
+            this.lblClientName.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblClientName.UseStyleColors = false;
+            // 
+            // btnStop
+            // 
+            this.btnStop.Highlight = false;
+            this.btnStop.Location = new System.Drawing.Point(82, 80);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStop.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnStop.StyleManager = null;
+            this.btnStop.TabIndex = 2;
+            this.btnStop.Text = "Stop";
+            this.btnStop.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.btnStop.Click += new System.EventHandler(this.btnStop1_Click);
             // 
             // MonitorWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(196, 103);
+            this.ClientSize = new System.Drawing.Size(231, 115);
             this.ControlBox = false;
             this.Controls.Add(this.metroPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
