@@ -28,27 +28,28 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\BuildOutput\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IpHlpApi.net">
-      <HintPath>..\..\..\..\..\Desktop\IpHlpApi.net.dll</HintPath>
+    <Reference Include="IpHlpApi.net, Version=1.0.5208.36610, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\IpHlpApi.net.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework">
-      <HintPath>..\..\SEPMetro\packages\ModernUI.1.1.0.1\lib\net40\MetroFramework.dll</HintPath>
+    <Reference Include="MetroFramework, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\BuildOutput\MetroFramework.dll</HintPath>
     </Reference>
-    <Reference Include="NotificationWindow">
-      <HintPath>..\..\..\..\..\Desktop\SEPMetro-original\SEPMetro\bin\Debug\NotificationWindow.dll</HintPath>
+    <Reference Include="NotificationWindow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\NotificationWindow.dll</HintPath>
     </Reference>
-    <Reference Include="Npgsql">
-      <HintPath>..\..\..\..\..\Desktop\Network\Network\dlls\Npgsql.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\..\..\VirusTotal.NET\VirusTotal.NET\bin\Release\RestSharp.dll</HintPath>
+    <Reference Include="Npgsql, Version=2.1.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -65,8 +66,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="VirusTotal.NET">
-      <HintPath>..\..\..\VirusTotal.NET\VirusTotal.NET\bin\Release\VirusTotal.NET.dll</HintPath>
+    <Reference Include="VirusTotal.NET, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\VirusTotal.NET.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

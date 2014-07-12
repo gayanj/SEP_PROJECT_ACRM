@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.Monitor = new MetroFramework.Controls.MetroTabPage();
             this.cpuChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Analysis = new MetroFramework.Controls.MetroTabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.metroButton6 = new MetroFramework.Controls.MetroButton();
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -54,7 +55,6 @@
             this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroButton6 = new MetroFramework.Controls.MetroButton();
             this.metroTabControl1.SuspendLayout();
             this.Monitor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
@@ -111,8 +111,8 @@
             // 
             // cpuChart
             // 
-            chartArea5.Name = "ChartArea1";
-            this.cpuChart.ChartAreas.Add(chartArea5);
+            chartArea1.Name = "ChartArea1";
+            this.cpuChart.ChartAreas.Add(chartArea1);
             this.cpuChart.Location = new System.Drawing.Point(355, 3);
             this.cpuChart.Name = "cpuChart";
             this.cpuChart.Size = new System.Drawing.Size(324, 465);
@@ -165,6 +165,19 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
+            // metroButton6
+            // 
+            this.metroButton6.Highlight = false;
+            this.metroButton6.Location = new System.Drawing.Point(257, 38);
+            this.metroButton6.Name = "metroButton6";
+            this.metroButton6.Size = new System.Drawing.Size(75, 23);
+            this.metroButton6.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton6.StyleManager = null;
+            this.metroButton6.TabIndex = 4;
+            this.metroButton6.Text = "Display All";
+            this.metroButton6.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton6.Click += new System.EventHandler(this.metroButton6_Click);
+            // 
             // metroButton5
             // 
             this.metroButton5.Highlight = false;
@@ -198,6 +211,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(248, 421);
             this.dataGridView3.TabIndex = 1;
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
             // 
             // metroLabel2
             // 
@@ -445,19 +459,6 @@
             this.metroLabel3.Text = "High CPU Uage Limit";
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroLabel3.UseStyleColors = false;
-            // 
-            // metroButton6
-            // 
-            this.metroButton6.Highlight = false;
-            this.metroButton6.Location = new System.Drawing.Point(257, 38);
-            this.metroButton6.Name = "metroButton6";
-            this.metroButton6.Size = new System.Drawing.Size(75, 23);
-            this.metroButton6.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton6.StyleManager = null;
-            this.metroButton6.TabIndex = 4;
-            this.metroButton6.Text = "Display All";
-            this.metroButton6.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroButton6.Click += new System.EventHandler(this.metroButton6_Click);
             // 
             // CPU_Main_Window
             // 

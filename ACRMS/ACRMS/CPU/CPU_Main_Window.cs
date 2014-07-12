@@ -33,6 +33,7 @@ namespace ACRMS.CPU
         private int count = 0;
         private int value = 0;
         private int index = 0;
+        private int index2 = 0;
         int usageLimit = 10;//%
         int waitTime = 60;//seconds
         bool killProcess = false;
@@ -229,9 +230,6 @@ namespace ACRMS.CPU
             chartTable.Clear();
             count = 0;
             index = dataGridView1.CurrentCell.RowIndex;
-            //processName.Visible = true;
-            //processNameValue.Visible = true;
-            //processNameValue.Text = dataGridView1[1, index].Value.ToString();
             this.changeUsageValue();
         }
 
@@ -490,7 +488,7 @@ namespace ACRMS.CPU
         private void metroButton4_Click(object sender, EventArgs e)
         {
             int selectedRowIndex = dataGridView3.CurrentCell.RowIndex;
-            string fileName = dataGridView3[0,index].Value.ToString();
+            string fileName = dataGridView3[0,index2].Value.ToString();
 
             DataTable processes = new DataTable();
             DatabaseFactory.connectToDatabase();
@@ -525,6 +523,11 @@ namespace ACRMS.CPU
             DatabaseFactory.closeConnection();
             resultset.Fill(processes);
             dataGridView3.DataSource = processes;
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index2 = dataGridView3.CurrentCell.RowIndex;
         }
     }
 }
