@@ -71,5 +71,10 @@ namespace ACRMS.CPU
                 return -1;
             }
         }
+
+        public static NpgsqlConnection getCurrentConnection()
+        {
+            return conn;
+        }
     }
 }

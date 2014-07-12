@@ -3,20 +3,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using VirusTotalNET;
+using VirusTotalNET.Objects;
 
 namespace ACRMS.CPU
 {
     public partial class CPU_Main_Window : Form
     {
+        VirusTotal virusTotal = new VirusTotal(ConfigurationManager.AppSettings["ApiKey"]);
         DataTable processTable = new DataTable();
         DataTable chartTable;
         Hashtable processSet = new Hashtable();
@@ -49,6 +55,8 @@ namespace ACRMS.CPU
             t1.Tick += t_Tick_getHashTable;
             t2.Tick += t_Tick_updateDataTable;
             t3.Tick += t_Tick_updateChart;
+            //Use HTTPS instead of HTTP
+            virusTotal.UseTLS = true;
         }
 
         private void getHashTable()
@@ -206,6 +214,10 @@ namespace ACRMS.CPU
             {
                 //Occurs on forced exit
             }
+            catch (NullReferenceException ex)
+            {
+                //Occurs on forced exit
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -273,7 +285,9 @@ namespace ACRMS.CPU
 
                 if (counterTime == 0)
                 {
-                    //TO DO -- add PID details to database
+                    //scan using virus total
+                    virusTotalScan(PID);
+                    //add PID details to database
                     string sql = "INSERT INTO processes(name,duration) VALUES('" + pname.ProcessName + "','" + waitTime + "')";
                     DatabaseFactory.connectToDatabase();
                     int result = DatabaseFactory.executeNonQuery(sql);
@@ -323,7 +337,7 @@ namespace ACRMS.CPU
         {
             DataTable processes = new DataTable();
             DatabaseFactory.connectToDatabase();
-            string query = "select name,duration from processes";
+            string query = "select name \"Name\",duration \"Duration\" from processes";
             NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
             DatabaseFactory.closeConnection();
             resultset.Fill(processes);
@@ -337,8 +351,8 @@ namespace ACRMS.CPU
             string query = "delete from processes";
             DatabaseFactory.executeNonQuery(query);
 
-            string query2 = "select name,duration from processes";
-            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            string query2 = "select name \"Name\",duration \"Duration\" from processes";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query2);
 
             DatabaseFactory.closeConnection();
             resultset.Fill(processes);
@@ -365,6 +379,152 @@ namespace ACRMS.CPU
             {
                 killProcess = false;
             }
+        }
+
+        private void virusTotalScan(string PID)
+        {
+            try
+            {
+                FileInfo file = new FileInfo("EICAR.txt");
+                File.WriteAllText(file.FullName, @"X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*");
+                Process p = Process.GetProcessById(Int32.Parse(PID));
+                string filename = p.MainModule.FileName;
+
+                //Find if the file has been already scanned
+                DataTable processes = new DataTable();
+                DatabaseFactory.connectToDatabase();
+                string query = "select filename from malicious where filename = '" + Path.GetFileName(filename) + "'";
+                NpgsqlCommand objCommand = new NpgsqlCommand(query,DatabaseFactory.getCurrentConnection());
+                NpgsqlDataReader dr = objCommand.ExecuteReader();
+                DatabaseFactory.closeConnection();
+
+                if (!dr.HasRows)
+                {
+                    byte[] resource;
+                    using (var md5 = MD5.Create())
+                    {
+                        using (var stream = File.OpenRead(filename))
+                        {
+                            resource = md5.ComputeHash(Encoding.UTF8.GetBytes(stream.ToString()));
+                        }
+                    }
+                    StringBuilder sBuilder = new StringBuilder();
+
+                    // Loop through each byte of the hashed data  
+                    // and format each one as a hexadecimal string. 
+                    for (int i = 0; i < resource.Length; i++)
+                    {
+                        sBuilder.Append(resource[i].ToString("x2"));
+                    }
+
+                    string r = sBuilder.ToString();
+                    Report fileReport = virusTotal.GetFileReport(file);
+                    bool hasFileBeenScannedBefore = fileReport.ResponseCode == ReportResponseCode.Present;
+                    //If the file has been scanned before, the results are embedded inside the report.
+                    if (hasFileBeenScannedBefore)
+                    {
+                        PrintScan(fileReport, Path.GetFileName(filename));
+                    }
+                    else
+                    {
+                        FileInfo fileInfo = new FileInfo(filename);
+                        ScanResult fileResult = virusTotal.ScanFile(fileInfo);
+                        PrintScan(fileResult);
+                    }
+                }
+            }
+            catch (ArgumentException e)
+            {
+                //Process removed
+            }
+            catch (InvalidOperationException e)
+            {
+                //Process removed
+            }
+            catch (Win32Exception e)
+            {
+                //cannot scan system files
+            }
+        }
+
+        private static void PrintScan(ScanResult scanResult)
+        {
+            Console.WriteLine("Scan ID: " + scanResult.ScanId + "\n");
+            Console.WriteLine("Message: " + scanResult.VerboseMsg + "\n");
+        }
+
+        private static void PrintScan(Report report, string fileName)
+        {
+            Console.WriteLine("Scan ID: " + report.ScanId + "\n");
+            Console.WriteLine("Message: " + report.VerboseMsg + "\n");
+
+            if (report.ResponseCode == ReportResponseCode.Present)
+            {
+                StringBuilder reportBuilder = new StringBuilder();
+                reportBuilder.Append("Scan ID: " + report.ScanId + "\n");
+                reportBuilder.Append("Message: " + report.VerboseMsg + "\n");
+                bool detected = false;
+                foreach (ScanEngine scan in report.Scans)
+                {
+                    if (scan.Detected)
+                    {
+                        detected = true;
+                    }
+                    string line = String.Format("{0,-20}", scan.Name);
+                    reportBuilder.Append(line + " Detected: " + scan.Detected + "\n");
+                }
+                if (detected)
+                {
+                    string sql = "INSERT INTO malicious(filename,report) VALUES('" + fileName + "','" + reportBuilder.ToString() + "')";
+                    DatabaseFactory.connectToDatabase();
+                    int result = DatabaseFactory.executeNonQuery(sql);
+                    if (result < 0)
+                    {
+                        //error inserting
+                    }
+                    DatabaseFactory.closeConnection();
+                }
+            }
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            int selectedRowIndex = dataGridView3.CurrentCell.RowIndex;
+            string fileName = dataGridView3[0,index].Value.ToString();
+
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "select report from malicious where filename = '" + fileName + "'";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            MessageBox.Show(processes.Rows[0][0].ToString());
+        }
+
+        private void metroButton5_Click(object sender, EventArgs e)
+        {
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "delete from malicious";
+            DatabaseFactory.executeNonQuery(query);
+
+            string query2 = "select filename \"File Name\",id \"Time Stamp\" from malicious";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query2);
+
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            dataGridView3.DataSource = processes;
+        }
+
+        private void metroButton6_Click(object sender, EventArgs e)
+        {
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "select filename \"File Name\",id \"Time Stamp\" from malicious";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            dataGridView3.DataSource = processes;
         }
     }
 }

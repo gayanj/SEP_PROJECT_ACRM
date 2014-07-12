@@ -35,9 +35,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IpHlpApi.net, Version=1.0.5208.36610, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\IpHlpApi.net.dll</HintPath>
+    <Reference Include="IpHlpApi.net">
+      <HintPath>..\..\..\..\..\Desktop\IpHlpApi.net.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\..\SEPMetro\packages\ModernUI.1.1.0.1\lib\net40\MetroFramework.dll</HintPath>
@@ -48,7 +47,11 @@
     <Reference Include="Npgsql">
       <HintPath>..\..\..\..\..\Desktop\Network\Network\dlls\Npgsql.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\..\VirusTotal.NET\VirusTotal.NET\bin\Release\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
@@ -62,6 +65,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="VirusTotal.NET">
+      <HintPath>..\..\..\VirusTotal.NET\VirusTotal.NET\bin\Release\VirusTotal.NET.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ACRMS_Main.cs">
