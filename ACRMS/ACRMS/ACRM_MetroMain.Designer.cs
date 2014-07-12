@@ -30,25 +30,25 @@
         {
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroTile5 = new MetroFramework.Controls.MetroTile();
-            this.metroTile4 = new MetroFramework.Controls.MetroTile();
-            this.metroTile3 = new MetroFramework.Controls.MetroTile();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.metroTile4 = new MetroFramework.Controls.MetroTile();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.metroTile3 = new MetroFramework.Controls.MetroTile();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.metroPanel1.SuspendLayout();
             this.metroTile5.SuspendLayout();
-            this.metroTile4.SuspendLayout();
-            this.metroTile3.SuspendLayout();
-            this.metroTile2.SuspendLayout();
-            this.metroTile1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.metroTile4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.metroTile3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.metroTile2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.metroTile1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,6 +94,15 @@
             this.metroTile5.TileCount = 0;
             this.metroTile5.Click += new System.EventHandler(this.metroTile5_Click);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::ACRMS.Properties.Resources.power;
+            this.pictureBox4.Location = new System.Drawing.Point(249, 13);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(252, 222);
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
             // metroTile4
             // 
             this.metroTile4.ActiveControl = null;
@@ -111,6 +120,15 @@
             this.metroTile4.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTile4.TileCount = 0;
             this.metroTile4.Click += new System.EventHandler(this.metroTile4_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::ACRMS.Properties.Resources.disk2;
+            this.pictureBox5.Location = new System.Drawing.Point(260, -22);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(239, 223);
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
             // 
             // metroTile3
             // 
@@ -130,6 +148,15 @@
             this.metroTile3.TileCount = 0;
             this.metroTile3.Click += new System.EventHandler(this.metroTile3_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ACRMS.Properties.Resources.cpu2;
+            this.pictureBox1.Location = new System.Drawing.Point(177, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(247, 250);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // metroTile2
             // 
             this.metroTile2.ActiveControl = null;
@@ -146,6 +173,16 @@
             this.metroTile2.Text = "Network";
             this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTile2.TileCount = 0;
+            this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ACRMS.Properties.Resources.network;
+            this.pictureBox2.Location = new System.Drawing.Point(240, -20);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(252, 215);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // metroTile1
             // 
@@ -164,42 +201,6 @@
             this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTile1.TileCount = 0;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::ACRMS.Properties.Resources.power;
-            this.pictureBox4.Location = new System.Drawing.Point(249, 13);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(252, 222);
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::ACRMS.Properties.Resources.disk2;
-            this.pictureBox5.Location = new System.Drawing.Point(260, -22);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(239, 223);
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ACRMS.Properties.Resources.cpu2;
-            this.pictureBox1.Location = new System.Drawing.Point(177, 42);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(247, 250);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ACRMS.Properties.Resources.network;
-            this.pictureBox2.Location = new System.Drawing.Point(240, -20);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(252, 215);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -220,14 +221,14 @@
             this.Text = "ACRM_MetroMain";
             this.metroPanel1.ResumeLayout(false);
             this.metroTile5.ResumeLayout(false);
-            this.metroTile4.ResumeLayout(false);
-            this.metroTile3.ResumeLayout(false);
-            this.metroTile2.ResumeLayout(false);
-            this.metroTile1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.metroTile4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.metroTile3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.metroTile2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.metroTile1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 

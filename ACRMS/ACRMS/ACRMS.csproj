@@ -35,6 +35,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IpHlpApi.net, Version=1.0.5208.36610, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\IpHlpApi.net.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\..\SEPMetro\packages\ModernUI.1.1.0.1\lib\net40\MetroFramework.dll</HintPath>
     </Reference>
@@ -122,6 +126,23 @@
     <Compile Include="DISK\PerfCounterHD.cs" />
     <Compile Include="DISK\WMIConn.cs" />
     <Compile Include="DISK\WMIDisk.cs" />
+    <Compile Include="NETWORK\IpHelper.cs" />
+    <Compile Include="NETWORK\IPHlpAPI32.cs" />
+    <Compile Include="NETWORK\ManagedIpHelper.cs" />
+    <Compile Include="NETWORK\NetworkCore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NETWORK\NetworkCore.designer.cs">
+      <DependentUpon>NetworkCore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NETWORK\ProcessInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NETWORK\ProcessInfo.designer.cs">
+      <DependentUpon>ProcessInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NETWORK\TcpRow.cs" />
+    <Compile Include="NETWORK\TcpTable.cs" />
     <Compile Include="Power\Battery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +256,12 @@
     <EmbeddedResource Include="DISK\IntelliMon\MonitorWindow.resx">
       <DependentUpon>MonitorWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NETWORK\NetworkCore.resx">
+      <DependentUpon>NetworkCore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NETWORK\ProcessInfo.resx">
+      <DependentUpon>ProcessInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Power\Battery.resx">
       <DependentUpon>Battery.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,9 +322,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NETWORK\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\cpu.png" />
   </ItemGroup>

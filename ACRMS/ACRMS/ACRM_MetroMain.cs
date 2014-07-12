@@ -43,5 +43,11 @@ namespace ACRMS
             DiskMainGUI d = new DiskMainGUI();
             d.ShowDialog();
         }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            NetworkCore n = new NetworkCore();
+            n.ShowDialog();
+        }
     }
 }
