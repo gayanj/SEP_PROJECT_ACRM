@@ -42,9 +42,11 @@
     <Reference Include="MetroFramework">
       <HintPath>..\..\SEPMetro\packages\ModernUI.1.1.0.1\lib\net40\MetroFramework.dll</HintPath>
     </Reference>
-    <Reference Include="NotificationWindow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\NotificationWindow.dll</HintPath>
+    <Reference Include="NotificationWindow">
+      <HintPath>..\..\..\..\..\Desktop\SEPMetro-original\SEPMetro\bin\Debug\NotificationWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\..\..\Desktop\Network\Network\dlls\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -74,6 +76,7 @@
     <Compile Include="ACRM_MetroMain.Designer.cs">
       <DependentUpon>ACRM_MetroMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="CPU\CPU_classes\DatabaseFactory.cs" />
     <Compile Include="CPU\CPU_classes\IProcessObject.cs" />
     <Compile Include="CPU\CPU_classes\ProcessConnection.cs" />
     <Compile Include="CPU\CPU_classes\ProcessLocal.cs" />
