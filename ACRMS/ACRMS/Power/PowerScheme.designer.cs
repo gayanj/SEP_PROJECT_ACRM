@@ -102,11 +102,11 @@
             this.schemeEnableDisplayBrightness.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.schemeEnableDisplayBrightness.Location = new System.Drawing.Point(663, 134);
             this.schemeEnableDisplayBrightness.Name = "schemeEnableDisplayBrightness";
-            this.schemeEnableDisplayBrightness.Size = new System.Drawing.Size(115, 25);
+            this.schemeEnableDisplayBrightness.Size = new System.Drawing.Size(33, 25);
             this.schemeEnableDisplayBrightness.Style = MetroFramework.MetroColorStyle.Blue;
             this.schemeEnableDisplayBrightness.StyleManager = null;
             this.schemeEnableDisplayBrightness.TabIndex = 21;
-            this.schemeEnableDisplayBrightness.Text = "metroLabel20";
+            this.schemeEnableDisplayBrightness.Text = "---";
             this.schemeEnableDisplayBrightness.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.schemeEnableDisplayBrightness.UseStyleColors = false;
             // 
@@ -121,11 +121,11 @@
             this.schemeDimmedDisplay.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.schemeDimmedDisplay.Location = new System.Drawing.Point(663, 76);
             this.schemeDimmedDisplay.Name = "schemeDimmedDisplay";
-            this.schemeDimmedDisplay.Size = new System.Drawing.Size(115, 25);
+            this.schemeDimmedDisplay.Size = new System.Drawing.Size(33, 25);
             this.schemeDimmedDisplay.Style = MetroFramework.MetroColorStyle.Blue;
             this.schemeDimmedDisplay.StyleManager = null;
             this.schemeDimmedDisplay.TabIndex = 20;
-            this.schemeDimmedDisplay.Text = "metroLabel19";
+            this.schemeDimmedDisplay.Text = "---";
             this.schemeDimmedDisplay.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.schemeDimmedDisplay.UseStyleColors = false;
             // 
@@ -140,11 +140,11 @@
             this.schemeIncreaseAdaptive.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.schemeIncreaseAdaptive.Location = new System.Drawing.Point(663, 25);
             this.schemeIncreaseAdaptive.Name = "schemeIncreaseAdaptive";
-            this.schemeIncreaseAdaptive.Size = new System.Drawing.Size(115, 25);
+            this.schemeIncreaseAdaptive.Size = new System.Drawing.Size(33, 25);
             this.schemeIncreaseAdaptive.Style = MetroFramework.MetroColorStyle.Blue;
             this.schemeIncreaseAdaptive.StyleManager = null;
             this.schemeIncreaseAdaptive.TabIndex = 19;
-            this.schemeIncreaseAdaptive.Text = "metroLabel18";
+            this.schemeIncreaseAdaptive.Text = "---";
             this.schemeIncreaseAdaptive.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.schemeIncreaseAdaptive.UseStyleColors = false;
             // 
@@ -159,11 +159,11 @@
             this.schemeDisplayBrightness.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.schemeDisplayBrightness.Location = new System.Drawing.Point(267, 366);
             this.schemeDisplayBrightness.Name = "schemeDisplayBrightness";
-            this.schemeDisplayBrightness.Size = new System.Drawing.Size(115, 25);
+            this.schemeDisplayBrightness.Size = new System.Drawing.Size(33, 25);
             this.schemeDisplayBrightness.Style = MetroFramework.MetroColorStyle.Blue;
             this.schemeDisplayBrightness.StyleManager = null;
             this.schemeDisplayBrightness.TabIndex = 18;
-            this.schemeDisplayBrightness.Text = "metroLabel17";
+            this.schemeDisplayBrightness.Text = "---";
             this.schemeDisplayBrightness.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.schemeDisplayBrightness.UseStyleColors = false;
             // 
@@ -178,11 +178,11 @@
             this.schemeAllowDisplay.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.schemeAllowDisplay.Location = new System.Drawing.Point(267, 308);
             this.schemeAllowDisplay.Name = "schemeAllowDisplay";
-            this.schemeAllowDisplay.Size = new System.Drawing.Size(115, 25);
+            this.schemeAllowDisplay.Size = new System.Drawing.Size(33, 25);
             this.schemeAllowDisplay.Style = MetroFramework.MetroColorStyle.Blue;
             this.schemeAllowDisplay.StyleManager = null;
             this.schemeAllowDisplay.TabIndex = 17;
-            this.schemeAllowDisplay.Text = "metroLabel16";
+            this.schemeAllowDisplay.Text = "---";
             this.schemeAllowDisplay.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.schemeAllowDisplay.UseStyleColors = false;
             // 
@@ -197,11 +197,11 @@
             this.schemeAdaptiveDisplay.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.schemeAdaptiveDisplay.Location = new System.Drawing.Point(267, 250);
             this.schemeAdaptiveDisplay.Name = "schemeAdaptiveDisplay";
-            this.schemeAdaptiveDisplay.Size = new System.Drawing.Size(115, 25);
+            this.schemeAdaptiveDisplay.Size = new System.Drawing.Size(33, 25);
             this.schemeAdaptiveDisplay.Style = MetroFramework.MetroColorStyle.Blue;
             this.schemeAdaptiveDisplay.StyleManager = null;
             this.schemeAdaptiveDisplay.TabIndex = 16;
-            this.schemeAdaptiveDisplay.Text = "metroLabel15";
+            this.schemeAdaptiveDisplay.Text = "---";
             this.schemeAdaptiveDisplay.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.schemeAdaptiveDisplay.UseStyleColors = false;
             // 
@@ -216,11 +216,11 @@
             this.schemeUserAnnoyance.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.schemeUserAnnoyance.Location = new System.Drawing.Point(267, 189);
             this.schemeUserAnnoyance.Name = "schemeUserAnnoyance";
-            this.schemeUserAnnoyance.Size = new System.Drawing.Size(115, 25);
+            this.schemeUserAnnoyance.Size = new System.Drawing.Size(33, 25);
             this.schemeUserAnnoyance.Style = MetroFramework.MetroColorStyle.Blue;
             this.schemeUserAnnoyance.StyleManager = null;
             this.schemeUserAnnoyance.TabIndex = 15;
-            this.schemeUserAnnoyance.Text = "metroLabel14";
+            this.schemeUserAnnoyance.Text = "---";
             this.schemeUserAnnoyance.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.schemeUserAnnoyance.UseStyleColors = false;
             // 
@@ -235,11 +235,11 @@
             this.schemeTurnOffDisplayAfter.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.schemeTurnOffDisplayAfter.Location = new System.Drawing.Point(267, 134);
             this.schemeTurnOffDisplayAfter.Name = "schemeTurnOffDisplayAfter";
-            this.schemeTurnOffDisplayAfter.Size = new System.Drawing.Size(115, 25);
+            this.schemeTurnOffDisplayAfter.Size = new System.Drawing.Size(33, 25);
             this.schemeTurnOffDisplayAfter.Style = MetroFramework.MetroColorStyle.Blue;
             this.schemeTurnOffDisplayAfter.StyleManager = null;
             this.schemeTurnOffDisplayAfter.TabIndex = 14;
-            this.schemeTurnOffDisplayAfter.Text = "metroLabel13";
+            this.schemeTurnOffDisplayAfter.Text = "---";
             this.schemeTurnOffDisplayAfter.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.schemeTurnOffDisplayAfter.UseStyleColors = false;
             // 
@@ -254,11 +254,11 @@
             this.schemeDimDisplayAfter.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.schemeDimDisplayAfter.Location = new System.Drawing.Point(267, 76);
             this.schemeDimDisplayAfter.Name = "schemeDimDisplayAfter";
-            this.schemeDimDisplayAfter.Size = new System.Drawing.Size(115, 25);
+            this.schemeDimDisplayAfter.Size = new System.Drawing.Size(33, 25);
             this.schemeDimDisplayAfter.Style = MetroFramework.MetroColorStyle.Blue;
             this.schemeDimDisplayAfter.StyleManager = null;
             this.schemeDimDisplayAfter.TabIndex = 13;
-            this.schemeDimDisplayAfter.Text = "metroLabel12";
+            this.schemeDimDisplayAfter.Text = "---";
             this.schemeDimDisplayAfter.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.schemeDimDisplayAfter.UseStyleColors = false;
             // 
@@ -273,11 +273,11 @@
             this.schemePowerPlan.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.schemePowerPlan.Location = new System.Drawing.Point(267, 25);
             this.schemePowerPlan.Name = "schemePowerPlan";
-            this.schemePowerPlan.Size = new System.Drawing.Size(115, 25);
+            this.schemePowerPlan.Size = new System.Drawing.Size(33, 25);
             this.schemePowerPlan.Style = MetroFramework.MetroColorStyle.Blue;
             this.schemePowerPlan.StyleManager = null;
             this.schemePowerPlan.TabIndex = 12;
-            this.schemePowerPlan.Text = "metroLabel11";
+            this.schemePowerPlan.Text = "---";
             this.schemePowerPlan.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.schemePowerPlan.UseStyleColors = false;
             // 
@@ -478,7 +478,7 @@
             this.ClientSize = new System.Drawing.Size(806, 437);
             this.Controls.Add(this.metroPanel1);
             this.Name = "PowerScheme";
-            this.Text = "PowerScheme";
+            this.Text = "---";
             this.Load += new System.EventHandler(this.PowerScheme_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();

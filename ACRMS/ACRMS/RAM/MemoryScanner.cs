@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RAM.MemoryScanner
 {
@@ -77,45 +78,52 @@ namespace RAM.MemoryScanner
             long proc_min_address_l = (long)proc_min_address;
             long proc_max_address_l = (long)proc_max_address;
 
-
-         
-            Process process = Process.GetProcessesByName("notepad")[0];
-
-           
-            IntPtr processHandle = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_WM_READ, false, process.Id);
-
-            StreamWriter sw = new StreamWriter("dump.txt");
-
-           
-            MEMORY_BASIC_INFORMATION mem_basic_info = new MEMORY_BASIC_INFORMATION();
-
-            int bytesRead = 0;  // number of bytes read with ReadProcessMemory
-
-            while (proc_min_address_l < proc_max_address_l)
+            try
             {
 
-                VirtualQueryEx(processHandle, proc_min_address, out mem_basic_info, 28); // 28 = sizeof(MEMORY_BASIC_INFORMATION)
+                Process process = Process.GetProcessesByName("notepad")[0];
+                IntPtr processHandle = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_WM_READ, false, process.Id);
 
-          
-                if (mem_basic_info.Protect == PAGE_READWRITE && mem_basic_info.State == MEM_COMMIT)
+                StreamWriter sw = new StreamWriter("dump.txt");
+
+
+                MEMORY_BASIC_INFORMATION mem_basic_info = new MEMORY_BASIC_INFORMATION();
+
+                int bytesRead = 0;  // number of bytes read with ReadProcessMemory
+
+                while (proc_min_address_l < proc_max_address_l)
                 {
-                    byte[] buffer = new byte[mem_basic_info.RegionSize];
 
-                    ReadProcessMemory((int)processHandle, mem_basic_info.BaseAddress, buffer, mem_basic_info.RegionSize, ref bytesRead);
+                    VirtualQueryEx(processHandle, proc_min_address, out mem_basic_info, 28); // 28 = sizeof(MEMORY_BASIC_INFORMATION)
 
-          
-                    for (int i = 0; i < mem_basic_info.RegionSize; i++)
-                        sw.WriteLine("0x{0} : {1}", (mem_basic_info.BaseAddress + i).ToString("X"), (char)buffer[i]);
+
+                    if (mem_basic_info.Protect == PAGE_READWRITE && mem_basic_info.State == MEM_COMMIT)
+                    {
+                        byte[] buffer = new byte[mem_basic_info.RegionSize];
+
+                        ReadProcessMemory((int)processHandle, mem_basic_info.BaseAddress, buffer, mem_basic_info.RegionSize, ref bytesRead);
+
+
+                        for (int i = 0; i < mem_basic_info.RegionSize; i++)
+                            sw.WriteLine("0x{0} : {1}", (mem_basic_info.BaseAddress + i).ToString("X"), (char)buffer[i]);
+                    }
+
+                    // move to the next memory chunk
+                    proc_min_address_l += mem_basic_info.RegionSize;
+                    proc_min_address = new IntPtr(proc_min_address_l);
                 }
 
-                // move to the next memory chunk
-                proc_min_address_l += mem_basic_info.RegionSize;
-                proc_min_address = new IntPtr(proc_min_address_l);
+                sw.Close();
+
+                Console.ReadLine();
             }
-
-            sw.Close();
-
-            Console.ReadLine();
+            catch (Exception ex)
+            {
+                MessageBox.Show("notepad.exe is NOT Running Please Try Again");
+            }
+           
+            
+            
         }
     }
 }

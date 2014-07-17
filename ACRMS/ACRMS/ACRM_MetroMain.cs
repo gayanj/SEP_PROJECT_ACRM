@@ -18,6 +18,8 @@ namespace ACRMS
         public ACRM_MetroMain()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
         }
 
         private void metroTile1_Click(object sender, EventArgs e)

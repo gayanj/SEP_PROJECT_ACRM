@@ -100,7 +100,8 @@
             // 
             // ram_analytics
             // 
-            this.ram_analytics.BackColor = System.Drawing.SystemColors.Control;
+            this.ram_analytics.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ram_analytics.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ram_analytics.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.ram_analytics.Location = new System.Drawing.Point(13, 12);
             this.ram_analytics.Multiline = true;

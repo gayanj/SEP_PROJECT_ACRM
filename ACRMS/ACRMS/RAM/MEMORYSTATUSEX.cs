@@ -39,7 +39,7 @@ namespace RAM
             bool Success = GlobalMemoryStatusEx(statusEx); //to determine how much memory your application can allocate without severely impacting other applications.
             this.dwMemoryLoad = statusEx.dwMemoryLoad;
             graphMemory = this.dwMemoryLoad;
-            Console.WriteLine("from main" + graphMemory);
+            //Console.WriteLine("from main" + graphMemory);
             this.ullTotalPhys = statusEx.ullTotalPhys;
             this.ullAvailPhys = statusEx.ullAvailPhys;
             this.ullTotalPageFile = statusEx.ullTotalPageFile;

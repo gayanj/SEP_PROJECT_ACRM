@@ -126,11 +126,11 @@
             this.powerHysteresis.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerHysteresis.Location = new System.Drawing.Point(668, 219);
             this.powerHysteresis.Name = "powerHysteresis";
-            this.powerHysteresis.Size = new System.Drawing.Size(115, 25);
+            this.powerHysteresis.Size = new System.Drawing.Size(33, 25);
             this.powerHysteresis.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerHysteresis.StyleManager = null;
             this.powerHysteresis.TabIndex = 33;
-            this.powerHysteresis.Text = "metroLabel17";
+            this.powerHysteresis.Text = "---";
             this.powerHysteresis.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerHysteresis.UseStyleColors = false;
             // 
@@ -145,11 +145,11 @@
             this.powerUnitModifier.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerUnitModifier.Location = new System.Drawing.Point(668, 168);
             this.powerUnitModifier.Name = "powerUnitModifier";
-            this.powerUnitModifier.Size = new System.Drawing.Size(115, 25);
+            this.powerUnitModifier.Size = new System.Drawing.Size(33, 25);
             this.powerUnitModifier.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerUnitModifier.StyleManager = null;
             this.powerUnitModifier.TabIndex = 32;
-            this.powerUnitModifier.Text = "metroLabel17";
+            this.powerUnitModifier.Text = "---";
             this.powerUnitModifier.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerUnitModifier.UseStyleColors = false;
             // 
@@ -164,11 +164,11 @@
             this.powerBaseUnits.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerBaseUnits.Location = new System.Drawing.Point(668, 126);
             this.powerBaseUnits.Name = "powerBaseUnits";
-            this.powerBaseUnits.Size = new System.Drawing.Size(115, 25);
+            this.powerBaseUnits.Size = new System.Drawing.Size(33, 25);
             this.powerBaseUnits.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerBaseUnits.StyleManager = null;
             this.powerBaseUnits.TabIndex = 31;
-            this.powerBaseUnits.Text = "metroLabel17";
+            this.powerBaseUnits.Text = "---";
             this.powerBaseUnits.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerBaseUnits.UseStyleColors = false;
             // 
@@ -183,11 +183,11 @@
             this.powerConfigureBudget.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerConfigureBudget.Location = new System.Drawing.Point(668, 82);
             this.powerConfigureBudget.Name = "powerConfigureBudget";
-            this.powerConfigureBudget.Size = new System.Drawing.Size(115, 25);
+            this.powerConfigureBudget.Size = new System.Drawing.Size(33, 25);
             this.powerConfigureBudget.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerConfigureBudget.StyleManager = null;
             this.powerConfigureBudget.TabIndex = 30;
-            this.powerConfigureBudget.Text = "metroLabel17";
+            this.powerConfigureBudget.Text = "---";
             this.powerConfigureBudget.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerConfigureBudget.UseStyleColors = false;
             // 
@@ -202,11 +202,11 @@
             this.powerBudgetEnabled.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerBudgetEnabled.Location = new System.Drawing.Point(668, 37);
             this.powerBudgetEnabled.Name = "powerBudgetEnabled";
-            this.powerBudgetEnabled.Size = new System.Drawing.Size(115, 25);
+            this.powerBudgetEnabled.Size = new System.Drawing.Size(33, 25);
             this.powerBudgetEnabled.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerBudgetEnabled.StyleManager = null;
             this.powerBudgetEnabled.TabIndex = 29;
-            this.powerBudgetEnabled.Text = "metroLabel20";
+            this.powerBudgetEnabled.Text = "---";
             this.powerBudgetEnabled.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerBudgetEnabled.UseStyleColors = false;
             // 
@@ -317,11 +317,11 @@
             this.powerBudgetWriteable.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerBudgetWriteable.Location = new System.Drawing.Point(279, 536);
             this.powerBudgetWriteable.Name = "powerBudgetWriteable";
-            this.powerBudgetWriteable.Size = new System.Drawing.Size(115, 25);
+            this.powerBudgetWriteable.Size = new System.Drawing.Size(33, 25);
             this.powerBudgetWriteable.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerBudgetWriteable.StyleManager = null;
             this.powerBudgetWriteable.TabIndex = 23;
-            this.powerBudgetWriteable.Text = "metroLabel22";
+            this.powerBudgetWriteable.Text = "---";
             this.powerBudgetWriteable.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerBudgetWriteable.UseStyleColors = false;
             // 
@@ -336,11 +336,11 @@
             this.powerMaxOperating.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerMaxOperating.Location = new System.Drawing.Point(279, 479);
             this.powerMaxOperating.Name = "powerMaxOperating";
-            this.powerMaxOperating.Size = new System.Drawing.Size(115, 25);
+            this.powerMaxOperating.Size = new System.Drawing.Size(33, 25);
             this.powerMaxOperating.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerMaxOperating.StyleManager = null;
             this.powerMaxOperating.TabIndex = 22;
-            this.powerMaxOperating.Text = "metroLabel21";
+            this.powerMaxOperating.Text = "---";
             this.powerMaxOperating.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerMaxOperating.UseStyleColors = false;
             // 
@@ -355,11 +355,11 @@
             this.powerMinOperating.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerMinOperating.Location = new System.Drawing.Point(279, 422);
             this.powerMinOperating.Name = "powerMinOperating";
-            this.powerMinOperating.Size = new System.Drawing.Size(115, 25);
+            this.powerMinOperating.Size = new System.Drawing.Size(33, 25);
             this.powerMinOperating.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerMinOperating.StyleManager = null;
             this.powerMinOperating.TabIndex = 21;
-            this.powerMinOperating.Text = "metroLabel20";
+            this.powerMinOperating.Text = "---";
             this.powerMinOperating.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerMinOperating.UseStyleColors = false;
             // 
@@ -374,11 +374,11 @@
             this.powerAvg.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerAvg.Location = new System.Drawing.Point(279, 369);
             this.powerAvg.Name = "powerAvg";
-            this.powerAvg.Size = new System.Drawing.Size(115, 25);
+            this.powerAvg.Size = new System.Drawing.Size(33, 25);
             this.powerAvg.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerAvg.StyleManager = null;
             this.powerAvg.TabIndex = 20;
-            this.powerAvg.Text = "metroLabel19";
+            this.powerAvg.Text = "---";
             this.powerAvg.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerAvg.UseStyleColors = false;
             // 
@@ -393,11 +393,11 @@
             this.powerMaxAvg.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerMaxAvg.Location = new System.Drawing.Point(279, 318);
             this.powerMaxAvg.Name = "powerMaxAvg";
-            this.powerMaxAvg.Size = new System.Drawing.Size(115, 25);
+            this.powerMaxAvg.Size = new System.Drawing.Size(33, 25);
             this.powerMaxAvg.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerMaxAvg.StyleManager = null;
             this.powerMaxAvg.TabIndex = 19;
-            this.powerMaxAvg.Text = "metroLabel18";
+            this.powerMaxAvg.Text = "---";
             this.powerMaxAvg.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerMaxAvg.UseStyleColors = false;
             // 
@@ -412,11 +412,11 @@
             this.powerMinAvg.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerMinAvg.Location = new System.Drawing.Point(279, 270);
             this.powerMinAvg.Name = "powerMinAvg";
-            this.powerMinAvg.Size = new System.Drawing.Size(115, 25);
+            this.powerMinAvg.Size = new System.Drawing.Size(33, 25);
             this.powerMinAvg.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerMinAvg.StyleManager = null;
             this.powerMinAvg.TabIndex = 18;
-            this.powerMinAvg.Text = "metroLabel17";
+            this.powerMinAvg.Text = "---";
             this.powerMinAvg.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerMinAvg.UseStyleColors = false;
             // 
@@ -431,11 +431,11 @@
             this.powerSamplingPeriod.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerSamplingPeriod.Location = new System.Drawing.Point(279, 219);
             this.powerSamplingPeriod.Name = "powerSamplingPeriod";
-            this.powerSamplingPeriod.Size = new System.Drawing.Size(115, 25);
+            this.powerSamplingPeriod.Size = new System.Drawing.Size(33, 25);
             this.powerSamplingPeriod.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerSamplingPeriod.StyleManager = null;
             this.powerSamplingPeriod.TabIndex = 17;
-            this.powerSamplingPeriod.Text = "metroLabel16";
+            this.powerSamplingPeriod.Text = "---";
             this.powerSamplingPeriod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerSamplingPeriod.UseStyleColors = false;
             // 
@@ -450,11 +450,11 @@
             this.powerMeterType.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerMeterType.Location = new System.Drawing.Point(279, 168);
             this.powerMeterType.Name = "powerMeterType";
-            this.powerMeterType.Size = new System.Drawing.Size(115, 25);
+            this.powerMeterType.Size = new System.Drawing.Size(33, 25);
             this.powerMeterType.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerMeterType.StyleManager = null;
             this.powerMeterType.TabIndex = 16;
-            this.powerMeterType.Text = "metroLabel15";
+            this.powerMeterType.Text = "---";
             this.powerMeterType.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerMeterType.UseStyleColors = false;
             // 
@@ -469,11 +469,11 @@
             this.powerSupportCapabilities.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerSupportCapabilities.Location = new System.Drawing.Point(279, 126);
             this.powerSupportCapabilities.Name = "powerSupportCapabilities";
-            this.powerSupportCapabilities.Size = new System.Drawing.Size(115, 25);
+            this.powerSupportCapabilities.Size = new System.Drawing.Size(33, 25);
             this.powerSupportCapabilities.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerSupportCapabilities.StyleManager = null;
             this.powerSupportCapabilities.TabIndex = 15;
-            this.powerSupportCapabilities.Text = "metroLabel14";
+            this.powerSupportCapabilities.Text = "---";
             this.powerSupportCapabilities.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerSupportCapabilities.UseStyleColors = false;
             // 
@@ -488,11 +488,11 @@
             this.powerDeviceId.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerDeviceId.Location = new System.Drawing.Point(279, 82);
             this.powerDeviceId.Name = "powerDeviceId";
-            this.powerDeviceId.Size = new System.Drawing.Size(115, 25);
+            this.powerDeviceId.Size = new System.Drawing.Size(33, 25);
             this.powerDeviceId.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerDeviceId.StyleManager = null;
             this.powerDeviceId.TabIndex = 14;
-            this.powerDeviceId.Text = "metroLabel13";
+            this.powerDeviceId.Text = "---";
             this.powerDeviceId.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerDeviceId.UseStyleColors = false;
             // 
@@ -507,11 +507,11 @@
             this.powerName.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerName.Location = new System.Drawing.Point(279, 37);
             this.powerName.Name = "powerName";
-            this.powerName.Size = new System.Drawing.Size(115, 25);
+            this.powerName.Size = new System.Drawing.Size(33, 25);
             this.powerName.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerName.StyleManager = null;
             this.powerName.TabIndex = 13;
-            this.powerName.Text = "metroLabel12";
+            this.powerName.Text = "---";
             this.powerName.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerName.UseStyleColors = false;
             // 
@@ -731,7 +731,7 @@
             this.ClientSize = new System.Drawing.Size(862, 563);
             this.Controls.Add(this.metroPanel1);
             this.Name = "Power";
-            this.Text = "Power";
+            this.Text = "---";
             this.Load += new System.EventHandler(this.Power_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();

@@ -83,5 +83,65 @@ namespace SEPMetro
         {
 
         }
+
+        private void estRun_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void estCharge_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deviceID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void designVoltage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void designCapacity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void description_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chemistry_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void caption_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void batteryStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void batteryRechargeTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void batteryAvailability_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroLabel24_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

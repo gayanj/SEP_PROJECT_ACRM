@@ -63,27 +63,6 @@ CREATE TABLE processes (
 
 
 ALTER TABLE public.processes OWNER TO postgres;
-
---
--- TOC entry 1941 (class 0 OID 24648)
--- Dependencies: 171
--- Data for Name: malicious; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY malicious (id, filename, report) FROM stdin;
-\.
-
-
---
--- TOC entry 1940 (class 0 OID 24639)
--- Dependencies: 170
--- Data for Name: processes; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY processes (id, name, duration) FROM stdin;
-\.
-
-
 --
 -- TOC entry 1832 (class 2606 OID 24656)
 -- Name: malicious_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 

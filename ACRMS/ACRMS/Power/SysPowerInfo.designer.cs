@@ -98,11 +98,11 @@
             this.currentProcessorIdle.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.currentProcessorIdle.Location = new System.Drawing.Point(656, 32);
             this.currentProcessorIdle.Name = "currentProcessorIdle";
-            this.currentProcessorIdle.Size = new System.Drawing.Size(115, 25);
+            this.currentProcessorIdle.Size = new System.Drawing.Size(33, 25);
             this.currentProcessorIdle.Style = MetroFramework.MetroColorStyle.Blue;
             this.currentProcessorIdle.StyleManager = null;
             this.currentProcessorIdle.TabIndex = 19;
-            this.currentProcessorIdle.Text = "metroLabel18";
+            this.currentProcessorIdle.Text = "---";
             this.currentProcessorIdle.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.currentProcessorIdle.UseStyleColors = false;
             // 
@@ -136,11 +136,11 @@
             this.maxProcessorIdle.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.maxProcessorIdle.Location = new System.Drawing.Point(260, 492);
             this.maxProcessorIdle.Name = "maxProcessorIdle";
-            this.maxProcessorIdle.Size = new System.Drawing.Size(115, 25);
+            this.maxProcessorIdle.Size = new System.Drawing.Size(33, 25);
             this.maxProcessorIdle.Style = MetroFramework.MetroColorStyle.Blue;
             this.maxProcessorIdle.StyleManager = null;
             this.maxProcessorIdle.TabIndex = 17;
-            this.maxProcessorIdle.Text = "metroLabel16";
+            this.maxProcessorIdle.Text = "---";
             this.maxProcessorIdle.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.maxProcessorIdle.UseStyleColors = false;
             // 
@@ -155,11 +155,11 @@
             this.limitProcessorCFreq.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.limitProcessorCFreq.Location = new System.Drawing.Point(260, 423);
             this.limitProcessorCFreq.Name = "limitProcessorCFreq";
-            this.limitProcessorCFreq.Size = new System.Drawing.Size(115, 25);
+            this.limitProcessorCFreq.Size = new System.Drawing.Size(33, 25);
             this.limitProcessorCFreq.Style = MetroFramework.MetroColorStyle.Blue;
             this.limitProcessorCFreq.StyleManager = null;
             this.limitProcessorCFreq.TabIndex = 16;
-            this.limitProcessorCFreq.Text = "metroLabel15";
+            this.limitProcessorCFreq.Text = "---";
             this.limitProcessorCFreq.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.limitProcessorCFreq.UseStyleColors = false;
             // 
@@ -174,11 +174,11 @@
             this.processorClockFreq.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.processorClockFreq.Location = new System.Drawing.Point(260, 354);
             this.processorClockFreq.Name = "processorClockFreq";
-            this.processorClockFreq.Size = new System.Drawing.Size(115, 25);
+            this.processorClockFreq.Size = new System.Drawing.Size(33, 25);
             this.processorClockFreq.Style = MetroFramework.MetroColorStyle.Blue;
             this.processorClockFreq.StyleManager = null;
             this.processorClockFreq.TabIndex = 15;
-            this.processorClockFreq.Text = "metroLabel14";
+            this.processorClockFreq.Text = "---";
             this.processorClockFreq.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.processorClockFreq.UseStyleColors = false;
             // 
@@ -193,11 +193,11 @@
             this.maxClockFreq.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.maxClockFreq.Location = new System.Drawing.Point(260, 279);
             this.maxClockFreq.Name = "maxClockFreq";
-            this.maxClockFreq.Size = new System.Drawing.Size(115, 25);
+            this.maxClockFreq.Size = new System.Drawing.Size(33, 25);
             this.maxClockFreq.Style = MetroFramework.MetroColorStyle.Blue;
             this.maxClockFreq.StyleManager = null;
             this.maxClockFreq.TabIndex = 14;
-            this.maxClockFreq.Text = "metroLabel13";
+            this.maxClockFreq.Text = "---";
             this.maxClockFreq.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.maxClockFreq.UseStyleColors = false;
             // 
@@ -212,11 +212,11 @@
             this.coolingMode.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.coolingMode.Location = new System.Drawing.Point(260, 209);
             this.coolingMode.Name = "coolingMode";
-            this.coolingMode.Size = new System.Drawing.Size(115, 25);
+            this.coolingMode.Size = new System.Drawing.Size(33, 25);
             this.coolingMode.Style = MetroFramework.MetroColorStyle.Blue;
             this.coolingMode.StyleManager = null;
             this.coolingMode.TabIndex = 13;
-            this.coolingMode.Text = "metroLabel12";
+            this.coolingMode.Text = "---";
             this.coolingMode.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.coolingMode.UseStyleColors = false;
             // 
@@ -231,11 +231,11 @@
             this.timeRemaining.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.timeRemaining.Location = new System.Drawing.Point(260, 144);
             this.timeRemaining.Name = "timeRemaining";
-            this.timeRemaining.Size = new System.Drawing.Size(115, 25);
+            this.timeRemaining.Size = new System.Drawing.Size(33, 25);
             this.timeRemaining.Style = MetroFramework.MetroColorStyle.Blue;
             this.timeRemaining.StyleManager = null;
             this.timeRemaining.TabIndex = 12;
-            this.timeRemaining.Text = "metroLabel11";
+            this.timeRemaining.Text = "---";
             this.timeRemaining.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.timeRemaining.UseStyleColors = false;
             // 
@@ -250,11 +250,11 @@
             this.idleness.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.idleness.Location = new System.Drawing.Point(260, 85);
             this.idleness.Name = "idleness";
-            this.idleness.Size = new System.Drawing.Size(115, 25);
+            this.idleness.Size = new System.Drawing.Size(33, 25);
             this.idleness.Style = MetroFramework.MetroColorStyle.Blue;
             this.idleness.StyleManager = null;
             this.idleness.TabIndex = 11;
-            this.idleness.Text = "metroLabel10";
+            this.idleness.Text = "---";
             this.idleness.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.idleness.UseStyleColors = false;
             // 
@@ -269,11 +269,11 @@
             this.maxIdlenessAllowed.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.maxIdlenessAllowed.Location = new System.Drawing.Point(260, 32);
             this.maxIdlenessAllowed.Name = "maxIdlenessAllowed";
-            this.maxIdlenessAllowed.Size = new System.Drawing.Size(106, 25);
+            this.maxIdlenessAllowed.Size = new System.Drawing.Size(33, 25);
             this.maxIdlenessAllowed.Style = MetroFramework.MetroColorStyle.Blue;
             this.maxIdlenessAllowed.StyleManager = null;
             this.maxIdlenessAllowed.TabIndex = 10;
-            this.maxIdlenessAllowed.Text = "metroLabel9";
+            this.maxIdlenessAllowed.Text = "---";
             this.maxIdlenessAllowed.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.maxIdlenessAllowed.UseStyleColors = false;
             // 

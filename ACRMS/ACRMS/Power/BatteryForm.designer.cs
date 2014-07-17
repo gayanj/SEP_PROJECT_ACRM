@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.percentLeftProgressBar = new MetroFramework.Controls.MetroPanel();
             this.deviceState = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
@@ -104,11 +104,11 @@
             this.deviceState.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.deviceState.Location = new System.Drawing.Point(778, 571);
             this.deviceState.Name = "deviceState";
-            this.deviceState.Size = new System.Drawing.Size(106, 25);
+            this.deviceState.Size = new System.Drawing.Size(33, 25);
             this.deviceState.Style = MetroFramework.MetroColorStyle.Blue;
             this.deviceState.StyleManager = null;
             this.deviceState.TabIndex = 20;
-            this.deviceState.Text = "metroLabel7";
+            this.deviceState.Text = "---";
             this.deviceState.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.deviceState.UseStyleColors = false;
             // 
@@ -185,11 +185,11 @@
             this.diskStatus.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.diskStatus.Location = new System.Drawing.Point(635, 525);
             this.diskStatus.Name = "diskStatus";
-            this.diskStatus.Size = new System.Drawing.Size(106, 25);
+            this.diskStatus.Size = new System.Drawing.Size(33, 25);
             this.diskStatus.Style = MetroFramework.MetroColorStyle.Blue;
             this.diskStatus.StyleManager = null;
             this.diskStatus.TabIndex = 15;
-            this.diskStatus.Text = "metroLabel6";
+            this.diskStatus.Text = "---";
             this.diskStatus.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.diskStatus.UseStyleColors = false;
             // 
@@ -249,11 +249,11 @@
             this.batteryTimeLeft.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.batteryTimeLeft.Location = new System.Drawing.Point(635, 619);
             this.batteryTimeLeft.Name = "batteryTimeLeft";
-            this.batteryTimeLeft.Size = new System.Drawing.Size(106, 25);
+            this.batteryTimeLeft.Size = new System.Drawing.Size(33, 25);
             this.batteryTimeLeft.Style = MetroFramework.MetroColorStyle.Blue;
             this.batteryTimeLeft.StyleManager = null;
             this.batteryTimeLeft.TabIndex = 11;
-            this.batteryTimeLeft.Text = "metroLabel5";
+            this.batteryTimeLeft.Text = "---";
             this.batteryTimeLeft.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.batteryTimeLeft.UseStyleColors = false;
             // 
@@ -302,11 +302,11 @@
             this.powerBatteryState.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerBatteryState.Location = new System.Drawing.Point(232, 571);
             this.powerBatteryState.Name = "powerBatteryState";
-            this.powerBatteryState.Size = new System.Drawing.Size(106, 25);
+            this.powerBatteryState.Size = new System.Drawing.Size(33, 25);
             this.powerBatteryState.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerBatteryState.StyleManager = null;
             this.powerBatteryState.TabIndex = 8;
-            this.powerBatteryState.Text = "metroLabel5";
+            this.powerBatteryState.Text = "---";
             this.powerBatteryState.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerBatteryState.UseStyleColors = false;
             // 
@@ -321,11 +321,11 @@
             this.powerSource.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerSource.Location = new System.Drawing.Point(232, 525);
             this.powerSource.Name = "powerSource";
-            this.powerSource.Size = new System.Drawing.Size(106, 25);
+            this.powerSource.Size = new System.Drawing.Size(33, 25);
             this.powerSource.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerSource.StyleManager = null;
             this.powerSource.TabIndex = 7;
-            this.powerSource.Text = "metroLabel4";
+            this.powerSource.Text = "---";
             this.powerSource.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerSource.UseStyleColors = false;
             this.powerSource.Click += new System.EventHandler(this.powerSource_Click);
@@ -402,16 +402,16 @@
             // 
             // chart1
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chart1.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(12, 13);
             this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.chart1.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(1309, 457);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";

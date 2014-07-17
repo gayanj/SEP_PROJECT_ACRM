@@ -79,7 +79,7 @@
             this.ram_alertTime.Style = MetroFramework.MetroColorStyle.Blue;
             this.ram_alertTime.StyleManager = null;
             this.ram_alertTime.TabIndex = 7;
-            this.ram_alertTime.Text = "metroTextBox2";
+            this.ram_alertTime.Text = "9999999";
             this.ram_alertTime.Theme = MetroFramework.MetroThemeStyle.Light;
             this.ram_alertTime.UseStyleColors = false;
             // 
@@ -99,7 +99,7 @@
             this.ram_alertPercentage.Style = MetroFramework.MetroColorStyle.Blue;
             this.ram_alertPercentage.StyleManager = null;
             this.ram_alertPercentage.TabIndex = 6;
-            this.ram_alertPercentage.Text = "metroTextBox1";
+            this.ram_alertPercentage.Text = "9999999";
             this.ram_alertPercentage.Theme = MetroFramework.MetroThemeStyle.Light;
             this.ram_alertPercentage.UseStyleColors = false;
             // 

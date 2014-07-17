@@ -286,11 +286,11 @@
             this.batteryScale.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.batteryScale.Location = new System.Drawing.Point(832, 472);
             this.batteryScale.Name = "batteryScale";
-            this.batteryScale.Size = new System.Drawing.Size(115, 25);
+            this.batteryScale.Size = new System.Drawing.Size(33, 25);
             this.batteryScale.Style = MetroFramework.MetroColorStyle.Blue;
             this.batteryScale.StyleManager = null;
             this.batteryScale.TabIndex = 50;
-            this.batteryScale.Text = "metroLabel49";
+            this.batteryScale.Text = "---";
             this.batteryScale.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.batteryScale.UseStyleColors = false;
             // 
@@ -324,11 +324,11 @@
             this.bAreShortTerm.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.bAreShortTerm.Location = new System.Drawing.Point(832, 414);
             this.bAreShortTerm.Name = "bAreShortTerm";
-            this.bAreShortTerm.Size = new System.Drawing.Size(115, 25);
+            this.bAreShortTerm.Size = new System.Drawing.Size(33, 25);
             this.bAreShortTerm.Style = MetroFramework.MetroColorStyle.Blue;
             this.bAreShortTerm.StyleManager = null;
             this.bAreShortTerm.TabIndex = 48;
-            this.bAreShortTerm.Text = "metroLabel47";
+            this.bAreShortTerm.Text = "---";
             this.bAreShortTerm.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.bAreShortTerm.UseStyleColors = false;
             // 
@@ -362,11 +362,11 @@
             this.systemBatteriesPresent.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.systemBatteriesPresent.Location = new System.Drawing.Point(832, 340);
             this.systemBatteriesPresent.Name = "systemBatteriesPresent";
-            this.systemBatteriesPresent.Size = new System.Drawing.Size(115, 25);
+            this.systemBatteriesPresent.Size = new System.Drawing.Size(33, 25);
             this.systemBatteriesPresent.Style = MetroFramework.MetroColorStyle.Blue;
             this.systemBatteriesPresent.StyleManager = null;
             this.systemBatteriesPresent.TabIndex = 46;
-            this.systemBatteriesPresent.Text = "metroLabel45";
+            this.systemBatteriesPresent.Text = "---";
             this.systemBatteriesPresent.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.systemBatteriesPresent.UseStyleColors = false;
             // 
@@ -400,11 +400,11 @@
             this.hiberBoot.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.hiberBoot.Location = new System.Drawing.Point(832, 273);
             this.hiberBoot.Name = "hiberBoot";
-            this.hiberBoot.Size = new System.Drawing.Size(115, 25);
+            this.hiberBoot.Size = new System.Drawing.Size(33, 25);
             this.hiberBoot.Style = MetroFramework.MetroColorStyle.Blue;
             this.hiberBoot.StyleManager = null;
             this.hiberBoot.TabIndex = 44;
-            this.hiberBoot.Text = "metroLabel43";
+            this.hiberBoot.Text = "---";
             this.hiberBoot.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.hiberBoot.UseStyleColors = false;
             // 
@@ -438,11 +438,11 @@
             this.diskSpinDown.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.diskSpinDown.Location = new System.Drawing.Point(832, 199);
             this.diskSpinDown.Name = "diskSpinDown";
-            this.diskSpinDown.Size = new System.Drawing.Size(115, 25);
+            this.diskSpinDown.Size = new System.Drawing.Size(33, 25);
             this.diskSpinDown.Style = MetroFramework.MetroColorStyle.Blue;
             this.diskSpinDown.StyleManager = null;
             this.diskSpinDown.TabIndex = 42;
-            this.diskSpinDown.Text = "metroLabel41";
+            this.diskSpinDown.Text = "---";
             this.diskSpinDown.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.diskSpinDown.UseStyleColors = false;
             // 
@@ -474,13 +474,13 @@
             this.wakeAlarm.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.wakeAlarm.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.wakeAlarm.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.wakeAlarm.Location = new System.Drawing.Point(832, 131);
+            this.wakeAlarm.Location = new System.Drawing.Point(832, 142);
             this.wakeAlarm.Name = "wakeAlarm";
-            this.wakeAlarm.Size = new System.Drawing.Size(115, 25);
+            this.wakeAlarm.Size = new System.Drawing.Size(33, 25);
             this.wakeAlarm.Style = MetroFramework.MetroColorStyle.Blue;
             this.wakeAlarm.StyleManager = null;
             this.wakeAlarm.TabIndex = 40;
-            this.wakeAlarm.Text = "metroLabel39";
+            this.wakeAlarm.Text = "---";
             this.wakeAlarm.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.wakeAlarm.UseStyleColors = false;
             // 
@@ -514,11 +514,11 @@
             this.fastSystem64.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.fastSystem64.Location = new System.Drawing.Point(832, 81);
             this.fastSystem64.Name = "fastSystem64";
-            this.fastSystem64.Size = new System.Drawing.Size(115, 25);
+            this.fastSystem64.Size = new System.Drawing.Size(33, 25);
             this.fastSystem64.Style = MetroFramework.MetroColorStyle.Blue;
             this.fastSystem64.StyleManager = null;
             this.fastSystem64.TabIndex = 38;
-            this.fastSystem64.Text = "metroLabel37";
+            this.fastSystem64.Text = "---";
             this.fastSystem64.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.fastSystem64.UseStyleColors = false;
             // 
@@ -552,11 +552,11 @@
             this.processorMaxThrottle.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.processorMaxThrottle.Location = new System.Drawing.Point(832, 26);
             this.processorMaxThrottle.Name = "processorMaxThrottle";
-            this.processorMaxThrottle.Size = new System.Drawing.Size(115, 25);
+            this.processorMaxThrottle.Size = new System.Drawing.Size(33, 25);
             this.processorMaxThrottle.Style = MetroFramework.MetroColorStyle.Blue;
             this.processorMaxThrottle.StyleManager = null;
             this.processorMaxThrottle.TabIndex = 36;
-            this.processorMaxThrottle.Text = "metroLabel35";
+            this.processorMaxThrottle.Text = "---";
             this.processorMaxThrottle.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.processorMaxThrottle.UseStyleColors = false;
             // 
@@ -590,11 +590,11 @@
             this.processorMinThrottle.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.processorMinThrottle.Location = new System.Drawing.Point(477, 472);
             this.processorMinThrottle.Name = "processorMinThrottle";
-            this.processorMinThrottle.Size = new System.Drawing.Size(115, 25);
+            this.processorMinThrottle.Size = new System.Drawing.Size(33, 25);
             this.processorMinThrottle.Style = MetroFramework.MetroColorStyle.Blue;
             this.processorMinThrottle.StyleManager = null;
             this.processorMinThrottle.TabIndex = 34;
-            this.processorMinThrottle.Text = "metroLabel33";
+            this.processorMinThrottle.Text = "---";
             this.processorMinThrottle.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.processorMinThrottle.UseStyleColors = false;
             // 
@@ -628,11 +628,11 @@
             this.processThrottle.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.processThrottle.Location = new System.Drawing.Point(477, 414);
             this.processThrottle.Name = "processThrottle";
-            this.processThrottle.Size = new System.Drawing.Size(115, 25);
+            this.processThrottle.Size = new System.Drawing.Size(33, 25);
             this.processThrottle.Style = MetroFramework.MetroColorStyle.Blue;
             this.processThrottle.StyleManager = null;
             this.processThrottle.TabIndex = 32;
-            this.processThrottle.Text = "metroLabel31";
+            this.processThrottle.Text = "---";
             this.processThrottle.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.processThrottle.UseStyleColors = false;
             // 
@@ -666,11 +666,11 @@
             this.thermalControl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.thermalControl.Location = new System.Drawing.Point(477, 340);
             this.thermalControl.Name = "thermalControl";
-            this.thermalControl.Size = new System.Drawing.Size(115, 25);
+            this.thermalControl.Size = new System.Drawing.Size(33, 25);
             this.thermalControl.Style = MetroFramework.MetroColorStyle.Blue;
             this.thermalControl.StyleManager = null;
             this.thermalControl.TabIndex = 30;
-            this.thermalControl.Text = "metroLabel29";
+            this.thermalControl.Text = "---";
             this.thermalControl.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.thermalControl.UseStyleColors = false;
             // 
@@ -704,11 +704,11 @@
             this.upsPresent.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.upsPresent.Location = new System.Drawing.Point(477, 273);
             this.upsPresent.Name = "upsPresent";
-            this.upsPresent.Size = new System.Drawing.Size(115, 25);
+            this.upsPresent.Size = new System.Drawing.Size(33, 25);
             this.upsPresent.Style = MetroFramework.MetroColorStyle.Blue;
             this.upsPresent.StyleManager = null;
             this.upsPresent.TabIndex = 28;
-            this.upsPresent.Text = "metroLabel27";
+            this.upsPresent.Text = "---";
             this.upsPresent.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.upsPresent.UseStyleColors = false;
             // 
@@ -742,11 +742,11 @@
             this.apmPresent.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.apmPresent.Location = new System.Drawing.Point(477, 199);
             this.apmPresent.Name = "apmPresent";
-            this.apmPresent.Size = new System.Drawing.Size(115, 25);
+            this.apmPresent.Size = new System.Drawing.Size(33, 25);
             this.apmPresent.Style = MetroFramework.MetroColorStyle.Blue;
             this.apmPresent.StyleManager = null;
             this.apmPresent.TabIndex = 26;
-            this.apmPresent.Text = "metroLabel25";
+            this.apmPresent.Text = "---";
             this.apmPresent.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.apmPresent.UseStyleColors = false;
             // 
@@ -780,11 +780,11 @@
             this.videoDimPresent.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.videoDimPresent.Location = new System.Drawing.Point(477, 142);
             this.videoDimPresent.Name = "videoDimPresent";
-            this.videoDimPresent.Size = new System.Drawing.Size(115, 25);
+            this.videoDimPresent.Size = new System.Drawing.Size(33, 25);
             this.videoDimPresent.Style = MetroFramework.MetroColorStyle.Blue;
             this.videoDimPresent.StyleManager = null;
             this.videoDimPresent.TabIndex = 24;
-            this.videoDimPresent.Text = "metroLabel23";
+            this.videoDimPresent.Text = "---";
             this.videoDimPresent.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.videoDimPresent.UseStyleColors = false;
             // 
@@ -818,11 +818,11 @@
             this.fullWake.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.fullWake.Location = new System.Drawing.Point(477, 81);
             this.fullWake.Name = "fullWake";
-            this.fullWake.Size = new System.Drawing.Size(115, 25);
+            this.fullWake.Size = new System.Drawing.Size(33, 25);
             this.fullWake.Style = MetroFramework.MetroColorStyle.Blue;
             this.fullWake.StyleManager = null;
             this.fullWake.TabIndex = 22;
-            this.fullWake.Text = "metroLabel21";
+            this.fullWake.Text = "---";
             this.fullWake.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.fullWake.UseStyleColors = false;
             // 
@@ -856,11 +856,11 @@
             this.hiberFilePresent.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.hiberFilePresent.Location = new System.Drawing.Point(477, 25);
             this.hiberFilePresent.Name = "hiberFilePresent";
-            this.hiberFilePresent.Size = new System.Drawing.Size(115, 25);
+            this.hiberFilePresent.Size = new System.Drawing.Size(33, 25);
             this.hiberFilePresent.Style = MetroFramework.MetroColorStyle.Blue;
             this.hiberFilePresent.StyleManager = null;
             this.hiberFilePresent.TabIndex = 20;
-            this.hiberFilePresent.Text = "metroLabel19";
+            this.hiberFilePresent.Text = "---";
             this.hiberFilePresent.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.hiberFilePresent.UseStyleColors = false;
             // 
@@ -894,11 +894,11 @@
             this.systemS5.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.systemS5.Location = new System.Drawing.Point(151, 472);
             this.systemS5.Name = "systemS5";
-            this.systemS5.Size = new System.Drawing.Size(115, 25);
+            this.systemS5.Size = new System.Drawing.Size(33, 25);
             this.systemS5.Style = MetroFramework.MetroColorStyle.Blue;
             this.systemS5.StyleManager = null;
             this.systemS5.TabIndex = 18;
-            this.systemS5.Text = "metroLabel17";
+            this.systemS5.Text = "---";
             this.systemS5.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.systemS5.UseStyleColors = false;
             // 
@@ -932,11 +932,11 @@
             this.systemS4.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.systemS4.Location = new System.Drawing.Point(151, 414);
             this.systemS4.Name = "systemS4";
-            this.systemS4.Size = new System.Drawing.Size(115, 25);
+            this.systemS4.Size = new System.Drawing.Size(33, 25);
             this.systemS4.Style = MetroFramework.MetroColorStyle.Blue;
             this.systemS4.StyleManager = null;
             this.systemS4.TabIndex = 16;
-            this.systemS4.Text = "metroLabel15";
+            this.systemS4.Text = "---";
             this.systemS4.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.systemS4.UseStyleColors = false;
             // 
@@ -970,11 +970,11 @@
             this.systemS3.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.systemS3.Location = new System.Drawing.Point(151, 340);
             this.systemS3.Name = "systemS3";
-            this.systemS3.Size = new System.Drawing.Size(115, 25);
+            this.systemS3.Size = new System.Drawing.Size(33, 25);
             this.systemS3.Style = MetroFramework.MetroColorStyle.Blue;
             this.systemS3.StyleManager = null;
             this.systemS3.TabIndex = 14;
-            this.systemS3.Text = "metroLabel13";
+            this.systemS3.Text = "---";
             this.systemS3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.systemS3.UseStyleColors = false;
             // 
@@ -1008,11 +1008,11 @@
             this.systemS2.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.systemS2.Location = new System.Drawing.Point(151, 273);
             this.systemS2.Name = "systemS2";
-            this.systemS2.Size = new System.Drawing.Size(115, 25);
+            this.systemS2.Size = new System.Drawing.Size(33, 25);
             this.systemS2.Style = MetroFramework.MetroColorStyle.Blue;
             this.systemS2.StyleManager = null;
             this.systemS2.TabIndex = 12;
-            this.systemS2.Text = "metroLabel11";
+            this.systemS2.Text = "---";
             this.systemS2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.systemS2.UseStyleColors = false;
             // 
@@ -1046,11 +1046,11 @@
             this.systemS1.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.systemS1.Location = new System.Drawing.Point(151, 199);
             this.systemS1.Name = "systemS1";
-            this.systemS1.Size = new System.Drawing.Size(106, 25);
+            this.systemS1.Size = new System.Drawing.Size(33, 25);
             this.systemS1.Style = MetroFramework.MetroColorStyle.Blue;
             this.systemS1.StyleManager = null;
             this.systemS1.TabIndex = 10;
-            this.systemS1.Text = "metroLabel9";
+            this.systemS1.Text = "---";
             this.systemS1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.systemS1.UseStyleColors = false;
             // 
@@ -1065,11 +1065,11 @@
             this.lidPresent.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.lidPresent.Location = new System.Drawing.Point(151, 142);
             this.lidPresent.Name = "lidPresent";
-            this.lidPresent.Size = new System.Drawing.Size(106, 25);
+            this.lidPresent.Size = new System.Drawing.Size(33, 25);
             this.lidPresent.Style = MetroFramework.MetroColorStyle.Blue;
             this.lidPresent.StyleManager = null;
             this.lidPresent.TabIndex = 9;
-            this.lidPresent.Text = "metroLabel8";
+            this.lidPresent.Text = "---";
             this.lidPresent.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lidPresent.UseStyleColors = false;
             // 
@@ -1122,11 +1122,11 @@
             this.sleepButton.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.sleepButton.Location = new System.Drawing.Point(151, 81);
             this.sleepButton.Name = "sleepButton";
-            this.sleepButton.Size = new System.Drawing.Size(106, 25);
+            this.sleepButton.Size = new System.Drawing.Size(33, 25);
             this.sleepButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.sleepButton.StyleManager = null;
             this.sleepButton.TabIndex = 6;
-            this.sleepButton.Text = "metroLabel5";
+            this.sleepButton.Text = "---";
             this.sleepButton.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.sleepButton.UseStyleColors = false;
             // 
@@ -1160,11 +1160,11 @@
             this.powerButton.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerButton.Location = new System.Drawing.Point(151, 26);
             this.powerButton.Name = "powerButton";
-            this.powerButton.Size = new System.Drawing.Size(106, 25);
+            this.powerButton.Size = new System.Drawing.Size(33, 25);
             this.powerButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerButton.StyleManager = null;
             this.powerButton.TabIndex = 4;
-            this.powerButton.Text = "metroLabel3";
+            this.powerButton.Text = "---";
             this.powerButton.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerButton.UseStyleColors = false;
             // 

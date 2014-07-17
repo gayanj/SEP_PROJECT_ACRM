@@ -11,7 +11,7 @@ namespace ACRMS.CPU
         private static string serverHost = "localhost";
         private static string port ="5432";
         private static string username = "postgres";
-        private static string password = "123";
+        private static string password = "mayooran";
         private static string databaseName = "tracing";
 
         private static string connstring = String.Format("Server={0};Port={1};" +

@@ -35,34 +35,41 @@ namespace SEPMetro
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            int j = 0;
-            Process[] localByName = Process.GetProcessesByName("iexplore");
-            int[] PID = new int[localByName.Length - 1];
-            for (int i = 0; i < localByName.Length; i++)
+            try
             {
-                if (localByName[i].MainWindowTitle == "")
+                int j = 0;
+                Process[] localByName = Process.GetProcessesByName("iexplore");
+                int[] PID = new int[localByName.Length - 1];
+                for (int i = 0; i < localByName.Length; i++)
                 {
-                    PID[j++] = localByName[i].Id;
-                }
-            }
-
-            SHDocVw.ShellWindows shellWindows = new SHDocVw.ShellWindows();
-            SHDocVw.InternetExplorer ieInst = shellWindows.Item();
-            IntPtr hid = (IntPtr)ieInst.HWND;
-            //IntPtr tabHandle = FindWindowEx(hid, IntPtr.Zero, "Frame Tab", null);
-            IntPtr tabHandle = GetTopWindow(IntPtr.Zero);
-
-            while (tabHandle != IntPtr.Zero)
-            {
-                GetWindowThreadProcessId(tabHandle, out processID);
-                for (int i = 0; i < PID.Length; i++)
-                {
-                    if (PID[i] == processID)
+                    if (localByName[i].MainWindowTitle == "")
                     {
-                        GetText(tabHandle);
+                        PID[j++] = localByName[i].Id;
                     }
                 }
-                tabHandle = GetWindow(tabHandle, GetWindow_Cmd.GW_HWNDNEXT);
+
+                SHDocVw.ShellWindows shellWindows = new SHDocVw.ShellWindows();
+                SHDocVw.InternetExplorer ieInst = shellWindows.Item();
+                IntPtr hid = (IntPtr)ieInst.HWND;
+                //IntPtr tabHandle = FindWindowEx(hid, IntPtr.Zero, "Frame Tab", null);
+                IntPtr tabHandle = GetTopWindow(IntPtr.Zero);
+
+                while (tabHandle != IntPtr.Zero)
+                {
+                    GetWindowThreadProcessId(tabHandle, out processID);
+                    for (int i = 0; i < PID.Length; i++)
+                    {
+                        if (PID[i] == processID)
+                        {
+                            GetText(tabHandle);
+                        }
+                    }
+                    tabHandle = GetWindow(tabHandle, GetWindow_Cmd.GW_HWNDNEXT);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Internet Explorer Not Running, Please Try Again");
             }
         }
 
@@ -135,6 +142,7 @@ namespace SEPMetro
                         catch(Exception ex)
                         {
                             browserInfo.Text = ex.ToString();
+                            MessageBox.Show("Chrome is Not Running. Please Try Again");
                         }
                     }
                 }

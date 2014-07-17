@@ -77,11 +77,27 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel24 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel26 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel27 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel28 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel29 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel30 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.metroLabel30);
+            this.metroPanel1.Controls.Add(this.metroLabel29);
+            this.metroPanel1.Controls.Add(this.metroLabel28);
+            this.metroPanel1.Controls.Add(this.metroLabel27);
+            this.metroPanel1.Controls.Add(this.metroLabel26);
+            this.metroPanel1.Controls.Add(this.metroLabel25);
+            this.metroPanel1.Controls.Add(this.metroLabel24);
+            this.metroPanel1.Controls.Add(this.metroLabel23);
             this.metroPanel1.Controls.Add(this.smartBatteryVersion);
             this.metroPanel1.Controls.Add(this.powerManSupport);
             this.metroPanel1.Controls.Add(this.metroLabel34);
@@ -178,11 +194,11 @@
             this.powerManSupport.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerManSupport.Location = new System.Drawing.Point(749, 474);
             this.powerManSupport.Name = "powerManSupport";
-            this.powerManSupport.Size = new System.Drawing.Size(115, 25);
+            this.powerManSupport.Size = new System.Drawing.Size(33, 25);
             this.powerManSupport.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerManSupport.StyleManager = null;
             this.powerManSupport.TabIndex = 48;
-            this.powerManSupport.Text = "metroLabel35";
+            this.powerManSupport.Text = "---";
             this.powerManSupport.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerManSupport.UseStyleColors = false;
             // 
@@ -235,11 +251,11 @@
             this.timeToFullCharge.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.timeToFullCharge.Location = new System.Drawing.Point(749, 424);
             this.timeToFullCharge.Name = "timeToFullCharge";
-            this.timeToFullCharge.Size = new System.Drawing.Size(115, 25);
+            this.timeToFullCharge.Size = new System.Drawing.Size(33, 25);
             this.timeToFullCharge.Style = MetroFramework.MetroColorStyle.Blue;
             this.timeToFullCharge.StyleManager = null;
             this.timeToFullCharge.TabIndex = 45;
-            this.timeToFullCharge.Text = "metroLabel32";
+            this.timeToFullCharge.Text = "---";
             this.timeToFullCharge.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.timeToFullCharge.UseStyleColors = false;
             // 
@@ -254,11 +270,11 @@
             this.timeOnBattery.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.timeOnBattery.Location = new System.Drawing.Point(749, 372);
             this.timeOnBattery.Name = "timeOnBattery";
-            this.timeOnBattery.Size = new System.Drawing.Size(115, 25);
+            this.timeOnBattery.Size = new System.Drawing.Size(33, 25);
             this.timeOnBattery.Style = MetroFramework.MetroColorStyle.Blue;
             this.timeOnBattery.StyleManager = null;
             this.timeOnBattery.TabIndex = 44;
-            this.timeOnBattery.Text = "metroLabel31";
+            this.timeOnBattery.Text = "---";
             this.timeOnBattery.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.timeOnBattery.UseStyleColors = false;
             // 
@@ -273,11 +289,11 @@
             this.systemName.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.systemName.Location = new System.Drawing.Point(749, 327);
             this.systemName.Name = "systemName";
-            this.systemName.Size = new System.Drawing.Size(115, 25);
+            this.systemName.Size = new System.Drawing.Size(33, 25);
             this.systemName.Style = MetroFramework.MetroColorStyle.Blue;
             this.systemName.StyleManager = null;
             this.systemName.TabIndex = 43;
-            this.systemName.Text = "metroLabel30";
+            this.systemName.Text = "---";
             this.systemName.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.systemName.UseStyleColors = false;
             // 
@@ -292,11 +308,11 @@
             this.batStatus.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.batStatus.Location = new System.Drawing.Point(749, 279);
             this.batStatus.Name = "batStatus";
-            this.batStatus.Size = new System.Drawing.Size(115, 25);
+            this.batStatus.Size = new System.Drawing.Size(33, 25);
             this.batStatus.Style = MetroFramework.MetroColorStyle.Blue;
             this.batStatus.StyleManager = null;
             this.batStatus.TabIndex = 42;
-            this.batStatus.Text = "metroLabel29";
+            this.batStatus.Text = "---";
             this.batStatus.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.batStatus.UseStyleColors = false;
             // 
@@ -311,11 +327,11 @@
             this.powerManCap.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.powerManCap.Location = new System.Drawing.Point(749, 236);
             this.powerManCap.Name = "powerManCap";
-            this.powerManCap.Size = new System.Drawing.Size(115, 25);
+            this.powerManCap.Size = new System.Drawing.Size(33, 25);
             this.powerManCap.Style = MetroFramework.MetroColorStyle.Blue;
             this.powerManCap.StyleManager = null;
             this.powerManCap.TabIndex = 41;
-            this.powerManCap.Text = "metroLabel28";
+            this.powerManCap.Text = "---";
             this.powerManCap.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.powerManCap.UseStyleColors = false;
             // 
@@ -330,11 +346,11 @@
             this.name.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.name.Location = new System.Drawing.Point(748, 188);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(115, 25);
+            this.name.Size = new System.Drawing.Size(33, 25);
             this.name.Style = MetroFramework.MetroColorStyle.Blue;
             this.name.StyleManager = null;
             this.name.TabIndex = 40;
-            this.name.Text = "metroLabel27";
+            this.name.Text = "---";
             this.name.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.name.UseStyleColors = false;
             // 
@@ -349,11 +365,11 @@
             this.maxRechargeTime.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.maxRechargeTime.Location = new System.Drawing.Point(748, 144);
             this.maxRechargeTime.Name = "maxRechargeTime";
-            this.maxRechargeTime.Size = new System.Drawing.Size(115, 25);
+            this.maxRechargeTime.Size = new System.Drawing.Size(33, 25);
             this.maxRechargeTime.Style = MetroFramework.MetroColorStyle.Blue;
             this.maxRechargeTime.StyleManager = null;
             this.maxRechargeTime.TabIndex = 39;
-            this.maxRechargeTime.Text = "metroLabel26";
+            this.maxRechargeTime.Text = "---";
             this.maxRechargeTime.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.maxRechargeTime.UseStyleColors = false;
             // 
@@ -368,11 +384,11 @@
             this.installDate.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.installDate.Location = new System.Drawing.Point(748, 98);
             this.installDate.Name = "installDate";
-            this.installDate.Size = new System.Drawing.Size(115, 25);
+            this.installDate.Size = new System.Drawing.Size(33, 25);
             this.installDate.Style = MetroFramework.MetroColorStyle.Blue;
             this.installDate.StyleManager = null;
             this.installDate.TabIndex = 38;
-            this.installDate.Text = "metroLabel25";
+            this.installDate.Text = "---";
             this.installDate.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.installDate.UseStyleColors = false;
             // 
@@ -387,11 +403,11 @@
             this.fullChargeCap.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.fullChargeCap.Location = new System.Drawing.Point(748, 55);
             this.fullChargeCap.Name = "fullChargeCap";
-            this.fullChargeCap.Size = new System.Drawing.Size(115, 25);
+            this.fullChargeCap.Size = new System.Drawing.Size(33, 25);
             this.fullChargeCap.Style = MetroFramework.MetroColorStyle.Blue;
             this.fullChargeCap.StyleManager = null;
             this.fullChargeCap.TabIndex = 37;
-            this.fullChargeCap.Text = "metroLabel24";
+            this.fullChargeCap.Text = "---";
             this.fullChargeCap.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.fullChargeCap.UseStyleColors = false;
             // 
@@ -406,11 +422,11 @@
             this.expLife.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.expLife.Location = new System.Drawing.Point(749, 16);
             this.expLife.Name = "expLife";
-            this.expLife.Size = new System.Drawing.Size(115, 25);
+            this.expLife.Size = new System.Drawing.Size(33, 25);
             this.expLife.Style = MetroFramework.MetroColorStyle.Blue;
             this.expLife.StyleManager = null;
             this.expLife.TabIndex = 36;
-            this.expLife.Text = "metroLabel23";
+            this.expLife.Text = "---";
             this.expLife.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.expLife.UseStyleColors = false;
             // 
@@ -634,13 +650,14 @@
             this.estRun.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.estRun.Location = new System.Drawing.Point(264, 476);
             this.estRun.Name = "estRun";
-            this.estRun.Size = new System.Drawing.Size(115, 25);
+            this.estRun.Size = new System.Drawing.Size(33, 25);
             this.estRun.Style = MetroFramework.MetroColorStyle.Blue;
             this.estRun.StyleManager = null;
             this.estRun.TabIndex = 24;
-            this.estRun.Text = "metroLabel13";
+            this.estRun.Text = "---";
             this.estRun.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.estRun.UseStyleColors = false;
+            this.estRun.Click += new System.EventHandler(this.estRun_Click);
             // 
             // estCharge
             // 
@@ -653,13 +670,14 @@
             this.estCharge.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.estCharge.Location = new System.Drawing.Point(264, 424);
             this.estCharge.Name = "estCharge";
-            this.estCharge.Size = new System.Drawing.Size(115, 25);
+            this.estCharge.Size = new System.Drawing.Size(33, 25);
             this.estCharge.Style = MetroFramework.MetroColorStyle.Blue;
             this.estCharge.StyleManager = null;
             this.estCharge.TabIndex = 23;
-            this.estCharge.Text = "metroLabel13";
+            this.estCharge.Text = "---";
             this.estCharge.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.estCharge.UseStyleColors = false;
+            this.estCharge.Click += new System.EventHandler(this.estCharge_Click);
             // 
             // deviceID
             // 
@@ -672,13 +690,14 @@
             this.deviceID.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.deviceID.Location = new System.Drawing.Point(264, 373);
             this.deviceID.Name = "deviceID";
-            this.deviceID.Size = new System.Drawing.Size(115, 25);
+            this.deviceID.Size = new System.Drawing.Size(33, 25);
             this.deviceID.Style = MetroFramework.MetroColorStyle.Blue;
             this.deviceID.StyleManager = null;
             this.deviceID.TabIndex = 22;
-            this.deviceID.Text = "metroLabel13";
+            this.deviceID.Text = "---";
             this.deviceID.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.deviceID.UseStyleColors = false;
+            this.deviceID.Click += new System.EventHandler(this.deviceID_Click);
             // 
             // designVoltage
             // 
@@ -691,13 +710,14 @@
             this.designVoltage.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.designVoltage.Location = new System.Drawing.Point(264, 328);
             this.designVoltage.Name = "designVoltage";
-            this.designVoltage.Size = new System.Drawing.Size(115, 25);
+            this.designVoltage.Size = new System.Drawing.Size(33, 25);
             this.designVoltage.Style = MetroFramework.MetroColorStyle.Blue;
             this.designVoltage.StyleManager = null;
             this.designVoltage.TabIndex = 21;
-            this.designVoltage.Text = "metroLabel13";
+            this.designVoltage.Text = "---";
             this.designVoltage.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.designVoltage.UseStyleColors = false;
+            this.designVoltage.Click += new System.EventHandler(this.designVoltage_Click);
             // 
             // designCapacity
             // 
@@ -710,13 +730,14 @@
             this.designCapacity.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.designCapacity.Location = new System.Drawing.Point(264, 280);
             this.designCapacity.Name = "designCapacity";
-            this.designCapacity.Size = new System.Drawing.Size(115, 25);
+            this.designCapacity.Size = new System.Drawing.Size(33, 25);
             this.designCapacity.Style = MetroFramework.MetroColorStyle.Blue;
             this.designCapacity.StyleManager = null;
             this.designCapacity.TabIndex = 20;
-            this.designCapacity.Text = "metroLabel13";
+            this.designCapacity.Text = "---";
             this.designCapacity.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.designCapacity.UseStyleColors = false;
+            this.designCapacity.Click += new System.EventHandler(this.designCapacity_Click);
             // 
             // description
             // 
@@ -729,13 +750,14 @@
             this.description.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.description.Location = new System.Drawing.Point(264, 236);
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(115, 25);
+            this.description.Size = new System.Drawing.Size(33, 25);
             this.description.Style = MetroFramework.MetroColorStyle.Blue;
             this.description.StyleManager = null;
             this.description.TabIndex = 19;
-            this.description.Text = "metroLabel13";
+            this.description.Text = "---";
             this.description.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.description.UseStyleColors = false;
+            this.description.Click += new System.EventHandler(this.description_Click);
             // 
             // chemistry
             // 
@@ -748,13 +770,14 @@
             this.chemistry.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.chemistry.Location = new System.Drawing.Point(264, 188);
             this.chemistry.Name = "chemistry";
-            this.chemistry.Size = new System.Drawing.Size(115, 25);
+            this.chemistry.Size = new System.Drawing.Size(33, 25);
             this.chemistry.Style = MetroFramework.MetroColorStyle.Blue;
             this.chemistry.StyleManager = null;
             this.chemistry.TabIndex = 18;
-            this.chemistry.Text = "metroLabel13";
+            this.chemistry.Text = "---";
             this.chemistry.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.chemistry.UseStyleColors = false;
+            this.chemistry.Click += new System.EventHandler(this.chemistry_Click);
             // 
             // caption
             // 
@@ -767,13 +790,14 @@
             this.caption.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.caption.Location = new System.Drawing.Point(264, 144);
             this.caption.Name = "caption";
-            this.caption.Size = new System.Drawing.Size(115, 25);
+            this.caption.Size = new System.Drawing.Size(33, 25);
             this.caption.Style = MetroFramework.MetroColorStyle.Blue;
             this.caption.StyleManager = null;
             this.caption.TabIndex = 17;
-            this.caption.Text = "metroLabel13";
+            this.caption.Text = "---";
             this.caption.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.caption.UseStyleColors = false;
+            this.caption.Click += new System.EventHandler(this.caption_Click);
             // 
             // batteryStatus
             // 
@@ -786,13 +810,14 @@
             this.batteryStatus.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.batteryStatus.Location = new System.Drawing.Point(264, 98);
             this.batteryStatus.Name = "batteryStatus";
-            this.batteryStatus.Size = new System.Drawing.Size(115, 25);
+            this.batteryStatus.Size = new System.Drawing.Size(33, 25);
             this.batteryStatus.Style = MetroFramework.MetroColorStyle.Blue;
             this.batteryStatus.StyleManager = null;
             this.batteryStatus.TabIndex = 16;
-            this.batteryStatus.Text = "metroLabel13";
+            this.batteryStatus.Text = "---";
             this.batteryStatus.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.batteryStatus.UseStyleColors = false;
+            this.batteryStatus.Click += new System.EventHandler(this.batteryStatus_Click);
             // 
             // batteryRechargeTime
             // 
@@ -805,13 +830,14 @@
             this.batteryRechargeTime.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.batteryRechargeTime.Location = new System.Drawing.Point(264, 55);
             this.batteryRechargeTime.Name = "batteryRechargeTime";
-            this.batteryRechargeTime.Size = new System.Drawing.Size(115, 25);
+            this.batteryRechargeTime.Size = new System.Drawing.Size(33, 25);
             this.batteryRechargeTime.Style = MetroFramework.MetroColorStyle.Blue;
             this.batteryRechargeTime.StyleManager = null;
             this.batteryRechargeTime.TabIndex = 15;
-            this.batteryRechargeTime.Text = "metroLabel13";
+            this.batteryRechargeTime.Text = "---";
             this.batteryRechargeTime.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.batteryRechargeTime.UseStyleColors = false;
+            this.batteryRechargeTime.Click += new System.EventHandler(this.batteryRechargeTime_Click);
             // 
             // batteryAvailability
             // 
@@ -824,13 +850,14 @@
             this.batteryAvailability.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.batteryAvailability.Location = new System.Drawing.Point(264, 16);
             this.batteryAvailability.Name = "batteryAvailability";
-            this.batteryAvailability.Size = new System.Drawing.Size(115, 25);
+            this.batteryAvailability.Size = new System.Drawing.Size(33, 25);
             this.batteryAvailability.Style = MetroFramework.MetroColorStyle.Blue;
             this.batteryAvailability.StyleManager = null;
             this.batteryAvailability.TabIndex = 14;
-            this.batteryAvailability.Text = "metroLabel13";
+            this.batteryAvailability.Text = "---";
             this.batteryAvailability.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.batteryAvailability.UseStyleColors = false;
+            this.batteryAvailability.Click += new System.EventHandler(this.batteryAvailability_Click);
             // 
             // metroLabel12
             // 
@@ -1060,6 +1087,159 @@
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel1.UseStyleColors = false;
             // 
+            // metroLabel23
+            // 
+            this.metroLabel23.AutoSize = true;
+            this.metroLabel23.CustomBackground = false;
+            this.metroLabel23.CustomForeColor = true;
+            this.metroLabel23.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel23.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel23.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel23.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel23.Location = new System.Drawing.Point(346, 55);
+            this.metroLabel23.Name = "metroLabel23";
+            this.metroLabel23.Size = new System.Drawing.Size(38, 25);
+            this.metroLabel23.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel23.StyleManager = null;
+            this.metroLabel23.TabIndex = 50;
+            this.metroLabel23.Text = "Sec";
+            this.metroLabel23.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel23.UseStyleColors = false;
+            // 
+            // metroLabel24
+            // 
+            this.metroLabel24.AutoSize = true;
+            this.metroLabel24.CustomBackground = false;
+            this.metroLabel24.CustomForeColor = true;
+            this.metroLabel24.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel24.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel24.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel24.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel24.Location = new System.Drawing.Point(346, 327);
+            this.metroLabel24.Name = "metroLabel24";
+            this.metroLabel24.Size = new System.Drawing.Size(23, 25);
+            this.metroLabel24.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel24.StyleManager = null;
+            this.metroLabel24.TabIndex = 51;
+            this.metroLabel24.Text = "V";
+            this.metroLabel24.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel24.UseStyleColors = false;
+            this.metroLabel24.Click += new System.EventHandler(this.metroLabel24_Click);
+            // 
+            // metroLabel25
+            // 
+            this.metroLabel25.AutoSize = true;
+            this.metroLabel25.CustomBackground = false;
+            this.metroLabel25.CustomForeColor = true;
+            this.metroLabel25.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel25.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel25.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel25.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel25.Location = new System.Drawing.Point(346, 424);
+            this.metroLabel25.Name = "metroLabel25";
+            this.metroLabel25.Size = new System.Drawing.Size(38, 25);
+            this.metroLabel25.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel25.StyleManager = null;
+            this.metroLabel25.TabIndex = 52;
+            this.metroLabel25.Text = "Sec";
+            this.metroLabel25.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel25.UseStyleColors = false;
+            // 
+            // metroLabel26
+            // 
+            this.metroLabel26.AutoSize = true;
+            this.metroLabel26.CustomBackground = false;
+            this.metroLabel26.CustomForeColor = true;
+            this.metroLabel26.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel26.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel26.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel26.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel26.Location = new System.Drawing.Point(346, 476);
+            this.metroLabel26.Name = "metroLabel26";
+            this.metroLabel26.Size = new System.Drawing.Size(38, 25);
+            this.metroLabel26.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel26.StyleManager = null;
+            this.metroLabel26.TabIndex = 53;
+            this.metroLabel26.Text = "Sec";
+            this.metroLabel26.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel26.UseStyleColors = false;
+            // 
+            // metroLabel27
+            // 
+            this.metroLabel27.AutoSize = true;
+            this.metroLabel27.CustomBackground = false;
+            this.metroLabel27.CustomForeColor = true;
+            this.metroLabel27.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel27.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel27.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel27.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel27.Location = new System.Drawing.Point(826, 17);
+            this.metroLabel27.Name = "metroLabel27";
+            this.metroLabel27.Size = new System.Drawing.Size(38, 25);
+            this.metroLabel27.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel27.StyleManager = null;
+            this.metroLabel27.TabIndex = 54;
+            this.metroLabel27.Text = "Sec";
+            this.metroLabel27.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel27.UseStyleColors = false;
+            // 
+            // metroLabel28
+            // 
+            this.metroLabel28.AutoSize = true;
+            this.metroLabel28.CustomBackground = false;
+            this.metroLabel28.CustomForeColor = true;
+            this.metroLabel28.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel28.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel28.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel28.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel28.Location = new System.Drawing.Point(826, 144);
+            this.metroLabel28.Name = "metroLabel28";
+            this.metroLabel28.Size = new System.Drawing.Size(38, 25);
+            this.metroLabel28.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel28.StyleManager = null;
+            this.metroLabel28.TabIndex = 55;
+            this.metroLabel28.Text = "Sec";
+            this.metroLabel28.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel28.UseStyleColors = false;
+            // 
+            // metroLabel29
+            // 
+            this.metroLabel29.AutoSize = true;
+            this.metroLabel29.CustomBackground = false;
+            this.metroLabel29.CustomForeColor = true;
+            this.metroLabel29.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel29.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel29.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel29.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel29.Location = new System.Drawing.Point(826, 372);
+            this.metroLabel29.Name = "metroLabel29";
+            this.metroLabel29.Size = new System.Drawing.Size(38, 25);
+            this.metroLabel29.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel29.StyleManager = null;
+            this.metroLabel29.TabIndex = 56;
+            this.metroLabel29.Text = "Sec";
+            this.metroLabel29.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel29.UseStyleColors = false;
+            // 
+            // metroLabel30
+            // 
+            this.metroLabel30.AutoSize = true;
+            this.metroLabel30.CustomBackground = false;
+            this.metroLabel30.CustomForeColor = true;
+            this.metroLabel30.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel30.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel30.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel30.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel30.Location = new System.Drawing.Point(826, 424);
+            this.metroLabel30.Name = "metroLabel30";
+            this.metroLabel30.Size = new System.Drawing.Size(38, 25);
+            this.metroLabel30.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel30.StyleManager = null;
+            this.metroLabel30.TabIndex = 57;
+            this.metroLabel30.Text = "Sec";
+            this.metroLabel30.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel30.UseStyleColors = false;
+            // 
             // Battery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1126,5 +1306,13 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabel25;
+        private MetroFramework.Controls.MetroLabel metroLabel24;
+        private MetroFramework.Controls.MetroLabel metroLabel23;
+        private MetroFramework.Controls.MetroLabel metroLabel30;
+        private MetroFramework.Controls.MetroLabel metroLabel29;
+        private MetroFramework.Controls.MetroLabel metroLabel28;
+        private MetroFramework.Controls.MetroLabel metroLabel27;
+        private MetroFramework.Controls.MetroLabel metroLabel26;
     }
 }

@@ -52,7 +52,7 @@
             this.ClientSize = new System.Drawing.Size(505, 534);
             this.Controls.Add(this.dataGridView1);
             this.Name = "NetworkRealtime";
-            this.Text = "Form1";
+            this.Text = "RealTimeMonitor";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

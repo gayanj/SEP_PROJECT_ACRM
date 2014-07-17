@@ -141,6 +141,7 @@
             this.ram_adjThreshold.TabIndex = 16;
             this.ram_adjThreshold.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ram_adjThreshold.Value = 50;
+            this.ram_adjThreshold.Visible = false;
             // 
             // ram_status
             // 

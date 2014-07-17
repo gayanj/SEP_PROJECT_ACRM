@@ -58,7 +58,7 @@
             this.metroButton1.StyleManager = null;
             this.metroButton1.TabIndex = 18;
             this.metroButton1.Text = "Advance Details";
-            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // pictureBox1
@@ -71,7 +71,7 @@
             this.pictureBox1.StyleManager = null;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.Text = "Search";
-            this.pictureBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pictureBox1.Theme = MetroFramework.MetroThemeStyle.Light;
             this.pictureBox1.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // label38
@@ -129,7 +129,7 @@
             this.metroButton2.StyleManager = null;
             this.metroButton2.TabIndex = 5;
             this.metroButton2.Text = "Realtime Monitor";
-            this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click_3);
             // 
             // pictureBox3
@@ -142,7 +142,7 @@
             this.pictureBox3.StyleManager = null;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.Text = "Stop";
-            this.pictureBox3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pictureBox3.Theme = MetroFramework.MetroThemeStyle.Light;
             this.pictureBox3.Click += new System.EventHandler(this.metroButton2_Click_2);
             // 
             // pictureBox2
@@ -155,7 +155,7 @@
             this.pictureBox2.StyleManager = null;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.Text = "Start";
-            this.pictureBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pictureBox2.Theme = MetroFramework.MetroThemeStyle.Light;
             this.pictureBox2.Click += new System.EventHandler(this.metroButton2_Click_1);
             // 
             // label39

@@ -488,16 +488,23 @@ namespace ACRMS.CPU
 
         private void metroButton4_Click(object sender, EventArgs e)
         {
-            int selectedRowIndex = dataGridView3.CurrentCell.RowIndex;
-            string fileName = dataGridView3[0, index2].Value.ToString();
+            try
+            {
+                int selectedRowIndex = dataGridView3.CurrentCell.RowIndex;
+                string fileName = dataGridView3[0, index2].Value.ToString();
 
-            DataTable processes = new DataTable();
-            DatabaseFactory.connectToDatabase();
-            string query = "select report from malicious where filename = '" + fileName + "'";
-            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
-            DatabaseFactory.closeConnection();
-            resultset.Fill(processes);
-            MessageBox.Show(processes.Rows[0][0].ToString());
+                DataTable processes = new DataTable();
+                DatabaseFactory.connectToDatabase();
+                string query = "select report from malicious where filename = '" + fileName + "'";
+                NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+                DatabaseFactory.closeConnection();
+                resultset.Fill(processes);
+                MessageBox.Show(processes.Rows[0][0].ToString());
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("No reports to display");
+            }
         }
 
         private void metroButton5_Click(object sender, EventArgs e)

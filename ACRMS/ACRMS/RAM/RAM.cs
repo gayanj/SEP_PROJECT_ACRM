@@ -78,7 +78,7 @@ namespace SEPMetro
         private void ram_Processes_Click(object sender, EventArgs e)
         {
             Console.WriteLine("This text you can see in debug output window.");
-            AllocConsole();
+            //AllocConsole();
             IntPtr stdHandle = GetStdHandle(STD_OUTPUT_HANDLE);
             SafeFileHandle safeFileHandle = new SafeFileHandle(stdHandle, true);
             FileStream fileStream = new FileStream(safeFileHandle, FileAccess.Write);
@@ -88,13 +88,14 @@ namespace SEPMetro
             Console.SetOut(standardOutput);
             Native.GetProcessList();
             Console.ReadLine();
+            Console.Clear();
         }
 
         private void ram_Threads_Click(object sender, EventArgs e)
         {
             Console.WriteLine("This text you can see in debug output window.");
 
-            AllocConsole();
+            //AllocConsole();
             IntPtr stdHandle = GetStdHandle(STD_OUTPUT_HANDLE);
             SafeFileHandle safeFileHandle = new SafeFileHandle(stdHandle, true);
             FileStream fileStream = new FileStream(safeFileHandle, FileAccess.Write);
@@ -104,13 +105,14 @@ namespace SEPMetro
             Console.SetOut(standardOutput);
             Native.ListProcessThreads((uint)Process.GetCurrentProcess().Id);
             Console.ReadLine();
+            Console.Clear();
         }
 
         private void ram_Heap_Click(object sender, EventArgs e)
         {
             Console.WriteLine("This text you can see in debug output window.");
 
-            AllocConsole();
+            ///AllocConsole();
             IntPtr stdHandle = GetStdHandle(STD_OUTPUT_HANDLE);
             SafeFileHandle safeFileHandle = new SafeFileHandle(stdHandle, true);
             FileStream fileStream = new FileStream(safeFileHandle, FileAccess.Write);
@@ -120,10 +122,13 @@ namespace SEPMetro
             Console.SetOut(standardOutput);
             Native.ListHeap((uint)Process.GetCurrentProcess().Id);
             Console.ReadLine();
+            Console.Clear();
         }
 
         private void RAM_Load(object sender, EventArgs e)
         {
+            AllocConsole();
+            
             m = new MEMORYSTATUSEX();
             ram_DataWidth.Text = wmi.info[5];
             ram_Manufacturer.Text = wmi.info[4];
