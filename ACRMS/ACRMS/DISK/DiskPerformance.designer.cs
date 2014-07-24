@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -70,7 +70,7 @@
             this.lblAvgDiskQ = new MetroFramework.Controls.MetroLabel();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.lblCurrQLen = new MetroFramework.Controls.MetroLabel();
-            this.lblDiskReads = new MetroFramework.Controls.MetroLabel();
+            this.lblAvgTrans = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.lblAvgWrite = new MetroFramework.Controls.MetroLabel();
@@ -84,7 +84,7 @@
             this.lblTransMax = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.lblDiskTrans = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.lblDiskReads = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.lblDiskWrites = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
@@ -204,17 +204,16 @@
             // 
             // HDchart
             // 
-            this.HDchart.BackColor = System.Drawing.Color.DimGray;
-            chartArea1.Name = "ChartArea1";
-            this.HDchart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.HDchart.Legends.Add(legend1);
+            this.HDchart.BackColor = System.Drawing.SystemColors.WindowFrame;
+            chartArea2.Name = "ChartArea1";
+            this.HDchart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.HDchart.Legends.Add(legend2);
             this.HDchart.Location = new System.Drawing.Point(9, 20);
             this.HDchart.Name = "HDchart";
             this.HDchart.Size = new System.Drawing.Size(982, 228);
             this.HDchart.TabIndex = 0;
             this.HDchart.Text = "chart1";
-            this.HDchart.Click += new System.EventHandler(this.HDchart_Click);
             // 
             // metroPanel1
             // 
@@ -247,7 +246,7 @@
             this.metroPanel1.Controls.Add(this.lblAvgDiskQ);
             this.metroPanel1.Controls.Add(this.metroLabel11);
             this.metroPanel1.Controls.Add(this.lblCurrQLen);
-            this.metroPanel1.Controls.Add(this.lblDiskReads);
+            this.metroPanel1.Controls.Add(this.lblAvgTrans);
             this.metroPanel1.Controls.Add(this.metroLabel5);
             this.metroPanel1.Controls.Add(this.metroLabel10);
             this.metroPanel1.Controls.Add(this.lblAvgWrite);
@@ -261,7 +260,7 @@
             this.metroPanel1.Controls.Add(this.lblTransMax);
             this.metroPanel1.Controls.Add(this.metroLabel1);
             this.metroPanel1.Controls.Add(this.lblDiskTrans);
-            this.metroPanel1.Controls.Add(this.metroLabel7);
+            this.metroPanel1.Controls.Add(this.lblDiskReads);
             this.metroPanel1.Controls.Add(this.metroLabel4);
             this.metroPanel1.Controls.Add(this.lblDiskWrites);
             this.metroPanel1.Controls.Add(this.metroLabel2);
@@ -283,7 +282,6 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
-            this.metroPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel1_Paint);
             // 
             // lblWriteTime
             // 
@@ -851,26 +849,25 @@
             this.lblCurrQLen.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lblCurrQLen.UseStyleColors = false;
             // 
-            // lblDiskReads
+            // lblAvgTrans
             // 
-            this.lblDiskReads.AutoSize = true;
-            this.lblDiskReads.CustomBackground = false;
-            this.lblDiskReads.CustomForeColor = true;
-            this.lblDiskReads.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblDiskReads.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblDiskReads.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDiskReads.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblDiskReads.Location = new System.Drawing.Point(178, 593);
-            this.lblDiskReads.Name = "lblDiskReads";
-            this.lblDiskReads.Size = new System.Drawing.Size(19, 25);
-            this.lblDiskReads.Style = MetroFramework.MetroColorStyle.Blue;
-            this.lblDiskReads.StyleManager = null;
-            this.lblDiskReads.TabIndex = 24;
-            this.lblDiskReads.Text = "-";
-            this.lblDiskReads.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblDiskReads.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.lblDiskReads.UseStyleColors = false;
-            this.lblDiskReads.Click += new System.EventHandler(this.lblDiskReads_Click);
+            this.lblAvgTrans.AutoSize = true;
+            this.lblAvgTrans.CustomBackground = false;
+            this.lblAvgTrans.CustomForeColor = true;
+            this.lblAvgTrans.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblAvgTrans.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblAvgTrans.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblAvgTrans.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.lblAvgTrans.Location = new System.Drawing.Point(178, 593);
+            this.lblAvgTrans.Name = "lblAvgTrans";
+            this.lblAvgTrans.Size = new System.Drawing.Size(19, 25);
+            this.lblAvgTrans.Style = MetroFramework.MetroColorStyle.Blue;
+            this.lblAvgTrans.StyleManager = null;
+            this.lblAvgTrans.TabIndex = 24;
+            this.lblAvgTrans.Text = "-";
+            this.lblAvgTrans.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAvgTrans.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblAvgTrans.UseStyleColors = false;
             // 
             // metroLabel5
             // 
@@ -1015,7 +1012,7 @@
             this.btnStop.TabIndex = 9;
             this.btnStop.Text = "Stop";
             this.btnStop.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnStop.Click += new System.EventHandler(this.metroButton1_Click_1);
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // metroLabel8
             // 
@@ -1047,7 +1044,7 @@
             this.btnStart.TabIndex = 9;
             this.btnStart.Text = "Start";
             this.btnStart.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnStart.Click += new System.EventHandler(this.metroButton1_Click);
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lblTransMax
             // 
@@ -1108,25 +1105,25 @@
             this.lblDiskTrans.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lblDiskTrans.UseStyleColors = false;
             // 
-            // metroLabel7
+            // lblDiskReads
             // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.CustomBackground = false;
-            this.metroLabel7.CustomForeColor = true;
-            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.metroLabel7.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.metroLabel7.Location = new System.Drawing.Point(178, 326);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(19, 25);
-            this.metroLabel7.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel7.StyleManager = null;
-            this.metroLabel7.TabIndex = 15;
-            this.metroLabel7.Text = "-";
-            this.metroLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroLabel7.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel7.UseStyleColors = false;
+            this.lblDiskReads.AutoSize = true;
+            this.lblDiskReads.CustomBackground = false;
+            this.lblDiskReads.CustomForeColor = true;
+            this.lblDiskReads.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblDiskReads.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblDiskReads.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblDiskReads.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.lblDiskReads.Location = new System.Drawing.Point(178, 326);
+            this.lblDiskReads.Name = "lblDiskReads";
+            this.lblDiskReads.Size = new System.Drawing.Size(19, 25);
+            this.lblDiskReads.Style = MetroFramework.MetroColorStyle.Blue;
+            this.lblDiskReads.StyleManager = null;
+            this.lblDiskReads.TabIndex = 15;
+            this.lblDiskReads.Text = "-";
+            this.lblDiskReads.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDiskReads.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblDiskReads.UseStyleColors = false;
             // 
             // metroLabel4
             // 
@@ -1246,11 +1243,11 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel lblElapsedTime;
         private MetroFramework.Controls.MetroComboBox hostListComboBox;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroLabel lblDiskReads;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel lblDiskReads;
+        private MetroFramework.Controls.MetroLabel lblAvgTrans;
         private MetroFramework.Controls.MetroLabel lblAvgWrite;
         private MetroFramework.Controls.MetroLabel lblAvgRead;
         private MetroFramework.Controls.MetroLabel metroLabel10;

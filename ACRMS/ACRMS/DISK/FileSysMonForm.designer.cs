@@ -36,7 +36,7 @@
             this.dirTxt = new MetroFramework.Controls.MetroTextBox();
             this.stopBtn = new MetroFramework.Controls.MetroButton();
             this.startBtn = new MetroFramework.Controls.MetroButton();
-            this.browseFolderBtn = new MetroFramework.Controls.MetroButton();
+            this.btnBrowse = new MetroFramework.Controls.MetroButton();
             this.subDirChkBox = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -72,7 +72,7 @@
             this.metroPanel1.Controls.Add(this.dirTxt);
             this.metroPanel1.Controls.Add(this.stopBtn);
             this.metroPanel1.Controls.Add(this.startBtn);
-            this.metroPanel1.Controls.Add(this.browseFolderBtn);
+            this.metroPanel1.Controls.Add(this.btnBrowse);
             this.metroPanel1.Controls.Add(this.subDirChkBox);
             this.metroPanel1.Controls.Add(this.metroLabel2);
             this.metroPanel1.Controls.Add(this.metroLabel1);
@@ -109,7 +109,7 @@
             this.fileTypeFilterTxt.StyleManager = null;
             this.fileTypeFilterTxt.TabIndex = 14;
             this.fileTypeFilterTxt.Text = "*.*";
-            this.fileTypeFilterTxt.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.fileTypeFilterTxt.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.fileTypeFilterTxt.UseStyleColors = false;
             // 
             // dirTxt
@@ -127,7 +127,7 @@
             this.dirTxt.StyleManager = null;
             this.dirTxt.TabIndex = 13;
             this.dirTxt.Text = "C:\\";
-            this.dirTxt.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.dirTxt.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.dirTxt.UseStyleColors = false;
             // 
             // stopBtn
@@ -140,8 +140,8 @@
             this.stopBtn.StyleManager = null;
             this.stopBtn.TabIndex = 12;
             this.stopBtn.Text = "Stop";
-            this.stopBtn.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.stopBtn.Click += new System.EventHandler(this.metroButton1_Click_2);
+            this.stopBtn.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
             // 
             // startBtn
             // 
@@ -153,21 +153,21 @@
             this.startBtn.StyleManager = null;
             this.startBtn.TabIndex = 11;
             this.startBtn.Text = "Start";
-            this.startBtn.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.startBtn.Click += new System.EventHandler(this.metroButton1_Click_1);
+            this.startBtn.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
             // 
-            // browseFolderBtn
+            // btnBrowse
             // 
-            this.browseFolderBtn.Highlight = false;
-            this.browseFolderBtn.Location = new System.Drawing.Point(431, 17);
-            this.browseFolderBtn.Name = "browseFolderBtn";
-            this.browseFolderBtn.Size = new System.Drawing.Size(98, 23);
-            this.browseFolderBtn.Style = MetroFramework.MetroColorStyle.Blue;
-            this.browseFolderBtn.StyleManager = null;
-            this.browseFolderBtn.TabIndex = 10;
-            this.browseFolderBtn.Text = "Browse";
-            this.browseFolderBtn.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.browseFolderBtn.Click += new System.EventHandler(this.metroButton1_Click);
+            this.btnBrowse.Highlight = false;
+            this.btnBrowse.Location = new System.Drawing.Point(431, 17);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(98, 23);
+            this.btnBrowse.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnBrowse.StyleManager = null;
+            this.btnBrowse.TabIndex = 10;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // subDirChkBox
             // 
@@ -254,7 +254,7 @@
         private System.Windows.Forms.RichTextBox logTxt;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private MetroFramework.Controls.MetroPanel metroPanel1;
-        private MetroFramework.Controls.MetroButton browseFolderBtn;
+        private MetroFramework.Controls.MetroButton btnBrowse;
         private MetroFramework.Controls.MetroCheckBox subDirChkBox;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;

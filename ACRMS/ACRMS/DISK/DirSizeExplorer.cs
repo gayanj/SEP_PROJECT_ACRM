@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ACRMS.DISK
@@ -34,7 +27,7 @@ namespace ACRMS.DISK
         {
             foreach (DriveInfo drive in DriveInfo.GetDrives())
             {
-                if (drive.IsReady) //Check to see there is something in the drive
+                if (drive.IsReady) // Check to see if the drive is accessible
                 {
                     cBoxDriveList.Items.Add(drive.RootDirectory);
                 }
@@ -45,48 +38,70 @@ namespace ACRMS.DISK
             this.Text = "Scanning Files...";
             try
             {
-                if (stop) return;
-                foreach (string dir in Directory.GetDirectories(rootDirectory))
+                if (stop)
                 {
-                    if (stop) return;
-                    Application.DoEvents();
-                    if (dir.ToLower().IndexOf("$recycle.bin") == -1)
-                        scanFiles(dir); //recursive call
+                    return;
                 }
 
+                // Iterate The Directories
+                foreach (string dir in Directory.GetDirectories(rootDirectory))
+                {
+                    if (stop)
+                    {
+                        return;
+                    }
+
+                    Application.DoEvents();
+                    if (dir.ToLower().IndexOf("$recycle.bin") == -1)
+                    {
+                        scanFiles(dir); // recursive call
+                    }
+                        
+                }
+
+                // Iterate the Files
                 foreach (string file in Directory.GetFiles(rootDirectory))
                 {
-                    if (stop) return;
+                    if (stop)
+                    {
+                        return;
+                    }
                     Application.DoEvents();
-                    addNode(file, null); //null because we might not have the first node yet
+                    addNode(file, null); // null because we might not have the first node yet
                 }
             }
-            catch (Exception)
+            catch
             {
             }
         }
-        //Recursive function to add a full path into a treeview
+
+        // Recursive function to add a full path into a tree-view
         private void addNode(string text, TreeNode parent)
         {
-            if (text.EndsWith("\\")) text.TrimEnd(new char[] { '\\' });
+            if (text.EndsWith("\\"))
+            {
+                text.TrimEnd(new char[] { '\\' });
+            }
 
             if (parent == null)
             {
-                //Add/Find the first node
+                // Add/Find the first node
                 if (text.IndexOf("\\") != -1)
                 {
                     int parentIndex;
                     string nodeString;
-                    if (text.IndexOf(":") != -1) //C:\ want to preserve the backslash
+
+                    // C:\ want to preserve the backslash
+                    if (text.IndexOf(":") != -1)
                     {
-                        //Check to see if it exists first                        
+                        // Check to see if it exists first                        
                         nodeString = text.Substring(0, text.IndexOf("\\") + 1);
                         parentIndex = treeView.Nodes.IndexOfKey(nodeString);
 
-                        //Node does not exist so create it
+                        // Node does not exist so create it
                         if (parentIndex == -1)
                         {
-                            //Important to set the key to the text so it is easier to look up the node later
+                            // Important to set the key to the text so it is easier to look up the node later
                             treeView.Nodes.Add(nodeString, nodeString);
                             parentIndex = treeView.Nodes.Count - 1;
                         }
@@ -109,7 +124,7 @@ namespace ACRMS.DISK
                 }
                 else
                 {
-                    //Simply add it if it does not exist
+                    // Simply add it if it does not exist
                     if (treeView.Nodes.IndexOfKey(text) == -1)
                         treeView.Nodes.Add(text, text);
                 }
@@ -130,10 +145,28 @@ namespace ACRMS.DISK
             }
             else
             {
-                //No children nodes necessary, just add it
+                // No children nodes necessary, just add it
                 if (parent.Nodes.IndexOfKey(text) == -1)
+                {
                     parent.Nodes.Add(text, text);
+                }
+                   
             }
+        }
+
+        #region FormEvents
+        private void treeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            treeView.PathSeparator = "\\";
+            string fullPath = e.Node.FullPath;
+
+            //Check for the double backlash and remove it
+            if (fullPath.IndexOf(@"\\") != -1)
+            {
+                fullPath = fullPath.Substring(0, fullPath.IndexOf(@"\\")) + "\\" + fullPath.Substring(fullPath.IndexOf(@"\\") + 2);
+            }
+
+            System.Diagnostics.Process.Start(fullPath);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -158,61 +191,15 @@ namespace ACRMS.DISK
             stop = true;
         }
 
-        private void treeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            treeView.PathSeparator = "\\";
-            string fullPath = e.Node.FullPath;
-
-            //Check for the double backlash and remove it
-            if (fullPath.IndexOf(@"\\") != -1)
-            {
-                fullPath = fullPath.Substring(0, fullPath.IndexOf(@"\\")) + "\\" + fullPath.Substring(fullPath.IndexOf(@"\\") + 2);
-            }
-
-            System.Diagnostics.Process.Start(fullPath);
-        }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             treeView.Nodes.Clear();
         }
+        #endregion FormEvents
 
         private void DirSizeExplorer_FormClosing(object sender, FormClosingEventArgs e)
         {
             stop = true;
         }
-
-        private void btnStart1_Click(object sender, EventArgs e)
-        {
-            if (cBoxDriveList.Text != string.Empty)
-            {
-                stop = false;
-
-                btnStop.Enabled = true;
-                btnStart.Enabled = false;
-
-                scanFiles(cBoxDriveList.Text);
-                this.Text = "Done";
-
-                btnStop.Enabled = false;
-                btnStart.Enabled = true;
-            }
-        }
-
-        private void btnStop1_Click(object sender, EventArgs e)
-        {
-            stop = true;
-        }
-
-        private void btnClear1_Click(object sender, EventArgs e)
-        {
-            treeView.Nodes.Clear();
-        }
-
-        private void cBoxDriveList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

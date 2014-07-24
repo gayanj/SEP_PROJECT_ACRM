@@ -30,9 +30,9 @@ namespace ACRMS.DISK
                 allDrives = DriveInfo.GetDrives();
                 foreach (DriveInfo d in allDrives)
                 {
-                    driveListCombo.Items.Add(d.Name);
+                    volumeListCombo.Items.Add(d.Name);
                 }
-                driveListCombo.SelectedIndex = 0;
+                volumeListCombo.SelectedIndex = 0;
 
                 wd = new WmiDiskInfo();
                 diskModelList = wd.GetDiskModelList(Environment.MachineName);
@@ -50,73 +50,77 @@ namespace ACRMS.DISK
             this.loadReady = false;
             this.loadDiskDetails();
         }
-
-        private void fileSysMonBtn1_Click(object sender, EventArgs e)
-        {
-            FileSysMonForm fsForm1 = new FileSysMonForm();
-            fsForm1.Show();
-            fsForm1.Focus();
-        }
-
-        private void metroButton1_Click(object sender, EventArgs e)
-        {
-            DiskPerformance dp = new DiskPerformance();
-            dp.Show();
-            dp.Focus();
-        }
-
-        private void metroButton2_Click(object sender, EventArgs e)
-        {
-            DirSizeExplorer dse = new DirSizeExplorer();
-            dse.Show();
-            dse.Focus();
-        }
-
-        private void metroButton1_Click_1(object sender, EventArgs e)
-        {
-            InteliMonitorConfig imc = new InteliMonitorConfig();
-            imc.Show();
-            imc.Focus();
-        }
-
-        private void phyDiskComBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        
+        private void phyDiskComBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             DiskProperties diskProperties = wd.GetDiskProperties(phyDiskComBox.SelectedItem.ToString());
-            lblModel.Text = diskProperties.Model;
+            lblModel.Text = diskProperties.Model.Trim();
+            //lblCapacity.Text = diskProperties.Size.Trim();
+            lblCylinder.Text = diskProperties.TotalCylinders.Trim();
+            lblBperSec.Text = ExtraDiskMeth.SizeSuffix(diskProperties.BytesPerSector);
+            lblSerial.Text = diskProperties.SerialNumber.Trim();
         }
 
-        private void driveListCombo_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void volumeListCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selInd = driveListCombo.SelectedIndex;
+            int selInd = volumeListCombo.SelectedIndex;
 
-            dNameLbl.Text = allDrives[selInd].Name.ToString();
-            dTypeLbl.Text = allDrives[selInd].DriveType.ToString();
+            lblVolName.Text = allDrives[selInd].Name.ToString();
+            lblVolType.Text = allDrives[selInd].DriveType.ToString();
             try
             {
-                volLbl.Text = allDrives[selInd].VolumeLabel.ToString();
-                dFormatLbl.Text = allDrives[selInd].DriveFormat.ToString();
-                totSizeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalSize);
-                totFreeLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalFreeSpace);
-                totAvaLbl.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].AvailableFreeSpace);
+                lblVolLbl.Text = allDrives[selInd].VolumeLabel.ToString();
+                lblVolFormat.Text = allDrives[selInd].DriveFormat.ToString();
+                lblVolSize.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalSize);
+                lblVolFreeSpc.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].TotalFreeSpace);
+                lblVolAvaFreeSpc.Text = ExtraDiskMeth.SizeSuffix(allDrives[selInd].AvailableFreeSpace);
             }
             catch (IOException ex)
             {
-                volLbl.Text = "Volume Not Ready";
-                dFormatLbl.Text = "Volume Not Ready";
-                totAvaLbl.Text = "Volume Not Ready";
-                totFreeLbl.Text = "Volume Not Ready";
-                totSizeLbl.Text = "Volume Not Ready";
+                lblVolLbl.Text = "Volume Not Ready";
+                lblVolFormat.Text = "Volume Not Ready";
+                lblVolAvaFreeSpc.Text = "Volume Not Ready";
+                lblVolFreeSpc.Text = "Volume Not Ready";
+                lblVolSize.Text = "Volume Not Ready";
             }
             if (allDrives[selInd].IsReady == true)
             {
-                dStatLbl.Text = "On-Line";
-                dStatLbl.BackColor = Color.Green;
+                lblVolStatus.Text = "On-Line";
+                lblVolStatus.ForeColor = Color.LimeGreen;
             }
             else
             {
-                dStatLbl.Text = "Off-Line";
-                dStatLbl.BackColor = Color.Red;
+                lblVolStatus.Text = "Off-Line";
+                lblVolStatus.ForeColor = Color.Red;
             }
+        }
+
+        private void btnFileSysMon_Click(object sender, EventArgs e)
+        {
+            FileSysMonForm fileSysMon = new FileSysMonForm();
+            fileSysMon.Show();
+            fileSysMon.Focus();
+        }
+
+        private void btnDiskPerf_Click(object sender, EventArgs e)
+        {
+            DiskPerformance diskPerf = new DiskPerformance();
+            diskPerf.Show();
+            diskPerf.Focus();
+        }
+
+        private void btnDirExplorer_Click(object sender, EventArgs e)
+        {
+            DirSizeExplorer dirSize = new DirSizeExplorer();
+            dirSize.Show();
+            dirSize.Focus();
+        }
+
+        private void btnInteliMonitor_Click(object sender, EventArgs e)
+        {
+            InteliMonitorConfig inteliMonitor = new InteliMonitorConfig();
+            inteliMonitor.Show();
+            inteliMonitor.Focus();
         }
     }
 }

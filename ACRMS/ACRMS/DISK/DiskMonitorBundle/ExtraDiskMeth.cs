@@ -16,8 +16,11 @@
 
         public static string SizeSuffix(string strval)
         {
+            if (strval == null){
+                return "0";
+            }
             double value = double.Parse(strval);
-            if (Math.Abs(value) < 0.0)
+            if (value.Equals(0.0))
             {
                 return "0";
             }

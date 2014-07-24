@@ -40,6 +40,8 @@
             // 
             // treeView
             // 
+            this.treeView.BackColor = System.Drawing.SystemColors.MenuText;
+            this.treeView.ForeColor = System.Drawing.SystemColors.Menu;
             this.treeView.Location = new System.Drawing.Point(12, 39);
             this.treeView.Name = "treeView";
             this.treeView.Size = new System.Drawing.Size(365, 230);
@@ -79,8 +81,8 @@
             this.btnClear.StyleManager = null;
             this.btnClear.TabIndex = 5;
             this.btnClear.Text = "Clear";
-            this.btnClear.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnClear.Click += new System.EventHandler(this.btnClear1_Click);
+            this.btnClear.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnStop
             // 
@@ -92,8 +94,8 @@
             this.btnStop.StyleManager = null;
             this.btnStop.TabIndex = 4;
             this.btnStop.Text = "Stop";
-            this.btnStop.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnStop.Click += new System.EventHandler(this.btnStop1_Click);
+            this.btnStop.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnStart
             // 
@@ -105,8 +107,8 @@
             this.btnStart.StyleManager = null;
             this.btnStart.TabIndex = 3;
             this.btnStart.Text = "Start";
-            this.btnStart.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnStart.Click += new System.EventHandler(this.btnStart1_Click);
+            this.btnStart.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // cBoxDriveList
             // 
@@ -122,8 +124,7 @@
             this.cBoxDriveList.Style = MetroFramework.MetroColorStyle.Blue;
             this.cBoxDriveList.StyleManager = null;
             this.cBoxDriveList.TabIndex = 2;
-            this.cBoxDriveList.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.cBoxDriveList.SelectedIndexChanged += new System.EventHandler(this.cBoxDriveList_SelectedIndexChanged);
+            this.cBoxDriveList.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // DirSizeExplorer
             // 
