@@ -1,16 +1,12 @@
-﻿using ACRMS.DISK.IntelliMon;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using ACRMS.DISK.DiskMonitorBundle;
 
 namespace ACRMS.DISK
 {
@@ -80,7 +76,7 @@ namespace ACRMS.DISK
             lblDiskTrans.Text = perfCountObj.DiskTransfers.ToString();
 
             lblDiskReadsBytes.Text = ExtraDiskMeth.SizeSuffix(perfCountObj.DiskReadsB.ToString());
-            lblDiskWriteBytes.Text = ExtraDiskMeth.SizeSuffix(perfCountObj.AvgDiskWriteB.ToString());
+            lblDiskWriteBytes.Text = ExtraDiskMeth.SizeSuffix(perfCountObj.DiskWritesB.ToString());
             lblDiskTransByte.Text = ExtraDiskMeth.SizeSuffix(perfCountObj.DiskTransB.ToString());
 
             lblAvgRead.Text = perfCountObj.AvgDiskRead.ToString();

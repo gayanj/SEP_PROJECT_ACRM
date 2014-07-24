@@ -708,7 +708,6 @@
             this.lblPartitions.Text = "---";
             this.lblPartitions.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lblPartitions.UseStyleColors = false;
-            this.lblPartitions.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // lblCapacity
             // 

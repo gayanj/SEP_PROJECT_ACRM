@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 
-namespace ACRMS.DISK
+namespace ACRMS.DISK.DiskMonitorBundle
 {
     class PerfCounterHD
     {
@@ -45,10 +41,10 @@ namespace ACRMS.DISK
 
         public PerfCounterHD(string maName)
         {
-            InitPerfCountersIO(maName);
-            InitPerfCountersQueue(maName);
-            InitPerfCountersTime(maName);
-            InitPerfCoutersAvg(maName);
+            this.InitPerfCountersIO(maName);
+            this.InitPerfCountersQueue(maName);
+            this.InitPerfCountersTime(maName);
+            this.InitPerfCoutersAvg(maName);
         }
 
         #region Counter Initialization
@@ -150,67 +146,67 @@ namespace ACRMS.DISK
         #endregion
 
         #region IO Returns
-        public float DiskReads { get { return diskReads.NextValue(); } }
-        public float DiskWrites { get { return diskWrites.NextValue(); } }
-        public float DiskTransfers { get { return diskTransfers.NextValue(); } }
-        public float DiskReadsB { get { return diskReadsB.NextValue(); } }
-        public float DiskWritesB { get { return diskWritesB.NextValue(); } }
-        public float DiskTransB { get { return diskTransB.NextValue(); } }
+        public float DiskReads { get { return this.diskReads.NextValue(); } }
+        public float DiskWrites { get { return this.diskWrites.NextValue(); } }
+        public float DiskTransfers { get { return this.diskTransfers.NextValue(); } }
+        public float DiskReadsB { get { return this.diskReadsB.NextValue(); } }
+        public float DiskWritesB { get { return this.diskWritesB.NextValue(); } }
+        public float DiskTransB { get { return this.diskTransB.NextValue(); } }
         #endregion
 
         #region Average IO Returns
-        public float AvgDiskRead { get { return avgDiskRead.NextValue(); } }
-        public float AvgDiskWrite { get { return avgDiskWrite.NextValue(); } }
-        public float AvgDiskTrans { get { return avgDiskTrans.NextValue(); } }
+        public float AvgDiskRead { get { return this.avgDiskRead.NextValue(); } }
+        public float AvgDiskWrite { get { return this.avgDiskWrite.NextValue(); } }
+        public float AvgDiskTrans { get { return this.avgDiskTrans.NextValue(); } }
 
-        public float AvgDiskReadB { get { return avgDiskReadB.NextValue(); } }
-        public float AvgDiskWriteB { get { return avgDiskWriteB.NextValue(); } }
-        public float AvgDiskTransB { get { return avgDiskTransB.NextValue(); } }
+        public float AvgDiskReadB { get { return this.avgDiskReadB.NextValue(); } }
+        public float AvgDiskWriteB { get { return this.avgDiskWriteB.NextValue(); } }
+        public float AvgDiskTransB { get { return this.avgDiskTransB.NextValue(); } }
         #endregion
 
         #region Queue Returns
-        public float AvgDiskQueue { get { return avgDiskQueue.NextValue(); } }
-        public float AvgDiskReadQueue { get { return avgDiskReadQueue.NextValue(); } }
-        public float AvgDiskWriteQueue { get { return avgDiskWriteQueue.NextValue(); } }
-        public float CurrQueueLen { get { return currQueueLen.NextValue(); } }
+        public float AvgDiskQueue { get { return this.avgDiskQueue.NextValue(); } }
+        public float AvgDiskReadQueue { get { return this.avgDiskReadQueue.NextValue(); } }
+        public float AvgDiskWriteQueue { get { return this.avgDiskWriteQueue.NextValue(); } }
+        public float CurrQueueLen { get { return this.currQueueLen.NextValue(); } }
         #endregion
 
         #region Time Returns
-        public float DiskTime { get { return diskTime.NextValue(); } }
-        public float DiskReadTime { get { return diskReadTime.NextValue(); } }
-        public float DiskWriteTime { get { return diskWriteTime.NextValue(); } }
-        public float DiskIdleTime { get { return diskIdleTime.NextValue(); } }
-        public float DiskIOSplit { get { return diskIOSplit.NextValue(); } }
+        public float DiskTime { get { return this.diskTime.NextValue(); } }
+        public float DiskReadTime { get { return this.diskReadTime.NextValue(); } }
+        public float DiskWriteTime { get { return this.diskWriteTime.NextValue(); } }
+        public float DiskIdleTime { get { return this.diskIdleTime.NextValue(); } }
+        public float DiskIOSplit { get { return this.diskIOSplit.NextValue(); } }
         #endregion
 
         public void destroyCounters()
         {
-            diskTime.Dispose();
-            diskReadTime.Dispose();
-            diskWriteTime.Dispose();
-            diskIdleTime.Dispose();
-            diskIOSplit.Dispose();
+            this.diskTime.Dispose();
+            this.diskReadTime.Dispose();
+            this.diskWriteTime.Dispose();
+            this.diskIdleTime.Dispose();
+            this.diskIOSplit.Dispose();
 
-            avgDiskQueue.Dispose();
-            avgDiskReadQueue.Dispose();
-            avgDiskWriteQueue.Dispose();
-            currQueueLen.Dispose();
+            this.avgDiskQueue.Dispose();
+            this.avgDiskReadQueue.Dispose();
+            this.avgDiskWriteQueue.Dispose();
+            this.currQueueLen.Dispose();
 
-            avgDiskRead.Dispose();
-            avgDiskWrite.Dispose();
-            avgDiskTrans.Dispose();
+            this.avgDiskRead.Dispose();
+            this.avgDiskWrite.Dispose();
+            this.avgDiskTrans.Dispose();
 
-            avgDiskReadB.Dispose();
-            avgDiskWriteB.Dispose();
-            avgDiskTransB.Dispose();
+            this.avgDiskReadB.Dispose();
+            this.avgDiskWriteB.Dispose();
+            this.avgDiskTransB.Dispose();
 
-            diskReadsB.Dispose();
-            diskWritesB.Dispose();
-            diskTransB.Dispose();
+            this.diskReadsB.Dispose();
+            this.diskWritesB.Dispose();
+            this.diskTransB.Dispose();
 
-            diskReads.Dispose();
-            diskTransfers.Dispose();
-            diskWrites.Dispose();
+            this.diskReads.Dispose();
+            this.diskTransfers.Dispose();
+            this.diskWrites.Dispose();
         }
 
     }

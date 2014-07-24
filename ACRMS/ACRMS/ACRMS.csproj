@@ -119,7 +119,8 @@
     <Compile Include="DISK\DiskPerformance.designer.cs">
       <DependentUpon>DiskPerformance.cs</DependentUpon>
     </Compile>
-    <Compile Include="DISK\ExtraDiskMeth.cs" />
+    <Compile Include="DISK\DiskMonitorBundle\DiskProperties.cs" />
+    <Compile Include="DISK\DiskMonitorBundle\ExtraDiskMeth.cs" />
     <Compile Include="DISK\FileSysMonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,9 +139,8 @@
     <Compile Include="DISK\IntelliMon\MonitorWindow.designer.cs">
       <DependentUpon>MonitorWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="DISK\PerfCounterHD.cs" />
-    <Compile Include="DISK\WMIConn.cs" />
-    <Compile Include="DISK\WMIDisk.cs" />
+    <Compile Include="DISK\DiskMonitorBundle\PerfCounterHD.cs" />
+    <Compile Include="DISK\DiskMonitorBundle\WmiDiskInfo.cs" />
     <Compile Include="NETWORK\IpHelper.cs" />
     <Compile Include="NETWORK\IPHlpAPI32.cs" />
     <Compile Include="NETWORK\ManagedIpHelper.cs" />
