@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ACRMS.DISK.IntelliMon
@@ -41,61 +33,6 @@ namespace ACRMS.DISK.IntelliMon
             this.updateStatusLbl();
         }
 
-        private void btnScanNetwork_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnManSearch_Click(object sender, EventArgs e)
-        {
-            string client = txtClientAddrs.Text.ToString();
-            try
-            {
-                IPHostEntry remoteAdd = Dns.GetHostEntry(client);
-                lblHostName.Text = remoteAdd.HostName.ToString();
-                lblHostIp.Text = client;
-            }
-            catch (SocketException ex)
-            {
-                MessageBox.Show("Invalid Address or Host Name. Please Recheck and Try Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            btnAddClientMnul.Enabled = true;
-        }
-
-        private void btnAddClient_Click(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void btnAddClientMnul_Click(object sender, EventArgs e)
-        {
-            string clientIp;
-            string clientName;
-            string hostName;
-            string hostIp;
-
-            clientIp = lblHostIp.Text;
-            IPHostEntry remoteadd = Dns.GetHostEntry(clientIp);
-            clientName = remoteadd.HostName.ToString();
-            hostName = Dns.GetHostName();
-            Ping ping = new Ping();
-            PingReply pingReply = ping.Send(hostName);
-            hostIp = pingReply.Address.ToString();
-
-            dsWatchlist.Tables[0].Rows.Add(clientName, clientIp, hostIp, DateTime.Now.Date.ToString().Substring(0, 9), true);
-
-            dgvWatchList.DataSource = dsWatchlist.Tables[0];
-
-            foreach (DataGridViewRow row in dgvWatchList.Rows)
-            {
-                row.Cells[0].Value = "Start";
-                row.Cells[1].Value = "Remove";
-                row.Cells[2].Value = "Enable";
-            }
-            dgvWatchList.Refresh();
-        }
-
         private void dgvWatchList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
@@ -114,13 +51,12 @@ namespace ACRMS.DISK.IntelliMon
                     MessageBox.Show("Monitoring is Disabled");
                 }
             }
-            if (e.ColumnIndex == 1)
+            else if (e.ColumnIndex == 1)
             {
                 dsWatchlist.Tables[0].Rows[e.RowIndex].Delete();
                 dgvWatchList.Refresh();
             }
-
-            if (e.ColumnIndex == 2)
+            else if (e.ColumnIndex == 2)
             {
                 if (dsWatchlist.Tables[0].Rows[e.RowIndex][4].Equals(true))
                 {
@@ -170,7 +106,7 @@ namespace ACRMS.DISK.IntelliMon
             }
         }
 
-        private void btnScanNetwork1_Click(object sender, EventArgs e)
+        private void btnScanNetwork_Click(object sender, EventArgs e)
         {
             int count = 0;
             string hostName = Dns.GetHostName();
@@ -189,26 +125,7 @@ namespace ACRMS.DISK.IntelliMon
             btnAddClient.Enabled = true;
         }
 
-        private void btnScanNetwork1_Click_1(object sender, EventArgs e)
-        {
-            int count = 0;
-            string hostName = Dns.GetHostName();
-            IPHostEntry ipHostEntry = Dns.GetHostEntry(hostName);
-
-            foreach (IPAddress ipAddr in ipHostEntry.AddressList)
-            {
-                if (ipAddr.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    IPHostEntry remoteAdd = Dns.GetHostEntry(ipAddr);
-                    listBoxClientList.Items.Add(remoteAdd.AddressList[count].ToString());
-                }
-                count++;
-            }
-            listBoxClientList.SelectedIndex = 0;
-            btnAddClient.Enabled = true;
-        }
-
-        private void btnAddClient1_Click(object sender, EventArgs e)
+        private void btnAddClient_Click(object sender, EventArgs e)
         {
             string clientIp;
             string clientName;
@@ -236,14 +153,14 @@ namespace ACRMS.DISK.IntelliMon
             dgvWatchList.Refresh();
         }
 
-        private void btnManSearch1_Click(object sender, EventArgs e)
+        private void btnManSearch_Click(object sender, EventArgs e)
         {
             string client = txtClientAddrs.Text.ToString();
             try
             {
                 IPHostEntry remoteAdd = Dns.GetHostEntry(client);
-                lblHostName.Text = remoteAdd.HostName.ToString();
-                lblHostIp.Text = client;
+                lblHostName.Text = remoteAdd.HostName;
+                lblHostIp.Text = remoteAdd.AddressList[0].ToString();
             }
             catch (SocketException ex)
             {
@@ -253,7 +170,7 @@ namespace ACRMS.DISK.IntelliMon
             btnAddClientMnul.Enabled = true;
         }
 
-        private void metroButton1_Click(object sender, EventArgs e)
+        private void btnAddClientMnul_Click(object sender, EventArgs e)
         {
             string clientIp;
             string clientName;

@@ -100,7 +100,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(0, 0);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(1113, 605);
+            this.metroPanel1.Size = new System.Drawing.Size(989, 605);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroPanel1.StyleManager = null;
             this.metroPanel1.TabIndex = 29;
@@ -684,7 +684,7 @@
             this.groupBox1.Controls.Add(this.hdlb20);
             this.groupBox1.Controls.Add(this.lblVolFreeSpc);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(804, 12);
+            this.groupBox1.Location = new System.Drawing.Point(680, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(297, 564);
             this.groupBox1.TabIndex = 127;
@@ -1124,7 +1124,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1113, 605);
+            this.ClientSize = new System.Drawing.Size(989, 605);
             this.Controls.Add(this.metroPanel1);
             this.MaximizeBox = false;
             this.Name = "DiskMainGUI";

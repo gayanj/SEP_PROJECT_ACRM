@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblStatus = new System.Windows.Forms.Label();
             this.dgvWatchList = new System.Windows.Forms.DataGridView();
             this.StartMonitor = new System.Windows.Forms.DataGridViewButtonColumn();
             this.removeRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.chngStatus = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.groupWatchList = new System.Windows.Forms.GroupBox();
             this.dsWatchlist = new System.Data.DataSet();
             this.clientList = new System.Data.DataTable();
             this.clientName = new System.Data.DataColumn();
@@ -42,31 +42,34 @@
             this.addedOn = new System.Data.DataColumn();
             this.state = new System.Data.DataColumn();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBoxClientList = new System.Windows.Forms.ListBox();
-            this.btnScanNetwork = new MetroFramework.Controls.MetroButton();
-            this.btnAddClient = new MetroFramework.Controls.MetroButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtClientAddrs = new System.Windows.Forms.TextBox();
-            this.lblHostName = new System.Windows.Forms.Label();
-            this.lblHostIp = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnManSearch = new MetroFramework.Controls.MetroButton();
-            this.btnAddClientMnul = new MetroFramework.Controls.MetroButton();
             this.groupConfig = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAddClientMnul = new MetroFramework.Controls.MetroButton();
+            this.btnManSearch = new MetroFramework.Controls.MetroButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblHostIp = new System.Windows.Forms.Label();
+            this.lblHostName = new System.Windows.Forms.Label();
+            this.txtClientAddrs = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddClient = new MetroFramework.Controls.MetroButton();
+            this.btnScanNetwork = new MetroFramework.Controls.MetroButton();
+            this.listBoxClientList = new System.Windows.Forms.ListBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWatchList)).BeginInit();
-            this.groupWatchList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsWatchlist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientList)).BeginInit();
             this.metroPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupConfig.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblStatus
             // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.AutoSize = true;
             this.lblStatus.BackColor = System.Drawing.Color.Red;
             this.lblStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -89,11 +92,19 @@
             this.StartMonitor,
             this.removeRow,
             this.chngStatus});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.MenuText;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvWatchList.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvWatchList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvWatchList.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvWatchList.Location = new System.Drawing.Point(3, 16);
             this.dgvWatchList.Name = "dgvWatchList";
-            this.dgvWatchList.Size = new System.Drawing.Size(811, 233);
+            this.dgvWatchList.Size = new System.Drawing.Size(791, 232);
             this.dgvWatchList.TabIndex = 5;
             this.dgvWatchList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWatchList_CellContentClick);
             // 
@@ -112,21 +123,6 @@
             // 
             this.chngStatus.HeaderText = "Enable/Disable";
             this.chngStatus.Name = "chngStatus";
-            // 
-            // groupWatchList
-            // 
-            this.groupWatchList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupWatchList.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupWatchList.Controls.Add(this.dgvWatchList);
-            this.groupWatchList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupWatchList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupWatchList.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupWatchList.Location = new System.Drawing.Point(0, 410);
-            this.groupWatchList.Name = "groupWatchList";
-            this.groupWatchList.Size = new System.Drawing.Size(817, 252);
-            this.groupWatchList.TabIndex = 5;
-            this.groupWatchList.TabStop = false;
-            this.groupWatchList.Text = "Watchlist";
             // 
             // dsWatchlist
             // 
@@ -172,6 +168,7 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.groupBox2);
             this.metroPanel1.Controls.Add(this.groupConfig);
             this.metroPanel1.CustomBackground = false;
             this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -181,7 +178,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(0, 0);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(817, 662);
+            this.metroPanel1.Size = new System.Drawing.Size(817, 579);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroPanel1.StyleManager = null;
             this.metroPanel1.TabIndex = 6;
@@ -191,62 +188,25 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
-            // groupBox1
+            // groupConfig
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupConfig.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.btnAddClient);
-            this.groupBox1.Controls.Add(this.btnScanNetwork);
-            this.groupBox1.Controls.Add(this.listBoxClientList);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Location = new System.Drawing.Point(77, 19);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(231, 325);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Search For Clients";
-            // 
-            // listBoxClientList
-            // 
-            this.listBoxClientList.BackColor = System.Drawing.SystemColors.Window;
-            this.listBoxClientList.FormattingEnabled = true;
-            this.listBoxClientList.Location = new System.Drawing.Point(6, 48);
-            this.listBoxClientList.Name = "listBoxClientList";
-            this.listBoxClientList.Size = new System.Drawing.Size(188, 238);
-            this.listBoxClientList.TabIndex = 2;
-            // 
-            // btnScanNetwork
-            // 
-            this.btnScanNetwork.Highlight = false;
-            this.btnScanNetwork.Location = new System.Drawing.Point(6, 20);
-            this.btnScanNetwork.Name = "btnScanNetwork";
-            this.btnScanNetwork.Size = new System.Drawing.Size(75, 23);
-            this.btnScanNetwork.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnScanNetwork.StyleManager = null;
-            this.btnScanNetwork.TabIndex = 6;
-            this.btnScanNetwork.Text = "Scan";
-            this.btnScanNetwork.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnScanNetwork.Click += new System.EventHandler(this.btnScanNetwork1_Click_1);
-            // 
-            // btnAddClient
-            // 
-            this.btnAddClient.Highlight = false;
-            this.btnAddClient.Location = new System.Drawing.Point(119, 296);
-            this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(75, 23);
-            this.btnAddClient.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnAddClient.StyleManager = null;
-            this.btnAddClient.TabIndex = 7;
-            this.btnAddClient.Text = "Add";
-            this.btnAddClient.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient1_Click);
+            this.groupConfig.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupConfig.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupConfig.Controls.Add(this.groupBox3);
+            this.groupConfig.Controls.Add(this.groupBox1);
+            this.groupConfig.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupConfig.Location = new System.Drawing.Point(12, 43);
+            this.groupConfig.Name = "groupConfig";
+            this.groupConfig.Size = new System.Drawing.Size(797, 265);
+            this.groupConfig.TabIndex = 4;
+            this.groupConfig.TabStop = false;
+            this.groupConfig.Text = "Configure";
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.btnAddClientMnul);
             this.groupBox3.Controls.Add(this.btnManSearch);
             this.groupBox3.Controls.Add(this.label1);
@@ -255,49 +215,38 @@
             this.groupBox3.Controls.Add(this.lblHostName);
             this.groupBox3.Controls.Add(this.txtClientAddrs);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox3.Location = new System.Drawing.Point(477, 19);
+            this.groupBox3.Location = new System.Drawing.Point(414, 19);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(225, 325);
+            this.groupBox3.Size = new System.Drawing.Size(377, 240);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Add Known Clients";
             // 
-            // txtClientAddrs
+            // btnAddClientMnul
             // 
-            this.txtClientAddrs.Location = new System.Drawing.Point(7, 20);
-            this.txtClientAddrs.Name = "txtClientAddrs";
-            this.txtClientAddrs.Size = new System.Drawing.Size(187, 20);
-            this.txtClientAddrs.TabIndex = 0;
+            this.btnAddClientMnul.Highlight = false;
+            this.btnAddClientMnul.Location = new System.Drawing.Point(296, 185);
+            this.btnAddClientMnul.Name = "btnAddClientMnul";
+            this.btnAddClientMnul.Size = new System.Drawing.Size(75, 23);
+            this.btnAddClientMnul.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnAddClientMnul.StyleManager = null;
+            this.btnAddClientMnul.TabIndex = 8;
+            this.btnAddClientMnul.Text = "Add";
+            this.btnAddClientMnul.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnAddClientMnul.Click += new System.EventHandler(this.btnAddClientMnul_Click);
             // 
-            // lblHostName
+            // btnManSearch
             // 
-            this.lblHostName.AutoSize = true;
-            this.lblHostName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHostName.Location = new System.Drawing.Point(80, 113);
-            this.lblHostName.Name = "lblHostName";
-            this.lblHostName.Size = new System.Drawing.Size(29, 20);
-            this.lblHostName.TabIndex = 2;
-            this.lblHostName.Text = "----";
-            // 
-            // lblHostIp
-            // 
-            this.lblHostIp.AutoSize = true;
-            this.lblHostIp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHostIp.Location = new System.Drawing.Point(80, 163);
-            this.lblHostIp.Name = "lblHostIp";
-            this.lblHostIp.Size = new System.Drawing.Size(29, 20);
-            this.lblHostIp.TabIndex = 3;
-            this.lblHostIp.Text = "----";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Client Name";
+            this.btnManSearch.Highlight = false;
+            this.btnManSearch.Location = new System.Drawing.Point(200, 20);
+            this.btnManSearch.Name = "btnManSearch";
+            this.btnManSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnManSearch.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnManSearch.StyleManager = null;
+            this.btnManSearch.TabIndex = 7;
+            this.btnManSearch.Text = "Validate";
+            this.btnManSearch.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnManSearch.Click += new System.EventHandler(this.btnManSearch_Click);
             // 
             // label1
             // 
@@ -309,53 +258,116 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Client IP";
             // 
-            // btnManSearch
+            // label2
             // 
-            this.btnManSearch.Highlight = false;
-            this.btnManSearch.Location = new System.Drawing.Point(119, 48);
-            this.btnManSearch.Name = "btnManSearch";
-            this.btnManSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnManSearch.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnManSearch.StyleManager = null;
-            this.btnManSearch.TabIndex = 7;
-            this.btnManSearch.Text = "Validate";
-            this.btnManSearch.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnManSearch.Click += new System.EventHandler(this.btnManSearch1_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Client Name";
             // 
-            // btnAddClientMnul
+            // lblHostIp
             // 
-            this.btnAddClientMnul.Highlight = false;
-            this.btnAddClientMnul.Location = new System.Drawing.Point(119, 296);
-            this.btnAddClientMnul.Name = "btnAddClientMnul";
-            this.btnAddClientMnul.Size = new System.Drawing.Size(75, 23);
-            this.btnAddClientMnul.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnAddClientMnul.StyleManager = null;
-            this.btnAddClientMnul.TabIndex = 8;
-            this.btnAddClientMnul.Text = "Add";
-            this.btnAddClientMnul.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnAddClientMnul.Click += new System.EventHandler(this.metroButton1_Click);
+            this.lblHostIp.AutoSize = true;
+            this.lblHostIp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHostIp.Location = new System.Drawing.Point(115, 136);
+            this.lblHostIp.Name = "lblHostIp";
+            this.lblHostIp.Size = new System.Drawing.Size(29, 20);
+            this.lblHostIp.TabIndex = 3;
+            this.lblHostIp.Text = "----";
             // 
-            // groupConfig
+            // lblHostName
             // 
-            this.groupConfig.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupConfig.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupConfig.Controls.Add(this.groupBox3);
-            this.groupConfig.Controls.Add(this.groupBox1);
-            this.groupConfig.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupConfig.Location = new System.Drawing.Point(12, 57);
-            this.groupConfig.Name = "groupConfig";
-            this.groupConfig.Size = new System.Drawing.Size(797, 350);
-            this.groupConfig.TabIndex = 4;
-            this.groupConfig.TabStop = false;
-            this.groupConfig.Text = "Configure";
+            this.lblHostName.AutoSize = true;
+            this.lblHostName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHostName.Location = new System.Drawing.Point(115, 83);
+            this.lblHostName.Name = "lblHostName";
+            this.lblHostName.Size = new System.Drawing.Size(29, 20);
+            this.lblHostName.TabIndex = 2;
+            this.lblHostName.Text = "----";
+            // 
+            // txtClientAddrs
+            // 
+            this.txtClientAddrs.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtClientAddrs.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtClientAddrs.Location = new System.Drawing.Point(7, 20);
+            this.txtClientAddrs.Name = "txtClientAddrs";
+            this.txtClientAddrs.Size = new System.Drawing.Size(187, 20);
+            this.txtClientAddrs.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnAddClient);
+            this.groupBox1.Controls.Add(this.btnScanNetwork);
+            this.groupBox1.Controls.Add(this.listBoxClientList);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Location = new System.Drawing.Point(6, 19);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(402, 240);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Search For Clients";
+            // 
+            // btnAddClient
+            // 
+            this.btnAddClient.Highlight = false;
+            this.btnAddClient.Location = new System.Drawing.Point(321, 185);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(75, 23);
+            this.btnAddClient.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnAddClient.StyleManager = null;
+            this.btnAddClient.TabIndex = 7;
+            this.btnAddClient.Text = "Add";
+            this.btnAddClient.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
+            // 
+            // btnScanNetwork
+            // 
+            this.btnScanNetwork.Highlight = false;
+            this.btnScanNetwork.Location = new System.Drawing.Point(6, 20);
+            this.btnScanNetwork.Name = "btnScanNetwork";
+            this.btnScanNetwork.Size = new System.Drawing.Size(75, 23);
+            this.btnScanNetwork.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnScanNetwork.StyleManager = null;
+            this.btnScanNetwork.TabIndex = 6;
+            this.btnScanNetwork.Text = "Scan";
+            this.btnScanNetwork.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnScanNetwork.Click += new System.EventHandler(this.btnScanNetwork_Click);
+            // 
+            // listBoxClientList
+            // 
+            this.listBoxClientList.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.listBoxClientList.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxClientList.ForeColor = System.Drawing.SystemColors.Window;
+            this.listBoxClientList.FormattingEnabled = true;
+            this.listBoxClientList.ItemHeight = 18;
+            this.listBoxClientList.Location = new System.Drawing.Point(6, 48);
+            this.listBoxClientList.Name = "listBoxClientList";
+            this.listBoxClientList.Size = new System.Drawing.Size(309, 148);
+            this.listBoxClientList.TabIndex = 2;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox2.Controls.Add(this.dgvWatchList);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox2.Location = new System.Drawing.Point(12, 314);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(797, 251);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Watchlist";
             // 
             // InteliMonitorConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(817, 662);
-            this.Controls.Add(this.groupWatchList);
+            this.ClientSize = new System.Drawing.Size(817, 579);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.metroPanel1);
             this.Name = "InteliMonitorConfig";
@@ -363,14 +375,14 @@
             this.Text = "Intelli Monitor - Configure";
             this.Load += new System.EventHandler(this.InteliMonitorConfig_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWatchList)).EndInit();
-            this.groupWatchList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dsWatchlist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientList)).EndInit();
             this.metroPanel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.groupConfig.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupConfig.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,7 +392,6 @@
 
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.DataGridView dgvWatchList;
-        private System.Windows.Forms.GroupBox groupWatchList;
         private System.Data.DataSet dsWatchlist;
         private System.Data.DataTable clientList;
         private System.Data.DataColumn clientName;
@@ -405,5 +416,6 @@
         private MetroFramework.Controls.MetroButton btnAddClient;
         private MetroFramework.Controls.MetroButton btnScanNetwork;
         private System.Windows.Forms.ListBox listBoxClientList;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

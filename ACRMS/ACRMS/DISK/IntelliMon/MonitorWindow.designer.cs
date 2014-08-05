@@ -50,7 +50,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(0, 0);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(231, 115);
+            this.metroPanel1.Size = new System.Drawing.Size(227, 111);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroPanel1.StyleManager = null;
             this.metroPanel1.TabIndex = 5;
@@ -69,7 +69,7 @@
             this.lblTimer.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTimer.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblTimer.Location = new System.Drawing.Point(83, 9);
+            this.lblTimer.Location = new System.Drawing.Point(82, 9);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(74, 25);
             this.lblTimer.Style = MetroFramework.MetroColorStyle.Blue;
@@ -127,15 +127,15 @@
             this.btnStop.StyleManager = null;
             this.btnStop.TabIndex = 2;
             this.btnStop.Text = "Stop";
-            this.btnStop.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnStop.Click += new System.EventHandler(this.btnStop1_Click);
+            this.btnStop.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // MonitorWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(231, 115);
+            this.ClientSize = new System.Drawing.Size(227, 111);
             this.ControlBox = false;
             this.Controls.Add(this.metroPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

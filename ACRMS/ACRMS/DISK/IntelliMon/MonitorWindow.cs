@@ -22,16 +22,7 @@ namespace ACRMS.DISK.IntelliMon
             perfCounter = new PerfCounterHD(clientName);
             InitializeComponent();
         }
-
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            perfCounter.destroyCounters();
-            stw.Stop();
-            stw.Reset();
-            timer.Dispose();
-            this.Close();
-        }
-
+        
         private void MonitorWindow_Load(object sender, EventArgs e)
         {
             timer = new Timer { Enabled = true, Interval = 1000 };
@@ -49,7 +40,7 @@ namespace ACRMS.DISK.IntelliMon
             lblTimer.Text = stw.Elapsed.ToString().Substring(0, 8);
         }
 
-        private void btnStop1_Click(object sender, EventArgs e)
+        private void btnStop_Click(object sender, EventArgs e)
         {
             perfCounter.destroyCounters();
             stw.Stop();

@@ -27,7 +27,7 @@ namespace ACRMS.DISK
             InitializeComponent();
         }
 
-        //Initialize the window, DataTable to Store MonitorData and the Chart
+        // Initialize the window, DataTable to Store MonitorData and the Chart
         private void DiskPerformance_Load(object sender, EventArgs e)
         {
             stopW = new Stopwatch();
@@ -37,10 +37,10 @@ namespace ACRMS.DISK
 
             this.setTableChart();
             this.fillHostList();
-            this.disableButtons(false);
+            this.enableButtons(false);
         }
 
-        private void disableButtons(bool status)
+        private void enableButtons(bool status)
         {
             btnAvgTrans.Enabled = status;
             btnDiskQueue.Enabled = status;
@@ -58,15 +58,15 @@ namespace ACRMS.DISK
 
             lblTransMax.Text = "0.0";
             
-            stopW.Start(); //ready the clock
+            stopW.Start(); // ready the clock
 
-            this.disableButtons(true);
+            this.enableButtons(true);
 
             timer = new Timer { Enabled = true, Interval = 1000 };
             timer.Tick += t_Tick;
         }
 
-        //Update Labels, the Graph at 1 Second Interval
+        // Update Labels, the Graph at 1 Second Interval
         void t_Tick(object sender, EventArgs e)
         {
             lblElapsedTime.Text = stopW.Elapsed.ToString().Substring(0, 8);
@@ -138,15 +138,15 @@ namespace ACRMS.DISK
             HDchart.Series["% Disk Time (10)"].XValueMember = "Count";
             HDchart.Series["% Disk Time (10)"].YValueMembers = "Disk Time";
 
-            HDchart.Series.Add("Avg. Disk Queue (100)");
-            HDchart.Series["Avg. Disk Queue (100)"].ChartType = SeriesChartType.Line;
-            HDchart.Series["Avg. Disk Queue (100)"].XValueMember = "Count";
-            HDchart.Series["Avg. Disk Queue (100)"].YValueMembers = "Avg Disk Queue";
+            HDchart.Series.Add("Avg. Disk Queue (10)");
+            HDchart.Series["Avg. Disk Queue (10)"].ChartType = SeriesChartType.Line;
+            HDchart.Series["Avg. Disk Queue (10)"].XValueMember = "Count";
+            HDchart.Series["Avg. Disk Queue (10)"].YValueMembers = "Avg Disk Queue";
 
-            HDchart.Series.Add("Avg. Transfer Req (1000)");
-            HDchart.Series["Avg. Transfer Req (1000)"].ChartType = SeriesChartType.Line;
-            HDchart.Series["Avg. Transfer Req (1000)"].XValueMember = "Count";
-            HDchart.Series["Avg. Transfer Req (1000)"].YValueMembers = "Avg Transfer Req";
+            HDchart.Series.Add("Avg. Transfer Req (100)");
+            HDchart.Series["Avg. Transfer Req (100)"].ChartType = SeriesChartType.Line;
+            HDchart.Series["Avg. Transfer Req (100)"].XValueMember = "Count";
+            HDchart.Series["Avg. Transfer Req (100)"].YValueMembers = "Avg Transfer Req";
 
             HDchart.ChartAreas[0].AxisY.Maximum = 100;
             HDchart.ChartAreas[0].AxisX.Minimum = 0;
@@ -162,7 +162,7 @@ namespace ACRMS.DISK
         private void updateChart()
         {
             recordTable.Rows.Add(updateCount, float.Parse(lblIdleTime.Text), float.Parse(lblDiskTime.Text) * 10,
-                float.Parse(lblAvgDiskQ.Text) * 100, float.Parse(lblAvgTrans.Text) * 1000);
+                float.Parse(lblAvgDiskQ.Text) * 10, float.Parse(lblAvgTrans.Text) * 100);
 
             try
             {
@@ -185,7 +185,7 @@ namespace ACRMS.DISK
 
             btnStop.Enabled = false;
             btnStart.Enabled = true;
-            this.disableButtons(false);
+            this.enableButtons(false);
             
             timer.Dispose();
         }
@@ -277,6 +277,7 @@ namespace ACRMS.DISK
                 HDchart.Series["Avg. Transfer Req (1000)"].Enabled = true;
                 isAvgTransEnabled = true;
             }
+            
         }
     }
 }

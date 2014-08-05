@@ -39,12 +39,12 @@ namespace ACRMS.DISK.DiskMonitorBundle
         private PerformanceCounter diskIOSplit = new PerformanceCounter();
         #endregion
 
-        public PerfCounterHD(string maName)
+        public PerfCounterHD(string machineName)
         {
-            this.InitPerfCountersIO(maName);
-            this.InitPerfCountersQueue(maName);
-            this.InitPerfCountersTime(maName);
-            this.InitPerfCoutersAvg(maName);
+            this.InitPerfCountersIO(machineName);
+            this.InitPerfCountersQueue(machineName);
+            this.InitPerfCountersTime(machineName);
+            this.InitPerfCoutersAvg(machineName);
         }
 
         #region Counter Initialization
