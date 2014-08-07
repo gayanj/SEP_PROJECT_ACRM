@@ -1,4 +1,4 @@
-﻿namespace ACRMS.DISK.DiskMonitorBundle
+﻿namespace ACRMS.DISK.DiskDataHandler
 {
     using System;
 
@@ -16,7 +16,8 @@
 
         public static string SizeSuffix(string strval)
         {
-            if (strval == null){
+            if (strval == null)
+            {
                 return "0";
             }
             double value = double.Parse(strval);

@@ -1,4 +1,4 @@
-﻿namespace ACRMS.DISK.DiskMonitorBundle
+﻿namespace ACRMS.DISK.DiskDataHandler
 {
     using System.Collections;
     using System.Management;
@@ -17,7 +17,7 @@
                                         EnablePrivileges = true
                                     };
         }
-        
+
         public ArrayList GetDiskModelList(string hostName)
         {
             this.managementScope = new ManagementScope
@@ -51,6 +51,7 @@
             {
                 var managementObject = (ManagementObject)o;
                 diskProperties.Model = managementObject["Model"].ToString();
+
                 //diskProperties.BytesPerSector = managementObject["BytesPerSector"].ToString();
                 //diskProperties.FirmwareRevision = managementObject["FirmwareRevision"].ToString();
                 //diskProperties.InterfaceType = managementObject["InterfaceType"].ToString();
@@ -59,8 +60,10 @@
                 //diskProperties.NoOfPartitions = managementObject["Partitions"].ToString();
                 //diskProperties.SectorsPerTrack = managementObject["SectorsPerTrack"].ToString();
                 diskProperties.SerialNumber = managementObject["SerialNumber"].ToString();
+
                 //diskProperties.Size = managementObject["Capacity"].ToString();
                 diskProperties.TotalCylinders = managementObject["TotalCylinders"].ToString();
+
                 //diskProperties.TotalHeads = managementObject["TotalHeads"].ToString();
                 //diskProperties.TotalSectors = managementObject["TotalSectors"].ToString();
                 //diskProperties.TotalTracks = managementObject["TotalTracks"].ToString();

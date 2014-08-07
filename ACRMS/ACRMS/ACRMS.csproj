@@ -107,6 +107,8 @@
     <Compile Include="DISK\DirSizeExplorer.designer.cs">
       <DependentUpon>DirSizeExplorer.cs</DependentUpon>
     </Compile>
+    <Compile Include="DISK\DiskDataHandler\DiskDataQueue.cs" />
+    <Compile Include="DISK\DiskDataHandler\DiskDataValues.cs" />
     <Compile Include="DISK\DiskMainGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,7 +121,7 @@
     <Compile Include="DISK\DiskPerformance.designer.cs">
       <DependentUpon>DiskPerformance.cs</DependentUpon>
     </Compile>
-    <Compile Include="DISK\DiskMonitorBundle\DiskProperties.cs" />
+    <Compile Include="DISK\DiskDataHandler\DiskProperties.cs" />
     <Compile Include="DISK\DiskMonitorBundle\ExtraDiskMeth.cs" />
     <Compile Include="DISK\FileSysMonForm.cs">
       <SubType>Form</SubType>

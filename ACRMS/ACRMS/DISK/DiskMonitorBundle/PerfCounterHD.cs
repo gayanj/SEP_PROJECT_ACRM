@@ -1,43 +1,50 @@
 ﻿using System.Diagnostics;
+using ACRMS.DISK.DiskDataHandler;
 
 namespace ACRMS.DISK.DiskMonitorBundle
 {
-    class PerfCounterHD
+    public class PerfCounterHD
     {
         #region IO Counters Definition
-        private PerformanceCounter diskReads = new PerformanceCounter();
-        private PerformanceCounter diskWrites = new PerformanceCounter();
-        private PerformanceCounter diskTransfers = new PerformanceCounter();
 
+        private PerformanceCounter diskReads = new PerformanceCounter();
         private PerformanceCounter diskReadsB = new PerformanceCounter();
-        private PerformanceCounter diskWritesB = new PerformanceCounter();
         private PerformanceCounter diskTransB = new PerformanceCounter();
-        #endregion
+        private PerformanceCounter diskTransfers = new PerformanceCounter();
+        private PerformanceCounter diskWrites = new PerformanceCounter();
+        private PerformanceCounter diskWritesB = new PerformanceCounter();
+
+        #endregion IO Counters Definition
 
         #region Average IO Counters Definition
-        private PerformanceCounter avgDiskRead = new PerformanceCounter();
-        private PerformanceCounter avgDiskWrite = new PerformanceCounter();
-        private PerformanceCounter avgDiskTrans = new PerformanceCounter();
 
+        private PerformanceCounter avgDiskRead = new PerformanceCounter();
         private PerformanceCounter avgDiskReadB = new PerformanceCounter();
-        private PerformanceCounter avgDiskWriteB = new PerformanceCounter();
+        private PerformanceCounter avgDiskTrans = new PerformanceCounter();
         private PerformanceCounter avgDiskTransB = new PerformanceCounter();
-        #endregion
+        private PerformanceCounter avgDiskWrite = new PerformanceCounter();
+        private PerformanceCounter avgDiskWriteB = new PerformanceCounter();
+
+        #endregion Average IO Counters Definition
 
         #region Queue Counters Definition
+
         private PerformanceCounter avgDiskQueue = new PerformanceCounter();
         private PerformanceCounter avgDiskReadQueue = new PerformanceCounter();
         private PerformanceCounter avgDiskWriteQueue = new PerformanceCounter();
         private PerformanceCounter currQueueLen = new PerformanceCounter();
-        #endregion
+
+        #endregion Queue Counters Definition
 
         #region Time Counters Definitions
-        private PerformanceCounter diskTime = new PerformanceCounter();
-        private PerformanceCounter diskReadTime = new PerformanceCounter();
-        private PerformanceCounter diskWriteTime = new PerformanceCounter();
+
         private PerformanceCounter diskIdleTime = new PerformanceCounter();
         private PerformanceCounter diskIOSplit = new PerformanceCounter();
-        #endregion
+        private PerformanceCounter diskReadTime = new PerformanceCounter();
+        private PerformanceCounter diskTime = new PerformanceCounter();
+        private PerformanceCounter diskWriteTime = new PerformanceCounter();
+
+        #endregion Time Counters Definitions
 
         public PerfCounterHD(string machineName)
         {
@@ -48,6 +55,53 @@ namespace ACRMS.DISK.DiskMonitorBundle
         }
 
         #region Counter Initialization
+
+        private void InitPerfCountersIO(string machineName)
+        {
+            this.diskReads.CategoryName = "PhysicalDisk";
+            this.diskReads.CounterName = "Disk Reads/sec";
+            this.diskReads.InstanceName = "_Total";
+
+            this.diskWrites.CategoryName = "PhysicalDisk";
+            this.diskWrites.CounterName = "Disk Writes/sec";
+            this.diskWrites.InstanceName = "_Total";
+
+            this.diskTransfers.CategoryName = "PhysicalDisk";
+            this.diskTransfers.CounterName = "Disk Transfers/sec";
+            this.diskTransfers.InstanceName = "_Total";
+
+            this.diskReadsB.CategoryName = "PhysicalDisk";
+            this.diskReadsB.CounterName = "Disk Read Bytes/sec";
+            this.diskReadsB.InstanceName = "_Total";
+
+            this.diskWritesB.CategoryName = "PhysicalDisk";
+            this.diskWritesB.CounterName = "Disk Write Bytes/sec";
+            this.diskWritesB.InstanceName = "_Total";
+
+            this.diskTransB.CategoryName = "PhysicalDisk";
+            this.diskTransB.CounterName = "Disk Bytes/sec";
+            this.diskTransB.InstanceName = "_Total";
+        }
+
+        private void InitPerfCountersQueue(string machineName)
+        {
+            this.avgDiskQueue.CategoryName = "PhysicalDisk";
+            this.avgDiskQueue.CounterName = "Avg. Disk Queue Length";
+            this.avgDiskQueue.InstanceName = "_Total";
+
+            this.avgDiskReadQueue.CategoryName = "PhysicalDisk";
+            this.avgDiskReadQueue.CounterName = "Avg. Disk Read Queue Length";
+            this.avgDiskReadQueue.InstanceName = "_Total";
+
+            this.avgDiskWriteQueue.CategoryName = "PhysicalDisk";
+            this.avgDiskWriteQueue.CounterName = "Avg. Disk Write Queue Length";
+            this.avgDiskWriteQueue.InstanceName = "_Total";
+
+            this.currQueueLen.CategoryName = "PhysicalDisk";
+            this.currQueueLen.CounterName = "Current Disk Queue Length";
+            this.currQueueLen.InstanceName = "_Total";
+        }
+
         private void InitPerfCountersTime(string machineName)
         {
             this.diskTime.CategoryName = "PhysicalDisk";
@@ -69,25 +123,6 @@ namespace ACRMS.DISK.DiskMonitorBundle
             this.diskIOSplit.CategoryName = "PhysicalDisk";
             this.diskIOSplit.CounterName = "Split IO/Sec";
             this.diskIOSplit.InstanceName = "_Total";
-        }
-
-        private void InitPerfCountersQueue(string machineName)
-        {
-            this.avgDiskQueue.CategoryName = "PhysicalDisk";
-            this.avgDiskQueue.CounterName = "Avg. Disk Queue Length";
-            this.avgDiskQueue.InstanceName = "_Total";
-
-            this.avgDiskReadQueue.CategoryName = "PhysicalDisk";
-            this.avgDiskReadQueue.CounterName = "Avg. Disk Read Queue Length";
-            this.avgDiskReadQueue.InstanceName = "_Total";
-
-            this.avgDiskWriteQueue.CategoryName = "PhysicalDisk";
-            this.avgDiskWriteQueue.CounterName = "Avg. Disk Write Queue Length";
-            this.avgDiskWriteQueue.InstanceName = "_Total";
-
-            this.currQueueLen.CategoryName = "PhysicalDisk";
-            this.currQueueLen.CounterName = "Current Disk Queue Length";
-            this.currQueueLen.InstanceName = "_Total";
         }
 
         private void InitPerfCoutersAvg(string machineName)
@@ -117,69 +152,67 @@ namespace ACRMS.DISK.DiskMonitorBundle
             this.avgDiskTransB.InstanceName = "_Total";
         }
 
-        private void InitPerfCountersIO(string machineName)
-        {
-            this.diskReads.CategoryName = "PhysicalDisk";
-            this.diskReads.CounterName = "Disk Reads/sec";
-            this.diskReads.InstanceName = "_Total";
-
-            this.diskWrites.CategoryName = "PhysicalDisk";
-            this.diskWrites.CounterName = "Disk Writes/sec";
-            this.diskWrites.InstanceName = "_Total";
-
-            this.diskTransfers.CategoryName = "PhysicalDisk";
-            this.diskTransfers.CounterName = "Disk Transfers/sec";
-            this.diskTransfers.InstanceName = "_Total";
-
-            this.diskReadsB.CategoryName = "PhysicalDisk";
-            this.diskReadsB.CounterName = "Disk Read Bytes/sec";
-            this.diskReadsB.InstanceName = "_Total";
-
-            this.diskWritesB.CategoryName = "PhysicalDisk";
-            this.diskWritesB.CounterName = "Disk Write Bytes/sec";
-            this.diskWritesB.InstanceName = "_Total";
-
-            this.diskTransB.CategoryName = "PhysicalDisk";
-            this.diskTransB.CounterName = "Disk Bytes/sec";
-            this.diskTransB.InstanceName = "_Total";
-        }
-        #endregion
+        #endregion Counter Initialization
 
         #region IO Returns
-        public float DiskReads { get { return this.diskReads.NextValue(); } }
-        public float DiskWrites { get { return this.diskWrites.NextValue(); } }
-        public float DiskTransfers { get { return this.diskTransfers.NextValue(); } }
-        public float DiskReadsB { get { return this.diskReadsB.NextValue(); } }
-        public float DiskWritesB { get { return this.diskWritesB.NextValue(); } }
-        public float DiskTransB { get { return this.diskTransB.NextValue(); } }
-        #endregion
+
+        private float DiskReads { get { return this.diskReads.NextValue(); } }
+
+        private float DiskReadsB { get { return this.diskReadsB.NextValue(); } }
+
+        private float DiskTransB { get { return this.diskTransB.NextValue(); } }
+
+        private float DiskTransfers { get { return this.diskTransfers.NextValue(); } }
+
+        private float DiskWrites { get { return this.diskWrites.NextValue(); } }
+
+        private float DiskWritesB { get { return this.diskWritesB.NextValue(); } }
+
+        #endregion IO Returns
 
         #region Average IO Returns
-        public float AvgDiskRead { get { return this.avgDiskRead.NextValue(); } }
-        public float AvgDiskWrite { get { return this.avgDiskWrite.NextValue(); } }
-        public float AvgDiskTrans { get { return this.avgDiskTrans.NextValue(); } }
 
-        public float AvgDiskReadB { get { return this.avgDiskReadB.NextValue(); } }
-        public float AvgDiskWriteB { get { return this.avgDiskWriteB.NextValue(); } }
-        public float AvgDiskTransB { get { return this.avgDiskTransB.NextValue(); } }
-        #endregion
+        private float AvgDiskRead { get { return this.avgDiskRead.NextValue(); } }
+
+        private float AvgDiskReadB { get { return this.avgDiskReadB.NextValue(); } }
+
+        private float AvgDiskTrans { get { return this.avgDiskTrans.NextValue(); } }
+
+        private float AvgDiskTransB { get { return this.avgDiskTransB.NextValue(); } }
+
+        private float AvgDiskWrite { get { return this.avgDiskWrite.NextValue(); } }
+
+        private float AvgDiskWriteB { get { return this.avgDiskWriteB.NextValue(); } }
+
+        #endregion Average IO Returns
 
         #region Queue Returns
-        public float AvgDiskQueue { get { return this.avgDiskQueue.NextValue(); } }
-        public float AvgDiskReadQueue { get { return this.avgDiskReadQueue.NextValue(); } }
-        public float AvgDiskWriteQueue { get { return this.avgDiskWriteQueue.NextValue(); } }
-        public float CurrQueueLen { get { return this.currQueueLen.NextValue(); } }
-        #endregion
+
+        private float AvgDiskQueue { get { return this.avgDiskQueue.NextValue(); } }
+
+        private float AvgDiskReadQueue { get { return this.avgDiskReadQueue.NextValue(); } }
+
+        private float AvgDiskWriteQueue { get { return this.avgDiskWriteQueue.NextValue(); } }
+
+        private float CurrQueueLen { get { return this.currQueueLen.NextValue(); } }
+
+        #endregion Queue Returns
 
         #region Time Returns
-        public float DiskTime { get { return this.diskTime.NextValue(); } }
-        public float DiskReadTime { get { return this.diskReadTime.NextValue(); } }
-        public float DiskWriteTime { get { return this.diskWriteTime.NextValue(); } }
-        public float DiskIdleTime { get { return this.diskIdleTime.NextValue(); } }
-        public float DiskIOSplit { get { return this.diskIOSplit.NextValue(); } }
-        #endregion
 
-        public void destroyCounters()
+        private float DiskIdleTime { get { return this.diskIdleTime.NextValue(); } }
+
+        private float DiskIOSplit { get { return this.diskIOSplit.NextValue(); } }
+
+        private float DiskReadTime { get { return this.diskReadTime.NextValue(); } }
+
+        private float DiskTime { get { return this.diskTime.NextValue(); } }
+
+        private float DiskWriteTime { get { return this.diskWriteTime.NextValue(); } }
+
+        #endregion Time Returns
+
+        public void DestroyCounters()
         {
             this.diskTime.Dispose();
             this.diskReadTime.Dispose();
@@ -209,5 +242,33 @@ namespace ACRMS.DISK.DiskMonitorBundle
             this.diskWrites.Dispose();
         }
 
+        public DiskDataValues GetValues()
+        {
+            DiskDataValues diskDataValues = new DiskDataValues();
+
+            diskDataValues.DiskReads = this.DiskReads;
+            diskDataValues.DiskWrites = this.DiskWrites;
+            diskDataValues.DiskTransfers = this.DiskTransfers;
+            diskDataValues.DiskReadsB = this.DiskReadsB;
+            diskDataValues.DiskWritesB = this.DiskWritesB;
+            diskDataValues.DiskTransB = this.DiskTransB;
+            diskDataValues.AvgDiskRead = this.AvgDiskRead;
+            diskDataValues.AvgDiskWrite = this.AvgDiskWrite;
+            diskDataValues.AvgDiskTrans = this.AvgDiskTrans;
+            diskDataValues.AvgDiskReadB = this.AvgDiskReadB;
+            diskDataValues.AvgDiskWriteB = this.AvgDiskReadB;
+            diskDataValues.AvgDiskTransB = this.AvgDiskReadB;
+            diskDataValues.AvgDiskQueue = this.AvgDiskQueue;
+            diskDataValues.AvgDiskReadQueue = this.AvgDiskReadQueue;
+            diskDataValues.AvgDiskWriteQueue = this.AvgDiskReadQueue;
+            diskDataValues.CurrQueueLen = this.CurrQueueLen;
+            diskDataValues.DiskTime = this.DiskTime;
+            diskDataValues.DiskReadTime = this.DiskReadTime;
+            diskDataValues.DiskWriteTime = this.DiskWriteTime;
+            diskDataValues.DiskIdleTime = this.DiskIdleTime;
+            diskDataValues.DiskIoSplit = this.DiskIOSplit;
+
+            return diskDataValues;
+        }
     }
 }

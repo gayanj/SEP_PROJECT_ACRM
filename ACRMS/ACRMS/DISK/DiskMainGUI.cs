@@ -8,7 +8,7 @@ using ACRMS.DISK.IntelliMon;
 
 namespace ACRMS.DISK
 {
-    using ACRMS.DISK.DiskMonitorBundle;
+    using ACRMS.DISK.DiskDataHandler;
 
     public partial class DiskMainGUI : Form
     {
