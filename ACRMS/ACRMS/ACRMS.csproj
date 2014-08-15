@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="DISK\DiskDataHandler\DiskDataQueue.cs" />
     <Compile Include="DISK\DiskDataHandler\DiskDataValues.cs" />
+    <Compile Include="DISK\DiskDataHandler\TextWriter.cs" />
     <Compile Include="DISK\DiskMainGUI.cs">
       <SubType>Form</SubType>
     </Compile>

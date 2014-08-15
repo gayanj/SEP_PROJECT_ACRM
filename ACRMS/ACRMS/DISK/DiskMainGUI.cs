@@ -55,10 +55,18 @@ namespace ACRMS.DISK
         {
             DiskProperties diskProperties = wd.GetDiskProperties(phyDiskComBox.SelectedItem.ToString());
             lblModel.Text = diskProperties.Model.Trim();
-            //lblCapacity.Text = diskProperties.Size.Trim();
-            lblCylinder.Text = diskProperties.TotalCylinders.Trim();
-            lblBperSec.Text = ExtraDiskMeth.SizeSuffix(diskProperties.BytesPerSector);
             lblSerial.Text = diskProperties.SerialNumber.Trim();
+            lblInterface.Text = diskProperties.InterfaceType.Trim();
+            lblCapacity.Text = diskProperties.Size.Trim();
+            lblPartitions.Text = diskProperties.NoOfPartitions.Trim();
+            this.lblFirmware.Text = diskProperties.FirmwareRevision != null ? diskProperties.FirmwareRevision.Trim() : "NotFound";
+            lblSectors.Text = diskProperties.TotalSectors.Trim();
+            lblTracks.Text = diskProperties.TotalTracks.Trim();
+            lblBperSec.Text = ExtraDiskMeth.SizeSuffix(diskProperties.BytesPerSector);
+            lblSecPerTrack.Text = diskProperties.SectorsPerTrack.Trim();
+            lblTrackPerCyl.Text = diskProperties.TracksPerCylinser.Trim();
+            lblHeads.Text = diskProperties.TotalHeads.Trim();
+            lblCylinder.Text = diskProperties.TotalCylinders.Trim();
         }
 
         private void volumeListCombo_SelectedIndexChanged(object sender, EventArgs e)
