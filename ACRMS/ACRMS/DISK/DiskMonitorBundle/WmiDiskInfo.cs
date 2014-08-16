@@ -1,8 +1,9 @@
-﻿namespace ACRMS.DISK.DiskDataHandler
+﻿namespace ACRMS.DISK.DiskMonitorBundle
 {
-    using System;
     using System.Collections;
     using System.Management;
+
+    using ACRMS.DISK.DiskDataHandler;
 
     public class WmiDiskInfo
     {

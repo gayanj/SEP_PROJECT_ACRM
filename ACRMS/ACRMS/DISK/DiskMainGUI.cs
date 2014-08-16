@@ -9,6 +9,7 @@ using ACRMS.DISK.IntelliMon;
 namespace ACRMS.DISK
 {
     using ACRMS.DISK.DiskDataHandler;
+    using ACRMS.DISK.DiskMonitorBundle;
 
     public partial class DiskMainGUI : Form
     {
@@ -129,6 +130,20 @@ namespace ACRMS.DISK
             InteliMonitorConfig inteliMonitor = new InteliMonitorConfig();
             inteliMonitor.Show();
             inteliMonitor.Focus();
+        }
+
+        private void btnAdminCheck_Click(object sender, EventArgs e)
+        {
+            AdminChecker adminChecker = new AdminChecker();
+            adminChecker.Show();
+            adminChecker.Focus();
+        }
+
+        private void btnSmartData_Click(object sender, EventArgs e)
+        {
+            SmartDataViewer smartDataViewer = new SmartDataViewer();
+            smartDataViewer.Show();
+            smartDataViewer.Focus();
         }
     }
 }

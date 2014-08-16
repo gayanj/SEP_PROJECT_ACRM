@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btnAdminCheck = new MetroFramework.Controls.MetroButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.hdlb1 = new MetroFramework.Controls.MetroLabel();
             this.hdlb7 = new MetroFramework.Controls.MetroLabel();
@@ -79,6 +80,7 @@
             this.btnDirExplorer = new MetroFramework.Controls.MetroButton();
             this.btnDiskPerf = new MetroFramework.Controls.MetroButton();
             this.btnFileSysMon = new MetroFramework.Controls.MetroButton();
+            this.btnSmartData = new MetroFramework.Controls.MetroButton();
             this.metroPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -86,6 +88,8 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.btnSmartData);
+            this.metroPanel1.Controls.Add(this.btnAdminCheck);
             this.metroPanel1.Controls.Add(this.groupBox2);
             this.metroPanel1.Controls.Add(this.groupBox1);
             this.metroPanel1.Controls.Add(this.btnInteliMonitor);
@@ -100,7 +104,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(0, 0);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(989, 605);
+            this.metroPanel1.Size = new System.Drawing.Size(989, 606);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroPanel1.StyleManager = null;
             this.metroPanel1.TabIndex = 29;
@@ -109,6 +113,20 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // btnAdminCheck
+            // 
+            this.btnAdminCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAdminCheck.Highlight = false;
+            this.btnAdminCheck.Location = new System.Drawing.Point(665, 545);
+            this.btnAdminCheck.Name = "btnAdminCheck";
+            this.btnAdminCheck.Size = new System.Drawing.Size(132, 41);
+            this.btnAdminCheck.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnAdminCheck.StyleManager = null;
+            this.btnAdminCheck.TabIndex = 129;
+            this.btnAdminCheck.Text = "Admin Checker";
+            this.btnAdminCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnAdminCheck.Click += new System.EventHandler(this.btnAdminCheck_Click);
             // 
             // groupBox2
             // 
@@ -662,9 +680,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.AutoSize = true;
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Controls.Add(this.hdlb15);
             this.groupBox1.Controls.Add(this.lblVolName);
@@ -684,9 +701,9 @@
             this.groupBox1.Controls.Add(this.hdlb20);
             this.groupBox1.Controls.Add(this.lblVolFreeSpc);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(680, 12);
+            this.groupBox1.Location = new System.Drawing.Point(683, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(297, 564);
+            this.groupBox1.Size = new System.Drawing.Size(294, 514);
             this.groupBox1.TabIndex = 127;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Volume Information";
@@ -747,7 +764,7 @@
             this.hdlb16.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb16.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb16.Location = new System.Drawing.Point(6, 121);
+            this.hdlb16.Location = new System.Drawing.Point(6, 120);
             this.hdlb16.Name = "hdlb16";
             this.hdlb16.Size = new System.Drawing.Size(114, 25);
             this.hdlb16.Style = MetroFramework.MetroColorStyle.Blue;
@@ -769,7 +786,7 @@
             this.lblVolLbl.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblVolLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblVolLbl.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblVolLbl.Location = new System.Drawing.Point(189, 121);
+            this.lblVolLbl.Location = new System.Drawing.Point(189, 120);
             this.lblVolLbl.Name = "lblVolLbl";
             this.lblVolLbl.Size = new System.Drawing.Size(33, 25);
             this.lblVolLbl.Style = MetroFramework.MetroColorStyle.Blue;
@@ -791,7 +808,7 @@
             this.hdlb17.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb17.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb17.Location = new System.Drawing.Point(6, 189);
+            this.hdlb17.Location = new System.Drawing.Point(6, 178);
             this.hdlb17.Name = "hdlb17";
             this.hdlb17.Size = new System.Drawing.Size(108, 25);
             this.hdlb17.Style = MetroFramework.MetroColorStyle.Blue;
@@ -813,7 +830,7 @@
             this.lblVolType.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblVolType.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblVolType.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblVolType.Location = new System.Drawing.Point(189, 189);
+            this.lblVolType.Location = new System.Drawing.Point(189, 178);
             this.lblVolType.Name = "lblVolType";
             this.lblVolType.Size = new System.Drawing.Size(33, 25);
             this.lblVolType.Style = MetroFramework.MetroColorStyle.Blue;
@@ -835,7 +852,7 @@
             this.hdlb18.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb18.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb18.Location = new System.Drawing.Point(6, 262);
+            this.hdlb18.Location = new System.Drawing.Point(3, 231);
             this.hdlb18.Name = "hdlb18";
             this.hdlb18.Size = new System.Drawing.Size(127, 25);
             this.hdlb18.Style = MetroFramework.MetroColorStyle.Blue;
@@ -858,7 +875,7 @@
             this.volumeListCombo.ItemHeight = 23;
             this.volumeListCombo.Location = new System.Drawing.Point(3, 16);
             this.volumeListCombo.Name = "volumeListCombo";
-            this.volumeListCombo.Size = new System.Drawing.Size(288, 29);
+            this.volumeListCombo.Size = new System.Drawing.Size(285, 29);
             this.volumeListCombo.Style = MetroFramework.MetroColorStyle.Blue;
             this.volumeListCombo.StyleManager = null;
             this.volumeListCombo.TabIndex = 106;
@@ -877,7 +894,7 @@
             this.lblVolStatus.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblVolStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblVolStatus.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblVolStatus.Location = new System.Drawing.Point(189, 532);
+            this.lblVolStatus.Location = new System.Drawing.Point(186, 473);
             this.lblVolStatus.Name = "lblVolStatus";
             this.lblVolStatus.Size = new System.Drawing.Size(33, 25);
             this.lblVolStatus.Style = MetroFramework.MetroColorStyle.Blue;
@@ -899,7 +916,7 @@
             this.lblVolFormat.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblVolFormat.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblVolFormat.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblVolFormat.Location = new System.Drawing.Point(189, 262);
+            this.lblVolFormat.Location = new System.Drawing.Point(186, 231);
             this.lblVolFormat.Name = "lblVolFormat";
             this.lblVolFormat.Size = new System.Drawing.Size(33, 25);
             this.lblVolFormat.Style = MetroFramework.MetroColorStyle.Blue;
@@ -921,7 +938,7 @@
             this.hdlb22.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb22.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb22.Location = new System.Drawing.Point(6, 532);
+            this.hdlb22.Location = new System.Drawing.Point(3, 473);
             this.hdlb22.Name = "hdlb22";
             this.hdlb22.Size = new System.Drawing.Size(119, 25);
             this.hdlb22.Style = MetroFramework.MetroColorStyle.Blue;
@@ -943,7 +960,7 @@
             this.hdlb19.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb19.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb19.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb19.Location = new System.Drawing.Point(6, 335);
+            this.hdlb19.Location = new System.Drawing.Point(6, 286);
             this.hdlb19.Name = "hdlb19";
             this.hdlb19.Size = new System.Drawing.Size(81, 25);
             this.hdlb19.Style = MetroFramework.MetroColorStyle.Blue;
@@ -965,7 +982,7 @@
             this.lblVolAvaFreeSpc.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblVolAvaFreeSpc.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblVolAvaFreeSpc.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblVolAvaFreeSpc.Location = new System.Drawing.Point(189, 469);
+            this.lblVolAvaFreeSpc.Location = new System.Drawing.Point(189, 413);
             this.lblVolAvaFreeSpc.Name = "lblVolAvaFreeSpc";
             this.lblVolAvaFreeSpc.Size = new System.Drawing.Size(33, 25);
             this.lblVolAvaFreeSpc.Style = MetroFramework.MetroColorStyle.Blue;
@@ -987,7 +1004,7 @@
             this.lblVolSize.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblVolSize.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblVolSize.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblVolSize.Location = new System.Drawing.Point(189, 335);
+            this.lblVolSize.Location = new System.Drawing.Point(189, 286);
             this.lblVolSize.Name = "lblVolSize";
             this.lblVolSize.Size = new System.Drawing.Size(33, 25);
             this.lblVolSize.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1009,7 +1026,7 @@
             this.hdlb21.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb21.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb21.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb21.Location = new System.Drawing.Point(6, 469);
+            this.hdlb21.Location = new System.Drawing.Point(6, 413);
             this.hdlb21.Name = "hdlb21";
             this.hdlb21.Size = new System.Drawing.Size(166, 25);
             this.hdlb21.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1031,7 +1048,7 @@
             this.hdlb20.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.hdlb20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.hdlb20.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.hdlb20.Location = new System.Drawing.Point(6, 401);
+            this.hdlb20.Location = new System.Drawing.Point(6, 347);
             this.hdlb20.Name = "hdlb20";
             this.hdlb20.Size = new System.Drawing.Size(133, 25);
             this.hdlb20.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1053,7 +1070,7 @@
             this.lblVolFreeSpc.FontWeight = MetroFramework.MetroLabelWeight.Light;
             this.lblVolFreeSpc.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblVolFreeSpc.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.lblVolFreeSpc.Location = new System.Drawing.Point(189, 401);
+            this.lblVolFreeSpc.Location = new System.Drawing.Point(189, 347);
             this.lblVolFreeSpc.Name = "lblVolFreeSpc";
             this.lblVolFreeSpc.Size = new System.Drawing.Size(33, 25);
             this.lblVolFreeSpc.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1067,7 +1084,7 @@
             // 
             this.btnInteliMonitor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnInteliMonitor.Highlight = false;
-            this.btnInteliMonitor.Location = new System.Drawing.Point(540, 544);
+            this.btnInteliMonitor.Location = new System.Drawing.Point(499, 545);
             this.btnInteliMonitor.Name = "btnInteliMonitor";
             this.btnInteliMonitor.Size = new System.Drawing.Size(132, 41);
             this.btnInteliMonitor.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1081,7 +1098,7 @@
             // 
             this.btnDirExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDirExplorer.Highlight = false;
-            this.btnDirExplorer.Location = new System.Drawing.Point(370, 544);
+            this.btnDirExplorer.Location = new System.Drawing.Point(344, 545);
             this.btnDirExplorer.Name = "btnDirExplorer";
             this.btnDirExplorer.Size = new System.Drawing.Size(123, 41);
             this.btnDirExplorer.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1095,7 +1112,7 @@
             // 
             this.btnDiskPerf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDiskPerf.Highlight = false;
-            this.btnDiskPerf.Location = new System.Drawing.Point(196, 544);
+            this.btnDiskPerf.Location = new System.Drawing.Point(180, 545);
             this.btnDiskPerf.Name = "btnDiskPerf";
             this.btnDiskPerf.Size = new System.Drawing.Size(129, 41);
             this.btnDiskPerf.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1109,7 +1126,7 @@
             // 
             this.btnFileSysMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnFileSysMon.Highlight = false;
-            this.btnFileSysMon.Location = new System.Drawing.Point(21, 544);
+            this.btnFileSysMon.Location = new System.Drawing.Point(21, 545);
             this.btnFileSysMon.Name = "btnFileSysMon";
             this.btnFileSysMon.Size = new System.Drawing.Size(131, 41);
             this.btnFileSysMon.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1119,12 +1136,26 @@
             this.btnFileSysMon.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnFileSysMon.Click += new System.EventHandler(this.btnFileSysMon_Click);
             // 
+            // btnSmartData
+            // 
+            this.btnSmartData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSmartData.Highlight = false;
+            this.btnSmartData.Location = new System.Drawing.Point(839, 545);
+            this.btnSmartData.Name = "btnSmartData";
+            this.btnSmartData.Size = new System.Drawing.Size(132, 41);
+            this.btnSmartData.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnSmartData.StyleManager = null;
+            this.btnSmartData.TabIndex = 130;
+            this.btnSmartData.Text = "S.M.A.R.T";
+            this.btnSmartData.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnSmartData.Click += new System.EventHandler(this.btnSmartData_Click);
+            // 
             // DiskMainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(989, 605);
+            this.ClientSize = new System.Drawing.Size(989, 606);
             this.Controls.Add(this.metroPanel1);
             this.MaximizeBox = false;
             this.Name = "DiskMainGUI";
@@ -1196,5 +1227,7 @@
         private MetroFramework.Controls.MetroButton btnInteliMonitor;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private MetroFramework.Controls.MetroButton btnAdminCheck;
+        private MetroFramework.Controls.MetroButton btnSmartData;
     }
 }

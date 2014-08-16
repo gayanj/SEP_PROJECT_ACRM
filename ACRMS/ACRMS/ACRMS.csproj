@@ -12,6 +12,25 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Automated Computer Resource Manager</ProductName>
+    <PublisherName>WE SEP 009</PublisherName>
+    <SuiteName>ACRMS</SuiteName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +52,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>A54DC40ADE77C3F798CB24119CE17B6516F559C7</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ACRMS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IpHlpApi.net, Version=1.0.5208.36610, Culture=neutral, processorArchitecture=MSIL">
@@ -101,6 +136,12 @@
     <Compile Include="CPU\CPU_Main_Window.Designer.cs">
       <DependentUpon>CPU_Main_Window.cs</DependentUpon>
     </Compile>
+    <Compile Include="DISK\AdminChecker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DISK\AdminChecker.Designer.cs">
+      <DependentUpon>AdminChecker.cs</DependentUpon>
+    </Compile>
     <Compile Include="DISK\DirSizeExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +150,9 @@
     </Compile>
     <Compile Include="DISK\DiskDataHandler\DiskDataQueue.cs" />
     <Compile Include="DISK\DiskDataHandler\DiskDataValues.cs" />
+    <Compile Include="DISK\Smart\SmartAttribute.cs" />
+    <Compile Include="DISK\Smart\SmartAttributeType.cs" />
+    <Compile Include="DISK\Smart\SmartData.cs" />
     <Compile Include="DISK\DiskDataHandler\TextWriter.cs" />
     <Compile Include="DISK\DiskMainGUI.cs">
       <SubType>Form</SubType>
@@ -116,6 +160,8 @@
     <Compile Include="DISK\DiskMainGUI.Designer.cs">
       <DependentUpon>DiskMainGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="DISK\DiskMonitorBundle\NativeMethods.cs" />
+    <Compile Include="DISK\Smart\WmiDiskSmartData.cs" />
     <Compile Include="DISK\DiskPerformance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +190,12 @@
     </Compile>
     <Compile Include="DISK\DiskMonitorBundle\PerfCounterHD.cs" />
     <Compile Include="DISK\DiskMonitorBundle\WmiDiskInfo.cs" />
+    <Compile Include="DISK\SmartDataViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DISK\SmartDataViewer.Designer.cs">
+      <DependentUpon>SmartDataViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="NETWORK\IpHelper.cs" />
     <Compile Include="NETWORK\IPHlpAPI32.cs" />
     <Compile Include="NETWORK\ManagedIpHelper.cs" />
@@ -266,6 +318,9 @@
     <EmbeddedResource Include="CPU\CPU_Main_Window.resx">
       <DependentUpon>CPU_Main_Window.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DISK\AdminChecker.resx">
+      <DependentUpon>AdminChecker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DISK\DirSizeExplorer.resx">
       <DependentUpon>DirSizeExplorer.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DISK\IntelliMon\MonitorWindow.resx">
       <DependentUpon>MonitorWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DISK\SmartDataViewer.resx">
+      <DependentUpon>SmartDataViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NETWORK\NetworkCore.resx">
       <DependentUpon>NetworkCore.cs</DependentUpon>
@@ -354,7 +412,23 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cpu.png" />
   </ItemGroup>
@@ -396,6 +470,7 @@
   <ItemGroup>
     <Content Include="Resources\a.bmp" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -231,8 +231,12 @@ namespace ACRMS.DISK
         //Update the DataTable with new Data and Rebind to the chart
         private void updateChart()
         {
-            tempRecordTable.Rows.Add(updateCount, float.Parse(lblIdleTime.Text), float.Parse(lblDiskTime.Text) * 10,
-                float.Parse(lblAvgDiskQ.Text) * 10, float.Parse(lblAvgTrans.Text) * 100);
+            tempRecordTable.Rows.Add(
+                updateCount,
+                float.Parse(lblIdleTime.Text),
+                float.Parse(lblDiskTime.Text),
+                float.Parse(lblAvgDiskQ.Text),
+                float.Parse(lblAvgTrans.Text));
 
             try
             {
