@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.mainTabControl = new MetroFramework.Controls.MetroTabControl();
             this.Monitor = new MetroFramework.Controls.MetroTabPage();
             this.cpuChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -41,7 +41,6 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.metroButton8 = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
@@ -63,6 +62,8 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.analyseData = new MetroFramework.Controls.MetroTabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.metroButton15 = new MetroFramework.Controls.MetroButton();
+            this.metroButton14 = new MetroFramework.Controls.MetroButton();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
@@ -78,8 +79,7 @@
             this.metroButton9 = new MetroFramework.Controls.MetroButton();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.metroButton14 = new MetroFramework.Controls.MetroButton();
-            this.metroButton15 = new MetroFramework.Controls.MetroButton();
+            this.metroButton16 = new MetroFramework.Controls.MetroButton();
             this.mainTabControl.SuspendLayout();
             this.Monitor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
@@ -112,7 +112,7 @@
             this.mainTabControl.FontWeight = MetroFramework.MetroTabControlWeight.Light;
             this.mainTabControl.Location = new System.Drawing.Point(12, 12);
             this.mainTabControl.Name = "mainTabControl";
-            this.mainTabControl.SelectedIndex = 0;
+            this.mainTabControl.SelectedIndex = 4;
             this.mainTabControl.Size = new System.Drawing.Size(687, 510);
             this.mainTabControl.Style = MetroFramework.MetroColorStyle.Blue;
             this.mainTabControl.StyleManager = null;
@@ -136,7 +136,7 @@
             this.Monitor.Style = MetroFramework.MetroColorStyle.Blue;
             this.Monitor.StyleManager = null;
             this.Monitor.TabIndex = 0;
-            this.Monitor.Text = "Monitor";
+            this.Monitor.Text = "Realtime Monitor";
             this.Monitor.Theme = MetroFramework.MetroThemeStyle.Light;
             this.Monitor.VerticalScrollbar = false;
             this.Monitor.VerticalScrollbarBarColor = true;
@@ -145,8 +145,8 @@
             // 
             // cpuChart
             // 
-            chartArea6.Name = "ChartArea1";
-            this.cpuChart.ChartAreas.Add(chartArea6);
+            chartArea5.Name = "ChartArea1";
+            this.cpuChart.ChartAreas.Add(chartArea5);
             this.cpuChart.Location = new System.Drawing.Point(355, 3);
             this.cpuChart.Name = "cpuChart";
             this.cpuChart.Size = new System.Drawing.Size(324, 465);
@@ -179,7 +179,7 @@
             this.Analysis.Style = MetroFramework.MetroColorStyle.Blue;
             this.Analysis.StyleManager = null;
             this.Analysis.TabIndex = 1;
-            this.Analysis.Text = "Analysis";
+            this.Analysis.Text = "Malicious Process Analysis";
             this.Analysis.Theme = MetroFramework.MetroThemeStyle.Light;
             this.Analysis.VerticalScrollbar = false;
             this.Analysis.VerticalScrollbarBarColor = true;
@@ -267,7 +267,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.metroButton8);
             this.groupBox1.Controls.Add(this.metroButton3);
             this.groupBox1.Controls.Add(this.metroButton2);
             this.groupBox1.Controls.Add(this.metroButton1);
@@ -278,19 +277,6 @@
             this.groupBox1.Size = new System.Drawing.Size(335, 468);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            // 
-            // metroButton8
-            // 
-            this.metroButton8.Highlight = false;
-            this.metroButton8.Location = new System.Drawing.Point(254, 125);
-            this.metroButton8.Name = "metroButton8";
-            this.metroButton8.Size = new System.Drawing.Size(75, 23);
-            this.metroButton8.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton8.StyleManager = null;
-            this.metroButton8.TabIndex = 5;
-            this.metroButton8.Text = "Redis";
-            this.metroButton8.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroButton8.Click += new System.EventHandler(this.metroButton8_Click);
             // 
             // metroButton3
             // 
@@ -604,7 +590,7 @@
             this.analyseData.Style = MetroFramework.MetroColorStyle.Blue;
             this.analyseData.StyleManager = null;
             this.analyseData.TabIndex = 4;
-            this.analyseData.Text = "Analyse Data";
+            this.analyseData.Text = "Long Term Porcess Analysis";
             this.analyseData.Theme = MetroFramework.MetroThemeStyle.Light;
             this.analyseData.VerticalScrollbar = false;
             this.analyseData.VerticalScrollbarBarColor = true;
@@ -630,6 +616,32 @@
             this.groupBox5.Size = new System.Drawing.Size(348, 465);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
+            // 
+            // metroButton15
+            // 
+            this.metroButton15.Highlight = false;
+            this.metroButton15.Location = new System.Drawing.Point(245, 265);
+            this.metroButton15.Name = "metroButton15";
+            this.metroButton15.Size = new System.Drawing.Size(97, 23);
+            this.metroButton15.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton15.StyleManager = null;
+            this.metroButton15.TabIndex = 18;
+            this.metroButton15.Text = "Display Results";
+            this.metroButton15.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton15.Click += new System.EventHandler(this.metroButton15_Click);
+            // 
+            // metroButton14
+            // 
+            this.metroButton14.Highlight = false;
+            this.metroButton14.Location = new System.Drawing.Point(245, 294);
+            this.metroButton14.Name = "metroButton14";
+            this.metroButton14.Size = new System.Drawing.Size(97, 23);
+            this.metroButton14.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton14.StyleManager = null;
+            this.metroButton14.TabIndex = 17;
+            this.metroButton14.Text = "Generate Graph";
+            this.metroButton14.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton14.Click += new System.EventHandler(this.metroButton14_Click);
             // 
             // dateTimePicker2
             // 
@@ -767,6 +779,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.metroButton16);
             this.groupBox4.Controls.Add(this.metroButton11);
             this.groupBox4.Controls.Add(this.metroButton9);
             this.groupBox4.Controls.Add(this.metroLabel6);
@@ -780,7 +793,7 @@
             // metroButton11
             // 
             this.metroButton11.Highlight = false;
-            this.metroButton11.Location = new System.Drawing.Point(234, 67);
+            this.metroButton11.Location = new System.Drawing.Point(234, 96);
             this.metroButton11.Name = "metroButton11";
             this.metroButton11.Size = new System.Drawing.Size(75, 23);
             this.metroButton11.Style = MetroFramework.MetroColorStyle.Blue;
@@ -829,31 +842,18 @@
             this.dataGridView5.Size = new System.Drawing.Size(222, 421);
             this.dataGridView5.TabIndex = 2;
             // 
-            // metroButton14
+            // metroButton16
             // 
-            this.metroButton14.Highlight = false;
-            this.metroButton14.Location = new System.Drawing.Point(245, 294);
-            this.metroButton14.Name = "metroButton14";
-            this.metroButton14.Size = new System.Drawing.Size(97, 23);
-            this.metroButton14.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton14.StyleManager = null;
-            this.metroButton14.TabIndex = 17;
-            this.metroButton14.Text = "Generate Graph";
-            this.metroButton14.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroButton14.Click += new System.EventHandler(this.metroButton14_Click);
-            // 
-            // metroButton15
-            // 
-            this.metroButton15.Highlight = false;
-            this.metroButton15.Location = new System.Drawing.Point(245, 265);
-            this.metroButton15.Name = "metroButton15";
-            this.metroButton15.Size = new System.Drawing.Size(97, 23);
-            this.metroButton15.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton15.StyleManager = null;
-            this.metroButton15.TabIndex = 18;
-            this.metroButton15.Text = "Display Results";
-            this.metroButton15.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroButton15.Click += new System.EventHandler(this.metroButton15_Click);
+            this.metroButton16.Highlight = false;
+            this.metroButton16.Location = new System.Drawing.Point(234, 67);
+            this.metroButton16.Name = "metroButton16";
+            this.metroButton16.Size = new System.Drawing.Size(75, 23);
+            this.metroButton16.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton16.StyleManager = null;
+            this.metroButton16.TabIndex = 6;
+            this.metroButton16.Text = "Past Month";
+            this.metroButton16.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton16.Click += new System.EventHandler(this.metroButton16_Click);
             // 
             // CPU_Main_Window
             // 
@@ -922,7 +922,6 @@
         private MetroFramework.Controls.MetroButton metroButton7;
         private System.Windows.Forms.DataGridView dataGridView4;
         private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroButton metroButton8;
         private MetroFramework.Controls.MetroTabPage analyseData;
         private System.Windows.Forms.DataGridView dataGridView1;
         private MetroFramework.Controls.MetroLabel metroLabel7;
@@ -944,5 +943,6 @@
         private MetroFramework.Controls.MetroButton metroButton13;
         private MetroFramework.Controls.MetroButton metroButton14;
         private MetroFramework.Controls.MetroButton metroButton15;
+        private MetroFramework.Controls.MetroButton metroButton16;
     }
 }

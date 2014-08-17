@@ -46,6 +46,7 @@ namespace ACRMS.CPU.CPU_classes
                         process = table
                     }
                 };
+                //Store the processes and set expiry time
                 processes.SetEntry(id.ToString(), process);
                 redisClient.Expire(id.ToString(), 60*5);
             }
@@ -58,18 +59,22 @@ namespace ACRMS.CPU.CPU_classes
                 IRedisTypedClient<CpuUsage> processes = redisClient.As<CpuUsage>();
                 Dictionary<string, Process> process = new Dictionary<string, Process>();
                 int previousCount = redisCount - 60;
+                //Get objects for the previous minute
                 for (int i = 0; i < 60; i++)
                 {
                     CpuUsage processTable = processes.GetValue(previousCount.ToString());
                     ProcessArrayList response = processTable.process;
+                    //check if object for id exist
                     if (processTable != null)
                     {
                         foreach (DictionaryEntry item in response.process)
                         {
                             string json = item.Value.ToString();
                             ArrayList rowItem = JsonConvert.DeserializeObject<ArrayList>(json);
+                            //Exclude idle and Total processes both with PID 0
                             if (!rowItem[1].ToString().Equals("0"))
                             {
+                                //check if process is already in the Dictionary
                                 if (process.ContainsKey(rowItem[0].ToString()))
                                 {
                                     Process listProcess;
@@ -84,6 +89,7 @@ namespace ACRMS.CPU.CPU_classes
                                 }
                                 else
                                 {
+                                    //Add new entry to the Dictionary
                                     Process newProcess = new Process
                                     {
                                         name = rowItem[0].ToString(),
@@ -97,6 +103,7 @@ namespace ACRMS.CPU.CPU_classes
                     }
                     previousCount++;
                 }
+                //Persist the final result to database
                 DatabaseFactory.connectToDatabase();
                 foreach(var processKey in process.Keys){
                     string sql = "INSERT INTO process_longterm_usage(name,usage) VALUES('" + process[processKey].name + "','" + process[processKey].usage + "')";

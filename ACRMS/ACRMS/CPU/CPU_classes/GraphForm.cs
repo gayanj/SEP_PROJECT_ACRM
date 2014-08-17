@@ -38,7 +38,7 @@ namespace ACRMS.CPU.CPU_classes
 
             chart1.Series.Add("CPU Usage");
             chart1.Series["CPU Usage"].XValueType = ChartValueType.DateTime;
-            chart1.Series["CPU Usage"].ChartType = SeriesChartType.Line;
+            chart1.Series["CPU Usage"].ChartType = SeriesChartType.Column;
 
             chart1.Series["CPU Usage"].XValueMember = "Date Time";
             chart1.Series["CPU Usage"].YValueMembers = "CPU Usage";

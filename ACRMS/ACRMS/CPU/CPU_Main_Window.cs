@@ -590,26 +590,6 @@ namespace ACRMS.CPU
             }
         }
 
-        private void metroButton8_Click(object sender, EventArgs e)
-        {
-            string host = "localhost";
-            string elementKey = "testKeyRedis";
-
-            using (RedisClient redisClient = new RedisClient(host))
-            {
-                if (redisClient.Get<string>(elementKey) == null)
-                {
-                    // adding delay to see the difference
-                    Thread.Sleep(5000);
-                    // save value in cache
-                    redisClient.Set(elementKey, "some cached value");
-                }
-                // get value from the cache by key
-                string value = redisClient.Get<string>(elementKey);
-                MessageBox.Show("Item value is: " + value);
-            }
-        }
-
         private void metroButton9_Click(object sender, EventArgs e)
         {
             DataTable processes = new DataTable();
@@ -713,6 +693,21 @@ namespace ACRMS.CPU
             DatabaseFactory.closeConnection();
             resultset.Fill(processes);
             dataGridView6.DataSource = processes;
+        }
+
+        private void metroButton16_Click(object sender, EventArgs e)
+        {
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "select process_name \"Name\", count(id) \"Number of Times Used\" " +
+                            "from process_usage " +
+                            "where id >= (now() - '1 month'::INTERVAL) " +
+                            "group by process_name " +
+                            "order by count(id) DESC";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            dataGridView5.DataSource = processes;
         }
     }
 }
