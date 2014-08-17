@@ -690,9 +690,10 @@ namespace ACRMS.CPU
         {
             string from = dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss");
             string to = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            index = dataGridView1.CurrentCell.RowIndex;
-            string processName = dataGridView1[0, index].Value.ToString();
-
+            index = dataGridView6.CurrentCell.RowIndex;
+            string processName = dataGridView6[0, index].Value.ToString();
+            GraphForm generateGraph = new GraphForm(from, to, processName);
+            generateGraph.ShowDialog();
         }
 
         private void metroButton15_Click(object sender, EventArgs e)

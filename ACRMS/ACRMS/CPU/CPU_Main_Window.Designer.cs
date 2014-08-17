@@ -112,7 +112,7 @@
             this.mainTabControl.FontWeight = MetroFramework.MetroTabControlWeight.Light;
             this.mainTabControl.Location = new System.Drawing.Point(12, 12);
             this.mainTabControl.Name = "mainTabControl";
-            this.mainTabControl.SelectedIndex = 4;
+            this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(687, 510);
             this.mainTabControl.Style = MetroFramework.MetroColorStyle.Blue;
             this.mainTabControl.StyleManager = null;
