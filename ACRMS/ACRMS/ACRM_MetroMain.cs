@@ -15,6 +15,7 @@ namespace ACRMS
 {
     public partial class ACRM_MetroMain : Form
     {
+        public static CPU.loadingForm load;
         public ACRM_MetroMain()
         {
             InitializeComponent();
@@ -30,6 +31,9 @@ namespace ACRMS
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
+            load = new CPU.loadingForm();
+            load.Show();
+            
             CPU.CPU_Main_Window c = new CPU.CPU_Main_Window();
             c.ShowDialog();
         }

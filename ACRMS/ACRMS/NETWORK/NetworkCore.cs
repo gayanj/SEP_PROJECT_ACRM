@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Network;
+using ACRMS;
 
 namespace SEPMetro
 {
@@ -22,7 +23,6 @@ namespace SEPMetro
         public NetworkCore()
         {
             InitializeComponent();
-            
         }
 
         private void button6_Click(object sender, EventArgs e)

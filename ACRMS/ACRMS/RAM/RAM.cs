@@ -18,6 +18,7 @@ using Microsoft.Win32.SafeHandles;
 using NotificationWindow;
 using RAM;
 using RAM.MemoryScanner;
+using ACRMS;
 
 namespace SEPMetro
 {
@@ -68,6 +69,7 @@ namespace SEPMetro
         public RAM()
         {
             InitializeComponent();
+            ACRM_MetroMain.load.Close();
         }
 
         private void metroPanel1_Paint(object sender, PaintEventArgs e)

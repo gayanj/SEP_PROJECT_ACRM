@@ -1,5 +1,6 @@
 ﻿using ACRMS.CPU.CPU_classes;
 using Npgsql;
+using ServiceStack.Redis;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace ACRMS.CPU
 {
     public partial class CPU_Main_Window : Form
     {
+        RedisService redisService;
         VirusTotal virusTotal = new VirusTotal(ConfigurationManager.AppSettings["ApiKey"]);
         DataTable processTable = new DataTable();
         DataTable chartTable;
@@ -37,6 +39,8 @@ namespace ACRMS.CPU
         private int index2 = 0;
         int usageLimit = 10;//%
         int waitTime = 60;//seconds
+        int cacheCount = 60;//seconds
+        int idCount = 0;
         bool killProcess = false;
 
         public CPU_Main_Window()
@@ -59,6 +63,8 @@ namespace ACRMS.CPU
             t3.Tick += t_Tick_updateChart;
             //Use HTTPS instead of HTTP
             virusTotal.UseTLS = true;
+            ACRM_MetroMain.load.Close();
+            redisService = new RedisService();
         }
 
         private void getHashTable()
@@ -91,9 +97,21 @@ namespace ACRMS.CPU
         private void updateDataTable()
         {
             removeOldRows();
+            if (cacheCount <= 0)
+            {
+                cacheCount = 60;
+                ThreadPool.QueueUserWorkItem(state =>redisService.persistStoredCache());
+            }
+            //call redis service
+            //store in redis cache
+            idCount++;
+            Hashtable processSetCopy = processSet;
+            ThreadPool.QueueUserWorkItem(state =>redisService.storeInCache(processSetCopy, idCount));
+
             foreach (DictionaryEntry item in processSet)
             {
                 ArrayList rowItem = (ArrayList)item.Value;
+
                 //We dont take Total and Idle PID into account because both have a PID of 0 
                 //and this conflicts with the dataTable primary key
                 if (!rowItem[1].ToString().Equals("0"))
@@ -118,6 +136,7 @@ namespace ACRMS.CPU
                     }
                 }
             }
+            cacheCount--;
         }
 
         private void removeOldRows()
@@ -152,6 +171,22 @@ namespace ACRMS.CPU
             dr[1] = rowItem[1].ToString();
             dr[2] = rowItem[2].ToString();
             processTable.Rows.Add(dr);
+
+            if (rowItem[0].ToString().IndexOf("chrome#") == -1 
+                && rowItem[0].ToString().IndexOf("postgres#") == -1 
+                && rowItem[0].ToString().IndexOf("conhost#") == -1 
+                && rowItem[0].ToString().IndexOf("SearchFilterHost") == -1
+                && rowItem[0].ToString().IndexOf("SearchProtocolHost") == -1)
+            {
+                string sql = "INSERT INTO process_usage(process_name) VALUES('" + rowItem[0].ToString() + "')";
+                DatabaseFactory.connectToDatabase();
+                int result = DatabaseFactory.executeNonQuery(sql);
+                if (result < 0)
+                {
+                    //error inserting
+                }
+                DatabaseFactory.closeConnection();
+            }
         }
 
         private void setProcessTable()
@@ -284,6 +319,7 @@ namespace ACRMS.CPU
 
                 if (counterTime == 0)
                 {
+
                     //scan using virus total
                     virusTotalScan(PID);
                     //add PID details to database
@@ -385,7 +421,8 @@ namespace ACRMS.CPU
             try
             {
                 FileInfo file = new FileInfo("EICAR.txt");
-                File.WriteAllText(file.FullName, @"X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*");
+                //File.WriteAllText(file.FullName, @"X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*");
+                File.WriteAllText(file.FullName, @"Hello World");
                 Process p = Process.GetProcessById(Int32.Parse(PID));
                 string filename = p.MainModule.FileName;
 
@@ -427,7 +464,7 @@ namespace ACRMS.CPU
                     else
                     {
                         FileInfo fileInfo = new FileInfo(filename);
-                        ScanResult fileResult = virusTotal.ScanFile(fileInfo);
+                        VirusTotalNET.Objects.ScanResult fileResult = virusTotal.ScanFile(fileInfo);
                         PrintScan(fileResult);
                     }
                 }
@@ -446,7 +483,7 @@ namespace ACRMS.CPU
             }
         }
 
-        private static void PrintScan(ScanResult scanResult)
+        private static void PrintScan(VirusTotalNET.Objects.ScanResult scanResult)
         {
             Console.WriteLine("Scan ID: " + scanResult.ScanId + "\n");
             Console.WriteLine("Message: " + scanResult.VerboseMsg + "\n");
@@ -551,6 +588,126 @@ namespace ACRMS.CPU
                 bIE.getBroswerInfo();
                 dataGridView4.DataSource = bIE.getBrowserTable();
             }
+        }
+
+        private void metroButton9_Click(object sender, EventArgs e)
+        {
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "select process_name \"Name\", count(id) \"Number of Times Used\" " +
+                            "from process_usage " +
+                            "where id >= (now() - '1 week'::INTERVAL) " +
+                            "group by process_name " +
+                            "order by count(id) DESC";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            dataGridView5.DataSource = processes;
+        }
+
+        private void metroButton11_Click(object sender, EventArgs e)
+        {
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "select process_name \"Name\", count(id) \"Number of Times Used\" " +
+                            "from process_usage " +
+                            "group by process_name " +
+                            "order by count(id) DESC";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            dataGridView5.DataSource = processes;
+        }
+
+        private void metroButton12_Click(object sender, EventArgs e)
+        {
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "select name \"Process Name\", max(usage) \"CPU Usage\" " +
+                            "from process_longterm_usage " +
+                            "where id >= (now() - '1 week'::INTERVAL) " +
+                            "group by usage,name " +
+                            "order by usage desc " +
+                            "limit 39";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            dataGridView6.DataSource = processes;
+        }
+
+        private void metroButton13_Click(object sender, EventArgs e)
+        {
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "select name \"Process Name\", max(usage) \"CPU Usage\" " +
+                            "from process_longterm_usage " +
+                            "where id >= (now() - '1 month'::INTERVAL) " +
+                            "group by usage,name " +
+                            "order by usage desc " +
+                            "limit 39";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            dataGridView6.DataSource = processes;
+        }
+
+        private void metroButton10_Click(object sender, EventArgs e)
+        {
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "select name \"Process Name\", max(usage) \"CPU Usage\" " +
+                            "from process_longterm_usage " +
+                            "group by usage,name " +
+                            "order by usage desc " +
+                            "limit 39";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            dataGridView6.DataSource = processes;
+        }
+
+        private void metroButton14_Click(object sender, EventArgs e)
+        {
+            string from = dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string to = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            index = dataGridView6.CurrentCell.RowIndex;
+            string processName = dataGridView6[0, index].Value.ToString();
+            GraphForm generateGraph = new GraphForm(from, to, processName);
+            generateGraph.ShowDialog();
+        }
+
+        private void metroButton15_Click(object sender, EventArgs e)
+        {
+            string from = dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string to = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss");
+
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "select name \"Process Name\", max(usage) \"CPU Usage\" " +
+                            "from process_longterm_usage " +
+                            "where id >= '" + from + "'  and id < '" + to + "' " +
+                            "group by usage,name " +
+                            "order by usage desc " +
+                            "limit 39";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            dataGridView6.DataSource = processes;
+        }
+
+        private void metroButton16_Click(object sender, EventArgs e)
+        {
+            DataTable processes = new DataTable();
+            DatabaseFactory.connectToDatabase();
+            string query = "select process_name \"Name\", count(id) \"Number of Times Used\" " +
+                            "from process_usage " +
+                            "where id >= (now() - '1 month'::INTERVAL) " +
+                            "group by process_name " +
+                            "order by count(id) DESC";
+            NpgsqlDataAdapter resultset = DatabaseFactory.executeQuery(query);
+            DatabaseFactory.closeConnection();
+            resultset.Fill(processes);
+            dataGridView5.DataSource = processes;
         }
     }
 }
