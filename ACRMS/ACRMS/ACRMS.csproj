@@ -129,6 +129,12 @@
     <Compile Include="CPU\loadingForm.Designer.cs">
       <DependentUpon>loadingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DISK\AdminChecker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DISK\AdminChecker.Designer.cs">
+      <DependentUpon>AdminChecker.cs</DependentUpon>
+    </Compile>
     <Compile Include="DISK\DirSizeExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,12 +143,14 @@
     </Compile>
     <Compile Include="DISK\DiskDataHandler\DiskDataQueue.cs" />
     <Compile Include="DISK\DiskDataHandler\DiskDataValues.cs" />
+    <Compile Include="DISK\DiskDataHandler\TextWriter.cs" />
     <Compile Include="DISK\DiskMainGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DISK\DiskMainGUI.Designer.cs">
       <DependentUpon>DiskMainGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="DISK\DiskMonitorBundle\NativeMethods.cs" />
     <Compile Include="DISK\DiskPerformance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +179,16 @@
     </Compile>
     <Compile Include="DISK\DiskMonitorBundle\PerfCounterHD.cs" />
     <Compile Include="DISK\DiskMonitorBundle\WmiDiskInfo.cs" />
+    <Compile Include="DISK\SmartDataViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DISK\SmartDataViewer.Designer.cs">
+      <DependentUpon>SmartDataViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DISK\Smart\SmartAttribute.cs" />
+    <Compile Include="DISK\Smart\SmartAttributeType.cs" />
+    <Compile Include="DISK\Smart\SmartData.cs" />
+    <Compile Include="DISK\Smart\WmiDiskSmartData.cs" />
     <Compile Include="NETWORK\IpHelper.cs" />
     <Compile Include="NETWORK\IPHlpAPI32.cs" />
     <Compile Include="NETWORK\ManagedIpHelper.cs" />

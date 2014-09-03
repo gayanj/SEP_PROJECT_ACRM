@@ -8,10 +8,6 @@
 
         public string InterfaceType { get; set; }
 
-        public string MaxBlockSize { get; set; }
-
-        public string MinBlockSize { get; set; }
-
         public string Model { get; set; }
 
         public string NoOfPartitions { get; set; }
