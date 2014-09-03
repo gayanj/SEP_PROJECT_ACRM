@@ -4,15 +4,148 @@ using System.Linq;
 using System.Text;
 using System.Management;
 using System.Diagnostics;
+using System.Data.SqlClient;
+using ACRMS;
+using ACRMS.RAM;
 
 namespace RAM
 {
     public class ProcessList
     {
+        public static string appMemoryAlert;
+        public static string processExistAlert;
         private static double[] maxMemoryConsum;
         private static string[] maxMemoryConsumApp;
         public static double maxMemory;
         public static string maxMemoryApp;
+        public static string[] app;
+        public static string[] process;
+        SqlConnection myConnection;
+        System.Windows.Forms.Timer tick2;
+
+        public ProcessList()
+        {
+            String connectionString = "Data Source=DELL-PC;Initial Catalog=Monitor;User ID=dell-PC;Password=dell-PC";
+            myConnection = new SqlConnection(connectionString);
+            tick2 = new System.Windows.Forms.Timer { Enabled = true, Interval = Settings.runningAppTime };
+            tick2.Tick += tick_Tick2;
+        }
+
+        void tick_Tick2(object sender, EventArgs e)
+        {
+            if (CheckForProcessByName(Settings.processExists))
+            {
+                processExistAlert = Settings.processExists + " is running.";
+
+                if (Settings.killProcess)
+                {
+                    Process[] p = Process.GetProcessesByName(Settings.processExists);
+                    Process p2 = p[0];
+                    p2.Kill();
+                    
+                }
+
+                try
+                {
+                    myConnection.Open();
+                    string query2 = "INSERT INTO Alerts(AgentID,dTime,message)" + "VALUES(1,'" + DateTime.Now.ToString() + "','" + processExistAlert + "')";
+                    
+                    SqlCommand insertQuery = new SqlCommand(query2, myConnection);
+                    insertQuery.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("cannot open SQL connection " + ex);
+                }
+                myConnection.Close();
+
+            }
+
+            Console.WriteLine(processExistAlert);
+            
+            StringBuilder sb = new StringBuilder();
+            ManagementClass mc = new ManagementClass("Win32_Process");
+            try
+            {
+                myConnection.Open();
+              
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("cannot open SQL connection " + ex);
+            }
+           
+            foreach (ManagementObject mo in mc.GetInstances())
+            {
+
+                try
+                {
+                    string query = "INSERT INTO RunningProcesses(AgentID,ProcessName,PID,description)" + "VALUES(1,'" + mo["Name"].ToString() + "','" + mo["ProcessId"].ToString() + "','" + mo["Description"] + "')";
+                    RAMWCF.processName = mo["Name"].ToString();
+                    RAMWCF.PID = mo["ProcessId"].ToString();
+                    RAMWCF.ProcessDescription = mo["Description"].ToString();
+                    SqlCommand insertQuery = new SqlCommand(query, myConnection);
+                    insertQuery.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("cannot open SQL connection " + ex);
+                }
+
+            }
+
+            MEMORYSTATUSEX m = new MEMORYSTATUSEX();
+            StringBuilder sb2 = new StringBuilder();
+            foreach (Process p in Process.GetProcesses("."))
+            {
+                try
+                {
+                    if (p.MainWindowTitle.Length > 0)
+                    {
+                        sb.Append("Window Title:\t" + p.MainWindowTitle.ToString() + Environment.NewLine);
+                        sb.Append("Process Name:\t" + p.ProcessName.ToString() + Environment.NewLine);
+                        sb.Append("Window Handle:\t" + p.MainWindowHandle.ToString() + Environment.NewLine); //context specific unique identifier of a process title window
+                        sb.Append("Memory Allocation:\t" + m.convertToBytes((ulong)p.PrivateMemorySize64).ToString() + " MB" + Environment.NewLine);
+
+                        Double x = Double.Parse(m.convertToBytes((ulong)p.PrivateMemorySize64).ToString().Trim());
+
+                        if (x > Convert.ToDouble(Settings.runningApplicationThreshold))
+                        {
+                            appMemoryAlert = p.MainWindowTitle.ToString() + " has exceeded" + Settings.runningApplicationThreshold + ". Current value is " + m.convertToBytes((ulong)p.PrivateMemorySize64).ToString();
+
+                            string query2 = "INSERT INTO Alerts(AgentID,dTime,message)" + "VALUES(1,'" + DateTime.Now.ToString() + "','" + appMemoryAlert + "')";
+                            SqlCommand insertQuery = new SqlCommand(query2, myConnection);
+                            insertQuery.ExecuteNonQuery();
+                        }
+                        Console.WriteLine(appMemoryAlert);
+
+                        try
+                        {
+                            string query = "INSERT INTO RunningApplications(AgentID,WindowTitle,ProcessName,WindowHandle,MemoryAllocation)" + "VALUES(1,'" + p.MainWindowTitle.ToString() + "','" + p.ProcessName.ToString() + "','" + p.MainWindowHandle.ToString() + "','" + m.convertToBytes((ulong)p.PrivateMemorySize64).ToString() + "')";
+                            RAMWCF.ApplicationWindowTitle = p.MainWindowTitle.ToString();
+                            RAMWCF.ApplicationProcessName = p.ProcessName.ToString();
+                            RAMWCF.ApplicationWindowHandle = p.MainWindowHandle.ToString();
+                            RAMWCF.ApplicationMemoryAllocation = m.convertToBytes((ulong)p.PrivateMemorySize64).ToString();
+                            SqlCommand insertQuery = new SqlCommand(query, myConnection);
+                            insertQuery.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("cannot open SQL connection " + ex);
+                        }
+
+                        
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+
+            myConnection.Close();
+        }
+
         public static string ListAllProcesses()
         {
 
@@ -25,6 +158,7 @@ namespace RAM
                 sb.Append("ID:\t" + mo["ProcessId"] + Environment.NewLine);
                 sb.Append("Description:\t" + mo["Description"] + Environment.NewLine);
                 sb.Append(Environment.NewLine);
+                
             }
             return sb.ToString();
         }
@@ -35,6 +169,7 @@ namespace RAM
             StringBuilder sb = new StringBuilder();
             maxMemoryConsum = new double[1000];
             maxMemoryConsumApp = new string[1000];
+            app = new string[1000];
             int maxIndex;
             int count = 0;
             foreach (Process p in Process.GetProcesses(".")) //Creates a new Process component for each process resource on the specified computer.
@@ -50,7 +185,11 @@ namespace RAM
                         sb.Append(Environment.NewLine);
                         maxMemoryConsum[count] = m.convertToBytes((ulong)p.PrivateMemorySize64);
                         maxMemoryConsumApp[count] = p.MainWindowTitle.ToString();
-                        
+
+                        app[0] = p.MainWindowTitle.ToString();
+                        app[1] = p.ProcessName.ToString();
+                        app[2] = p.MainWindowTitle.ToString();
+                        app[3] = m.convertToBytes((ulong)p.PrivateMemorySize64).ToString();
                         
                         count++;
                     }

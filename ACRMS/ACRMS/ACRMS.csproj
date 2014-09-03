@@ -236,37 +236,31 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RAM\AlertsViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAM\AlertsViewer.Designer.cs" />
     <Compile Include="RAM\ApplicationIdleTimer.cs" />
     <Compile Include="RAM\Browser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RAM\Browser.designer.cs">
-      <DependentUpon>Browser.cs</DependentUpon>
-    </Compile>
+    <Compile Include="RAM\Browser.designer.cs" />
     <Compile Include="RAM\Configuration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RAM\Configuration.designer.cs">
-      <DependentUpon>Configuration.cs</DependentUpon>
-    </Compile>
+    <Compile Include="RAM\Configuration.designer.cs" />
     <Compile Include="RAM\IdleCheckForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RAM\IdleCheckForm.designer.cs">
-      <DependentUpon>IdleCheckForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="RAM\IdleCheckForm.designer.cs" />
     <Compile Include="RAM\MemoryAnalytics.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RAM\MemoryAnalytics.designer.cs">
-      <DependentUpon>MemoryAnalytics.cs</DependentUpon>
-    </Compile>
+    <Compile Include="RAM\MemoryAnalytics.designer.cs" />
     <Compile Include="RAM\MemoryCounters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RAM\MemoryCounters.designer.cs">
-      <DependentUpon>MemoryCounters.cs</DependentUpon>
-    </Compile>
+    <Compile Include="RAM\MemoryCounters.designer.cs" />
     <Compile Include="RAM\MemoryScanner.cs" />
     <Compile Include="RAM\MEMORYSTATUSEX.cs" />
     <Compile Include="RAM\Native.cs" />
@@ -274,15 +268,16 @@
     <Compile Include="RAM\RAM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RAM\RAM.designer.cs">
-      <DependentUpon>RAM.cs</DependentUpon>
+    <Compile Include="RAM\RAM.designer.cs" />
+    <Compile Include="RAM\RAMWCF.cs" />
+    <Compile Include="RAM\Settings.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RAM\Settings.Designer.cs" />
     <Compile Include="RAM\SystemMemoryInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RAM\SystemMemoryInfo.designer.cs">
-      <DependentUpon>SystemMemoryInfo.cs</DependentUpon>
-    </Compile>
+    <Compile Include="RAM\SystemMemoryInfo.designer.cs" />
     <Compile Include="RAM\wmiMemory.cs" />
     <EmbeddedResource Include="ACRMS_Main.resx">
       <DependentUpon>ACRMS_Main.cs</DependentUpon>
@@ -354,27 +349,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RAM\Browser.resx">
-      <DependentUpon>Browser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RAM\Configuration.resx">
-      <DependentUpon>Configuration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RAM\IdleCheckForm.resx">
-      <DependentUpon>IdleCheckForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RAM\MemoryAnalytics.resx">
-      <DependentUpon>MemoryAnalytics.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RAM\MemoryCounters.resx">
-      <DependentUpon>MemoryCounters.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RAM\RAM.resx">
-      <DependentUpon>RAM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RAM\SystemMemoryInfo.resx">
-      <DependentUpon>SystemMemoryInfo.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="RAM\AlertsViewer.resx" />
+    <EmbeddedResource Include="RAM\Browser.resx" />
+    <EmbeddedResource Include="RAM\Configuration.resx" />
+    <EmbeddedResource Include="RAM\IdleCheckForm.resx" />
+    <EmbeddedResource Include="RAM\MemoryAnalytics.resx" />
+    <EmbeddedResource Include="RAM\MemoryCounters.resx" />
+    <EmbeddedResource Include="RAM\RAM.resx" />
+    <EmbeddedResource Include="RAM\Settings.resx" />
+    <EmbeddedResource Include="RAM\SystemMemoryInfo.resx" />
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
