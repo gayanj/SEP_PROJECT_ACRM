@@ -1,7 +1,9 @@
-﻿namespace ACRMS.DISK.DiskDataHandler
+﻿namespace ACRMS.DISK.DiskMonitorBundle
 {
     using System.Collections;
     using System.Management;
+
+    using ACRMS.DISK.DiskDataHandler;
 
     public class WmiDiskInfo
     {
@@ -50,24 +52,22 @@
             foreach (var o in managementObjectCollection)
             {
                 var managementObject = (ManagementObject)o;
-                diskProperties.Model = managementObject["Model"].ToString();
-
-                //diskProperties.BytesPerSector = managementObject["BytesPerSector"].ToString();
-                //diskProperties.FirmwareRevision = managementObject["FirmwareRevision"].ToString();
-                //diskProperties.InterfaceType = managementObject["InterfaceType"].ToString();
-                //diskProperties.MaxBlockSize = managementObject["MaxBlockSize"].ToString();
-                //diskProperties.MinBlockSize = managementObject["MinBlockSize"].ToString();
-                //diskProperties.NoOfPartitions = managementObject["Partitions"].ToString();
-                //diskProperties.SectorsPerTrack = managementObject["SectorsPerTrack"].ToString();
+                diskProperties.Model = managementObject["Model"] != null ? managementObject["Model"].ToString() : "Not Found";
+                diskProperties.BytesPerSector = managementObject["BytesPerSector"].ToString();
+                diskProperties.FirmwareRevision = managementObject["FirmwareRevision"] != null
+                                                      ? managementObject["FirmwareRevision"].ToString()
+                                                      : "Not Found";
+                diskProperties.InterfaceType = managementObject["InterfaceType"].ToString();
+                diskProperties.NoOfPartitions = managementObject["Partitions"].ToString();
+                diskProperties.SectorsPerTrack = managementObject["SectorsPerTrack"].ToString();
                 diskProperties.SerialNumber = managementObject["SerialNumber"].ToString();
-
-                //diskProperties.Size = managementObject["Capacity"].ToString();
+                diskProperties.Size = managementObject["Size"].ToString();
                 diskProperties.TotalCylinders = managementObject["TotalCylinders"].ToString();
-
-                //diskProperties.TotalHeads = managementObject["TotalHeads"].ToString();
-                //diskProperties.TotalSectors = managementObject["TotalSectors"].ToString();
-                //diskProperties.TotalTracks = managementObject["TotalTracks"].ToString();
-                //diskProperties.TracksPerCylinser = managementObject["TracksPerCylinder"].ToString();
+                diskProperties.TotalHeads = managementObject["TotalHeads"].ToString();
+                diskProperties.TotalSectors = managementObject["TotalSectors"].ToString();
+                diskProperties.TotalTracks = managementObject["TotalTracks"].ToString();
+                diskProperties.TracksPerCylinser = managementObject["TracksPerCylinder"].ToString();
+                
             }
 
             return diskProperties;

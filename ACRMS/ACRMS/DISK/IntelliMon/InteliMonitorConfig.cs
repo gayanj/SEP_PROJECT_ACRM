@@ -7,6 +7,8 @@ using System.Windows.Forms;
 
 namespace ACRMS.DISK.IntelliMon
 {
+    using ACRMS.DISK.DiskDataHandler;
+
     public partial class InteliMonitorConfig : Form
     {
         Timer timer;
@@ -39,12 +41,33 @@ namespace ACRMS.DISK.IntelliMon
             {
                 if (dsWatchlist.Tables[0].Rows[e.RowIndex][4].Equals(true))
                 {
-                    mw = new MonitorWindow(dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[0].ToString(),
-                        dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[1].ToString());
+                    if (!DiskDataQueue.IsInDiskQueue(
+                        dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[0].ToString(),
+                        dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[1].ToString()))
+                    {
+                        DiskDataValues diskDataValues = new DiskDataValues();
+                        diskDataValues.HostName = dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[0].ToString();
+                        diskDataValues.HostIp = dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[1].ToString();
+                        int index = DiskDataQueue.EnqueueDiskData(diskDataValues);
+                        mw = new MonitorWindow(index);
 
-                    dgvWatchList.Refresh();
-                    mw.Show();
-                    mw.Focus();
+                        dgvWatchList.Refresh();
+                        mw.Show();
+                        mw.Focus();
+                    }
+                    else{
+                        MessageBox.Show(
+                            "This Client is Being Already Monitored",
+                            "Alert",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Exclamation);
+                        Form form = new Form();
+                        form = DiskDataQueue.GetForm(
+                            dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[0].ToString(),
+                            dsWatchlist.Tables[0].Rows[e.RowIndex].ItemArray[1].ToString());
+                        form.Show();
+                        form.Focus();
+                    }
                 }
                 else
                 {
@@ -85,6 +108,7 @@ namespace ACRMS.DISK.IntelliMon
                 if (frm.Name == "MonitorWindow")
                 {
                     count++;
+
                 }
             }
             return count;
@@ -116,8 +140,8 @@ namespace ACRMS.DISK.IntelliMon
             {
                 if (ipAddr.AddressFamily == AddressFamily.InterNetwork)
                 {
-                    IPHostEntry remoteAdd = Dns.GetHostEntry(ipAddr);
-                    listBoxClientList.Items.Add(remoteAdd.AddressList[count].ToString());
+                    IPHostEntry remoteAddress = Dns.GetHostEntry(ipAddr);
+                    listBoxClientList.Items.Add(remoteAddress.AddressList[count].ToString());
                 }
                 count++;
             }
@@ -134,7 +158,7 @@ namespace ACRMS.DISK.IntelliMon
 
             clientIp = listBoxClientList.SelectedItem.ToString();
             IPHostEntry remoteadd = Dns.GetHostEntry(clientIp);
-            clientName = remoteadd.HostName.ToString();
+            clientName = remoteadd.HostName;
             hostName = Dns.GetHostName();
             Ping ping = new Ping();
             PingReply pingReply = ping.Send(hostName);
