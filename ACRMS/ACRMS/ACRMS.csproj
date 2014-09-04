@@ -71,6 +71,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml.Linq" />
@@ -297,6 +299,12 @@
     </Compile>
     <Compile Include="RAM\SystemMemoryInfo.designer.cs" />
     <Compile Include="RAM\wmiMemory.cs" />
+    <Compile Include="WCF\WcfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WCF\WcfForm.Designer.cs">
+      <DependentUpon>WcfForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ACRMS_Main.resx">
       <DependentUpon>ACRMS_Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CPU\loadingForm.resx">
       <DependentUpon>loadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DISK\AdminChecker.resx">
+      <DependentUpon>AdminChecker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DISK\DirSizeExplorer.resx">
       <DependentUpon>DirSizeExplorer.cs</DependentUpon>
@@ -376,6 +387,9 @@
     <EmbeddedResource Include="RAM\RAM.resx" />
     <EmbeddedResource Include="RAM\Settings.resx" />
     <EmbeddedResource Include="RAM\SystemMemoryInfo.resx" />
+    <EmbeddedResource Include="WCF\WcfForm.resx">
+      <DependentUpon>WcfForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -388,7 +402,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cpu.png" />
   </ItemGroup>
@@ -430,6 +446,7 @@
   <ItemGroup>
     <Content Include="Resources\a.bmp" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,5 +1,8 @@
 ﻿namespace ACRMS.DISK.DiskDataHandler
 {
+    using System;
+
+    [Serializable]
     public struct DiskProperties
     {
         public string BytesPerSector { get; set; }

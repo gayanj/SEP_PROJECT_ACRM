@@ -37,10 +37,10 @@
         public DataTable GetSmartData(string hostName)
         {
             this.managementScope = new ManagementScope
-            {
-                Path = new ManagementPath(@"\\" + hostName + @"\root\WMI"),
-                Options = this.connectionOptions
-            };
+                                    {
+                                        Path = new ManagementPath(@"\\" + hostName + @"\root\WMI"),
+                                        Options = this.connectionOptions
+                                    };
 
             this.managementScope.Connect();
             ObjectQuery objectQuery = new ObjectQuery(@"SELECT * FROM MSStorageDriver_ATAPISmartData");

@@ -37,12 +37,13 @@
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.lblRunAsAdmin = new MetroFramework.Controls.MetroLabel();
             this.lblInAdminGroup = new MetroFramework.Controls.MetroLabel();
+            this.btnLaunchWcf = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // btnElevate
             // 
             this.btnElevate.Highlight = false;
-            this.btnElevate.Location = new System.Drawing.Point(99, 155);
+            this.btnElevate.Location = new System.Drawing.Point(43, 159);
             this.btnElevate.Name = "btnElevate";
             this.btnElevate.Size = new System.Drawing.Size(90, 30);
             this.btnElevate.Style = MetroFramework.MetroColorStyle.Blue;
@@ -106,7 +107,7 @@
             this.lblIntegrityLevel.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.lblIntegrityLevel.Location = new System.Drawing.Point(181, 115);
             this.lblIntegrityLevel.Name = "lblIntegrityLevel";
-            this.lblIntegrityLevel.Size = new System.Drawing.Size(83, 19);
+            this.lblIntegrityLevel.Size = new System.Drawing.Size(94, 19);
             this.lblIntegrityLevel.Style = MetroFramework.MetroColorStyle.Blue;
             this.lblIntegrityLevel.StyleManager = null;
             this.lblIntegrityLevel.TabIndex = 3;
@@ -148,7 +149,7 @@
             this.lblIsProcessElevated.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.lblIsProcessElevated.Location = new System.Drawing.Point(181, 77);
             this.lblIsProcessElevated.Name = "lblIsProcessElevated";
-            this.lblIsProcessElevated.Size = new System.Drawing.Size(83, 19);
+            this.lblIsProcessElevated.Size = new System.Drawing.Size(94, 19);
             this.lblIsProcessElevated.Style = MetroFramework.MetroColorStyle.Blue;
             this.lblIsProcessElevated.StyleManager = null;
             this.lblIsProcessElevated.TabIndex = 5;
@@ -190,7 +191,7 @@
             this.lblRunAsAdmin.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.lblRunAsAdmin.Location = new System.Drawing.Point(181, 43);
             this.lblRunAsAdmin.Name = "lblRunAsAdmin";
-            this.lblRunAsAdmin.Size = new System.Drawing.Size(83, 19);
+            this.lblRunAsAdmin.Size = new System.Drawing.Size(94, 19);
             this.lblRunAsAdmin.Style = MetroFramework.MetroColorStyle.Blue;
             this.lblRunAsAdmin.StyleManager = null;
             this.lblRunAsAdmin.TabIndex = 7;
@@ -211,7 +212,7 @@
             this.lblInAdminGroup.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
             this.lblInAdminGroup.Location = new System.Drawing.Point(181, 9);
             this.lblInAdminGroup.Name = "lblInAdminGroup";
-            this.lblInAdminGroup.Size = new System.Drawing.Size(83, 19);
+            this.lblInAdminGroup.Size = new System.Drawing.Size(94, 19);
             this.lblInAdminGroup.Style = MetroFramework.MetroColorStyle.Blue;
             this.lblInAdminGroup.StyleManager = null;
             this.lblInAdminGroup.TabIndex = 8;
@@ -220,12 +221,26 @@
             this.lblInAdminGroup.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lblInAdminGroup.UseStyleColors = false;
             // 
+            // btnLaunchWcf
+            // 
+            this.btnLaunchWcf.Highlight = false;
+            this.btnLaunchWcf.Location = new System.Drawing.Point(156, 159);
+            this.btnLaunchWcf.Name = "btnLaunchWcf";
+            this.btnLaunchWcf.Size = new System.Drawing.Size(90, 30);
+            this.btnLaunchWcf.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnLaunchWcf.StyleManager = null;
+            this.btnLaunchWcf.TabIndex = 9;
+            this.btnLaunchWcf.Text = "WCF";
+            this.btnLaunchWcf.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnLaunchWcf.Click += new System.EventHandler(this.btnLaunchWcf_Click);
+            // 
             // AdminChecker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(309, 201);
+            this.Controls.Add(this.btnLaunchWcf);
             this.Controls.Add(this.lblInAdminGroup);
             this.Controls.Add(this.lblRunAsAdmin);
             this.Controls.Add(this.metroLabel6);
@@ -261,5 +276,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel lblRunAsAdmin;
         private MetroFramework.Controls.MetroLabel lblInAdminGroup;
+        private MetroFramework.Controls.MetroButton btnLaunchWcf;
     }
 }

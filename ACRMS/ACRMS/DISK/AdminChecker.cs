@@ -10,6 +10,7 @@ using System.Windows.Forms;
 namespace ACRMS.DISK
 {
     using ACRMS.DISK.DiskMonitorBundle;
+    using ACRMS.WCF;
 
     public partial class AdminChecker : Form
     {
@@ -407,6 +408,13 @@ namespace ACRMS.DISK
                 this.lblIsProcessElevated.Text = "N/A";
                 this.lblIntegrityLevel.Text = "N/A";
             }
+        }
+
+        private void btnLaunchWcf_Click(object sender, EventArgs e)
+        {
+            WcfForm wcfForm = new WcfForm();
+            wcfForm.Show();
+            wcfForm.Focus();
         }
     }
 }

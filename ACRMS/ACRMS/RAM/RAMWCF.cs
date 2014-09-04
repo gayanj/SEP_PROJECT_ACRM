@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACRMS.RAM
 {
+    [Serializable]
     public class RAMWCF
     {
         public static uint IEProcessID;

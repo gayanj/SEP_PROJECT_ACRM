@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACRMS.DISK;
-using ACRMS.DISK.IntelliMon;
+
 using SEPMetro;
 
 namespace ACRMS
@@ -19,13 +12,14 @@ namespace ACRMS
         public ACRM_MetroMain()
         {
             InitializeComponent();
-            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
+            // this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             // WindowState = FormWindowState.Maximized;
         }
-
+         
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            SEPMetro.RAM r=new SEPMetro.RAM();
+            SEPMetro.RAM r = new SEPMetro.RAM();
             r.ShowDialog();
         }
 
