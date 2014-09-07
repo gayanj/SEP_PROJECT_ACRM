@@ -1,23 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using System.ServiceModel.Web;
 
 using ACRMS.DISK.DiskDataHandler;
 using ACRMS.DISK.DiskMonitorBundle;
 
 namespace ACRMS.WCF
 {
-    public partial class WcfForm : Form
+	using System.ServiceModel.Activation;
+
+	using ACRMS.RAM;
+
+	public partial class WcfForm : Form
     {
         private ServiceHost Host;
+		private WebServiceHost webHost;
 
         public WcfForm()
         {
@@ -26,75 +25,63 @@ namespace ACRMS.WCF
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Host = new ServiceHost(typeof(SimpleService), new Uri("http://localhost:8001/MetadataSample"));
-
+			webHost = new WebServiceHost(typeof(DiskWcfSimpleService), new Uri("http://localhost:8001/acrmswcfdisk"));
             try{
-                // Check to see if the service host already has a ServiceMetadataBehavior
-                ServiceMetadataBehavior smb = Host.Description.Behaviors.Find<ServiceMetadataBehavior>();
-                // If not, add one
-                if (smb == null) smb = new ServiceMetadataBehavior();
-                smb.HttpGetEnabled = true;
-                smb.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
-                Host.Description.Behaviors.Add(smb);
-                // Add MEX endpoint
-                Host.AddServiceEndpoint(
-                    ServiceMetadataBehavior.MexContractName,
-                    MetadataExchangeBindings.CreateMexHttpBinding(),
-                    "mex");
-                // Add application endpoint
-                Host.AddServiceEndpoint(typeof(ISimpleService), new WSHttpBinding(), "");
-
-                // Open the service host to accept incoming calls
-                Host.Open();
-
-                // The service can now be accessed.
-                Console.WriteLine("The service is ready.");
-                Console.WriteLine("Press <ENTER> to terminate service.");
-                Console.WriteLine();
-                Console.ReadLine();
-
-                // Close the ServiceHostBase to shutdown the service.
-                //host.Close();
+                webHost.Open();
+	            MessageBox.Show("WCF Service Open", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (CommunicationException commProblem){
-                Console.WriteLine("There was a communication problem. " + commProblem.Message);
-                Console.Read();
+	            MessageBox.Show("Communication Problem Occured", "Erorr", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            Host.Close();
+            webHost.Close();
+	        MessageBox.Show("WCF Service Terminated", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 
     [ServiceContract]
-    public interface ISimpleService
+    public interface IDiskWcfSimpleService
     {
-        [OperationContract]
-        string Test();
+		[OperationContract]
+		[WebGet(UriTemplate = "/Ready",
+			RequestFormat = WebMessageFormat.Json)]
+		string ready();
 
         [OperationContract]
-        DiskDataValues GetObject(string hostName);
+		[WebGet(UriTemplate = "/GetDiskDataValues/{hostName}",
+			RequestFormat = WebMessageFormat.Json,
+			ResponseFormat = WebMessageFormat.Json)]
+        DiskDataValues GetDiskDataValues(string hostName);
     }
 
-    public class SimpleService : ISimpleService
-    {
-        #region Implementation of ISimpleService
+	[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    public class DiskWcfSimpleService : IDiskWcfSimpleService
+	{
+		private PerfCounterHD perf;
 
-        public string Test()
+		public string ready()
+		{
+			if (perf == null){
+				perf = new PerfCounterHD(Environment.MachineName);
+				return "ready";
+			}
+			else{
+				return "Existing";
+			}
+		}
+		public DiskDataValues GetDiskDataValues(string hostName)
         {
-            return "Hello world";
-        }
+			if (hostName == ""){
+				hostName = "ARGOS";
+			}
 
-        public DiskDataValues GetObject(string hostName)
-        {
-            PerfCounterHD perf = new PerfCounterHD(hostName);
             DiskDataValues diskData = perf.GetValues();
             return diskData;
         }
-
-        #endregion
     }
 }
