@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.ram_availVirtual = new MetroFramework.Controls.MetroLabel();
             this.ram_totalVirtual = new MetroFramework.Controls.MetroLabel();
@@ -45,6 +44,7 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,25 +82,6 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.CustomBackground = false;
-            this.metroLabel10.CustomForeColor = true;
-            this.metroLabel10.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Light;
-            this.metroLabel10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.metroLabel10.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
-            this.metroLabel10.Location = new System.Drawing.Point(621, 14);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(26, 25);
-            this.metroLabel10.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel10.StyleManager = null;
-            this.metroLabel10.TabIndex = 39;
-            this.metroLabel10.Text = "%";
-            this.metroLabel10.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel10.UseStyleColors = false;
             // 
             // metroButton1
             // 
@@ -380,6 +361,25 @@
             this.metroLabel1.Text = "Percentage of memory in use";
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel1.UseStyleColors = false;
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.CustomBackground = false;
+            this.metroLabel10.CustomForeColor = true;
+            this.metroLabel10.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.metroLabel10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroLabel10.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.metroLabel10.Location = new System.Drawing.Point(621, 14);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(26, 25);
+            this.metroLabel10.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel10.StyleManager = null;
+            this.metroLabel10.TabIndex = 39;
+            this.metroLabel10.Text = "%";
+            this.metroLabel10.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel10.UseStyleColors = false;
             // 
             // SystemMemoryInfo
             // 

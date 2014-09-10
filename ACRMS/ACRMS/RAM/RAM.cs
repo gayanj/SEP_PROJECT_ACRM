@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -15,8 +14,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using ACRM.RAM;
-using ACRMS;
-using ACRMS.RAM;
 using Microsoft.Win32.SafeHandles;
 using NotificationWindow;
 using RAM;
@@ -29,7 +26,6 @@ namespace SEPMetro
     {
 
         private System.Threading.Timer t;
-        SqlConnection myConnection;
         private DataTable dt;
         private int count;
         private int value = 0;
@@ -44,7 +40,6 @@ namespace SEPMetro
         public AddDataDelegate addDataDel;
         System.Windows.Forms.Timer tick1;
         System.Windows.Forms.Timer tick2;
-        
 
         delegate void SetTextCallback(string text);
  //       private NetworkInterface[] nics = null;
@@ -135,9 +130,6 @@ namespace SEPMetro
         private void RAM_Load(object sender, EventArgs e)
         {
             AllocConsole();
-
-            String connectionString = "Data Source=DELL-PC;Initial Catalog=Monitor;User ID=dell-PC;Password=dell-PC";
-            myConnection = new SqlConnection(connectionString);
             
             m = new MEMORYSTATUSEX();
             ram_DataWidth.Text = wmi.info[5];
@@ -161,25 +153,9 @@ namespace SEPMetro
 
             tick1 = new System.Windows.Forms.Timer { Enabled = true, Interval = Configuration.timeInterval };
             tick1.Tick += tick_Tick;
-            tick2 = new System.Windows.Forms.Timer { Enabled = true, Interval = 5000 };
+            tick2 = new System.Windows.Forms.Timer { Enabled = true, Interval = Configuration.timeInterval + 2000 };
             tick2.Tick += tick_Tick2;
-          
-            
-
-            try
-            {
-                myConnection.Open();
-                string query = "INSERT INTO RamInfo(AgentID,DataWidth,Manufacturer,SerialNumber,Speed,InterleaveDataDepth,Capacity)" + "VALUES(1,'" + wmi.info[5] + "','" + wmi.info[4] + "','" + wmi.info[6] + "','" + wmi.info[7] + "','" + wmi.info[8] + "','" + wmi.info[2] + "')";
-                SqlCommand insertQuery = new SqlCommand(query, myConnection);
-                insertQuery.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("cannot open SQL connection " + ex);
-            }
-            myConnection.Close();
         }
-
 
         void tick_Tick(object sender, EventArgs e)
         {
@@ -393,25 +369,7 @@ namespace SEPMetro
         private void metroButton2_Click(object sender, EventArgs e)
         {
             MemoryScanner m = new MemoryScanner();
-            MemoryScanner.MainMethod();
-        }
-
-        private void metroButton3_Click(object sender, EventArgs e)
-        {
-            Settings s = new Settings();
-            s.ShowDialog();
-        }
-
-        private void metroButton4_Click(object sender, EventArgs e)
-        {
-            AlertsViewer v = new AlertsViewer();
-            v.ShowDialog();
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Browser b = new Browser();
+            m.MainMethod();
         }
 
 

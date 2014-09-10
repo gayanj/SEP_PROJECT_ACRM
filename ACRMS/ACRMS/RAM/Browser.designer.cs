@@ -47,7 +47,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(-2, -2);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(587, 429);
+            this.metroPanel1.Size = new System.Drawing.Size(584, 428);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroPanel1.StyleManager = null;
             this.metroPanel1.TabIndex = 0;
@@ -100,7 +100,6 @@
             this.Controls.Add(this.metroPanel1);
             this.Name = "Browser";
             this.Text = "Browser";
-            this.Load += new System.EventHandler(this.Browser_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             this.ResumeLayout(false);
