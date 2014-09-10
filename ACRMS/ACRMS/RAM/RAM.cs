@@ -69,7 +69,6 @@ namespace SEPMetro
         public RAM()
         {
             InitializeComponent();
-            ACRM_MetroMain.load.Close();
         }
 
         private void metroPanel1_Paint(object sender, PaintEventArgs e)
