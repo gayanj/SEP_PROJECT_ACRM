@@ -18,6 +18,10 @@ namespace WebSockets.Types
         #region Events
 
         /// <summary>
+        /// Occurs when Get Cpu Usage method is called.
+        /// </summary>
+        public event MethodReceivedEventHandler GetCpuUsageMethodReceived;
+        /// <summary>
         /// Occurs when Start Monitoring method is called.
         /// </summary>
         public event MethodReceivedEventHandler StartMonitoringMethodReceived;
@@ -142,6 +146,11 @@ namespace WebSockets.Types
 
             switch (request.MethodName)
             {
+                case "getCPUUsage":
+                    FileLogger.Instance.LogMessage("getCPUUsage Method Recieved.");
+                    if (GetCpuUsageMethodReceived != null)
+                        GetCpuUsageMethodReceived(this, args);
+                    return true;
                 case "startMonitoring":
                     FileLogger.Instance.LogMessage("startMonitoring Method Recieved.");
                     if (StartMonitoringMethodReceived != null)

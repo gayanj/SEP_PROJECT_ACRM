@@ -5,7 +5,7 @@
 <title>ACRMS Web</title>
 <link rel="stylesheet" type="text/css" href="public/jquery.tidy.table.min.css">
 <script type="text/javascript" src="ACRMS_WebsocketBase.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
 <script src="public/jquery.tidy.table.js"></script>
 <style type="text/css">
 ${demo.css}
@@ -16,25 +16,37 @@ function startMonitoring() {
 	sendRequestNative('startMonitoring', null);
     console.log('Initial startMonitoring method sent to socket.');
 	timer = setInterval(function () {
-		if(Response){
+		if(startMonitoringResponse){
 			sendRequestNative('startMonitoring', null);
             console.log('startMonitoring method sent to socket.');
+		}
+    }, 1000);
+}
+function getCPUUsage() {
+	sendRequestNative('getCPUUsage', null);
+    console.log('Initial getCPUUsage method sent to socket.');
+	timer = setInterval(function () {
+		if(getCPUUsageResponse){
+			sendRequestNative('getCPUUsage', null);
+            console.log('getCPUUsage method sent to socket.');
 		}
     }, 1000);
 }
 </script>
 <script type="text/javascript">
 $(document).ready(function () {
-
+	alert("Ready!!!");
     });
 </script>
 <body onload="openNativeWrapperConnection()">
-<div class="button" id="btn0"><a href="#" onClick="startMonitoring()">Start Monitoring</a></div>
-<div class="button" id="btn0"><a href="#" onClick="clearInterval(timer)">Stop Monitoring</a></div>
+<div class="button" id="btn0"><a href="#" onClick="startMonitoring()">Start Monitoring Processes</a></div>
+<div class="button" id="btn0"><a href="#" onClick="clearInterval(timer)">Stop Monitoring Processes</a></div>
+<div class="button" id="btn0"><a href="#" onClick="getCPUUsage()">Get CPU Usage</a></div>
 <div id="tableContainer" style='width:513px;height:500px;overflow:scroll;float:left;'></div>
 <script src="highcharts.js"></script>
 <script src="dark-unica.js"></script>
 <script src="exporting.js"></script>
-<div id="container" style="width:1000px; height: 400px;"></div>
+<div id="startMonitoringGraph" style="width:1000px; height: 400px;"></div>
+<div id="getCPUUsageGraph" style="width:1000px; height: 400px;"></div>
 </body>
 </html>

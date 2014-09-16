@@ -6,6 +6,7 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using ACRMS;
+using System.Diagnostics;
 
 namespace ACRMS.CPU
 {
@@ -173,6 +174,19 @@ namespace ACRMS.CPU
             }
             searchProcedure.Dispose();
             return processes;
+        }
+
+        public static int GetCpuUsage()
+        {
+            ManagementObjectSearcher searcher =
+                    new ManagementObjectSearcher("root\\CIMV2",
+                    "SELECT * FROM Win32_PerfFormattedData_PerfOS_Processor WHERE Name=\"_Total\"");
+
+            foreach (ManagementObject queryObj in searcher.Get())
+            {
+                return Int32.Parse(queryObj["PercentProcessorTime"].ToString());
+            }
+            return -1;
         }
     }
 }

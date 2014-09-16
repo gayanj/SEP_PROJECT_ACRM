@@ -31,6 +31,10 @@ namespace ACRMS.CPU
             alProcesses = ProcessMethod.RunningProcesses(connectionScope);
             return alProcesses;
         }
+        public int GetCpuUsage()
+        {
+            return ProcessMethod.GetCpuUsage();
+        }
         /// <summary>
         /// This method calls the SystemMonitor method in the ProcessMethod class and returns a data table with the process information
         /// </summary>

@@ -1,4 +1,4 @@
-var baseMethods = (function () {
+var webSocketBase = (function () {
     var Nconn;
     var startMonitoringResponse = false;
     var getCPUUsageResponse = false;
@@ -7,7 +7,7 @@ var baseMethods = (function () {
     var getCPUUsageCount  = 0;
     var cpuPercentage = 0;
 
-    function openNativeWrapperConnection() {
+    function _openNativeWrapperConnection() {
             // uses global 'conn' object
             Nconn = new WebSocket('ws://localhost:12001');
 
@@ -33,7 +33,7 @@ var baseMethods = (function () {
             };
         }
 
-    function sendRequestNative(name, parameters) {
+    function _sendRequestNative(name, parameters) {
             var pid = 1;
 
             var JSONobj = {
@@ -143,9 +143,14 @@ var baseMethods = (function () {
                 },
                 xAxis: {
                     type: 'datetime',
-                    tickPixelInterval: 50
+                    tickPixelInterval: 50,
+                    labels: {
+                        enabled: false
+                    }
                 },
                 yAxis: {
+                    floor: 0,
+                    ceiling: 100,
                     title: {
                         text: 'Process CPU %'
                     },
@@ -218,9 +223,14 @@ var baseMethods = (function () {
                 },
                 xAxis: {
                     type: 'datetime',
-                    tickPixelInterval: 50
+                    tickPixelInterval: 50,
+                    labels: {
+                        enabled: false
+                    }
                 },
                 yAxis: {
+                    floor: 0,
+                    ceiling: 100,
                     title: {
                         text: 'CPU %'
                     },
@@ -262,4 +272,18 @@ var baseMethods = (function () {
                 }]
             });
     }
+
+    function _getCPUUsageResponseValue(){
+        return getCPUUsageResponse;
+    }
+    function _startMonitoringResponseValue(){
+        return startMonitoringResponse;
+    }
+    //Public methods which are exposed
+    return {
+        getCPUUsageResponseValue: _getCPUUsageResponseValue,
+        startMonitoringResponseValue: _startMonitoringResponseValue,
+        openConnection: _openNativeWrapperConnection,
+        sendRequestNative: _sendRequestNative
+    };
 }());

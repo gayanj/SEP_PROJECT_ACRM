@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  <title>Automated Computer Resource Management System</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width">        
+  <link rel="stylesheet" href="css/templatemo_main.css">
+  <link rel="stylesheet" type="text/css" href="js/public/jquery.tidy.table.min.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <div class="logo"><h1>Automated Computer Resource Management System</h1></div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button> 
+      </div>   
+    </div>
+    <div class="template-page-wrapper">
+      <div class="navbar-collapse collapse templatemo-sidebar">
+        <ul class="templatemo-sidebar-menu">
+          <li class="active"><a href="#"><i class="glyphicon glyphicon-dashboard"></i>Dashboard</a></li>
+          <li><a href="#"><i class="glyphicon glyphicon-qrcode"></i>CPU</a></li>
+          <li><a href="#"><i class="glyphicon glyphicon-th"></i>RAM</a></li>
+          <li><a href="#"><i class="glyphicon glyphicon-hdd"></i>Disk</a></li>
+          <li><a href="#"><i class="glyphicon glyphicon-random"></i>Network</a></li>
+          <li><a href="#"><i class="glyphicon glyphicon-flash"></i>Power</a></li>
+          <li><a href="javascript:;" data-toggle="modal" data-target="#confirmModal"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+        </ul>
+      </div><!--/.navbar-collapse -->
+
+      <div class="templatemo-content-wrapper">
+        <div class="templatemo-content">
+          <h1>Dashboard</h1>
+          <div class="margin-bottom-30">
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="nav nav-pills">
+                  <li class="label label-info">CPU Usage</li>
+                </ul>          
+              </div>
+            </div>
+          </div>
+            <!-- Here comes the graph -->
+            <div id="getCPUUsageGraph" style="width:500px; height: 400px;float:left;"></div>
+            <div id="startMonitoringGraph" style="width:500px; height: 400px;float:left;"></div>
+            <div id="tableContainer" style='width:513px;height:500px;overflow:scroll;float:left;'></div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">Are you sure you want to sign out?</h4>
+            </div>
+            <div class="modal-footer">
+              <a href="sign-in.html" class="btn btn-primary">Yes</a>
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="templatemo-footer">
+        <div class="templatemo-copyright">
+          <p>Copyright &copy; 2014 ACRMS<!-- Credit: www.templatemo.com --></p>
+        </div>
+      </footer>
+    </div>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/templatemo_script.js"></script>
+    <script type="text/javascript" src="js/ACRMS_WebsocketBase.js"></script>
+    <script src="js/public/jquery.tidy.table.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/dark-unica.js"></script>
+    <script src="js/exporting.js"></script>
+    <script src="js/public/jquery.tidy.table.js"></script>
+    <script type="text/javascript">
+      var timer;
+      $(document).ready(function () {
+        webSocketBase.openConnection();
+        setTimeout(function(){
+          (function getCPUUsage() {
+            webSocketBase.sendRequestNative('getCPUUsage', null);
+            console.log('Initial getCPUUsage method sent to socket.');
+            timer = setInterval(function () {
+              if(webSocketBase.getCPUUsageResponseValue()){
+                webSocketBase.sendRequestNative('getCPUUsage', null);
+                console.log('getCPUUsage method sent to socket.');
+              }
+            }, 1000);
+          })();
+          (function startMonitoring() {
+            webSocketBase.sendRequestNative('startMonitoring', null);
+            console.log('Initial startMonitoring method sent to socket.');
+            timer = setInterval(function () {
+              if(webSocketBase.startMonitoringResponseValue()){
+                webSocketBase.sendRequestNative('startMonitoring', null);
+                console.log('startMonitoring method sent to socket.');
+              }
+            }, 1000);
+          })();
+        }, 3000);
+      });
+    </script>
+</body>
+</html>

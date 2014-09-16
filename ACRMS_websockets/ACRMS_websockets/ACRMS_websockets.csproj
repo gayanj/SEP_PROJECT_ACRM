@@ -40,8 +40,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebSockets">
-      <HintPath>..\BuildOutput\Debug\server\WebSockets.dll</HintPath>
+    <Reference Include="WebSockets, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\BuildOutput\Release\server\WebSockets.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -47,6 +47,10 @@ namespace ACRMS.CPU
             alProcesses = ProcessMethod.RunningProcesses(connectionScope);
             return alProcesses;
         }
+        public int GetCpuUsage()
+        {
+            return ProcessMethod.GetCpuUsage();
+        }
         public Hashtable ProcessMonitor(string processName)
         {
             return ProcessMethod.SystemMonitor(connectionScope);
