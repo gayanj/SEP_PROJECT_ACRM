@@ -18,6 +18,14 @@ namespace WebSockets.Types
         #region Events
 
         /// <summary>
+        /// Occurs when Get Disk Usage method is called.
+        /// </summary>
+        public event MethodReceivedEventHandler GetDiskUsageMethodReceived;
+        /// <summary>
+        /// Occurs when Get Ram Usage method is called.
+        /// </summary>
+        public event MethodReceivedEventHandler GetRamUsageMethodReceived;
+        /// <summary>
         /// Occurs when Get Cpu Usage method is called.
         /// </summary>
         public event MethodReceivedEventHandler GetCpuUsageMethodReceived;
@@ -146,6 +154,16 @@ namespace WebSockets.Types
 
             switch (request.MethodName)
             {
+                case "getDISKUsage":
+                    FileLogger.Instance.LogMessage("getDISKUsage Method Recieved.");
+                    if (GetDiskUsageMethodReceived != null)
+                        GetDiskUsageMethodReceived(this, args);
+                    return true;
+                case "getRAMUsage":
+                    FileLogger.Instance.LogMessage("getRAMUsage Method Recieved.");
+                    if (GetRamUsageMethodReceived != null)
+                        GetRamUsageMethodReceived(this, args);
+                    return true;
                 case "getCPUUsage":
                     FileLogger.Instance.LogMessage("getCPUUsage Method Recieved.");
                     if (GetCpuUsageMethodReceived != null)

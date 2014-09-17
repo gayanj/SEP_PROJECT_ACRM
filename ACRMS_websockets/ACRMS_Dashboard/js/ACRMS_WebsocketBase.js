@@ -2,10 +2,13 @@ var webSocketBase = (function () {
     var Nconn;
     var startMonitoringResponse = false;
     var getCPUUsageResponse = false;
+    var getRAMUsageResponse = false;
     var rowNumber = 1;
     var startMonitoringCount  = 0;
     var getCPUUsageCount  = 0;
+    var getRAMUsageCount  = 0;
     var cpuPercentage = 0;
+    var ramPercentage = 0.0;
 
     function _openNativeWrapperConnection() {
             // uses global 'conn' object
@@ -52,6 +55,8 @@ var webSocketBase = (function () {
             startMonitoringResponseHandler(message);
         }else if(json.response === 'getCPUUsage'){
             getCPUUsageResponseHandler(message);
+        }else if(json.response === 'getRAMUsage'){
+            getRAMUsageResponseHandler(message);
         }
     }
 
@@ -85,6 +90,18 @@ var webSocketBase = (function () {
         }
     }
 
+    function getRAMUsageResponseHandler(message){
+        //convert to JSON format
+        var json = JSON.parse(message);
+        ramPercentage = json.parameters.GetRamUsage.ramUsage;
+        getRAMUsageResponse = true;
+        if(getRAMUsageCount == 0){
+            ramUsagegraph();
+            getRAMUsageCount++;
+            //console.log(json);
+        }
+    }
+
     function table(data){
         var tableData = data;
         $('#tableContainer')
@@ -110,6 +127,10 @@ var webSocketBase = (function () {
 
     function cpuUsageData(){
         return cpuPercentage;
+    }
+
+    function ramUsageData(){
+        return ramPercentage;
     }
 
 
@@ -273,14 +294,98 @@ var webSocketBase = (function () {
             });
     }
 
+    function ramUsagegraph(){
+        Highcharts.setOptions({
+                global: {
+                    useUTC: false
+                }
+            });
+
+            $('#getRAMUsageGraph').highcharts({
+                chart: {
+                    type: 'spline',
+                    animation: Highcharts.svg, // don't animate in old IE
+                    marginRight: 10,
+                    events: {
+                        load: function () {
+
+                            // set up the updating of the chart each second
+                            var series = this.series[0];
+                            setInterval(function () {
+                                var x = (new Date()).getTime(), // current time
+                                    y = parseFloat(ramUsageData());
+                                series.addPoint([x, y], true, true);
+                            }, 1000);
+                        }
+                    }
+                },
+                title: {
+                    text: 'RAM Percentage'
+                },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 50,
+                    labels: {
+                        enabled: false
+                    }
+                },
+                yAxis: {
+                    floor: 0,
+                    ceiling: 100,
+                    title: {
+                        text: 'RAM %'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' +
+                            Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                            Highcharts.numberFormat(this.y, 2);
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'RAM Usage',
+                    data: (function () {
+                        // generate an array of random data
+                        var data = [],
+                            time = (new Date()).getTime(),
+                            i;
+
+                        for (i = -19; i <= 0; i += 1) {
+                            data.push({
+                                x: time + i * 1000,
+                                y: 0
+                            });
+                        }
+                        return data;
+                    }())
+                }]
+            });
+    }
+
     function _getCPUUsageResponseValue(){
         return getCPUUsageResponse;
     }
     function _startMonitoringResponseValue(){
         return startMonitoringResponse;
     }
+    function _getRAMUsageResponseValue(){
+        return getRAMUsageResponse;
+    }
     //Public methods which are exposed
     return {
+        getRAMUsageResponseValue: _getRAMUsageResponseValue,
         getCPUUsageResponseValue: _getCPUUsageResponseValue,
         startMonitoringResponseValue: _startMonitoringResponseValue,
         openConnection: _openNativeWrapperConnection,
