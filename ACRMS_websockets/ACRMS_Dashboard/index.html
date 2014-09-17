@@ -37,7 +37,7 @@
       <div class="templatemo-content-wrapper">
         <div class="templatemo-content">
           <h1>Dashboard</h1>
-          <div class="margin-bottom-30">
+          <div class="margin-bottom-30" style="float:left;">
             <div class="row">
               <div class="col-md-12">
                 <ul class="nav nav-pills">
@@ -45,11 +45,29 @@
                 </ul>          
               </div>
             </div>
-          </div>
-            <!-- Here comes the graph -->
             <div id="getCPUUsageGraph" style="width:500px; height: 400px;float:left;"></div>
+          </div>
+          <div class="margin-bottom-30" style="float:left;">
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="nav nav-pills">
+                  <li class="label label-info">RAM Usage</li>
+                </ul>          
+              </div>
+            </div>
+            <div id="getRAMUsageGraph" style="width:500px; height: 400px;float:left;"></div>
+          </div>
+          <div class="margin-bottom-30" style="float:left;">
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="nav nav-pills">
+                  <li class="label label-info">Disk Usage</li>
+                </ul>          
+              </div>
+            </div>
             <div id="startMonitoringGraph" style="width:500px; height: 400px;float:left;"></div>
-            <div id="tableContainer" style='width:513px;height:500px;overflow:scroll;float:left;'></div>
+            <div id="tableContainer" style='height:500px;overflow:scroll;float:left;'></div>
+          </div>
         </div>
       </div>
       <!-- Modal -->
@@ -94,6 +112,16 @@
               if(webSocketBase.getCPUUsageResponseValue()){
                 webSocketBase.sendRequestNative('getCPUUsage', null);
                 console.log('getCPUUsage method sent to socket.');
+              }
+            }, 1000);
+          })();
+          (function getRAMUsage() {
+            webSocketBase.sendRequestNative('getRAMUsage', null);
+            console.log('Initial getRAMUsage method sent to socket.');
+            timer = setInterval(function () {
+              if(webSocketBase.getCPUUsageResponseValue()){
+                webSocketBase.sendRequestNative('getRAMUsage', null);
+                console.log('getRAMUsage method sent to socket.');
               }
             }, 1000);
           })();

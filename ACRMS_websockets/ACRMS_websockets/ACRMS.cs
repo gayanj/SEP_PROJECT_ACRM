@@ -40,6 +40,8 @@ namespace ACRMS_websockets
 
                 nws.StartMonitoringMethodReceived += nws_StartMonitoring;
                 nws.GetCpuUsageMethodReceived += nws_GetCpuUsageMethodReceived;
+                nws.GetRamUsageMethodReceived += nws_GetRamUsageMethodReceived;
+
                 //nws.CreateMethodReceived += nws_CreateMethodRecieved;
                 //nws.ShowCalibrationDialogMethodReceived += nws_ShowCalibrationDialogMethodRecieved;
                 //nws.ShowHeadValidationDialogMethodReceived += nws_ShowHeadValidationDialogMethodRecieved;
@@ -66,6 +68,21 @@ namespace ACRMS_websockets
                 //SendError(ex.Message + " Exception in Main() " + ex.StackTrace);
                 Console.WriteLine(ex.StackTrace);
                 Console.ReadLine();
+            }
+        }
+
+        static void nws_GetRamUsageMethodReceived(object sender, MethodReceivedEventArgs args)
+        {
+            try
+            {
+                HandlerParameters parameter = new HandlerParameters(sender, Instance, args);
+
+                Thread thread = new Thread(new ParameterizedThreadStart(responseHandler.GetRamUsage));
+                thread.Start(parameter);
+            }
+            catch (Exception ex)
+            {
+                //SendError(ex.Message + " Exception in ILETSNetLib.checkSystem() " + ex.StackTrace);
             }
         }
 

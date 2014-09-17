@@ -54,10 +54,17 @@
     <Compile Include="CPU_classes\ProcessRemote.cs" />
     <Compile Include="Data\Config.cs" />
     <Compile Include="Data\HandlerParameters.cs" />
+    <Compile Include="DISK_classes\DiskDataHandler\DiskDataQueue.cs" />
+    <Compile Include="DISK_classes\DiskDataHandler\DiskDataValues.cs" />
+    <Compile Include="DISK_classes\DiskDataHandler\DiskProperties.cs" />
+    <Compile Include="DISK_classes\DiskMonitorBundle\ExtraDiskMeth.cs" />
+    <Compile Include="DISK_classes\DiskMonitorBundle\PerfCounterHD.cs" />
+    <Compile Include="DISK_classes\DiskMonitorBundle\WmiDiskInfo.cs" />
     <Compile Include="Handlers\NativeWrapperHandler.cs" />
     <Compile Include="Handlers\TimeoutHandler.cs" />
     <Compile Include="ACRMS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RAM_classes\MEMORYSTATUSEX.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

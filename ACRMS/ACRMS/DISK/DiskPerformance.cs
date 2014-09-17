@@ -48,7 +48,8 @@ namespace ACRMS.DISK
         //Start Monitoring
         private void btnStart_Click(object sender, EventArgs e)
         {
-            perfCountObj = new PerfCounterHD(hostListComboBox.SelectedItem.ToString());
+            perfCountObj = new PerfCounterHD(Environment.MachineName);
+            //perfCountObj = new PerfCounterHD(hostListComboBox.SelectedItem.ToString());
             diskDataValues.HostName = hostListComboBox.SelectedItem.ToString();
             btnStop.Enabled = true;
             btnStart.Enabled = false;
