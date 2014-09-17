@@ -25,12 +25,12 @@
     <div id="tabs">
       <div class="navbar-collapse collapse templatemo-sidebar">
         <ul class="nav templatemo-sidebar-menu">
-          <li class="nav-one"><a href="#dashboard" class="current glyphicon glyphicon-dashboard">Dashboard</a></li>
-          <li class="nav-two"><a href="#CPU" class="glyphicon glyphicon-qrcode">CPU</a></li>
-          <li class="nav-three"><a href="#RAM" class="glyphicon glyphicon-th">RAM</a></li>
-          <li class="nav-four"><a href="#Disk" class="glyphicon glyphicon-hdd">Disk</a></li>
-          <li class="nav-five"><a href="#Network" class="glyphicon glyphicon-random">Network</a></li>
-          <li class="nav-six last"><a href="#Power" class="glyphicon glyphicon-flash">Power</a></li>
+          <li class="nav-one"><a href="#dashboard" class="current glyphicon glyphicon-dashboard"><span style="margin-left: 5px">Dashboard</span></a></li>
+          <li class="nav-two"><a href="#CPU" class="glyphicon glyphicon-qrcode"><span style="margin-left: 5px">CPU</span></a></li>
+          <li class="nav-three"><a href="#RAM" class="glyphicon glyphicon-th"><span style="margin-left: 5px">RAM</span></a></li>
+          <li class="nav-four"><a href="#Disk" class="glyphicon glyphicon-hdd"><span style="margin-left: 5px">Disk</span></a></li>
+          <li class="nav-five"><a href="#Network" class="glyphicon glyphicon-random"><span style="margin-left: 5px">Network</span></a></li>
+          <li class="nav-six last"><a href="#Power" class="glyphicon glyphicon-flash"><span style="margin-left: 5px">Power</span></a></li>
         </ul>
       </div>
 
@@ -67,13 +67,11 @@
                   </ul>          
                 </div>
               </div>
-              <div id="startMonitoringGraph" style="width:500px; height: 400px;float:left;"></div>
-              <div id="tableContainer" style='height:500px;overflow:scroll;float:left;'></div>
             </div>
           </div>
         </div>
         <!-- CPU Tab -->
-        <div id="CPU" class="hide templatemo-content-wrapper">
+        <div id="CPU" class="templatemo-content-wrapper" style="display: none;">
           <div class="templatemo-content">
             <h1>CPU</h1>
             <div class="margin-bottom-30" style="float:left;">
@@ -90,7 +88,7 @@
           </div>
         </div>
         <!-- RAM Tab -->
-        <div id="RAM" class="hide templatemo-content-wrapper">
+        <div id="RAM" class="templatemo-content-wrapper" style="display: none;">
           <div class="templatemo-content">
             <h1>RAM</h1>
             <div class="margin-bottom-30" style="float:left;">
@@ -106,7 +104,7 @@
           </div>
         </div>
         <!-- Disk Tab -->
-        <div id="Disk" class="hide templatemo-content-wrapper">
+        <div id="Disk" class="templatemo-content-wrapper" style="display: none;">
           <div class="templatemo-content">
             <h1>Disk</h1>
             <div class="margin-bottom-30" style="float:left;">
@@ -122,7 +120,7 @@
           </div>
         </div>
         <!-- Network Tab -->
-        <div id="Network" class="hide templatemo-content-wrapper">
+        <div id="Network" class="templatemo-content-wrapper" style="display: none;">
           <div class="templatemo-content">
             <h1>Network</h1>
             <div class="margin-bottom-30" style="float:left;">
@@ -138,7 +136,7 @@
           </div>
         </div>
         <!-- Power Tab -->
-        <div id="Power" class="hide templatemo-content-wrapper">
+        <div id="Power" class="templatemo-content-wrapper" style="display: none;">
           <div class="templatemo-content">
             <h1>Power</h1>
             <div class="margin-bottom-30" style="float:left;">
@@ -162,7 +160,7 @@
     </footer>
   </div>
   <script src="js/jquery-1.7.2.min.js"></script>
-  <script src="js/bootstrap.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <script src="js/templatemo_script.js"></script>
   <script type="text/javascript" src="js/ACRMS_WebsocketBase.js"></script>
   <script src="js/public/jquery.tidy.table.js"></script>
