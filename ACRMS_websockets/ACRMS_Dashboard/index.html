@@ -11,132 +11,206 @@
 </head>
 <body>
   <div class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <div class="logo"><h1>Automated Computer Resource Management System</h1></div>
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button> 
-      </div>   
-    </div>
-    <div class="template-page-wrapper">
+    <div class="navbar-header">
+      <div class="logo"><h1>Automated Computer Resource Management System</h1></div>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> 
+    </div>   
+  </div>
+  <div class="page-wrap">
+    <div id="tabs">
       <div class="navbar-collapse collapse templatemo-sidebar">
-        <ul class="templatemo-sidebar-menu">
-          <li class="active"><a href="#"><i class="glyphicon glyphicon-dashboard"></i>Dashboard</a></li>
-          <li><a href="#"><i class="glyphicon glyphicon-qrcode"></i>CPU</a></li>
-          <li><a href="#"><i class="glyphicon glyphicon-th"></i>RAM</a></li>
-          <li><a href="#"><i class="glyphicon glyphicon-hdd"></i>Disk</a></li>
-          <li><a href="#"><i class="glyphicon glyphicon-random"></i>Network</a></li>
-          <li><a href="#"><i class="glyphicon glyphicon-flash"></i>Power</a></li>
-          <li><a href="javascript:;" data-toggle="modal" data-target="#confirmModal"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+        <ul class="nav templatemo-sidebar-menu">
+          <li class="nav-one"><a href="#dashboard" class="current glyphicon glyphicon-dashboard">Dashboard</a></li>
+          <li class="nav-two"><a href="#CPU" class="glyphicon glyphicon-qrcode">CPU</a></li>
+          <li class="nav-three"><a href="#RAM" class="glyphicon glyphicon-th">RAM</a></li>
+          <li class="nav-four"><a href="#Disk" class="glyphicon glyphicon-hdd">Disk</a></li>
+          <li class="nav-five"><a href="#Network" class="glyphicon glyphicon-random">Network</a></li>
+          <li class="nav-six last"><a href="#Power" class="glyphicon glyphicon-flash">Power</a></li>
         </ul>
-      </div><!--/.navbar-collapse -->
+      </div>
 
-      <div class="templatemo-content-wrapper">
-        <div class="templatemo-content">
-          <h1>Dashboard</h1>
-          <div class="margin-bottom-30" style="float:left;">
-            <div class="row">
-              <div class="col-md-12">
-                <ul class="nav nav-pills">
-                  <li class="label label-info">CPU Usage</li>
-                </ul>          
+      <div class="list-wrap">
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="templatemo-content-wrapper">
+          <div class="templatemo-content">
+            <h1>Dashboard</h1>
+            <div class="margin-bottom-30" style="float:left;">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills">
+                    <li class="label label-info">CPU Usage</li>
+                  </ul>          
+                </div>
               </div>
+              <div id="getCPUUsageGraph" style="width:500px; height: 400px;float:left;"></div>
             </div>
-            <div id="getCPUUsageGraph" style="width:500px; height: 400px;float:left;"></div>
+            <div class="margin-bottom-30" style="float:left;">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills">
+                    <li class="label label-info">RAM Usage</li>
+                  </ul>          
+                </div>
+              </div>
+              <div id="getRAMUsageGraph" style="width:500px; height: 400px;float:left;"></div>
+            </div>
+            <div class="margin-bottom-30" style="float:left;">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills">
+                    <li class="label label-info">Disk Usage</li>
+                  </ul>          
+                </div>
+              </div>
+              <div id="startMonitoringGraph" style="width:500px; height: 400px;float:left;"></div>
+              <div id="tableContainer" style='height:500px;overflow:scroll;float:left;'></div>
+            </div>
           </div>
-          <div class="margin-bottom-30" style="float:left;">
-            <div class="row">
-              <div class="col-md-12">
-                <ul class="nav nav-pills">
-                  <li class="label label-info">RAM Usage</li>
-                </ul>          
+        </div>
+        <!-- CPU Tab -->
+        <div id="CPU" class="hide templatemo-content-wrapper">
+          <div class="templatemo-content">
+            <h1>CPU</h1>
+            <div class="margin-bottom-30" style="float:left;">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills">
+                    <li class="label label-info">Process CPU Usage</li>
+                  </ul>          
+                </div>
               </div>
+              <div id="startMonitoringGraph" style="width:500px; height: 400px;float:left;"></div>
+              <div id="tableContainer" style='height:500px;overflow:scroll;float:left;'></div>
             </div>
-            <div id="getRAMUsageGraph" style="width:500px; height: 400px;float:left;"></div>
           </div>
-          <div class="margin-bottom-30" style="float:left;">
-            <div class="row">
-              <div class="col-md-12">
-                <ul class="nav nav-pills">
-                  <li class="label label-info">Disk Usage</li>
-                </ul>          
+        </div>
+        <!-- RAM Tab -->
+        <div id="RAM" class="hide templatemo-content-wrapper">
+          <div class="templatemo-content">
+            <h1>RAM</h1>
+            <div class="margin-bottom-30" style="float:left;">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills">
+                    <li class="label label-info">Process RAM Usage</li>
+                  </ul>          
+                </div>
               </div>
+              <!-- Tables and graphs go here -->
             </div>
-            <div id="startMonitoringGraph" style="width:500px; height: 400px;float:left;"></div>
-            <div id="tableContainer" style='height:500px;overflow:scroll;float:left;'></div>
+          </div>
+        </div>
+        <!-- Disk Tab -->
+        <div id="Disk" class="hide templatemo-content-wrapper">
+          <div class="templatemo-content">
+            <h1>Disk</h1>
+            <div class="margin-bottom-30" style="float:left;">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills">
+                    <li class="label label-info">Disk Usage</li>
+                  </ul>          
+                </div>
+              </div>
+              <!-- Tables and graphs go here -->
+            </div>
+          </div>
+        </div>
+        <!-- Network Tab -->
+        <div id="Network" class="hide templatemo-content-wrapper">
+          <div class="templatemo-content">
+            <h1>Network</h1>
+            <div class="margin-bottom-30" style="float:left;">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills">
+                    <li class="label label-info">Network Usage</li>
+                  </ul>          
+                </div>
+              </div>
+              <!-- Tables and graphs go here -->
+            </div>
+          </div>
+        </div>
+        <!-- Power Tab -->
+        <div id="Power" class="hide templatemo-content-wrapper">
+          <div class="templatemo-content">
+            <h1>Power</h1>
+            <div class="margin-bottom-30" style="float:left;">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills">
+                    <li class="label label-info">Power Usage</li>
+                  </ul>          
+                </div>
+              </div>
+              <!-- Tables and graphs go here -->
+            </div>
           </div>
         </div>
       </div>
-      <!-- Modal -->
-      <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-              <h4 class="modal-title" id="myModalLabel">Are you sure you want to sign out?</h4>
-            </div>
-            <div class="modal-footer">
-              <a href="sign-in.html" class="btn btn-primary">Yes</a>
-              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="templatemo-footer">
-        <div class="templatemo-copyright">
-          <p>Copyright &copy; 2014 ACRMS<!-- Credit: www.templatemo.com --></p>
-        </div>
-      </footer>
     </div>
-    <script src="js/jquery-1.7.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/templatemo_script.js"></script>
-    <script type="text/javascript" src="js/ACRMS_WebsocketBase.js"></script>
-    <script src="js/public/jquery.tidy.table.js"></script>
-    <script src="js/highcharts.js"></script>
-    <script src="js/dark-unica.js"></script>
-    <script src="js/exporting.js"></script>
-    <script src="js/public/jquery.tidy.table.js"></script>
-    <script type="text/javascript">
-      var timer;
-      $(document).ready(function () {
-        webSocketBase.openConnection();
-        setTimeout(function(){
-          (function getCPUUsage() {
-            webSocketBase.sendRequestNative('getCPUUsage', null);
-            console.log('Initial getCPUUsage method sent to socket.');
-            timer = setInterval(function () {
-              if(webSocketBase.getCPUUsageResponseValue()){
-                webSocketBase.sendRequestNative('getCPUUsage', null);
-                console.log('getCPUUsage method sent to socket.');
-              }
-            }, 1000);
-          })();
-          (function getRAMUsage() {
-            webSocketBase.sendRequestNative('getRAMUsage', null);
-            console.log('Initial getRAMUsage method sent to socket.');
-            timer = setInterval(function () {
-              if(webSocketBase.getCPUUsageResponseValue()){
-                webSocketBase.sendRequestNative('getRAMUsage', null);
-                console.log('getRAMUsage method sent to socket.');
-              }
-            }, 1000);
-          })();
-          (function startMonitoring() {
-            webSocketBase.sendRequestNative('startMonitoring', null);
-            console.log('Initial startMonitoring method sent to socket.');
-            timer = setInterval(function () {
-              if(webSocketBase.startMonitoringResponseValue()){
-                webSocketBase.sendRequestNative('startMonitoring', null);
-                console.log('startMonitoring method sent to socket.');
-              }
-            }, 1000);
-          })();
-        }, 3000);
+    <footer class="templatemo-footer">
+      <div class="templatemo-copyright">
+        <p>Copyright &copy; 2014 ACRMS<!-- Credit: www.templatemo.com --></p>
+      </div>
+    </footer>
+  </div>
+  <script src="js/jquery-1.7.2.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/templatemo_script.js"></script>
+  <script type="text/javascript" src="js/ACRMS_WebsocketBase.js"></script>
+  <script src="js/public/jquery.tidy.table.js"></script>
+  <script src="js/highcharts.js"></script>
+  <script src="js/dark-unica.js"></script>
+  <script src="js/exporting.js"></script>
+  <script src="js/public/jquery.tidy.table.js"></script>
+  <script src="js/jquery.organictabs.js"></script>
+  <script type="text/javascript">
+    var timer;
+    $(document).ready(function () {
+      $(function() {
+        $("#tabs").organicTabs();          
       });
-    </script>
+      webSocketBase.openConnection();
+      setTimeout(function(){
+        (function getCPUUsage() {
+          webSocketBase.sendRequestNative('getCPUUsage', null);
+          console.log('Initial getCPUUsage method sent to socket.');
+          timer = setInterval(function () {
+            if(webSocketBase.getCPUUsageResponseValue()){
+              webSocketBase.sendRequestNative('getCPUUsage', null);
+              console.log('getCPUUsage method sent to socket.');
+            }
+          }, 1000);
+        })();
+        (function getRAMUsage() {
+          webSocketBase.sendRequestNative('getRAMUsage', null);
+          console.log('Initial getRAMUsage method sent to socket.');
+          timer = setInterval(function () {
+            if(webSocketBase.getCPUUsageResponseValue()){
+              webSocketBase.sendRequestNative('getRAMUsage', null);
+              console.log('getRAMUsage method sent to socket.');
+            }
+          }, 1000);
+        })();
+        (function startMonitoring() {
+          webSocketBase.sendRequestNative('startMonitoring', null);
+          console.log('Initial startMonitoring method sent to socket.');
+          timer = setInterval(function () {
+            if(webSocketBase.startMonitoringResponseValue()){
+              webSocketBase.sendRequestNative('startMonitoring', null);
+              console.log('startMonitoring method sent to socket.');
+            }
+          }, 1000);
+        })();
+      }, 3000);
+});
+</script>
 </body>
 </html>
