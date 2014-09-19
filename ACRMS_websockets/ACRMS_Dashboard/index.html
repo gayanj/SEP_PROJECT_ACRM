@@ -67,6 +67,7 @@
                   </ul>          
                 </div>
               </div>
+              <div id="getDISKUsageGraph" style="width:500px; height: 400px;float:left;"></div>
             </div>
           </div>
         </div>
@@ -187,11 +188,21 @@
             }
           }, 1000);
         })();
+        (function getDISKUsage() {
+          webSocketBase.sendRequestNative('getDISKUsage', null);
+          console.log('Initial getDISKUsage method sent to socket.');
+          timer = setInterval(function () {
+            if(webSocketBase.getDISKUsageResponseValue()){
+              webSocketBase.sendRequestNative('getDISKUsage', null);
+              console.log('getDISKUsage method sent to socket.');
+            }
+          }, 1000);
+        })();
         (function getRAMUsage() {
           webSocketBase.sendRequestNative('getRAMUsage', null);
           console.log('Initial getRAMUsage method sent to socket.');
           timer = setInterval(function () {
-            if(webSocketBase.getCPUUsageResponseValue()){
+            if(webSocketBase.getRAMUsageResponseValue()){
               webSocketBase.sendRequestNative('getRAMUsage', null);
               console.log('getRAMUsage method sent to socket.');
             }

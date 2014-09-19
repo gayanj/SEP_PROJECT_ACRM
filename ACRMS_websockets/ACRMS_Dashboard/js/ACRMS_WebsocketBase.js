@@ -3,12 +3,15 @@ var webSocketBase = (function () {
     var startMonitoringResponse = false;
     var getCPUUsageResponse = false;
     var getRAMUsageResponse = false;
+    var getDiskUsageResponse = false;
     var rowNumber = 1;
     var startMonitoringCount  = 0;
     var getCPUUsageCount  = 0;
     var getRAMUsageCount  = 0;
+    var getDiskUsageCount  = 0;
     var cpuPercentage = 0;
     var ramPercentage = 0.0;
+    var diskPercentage = 0.0;
 
     function _openNativeWrapperConnection() {
             // uses global 'conn' object
@@ -57,6 +60,8 @@ var webSocketBase = (function () {
             getCPUUsageResponseHandler(message);
         }else if(json.response === 'getRAMUsage'){
             getRAMUsageResponseHandler(message);
+        }else if(json.response === 'getDISKUsage'){
+            getDISKUsageResponseHandler(message);
         }
     }
 
@@ -74,6 +79,18 @@ var webSocketBase = (function () {
         if(startMonitoringCount == 0){
             startMonitoringgraph();
             startMonitoringCount++;
+            //console.log(json);
+        }
+    }
+
+    function getDISKUsageResponseHandler(message){
+        //convert to JSON format
+        var json = JSON.parse(message);
+        diskPercentage = (json.parameters.GetDiskUsage.diskUsage.DiskTransB)/(1024*1024);
+        getDiskUsageResponse = true;
+        if(getDiskUsageCount == 0){
+            diskUsagegraph();
+            getDiskUsageCount++;
             //console.log(json);
         }
     }
@@ -131,6 +148,10 @@ var webSocketBase = (function () {
 
     function ramUsageData(){
         return ramPercentage;
+    }
+
+    function diskUsageData(){
+        return diskPercentage;
     }
 
 
@@ -374,6 +395,85 @@ var webSocketBase = (function () {
             });
     }
 
+    function diskUsagegraph(){
+        Highcharts.setOptions({
+                global: {
+                    useUTC: false
+                }
+            });
+
+            $('#getDISKUsageGraph').highcharts({
+                chart: {
+                    type: 'spline',
+                    animation: Highcharts.svg, // don't animate in old IE
+                    marginRight: 10,
+                    events: {
+                        load: function () {
+
+                            // set up the updating of the chart each second
+                            var series = this.series[0];
+                            setInterval(function () {
+                                var x = (new Date()).getTime(), // current time
+                                    y = parseFloat(diskUsageData());
+                                series.addPoint([x, y], true, true);
+                            }, 1000);
+                        }
+                    }
+                },
+                title: {
+                    text: 'Disk Usage'
+                },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 50,
+                    labels: {
+                        enabled: false
+                    }
+                },
+                yAxis: {
+                    floor: 0,
+                    title: {
+                        text: 'MB/s'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' +
+                            Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                            Highcharts.numberFormat(this.y, 2);
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Disk Usage',
+                    data: (function () {
+                        // generate an array of random data
+                        var data = [],
+                            time = (new Date()).getTime(),
+                            i;
+
+                        for (i = -19; i <= 0; i += 1) {
+                            data.push({
+                                x: time + i * 1000,
+                                y: 0
+                            });
+                        }
+                        return data;
+                    }())
+                }]
+            });
+    }
+
     function _getCPUUsageResponseValue(){
         return getCPUUsageResponse;
     }
@@ -383,8 +483,12 @@ var webSocketBase = (function () {
     function _getRAMUsageResponseValue(){
         return getRAMUsageResponse;
     }
+    function _getDISKUsageResponseValue(){
+        return getDiskUsageResponse;
+    }
     //Public methods which are exposed
     return {
+        getDISKUsageResponseValue: _getDISKUsageResponseValue,
         getRAMUsageResponseValue: _getRAMUsageResponseValue,
         getCPUUsageResponseValue: _getCPUUsageResponseValue,
         startMonitoringResponseValue: _startMonitoringResponseValue,
