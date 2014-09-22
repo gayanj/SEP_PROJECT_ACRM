@@ -19,21 +19,17 @@ using NotificationWindow;
 using RAM;
 using RAM.MemoryScanner;
 using ACRMS;
+using ACRMS.Websoket;
+using WebSockets.Data;
+using Newtonsoft.Json;
 
 namespace SEPMetro
 {
     public partial class RAM : Form
     {
-
-        private System.Threading.Timer t;
-        private DataTable dt;
-        private int count;
-        private int value = 0;
-        private int index = 0;
-        private DriveInfo[] allDrives; //for disk
-  //      private WMIDisk wd;
-        private ArrayList diskModelList;
         wmiMemory wmi = new wmiMemory();
+        bool RAM_Response_Recieved = false;
+        websocket w;
         private Thread addDataRunner;
         private Random rand = new Random();
         public delegate void AddDataDelegate();
@@ -42,9 +38,6 @@ namespace SEPMetro
         System.Windows.Forms.Timer tick2;
 
         delegate void SetTextCallback(string text);
- //       private NetworkInterface[] nics = null;
-        private Boolean monitoring = false;
-        private Thread wrkerthread = null;
 
         PopupNotifier popupNotifier1;
         MEMORYSTATUSEX m;
@@ -69,6 +62,18 @@ namespace SEPMetro
         public RAM()
         {
             InitializeComponent();
+            w = new websocket("localhost", "12001");
+            w.CreateUniqueSession();
+            System.Threading.Thread.Sleep(2000);
+            w.RAMData += w_RAMData;
+        }
+
+        void w_RAMData(object sender, WebSocket4Net.MessageReceivedEventArgs e)
+        {
+            JSONResponse value = JsonConvert.DeserializeObject<JSONResponse>(e.Message);
+            Hashtable diskData = value.parameters["GetRamUsage"];
+            m = JsonConvert.DeserializeObject<MEMORYSTATUSEX>(diskData["ramUsage"].ToString());
+            RAM_Response_Recieved = true;
         }
 
         private void metroPanel1_Paint(object sender, PaintEventArgs e)
@@ -126,11 +131,16 @@ namespace SEPMetro
             Console.Clear();
         }
 
+        private void getRamData()
+        {
+            w.getClientData("getRAMUsage");
+        }
+
         private void RAM_Load(object sender, EventArgs e)
         {
             AllocConsole();
-            
-            m = new MEMORYSTATUSEX();
+
+            getRamData();
             ram_DataWidth.Text = wmi.info[5];
             ram_Manufacturer.Text = wmi.info[4];
             ram_SerialNumber.Text = wmi.info[6];
@@ -156,29 +166,29 @@ namespace SEPMetro
             tick2.Tick += tick_Tick2;
         }
 
-        void tick_Tick(object sender, EventArgs e)
+        public void tick_Tick(object sender, EventArgs e)
         {
-
-            m.setValues();
-            popupNotifier1 = new PopupNotifier();
-            popupNotifier1.TitleText = "Automated Computer Resource Management System";
-            if (m.dwMemoryLoad > Configuration.percentage)
+            if (RAM_Response_Recieved)
             {
-                tick1.Interval = Configuration.timeInterval;
-                popupNotifier1.ContentText = "Your RAM percentage is " + m.dwMemoryLoad.ToString() + "%" + Environment.NewLine;
-                popupNotifier1.Delay = 2000;
-                popupNotifier1.Delay = 3000;
-                popupNotifier1.Image = ACRMS.Properties.Resources.a; 
-                popupNotifier1.Popup();
+                popupNotifier1 = new PopupNotifier();
+                popupNotifier1.TitleText = "Automated Computer Resource Management System";
+                if (m.dwMemoryLoad > Configuration.percentage)
+                {
+                    tick1.Interval = Configuration.timeInterval;
+                    popupNotifier1.ContentText = "Your RAM percentage is " + m.dwMemoryLoad.ToString() + "%" + Environment.NewLine;
+                    popupNotifier1.Delay = 2000;
+                    popupNotifier1.Delay = 3000;
+                    popupNotifier1.Image = ACRMS.Properties.Resources.a;
+                    popupNotifier1.Popup();
+                }
             }
-
         }
 
-        void tick_Tick2(object sender, EventArgs e)
+        public void tick_Tick2(object sender, EventArgs e)
         {
             if (Configuration.checkbox)
             {
-                ProcessList.ListAllApplications();
+                ProcessList.ListAllApplications(m);
                 PopupNotifier popupNotifier2 = new PopupNotifier();
                 popupNotifier2.TitleText = "Automated Computer Resource Management System";
                 popupNotifier2.Delay = 2000;
@@ -265,7 +275,11 @@ namespace SEPMetro
             {
                 try
                 {
-                    chart1.Invoke(addDataDel);
+                    if (RAM_Response_Recieved)
+                    {
+                        getRamData();
+                        chart1.Invoke(addDataDel);
+                    }
                 }
                 catch (Exception e)
                 {
@@ -280,7 +294,6 @@ namespace SEPMetro
 
         public void AddData()
         {
-
             DateTime timeStamp = DateTime.Now;
 
 
@@ -294,8 +307,6 @@ namespace SEPMetro
         }
         public void AddNewPoint(DateTime timeStamp, System.Windows.Forms.DataVisualization.Charting.Series ptSeries)
         {
-            MEMORYSTATUSEX statusEx = new MEMORYSTATUSEX();
-            statusEx.setValues();
             double newVal = 0;
             //double newVal = Convert.ToDouble(MEMORYSTATUSEX.graphMemory);
             //Console.WriteLine(statusEx.dwMemoryLoad.ToString());
@@ -303,7 +314,7 @@ namespace SEPMetro
             if (ptSeries.Points.Count > 0)
             {
 
-                newVal = ptSeries.Points[ptSeries.Points.Count - 1].YValues[0] + Convert.ToDouble(MEMORYSTATUSEX.graphMemory);
+                newVal = ptSeries.Points[ptSeries.Points.Count - 1].YValues[0] + Convert.ToDouble(m.dwMemoryLoad);
 
             }
 
@@ -312,7 +323,7 @@ namespace SEPMetro
 
                 newVal = 0;
 
-            ptSeries.Points.AddXY(timeStamp.ToOADate(), Convert.ToDouble(MEMORYSTATUSEX.graphMemory));
+            ptSeries.Points.AddXY(timeStamp.ToOADate(), Convert.ToDouble(m.dwMemoryLoad));
 
 
             double removeBefore = timeStamp.AddSeconds((double)(90) * (-1)).ToOADate();
@@ -371,6 +382,12 @@ namespace SEPMetro
             m.MainMethod();
         }
 
-
+        private void RAM_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            tick1.Dispose();
+            tick2.Dispose();
+            Dispose(true);
+            w.closeConnection();
+        }
     }
 }

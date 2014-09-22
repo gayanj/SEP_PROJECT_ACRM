@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.mainTabControl = new MetroFramework.Controls.MetroTabControl();
             this.Monitor = new MetroFramework.Controls.MetroTabPage();
             this.cpuChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -75,11 +75,11 @@
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.metroButton16 = new MetroFramework.Controls.MetroButton();
             this.metroButton11 = new MetroFramework.Controls.MetroButton();
             this.metroButton9 = new MetroFramework.Controls.MetroButton();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.metroButton16 = new MetroFramework.Controls.MetroButton();
             this.mainTabControl.SuspendLayout();
             this.Monitor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).BeginInit();
@@ -112,7 +112,7 @@
             this.mainTabControl.FontWeight = MetroFramework.MetroTabControlWeight.Light;
             this.mainTabControl.Location = new System.Drawing.Point(12, 12);
             this.mainTabControl.Name = "mainTabControl";
-            this.mainTabControl.SelectedIndex = 4;
+            this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(687, 510);
             this.mainTabControl.Style = MetroFramework.MetroColorStyle.Blue;
             this.mainTabControl.StyleManager = null;
@@ -145,8 +145,8 @@
             // 
             // cpuChart
             // 
-            chartArea5.Name = "ChartArea1";
-            this.cpuChart.ChartAreas.Add(chartArea5);
+            chartArea1.Name = "ChartArea1";
+            this.cpuChart.ChartAreas.Add(chartArea1);
             this.cpuChart.Location = new System.Drawing.Point(355, 3);
             this.cpuChart.Name = "cpuChart";
             this.cpuChart.Size = new System.Drawing.Size(324, 465);
@@ -790,6 +790,19 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             // 
+            // metroButton16
+            // 
+            this.metroButton16.Highlight = false;
+            this.metroButton16.Location = new System.Drawing.Point(234, 67);
+            this.metroButton16.Name = "metroButton16";
+            this.metroButton16.Size = new System.Drawing.Size(75, 23);
+            this.metroButton16.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton16.StyleManager = null;
+            this.metroButton16.TabIndex = 6;
+            this.metroButton16.Text = "Past Month";
+            this.metroButton16.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton16.Click += new System.EventHandler(this.metroButton16_Click);
+            // 
             // metroButton11
             // 
             this.metroButton11.Highlight = false;
@@ -842,19 +855,6 @@
             this.dataGridView5.Size = new System.Drawing.Size(222, 421);
             this.dataGridView5.TabIndex = 2;
             // 
-            // metroButton16
-            // 
-            this.metroButton16.Highlight = false;
-            this.metroButton16.Location = new System.Drawing.Point(234, 67);
-            this.metroButton16.Name = "metroButton16";
-            this.metroButton16.Size = new System.Drawing.Size(75, 23);
-            this.metroButton16.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton16.StyleManager = null;
-            this.metroButton16.TabIndex = 6;
-            this.metroButton16.Text = "Past Month";
-            this.metroButton16.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroButton16.Click += new System.EventHandler(this.metroButton16_Click);
-            // 
             // CPU_Main_Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -863,6 +863,7 @@
             this.Controls.Add(this.mainTabControl);
             this.Name = "CPU_Main_Window";
             this.Text = "CPU_Main_Window";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CPU_Main_Window_FormClosing);
             this.mainTabControl.ResumeLayout(false);
             this.Monitor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cpuChart)).EndInit();

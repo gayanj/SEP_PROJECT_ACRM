@@ -40,11 +40,11 @@ namespace NativeWrapper.Handlers
             {
                 //LogMessage("StartMonitoring Method Started.", ((NativeWebSocket)parameter.Sender));
                 statusEx.setValues();
-                double data = Convert.ToDouble(MEMORYSTATUSEX.graphMemory);
+                //double data = Convert.ToDouble(MEMORYSTATUSEX.graphMemory);
 
                 Hashtable ramUsage = new Hashtable();
 
-                ramUsage.Add("ramUsage", data);
+                ramUsage.Add("ramUsage", statusEx);
 
                 Dictionary<string, Hashtable> response = new Dictionary<string, Hashtable>();
 

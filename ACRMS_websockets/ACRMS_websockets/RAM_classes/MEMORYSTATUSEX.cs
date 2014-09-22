@@ -22,7 +22,6 @@ namespace RAM
         public ulong ullTotalVirtual; //The size of the user-mode portion of the virtual address space of the calling process, in bytes.
         public ulong ullAvailVirtual; //The amount of unreserved and uncommitted memory currently in the user-mode portion of the virtual address space of the calling process, in bytes.
         public ulong ullAvailExtendedVirtual;
-        public static uint graphMemory;
 
         public MEMORYSTATUSEX()
         {
@@ -38,7 +37,6 @@ namespace RAM
             MEMORYSTATUSEX statusEx=new MEMORYSTATUSEX();
             bool Success = GlobalMemoryStatusEx(statusEx); //to determine how much memory your application can allocate without severely impacting other applications.
             this.dwMemoryLoad = statusEx.dwMemoryLoad;
-            graphMemory = this.dwMemoryLoad;
             //Console.WriteLine("from main" + graphMemory);
             this.ullTotalPhys = statusEx.ullTotalPhys;
             this.ullAvailPhys = statusEx.ullAvailPhys;

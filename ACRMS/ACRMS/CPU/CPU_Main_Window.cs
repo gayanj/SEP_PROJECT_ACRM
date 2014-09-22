@@ -19,16 +19,21 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using VirusTotalNET;
 using VirusTotalNET.Objects;
+using ACRMS.Websoket;
+using WebSockets.Data;
+using Newtonsoft.Json;
 
 namespace ACRMS.CPU
 {
     public partial class CPU_Main_Window : Form
     {
+        public bool CPU_Response_Recieved = false;
+        websocket w = new websocket("localhost", "12001");
         RedisService redisService;
         VirusTotal virusTotal = new VirusTotal(ConfigurationManager.AppSettings["ApiKey"]);
         DataTable processTable = new DataTable();
         DataTable chartTable;
-        Hashtable processSet = new Hashtable();
+        public static Hashtable processSet = new Hashtable();
         ProcessLocal pl = new ProcessLocal();
         System.Windows.Forms.Timer t1;
         System.Windows.Forms.Timer t2;
@@ -46,6 +51,9 @@ namespace ACRMS.CPU
         public CPU_Main_Window()
         {
             InitializeComponent();
+            w.CreateUniqueSession();
+            System.Threading.Thread.Sleep(2000);
+            w.CPUData += w_CPUData;
             processTable.Columns.Add("Process Name");
             processTable.Columns.Add("PID");
             processTable.Columns.Add("CPU Usage");
@@ -53,7 +61,7 @@ namespace ACRMS.CPU
             chartTable = new DataTable("CPU Usage");
             setTableChart();
             getHashTable();
-            setProcessTable();
+            //setProcessTable();
             dataGridView1.DataSource = processTable;
             t1 = new System.Windows.Forms.Timer { Enabled = true, Interval = 1000 };
             t2 = new System.Windows.Forms.Timer { Enabled = true, Interval = 1000 };
@@ -67,50 +75,71 @@ namespace ACRMS.CPU
             redisService = new RedisService();
         }
 
+        void w_CPUData(object sender, WebSocket4Net.MessageReceivedEventArgs e)
+        {
+            JSONResponse value = JsonConvert.DeserializeObject<JSONResponse>(e.Message);
+            processSet.Clear();
+            processSet = value.parameters["StartMonitoring"];
+            CPU_Response_Recieved = true;
+        }
+
+        private void CPU_Main_Window_FormClosing(object sender, FormClosedEventArgs e)
+        {
+            t3.Dispose();
+            t2.Dispose();
+            t1.Dispose();
+            w.closeConnection();
+        }
+
         private void getHashTable()
         {
-            processSet.Clear();
-            processSet = pl.ProcessMonitor();
+            w.getClientData("startMonitoring");
+            //Call the websocket method in the client
+            //processSet = pl.ProcessMonitor();
         }
 
         private void t_Tick_getHashTable(object sender, EventArgs e)
         {
-            ThreadPool.QueueUserWorkItem(state => getHashTable());
+            if (CPU_Response_Recieved)
+            {
+                ThreadPool.QueueUserWorkItem(state => getHashTable());
+            }
         }
 
         private void t_Tick_updateChart(object sender, EventArgs e)
         {
-            updateChart();
-            count++;
+            if (CPU_Response_Recieved)
+            {
+                updateChart();
+                count++;
+            }
         }
 
         private void t_Tick_updateDataTable(object sender, EventArgs e)
         {
-            updateDataTable();
-        }
-
-        private void t_Tick_updateDataGridView(object sender, EventArgs e)
-        {
-            updateDataGridView();
+            if (CPU_Response_Recieved)
+            {
+                updateDataTable();
+            }
         }
 
         private void updateDataTable()
         {
             removeOldRows();
-            if (cacheCount <= 0)
-            {
-                cacheCount = 60;
-                ThreadPool.QueueUserWorkItem(state =>redisService.persistStoredCache());
-            }
-            //call redis service
-            //store in redis cache
-            idCount++;
-            Hashtable processSetCopy = processSet;
-            ThreadPool.QueueUserWorkItem(state =>redisService.storeInCache(processSetCopy, idCount));
+            //if (cacheCount <= 0)
+            //{
+            //    cacheCount = 60;
+            //    ThreadPool.QueueUserWorkItem(state =>redisService.persistStoredCache());
+            //}
+            ////call redis service
+            ////store in redis cache
+            //idCount++;
+            //Hashtable processSetCopy = processSet;
+            //ThreadPool.QueueUserWorkItem(state =>redisService.storeInCache(processSetCopy, idCount));
 
             foreach (DictionaryEntry item in processSet)
             {
-                ArrayList rowItem = (ArrayList)item.Value;
+                ArrayList rowItem = JsonConvert.DeserializeObject<ArrayList>(item.Value.ToString());
 
                 //We dont take Total and Idle PID into account because both have a PID of 0 
                 //and this conflicts with the dataTable primary key
@@ -172,9 +201,9 @@ namespace ACRMS.CPU
             dr[2] = rowItem[2].ToString();
             processTable.Rows.Add(dr);
 
-            if (rowItem[0].ToString().IndexOf("chrome#") == -1 
-                && rowItem[0].ToString().IndexOf("postgres#") == -1 
-                && rowItem[0].ToString().IndexOf("conhost#") == -1 
+            if (rowItem[0].ToString().IndexOf("chrome#") == -1
+                && rowItem[0].ToString().IndexOf("postgres#") == -1
+                && rowItem[0].ToString().IndexOf("conhost#") == -1
                 && rowItem[0].ToString().IndexOf("SearchFilterHost") == -1
                 && rowItem[0].ToString().IndexOf("SearchProtocolHost") == -1)
             {
@@ -189,7 +218,7 @@ namespace ACRMS.CPU
             }
         }
 
-        private void setProcessTable()
+        public void setProcessTable()
         {
             DataRow dr;
             foreach (DictionaryEntry item in processSet)

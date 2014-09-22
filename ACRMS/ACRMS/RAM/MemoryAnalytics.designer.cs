@@ -118,6 +118,7 @@
             this.Controls.Add(this.metroPanel1);
             this.Name = "MemoryAnalytics";
             this.Text = "MemoryAnalytics";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MemoryAnalytics_FormClosed);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             this.ResumeLayout(false);

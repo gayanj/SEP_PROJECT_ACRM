@@ -43,25 +43,6 @@ namespace ACRMS_websockets
                 nws.GetRamUsageMethodReceived += nws_GetRamUsageMethodReceived;
                 nws.GetDiskUsageMethodReceived += nws_GetDiskUsageMethodReceived;
 
-                //nws.CreateMethodReceived += nws_CreateMethodRecieved;
-                //nws.ShowCalibrationDialogMethodReceived += nws_ShowCalibrationDialogMethodRecieved;
-                //nws.ShowHeadValidationDialogMethodReceived += nws_ShowHeadValidationDialogMethodRecieved;
-                //nws.StartRecordingMethodReceived += nws_StartRecordingMethodRecieved;
-                //nws.StopRecordingMethodReceived += nws_StopRecordingMethodRecieved;
-                //nws.CloseAndUploadMethodReceived += nws_CloseAndUploadMethodRecieved;
-                //nws.DestructMethodReceived += nws_DestructMethodRecieved;
-                //nws.GetUploadPercentMethodReceived += nws_GetUploadPercentMethodRecieved;
-                //nws.GetHeadPositionMethodReceived += nws_GetHeadPositionMethodRecieved;
-                //nws.IsCameraGoodEnoughMethodReceived += nws_IsCameraGoodEnoughMethodRecieved;
-                //nws.ValidateQualityMethodReceived += nws_ValidateQualityMethodRecieved;
-                //nws.UndefinedMethodReceived += nws_UndefinedMethodRecieved;
-                //nws.CheckSystemMethodReceived += nws_CheckSystemMethodRecieved;
-                //nws.ClosingMethodReceived += nws_ClosingMethodRecieved;
-                //nws.AboutMethodReceived += nws_AboutMethodRecieved;
-
-                //ErrorCallbackPtr = new Common.ErrorCallback(SendError);
-                //Instance.RegisterErrorCallback(ErrorCallbackPtr);
-
                 new ManualResetEvent(false).WaitOne();
             }
             catch (Exception ex)

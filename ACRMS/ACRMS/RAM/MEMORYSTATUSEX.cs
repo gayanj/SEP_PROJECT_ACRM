@@ -10,7 +10,7 @@ namespace RAM
     //StructLayout specifies that the fields of the type should be laid out in memory in the same order they are declared in your source code. That's often important when interoperating with native code. Without the attribute the CLR is free to optimize memory use by rearranging the fields.
     //CharSet.Auto lets the target platform determine the character width and string marshalling to Unicode or ANSI
 
-     class MEMORYSTATUSEX   //contains current state of both physical and virtual memory.
+     public class MEMORYSTATUSEX   //contains current state of both physical and virtual memory.
                             //Including extended memory. 
     {
         public uint dwLength; //The size of the structure, in bytes
@@ -22,7 +22,6 @@ namespace RAM
         public ulong ullTotalVirtual; //The size of the user-mode portion of the virtual address space of the calling process, in bytes.
         public ulong ullAvailVirtual; //The amount of unreserved and uncommitted memory currently in the user-mode portion of the virtual address space of the calling process, in bytes.
         public ulong ullAvailExtendedVirtual;
-        public static uint graphMemory;
 
         public MEMORYSTATUSEX()
         {
@@ -38,7 +37,6 @@ namespace RAM
             MEMORYSTATUSEX statusEx=new MEMORYSTATUSEX();
             bool Success = GlobalMemoryStatusEx(statusEx); //to determine how much memory your application can allocate without severely impacting other applications.
             this.dwMemoryLoad = statusEx.dwMemoryLoad;
-            graphMemory = this.dwMemoryLoad;
             //Console.WriteLine("from main" + graphMemory);
             this.ullTotalPhys = statusEx.ullTotalPhys;
             this.ullAvailPhys = statusEx.ullAvailPhys;
