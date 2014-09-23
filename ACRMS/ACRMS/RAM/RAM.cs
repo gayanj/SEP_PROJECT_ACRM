@@ -19,6 +19,7 @@ using NotificationWindow;
 using RAM;
 using RAM.MemoryScanner;
 using ACRMS;
+using ACRMS.RAM;
 
 namespace SEPMetro
 {
@@ -69,6 +70,8 @@ namespace SEPMetro
         public RAM()
         {
             InitializeComponent();
+           
+            
         }
 
         private void metroPanel1_Paint(object sender, PaintEventArgs e)
@@ -369,6 +372,20 @@ namespace SEPMetro
         {
             MemoryScanner m = new MemoryScanner();
             m.MainMethod();
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+
+            Settings s = new Settings();
+            s.ShowDialog();
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            AlertsViewer v = new AlertsViewer();
+            v.ShowDialog();
+
         }
 
 

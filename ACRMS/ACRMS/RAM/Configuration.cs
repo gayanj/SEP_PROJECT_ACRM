@@ -13,7 +13,7 @@ namespace SEPMetro
     public partial class Configuration : Form
     {
         public static int percentage = 50;
-        public static int timeInterval = 5000;
+        public static int timeInterval = 30000;
         public static bool checkbox = true;
         public Configuration()
         {

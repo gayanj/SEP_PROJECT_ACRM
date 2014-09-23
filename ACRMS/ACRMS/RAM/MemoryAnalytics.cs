@@ -16,6 +16,7 @@ namespace SEPMetro
         public MemoryAnalytics()
         {
             InitializeComponent();
+            ProcessList p = new ProcessList();
         }
 
         private void ram_RunningApps_Click(object sender, EventArgs e)
