@@ -136,10 +136,13 @@ namespace ACRMS.CPU
             //idCount++;
             //Hashtable processSetCopy = processSet;
             //ThreadPool.QueueUserWorkItem(state =>redisService.storeInCache(processSetCopy, idCount));
-
+            List<string> keys = new List<string>();
             foreach (DictionaryEntry item in processSet)
+                keys.Add(item.Key.ToString());
+            foreach (string key in keys)
             {
-                ArrayList rowItem = JsonConvert.DeserializeObject<ArrayList>(item.Value.ToString());
+                ArrayList rowItem = JsonConvert.DeserializeObject<ArrayList>(processSet[key].ToString());
+                //ArrayList rowItem = JsonConvert.DeserializeObject<ArrayList>(item.Value.ToString());
 
                 //We dont take Total and Idle PID into account because both have a PID of 0 
                 //and this conflicts with the dataTable primary key

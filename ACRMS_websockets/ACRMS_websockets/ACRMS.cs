@@ -1,12 +1,16 @@
 ﻿using ACRMS.CPU;
+using ACRMS_websockets.CPU_classes;
 using NativeWrapper.Data;
 using NativeWrapper.Handlers;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using WebSockets.Events;
 using WebSockets.Types;
 
@@ -22,13 +26,21 @@ namespace ACRMS_websockets
 
         private static NativeWrapperHandler responseHandler;
         private static NativeWebSocket nws;
+        private static CPUMonitoring cpum;
+        public static NotifyIcon notifyIcon1;
+        private static IContainer components;
         static void Main(string[] args)
         {
             try
             {
+                components = new System.ComponentModel.Container();
+                notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
+                notifyIcon1.Icon = new Icon("image.ico");
+                notifyIcon1.Visible = true;
                 createNativeWebsocketInstance(12001);
                 responseHandler = new NativeWrapperHandler();
                 tHandler = new TimeoutHandler(60);
+                cpum = new CPUMonitoring();
                 //tHandler.SessionTimeout += tHandler_SessionTimeout;
 
                 string Errormessage = string.Empty;
@@ -42,6 +54,9 @@ namespace ACRMS_websockets
                 nws.GetCpuUsageMethodReceived += nws_GetCpuUsageMethodReceived;
                 nws.GetRamUsageMethodReceived += nws_GetRamUsageMethodReceived;
                 nws.GetDiskUsageMethodReceived += nws_GetDiskUsageMethodReceived;
+
+                cpum.StartPersistingData();
+                cpum.StartCPUMonitoring();
 
                 new ManualResetEvent(false).WaitOne();
             }

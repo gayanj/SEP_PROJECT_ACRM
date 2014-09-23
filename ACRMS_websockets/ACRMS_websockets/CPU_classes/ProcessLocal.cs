@@ -33,7 +33,7 @@ namespace ACRMS.CPU
         }
         public int GetCpuUsage()
         {
-            return ProcessMethod.GetCpuUsage();
+            return ProcessMethod.GetCpuUsage(connectionScope);
         }
         /// <summary>
         /// This method calls the SystemMonitor method in the ProcessMethod class and returns a data table with the process information
@@ -42,6 +42,14 @@ namespace ACRMS.CPU
         public Hashtable ProcessMonitor()
         {
             return ProcessMethod.SystemMonitor(connectionScope);
+        }
+        /// <summary>
+        /// This method returns more detailed information about the processes which is used in the redis service
+        /// </summary>
+        /// <returns></returns>
+        public Hashtable ClientMonitor()
+        {
+            return ProcessMethod.PersistantMonitor(connectionScope);
         }
         public string CreateProcess(string processPath)
         {

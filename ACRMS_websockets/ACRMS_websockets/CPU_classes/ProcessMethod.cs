@@ -176,17 +176,62 @@ namespace ACRMS.CPU
             return processes;
         }
 
-        public static int GetCpuUsage()
+        public static int GetCpuUsage(ManagementScope connectionScope)
         {
+            SelectQuery systemMonitorQuery = new SelectQuery("SELECT * FROM Win32_PerfFormattedData_PerfOS_Processor WHERE Name=\"_Total\"");
             ManagementObjectSearcher searcher =
-                    new ManagementObjectSearcher("root\\CIMV2",
-                    "SELECT * FROM Win32_PerfFormattedData_PerfOS_Processor WHERE Name=\"_Total\"");
-
+                    new ManagementObjectSearcher(connectionScope, systemMonitorQuery);
             foreach (ManagementObject queryObj in searcher.Get())
             {
                 return Int32.Parse(queryObj["PercentProcessorTime"].ToString());
             }
             return -1;
+        }
+
+        /// <summary>
+        /// This method is used to retrieve information about a particular process
+        /// </summary>
+        /// <param name="connectionScope">Scope of the connection - Defines the scope in which the methods are being called</param>
+        /// <returns>Returns an ArrayList of the processes information</returns>
+        public static Hashtable PersistantMonitor(ManagementScope connectionScope)
+        {
+            Hashtable processes = new Hashtable();
+            ArrayList arrprocesses;
+            SelectQuery systemMonitorQuery = new SelectQuery(
+            "SELECT Name,CreatingProcessID,ElapsedTime,HandleCount,IDProcess,PercentProcessorTime," +
+            "PercentUserTime,ThreadCount FROM win32_PerfFormattedData_PerfProc_Process");
+            ManagementObjectSearcher searchProcedure = new ManagementObjectSearcher(connectionScope, systemMonitorQuery);
+            foreach (ManagementObject item in searchProcedure.Get())
+            {
+                arrprocesses = new ArrayList();
+                arrprocesses.Add(GetDatestamp(DateTime.Now));
+                arrprocesses.Add(GetTimestamp(DateTime.Now));
+                arrprocesses.Add(item.Properties["Name"].Value);
+                arrprocesses.Add(item.Properties["CreatingProcessID"].Value);
+                arrprocesses.Add(item.Properties["ElapsedTime"].Value);
+                arrprocesses.Add(item.Properties["HandleCount"].Value);
+                arrprocesses.Add(item.Properties["IDProcess"].Value);
+                arrprocesses.Add(item.Properties["PercentProcessorTime"].Value);
+                arrprocesses.Add(item.Properties["PercentUserTime"].Value);
+                arrprocesses.Add(item.Properties["ThreadCount"].Value);
+
+                processes.Add(item["Name"].ToString(), arrprocesses);
+
+                item.Dispose();
+            }
+            searchProcedure.Dispose();
+            return processes;
+        }
+
+        public static String GetDatestamp(DateTime value)
+        {
+            return value.ToString("yyyyMMdd");
+        }
+
+        public static String GetTimestamp(DateTime value)
+        {
+            TimeSpan ts = TimeSpan.Parse(value.ToString("HH:mm:ss"));
+            return ts.TotalSeconds.ToString();
         }
     }
 }

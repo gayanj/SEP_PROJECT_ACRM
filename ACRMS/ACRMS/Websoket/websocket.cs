@@ -97,7 +97,7 @@ namespace ACRMS.Websoket
 
         public void closeConnection()
         {
-            webSocket.Close();
+            //webSocket.Close();
         }
     }
 }
