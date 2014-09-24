@@ -7,14 +7,19 @@ using System.Net.Sockets;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using ACRMS.DISK.DiskDataHandler;
+using ACRMS.DISK.DiskMonitorBundle;
+using ACRMS.Websoket;
+using WebSockets.Data;
+using System.Collections;
+using Newtonsoft.Json;
 
 namespace ACRMS.DISK
 {
-    using ACRMS.DISK.DiskMonitorBundle;
-
     public partial class DiskPerformance : Form
     {
-        private PerfCounterHD perfCountObj;
+        websocket w;
+        bool Disk_Response_Recieved = false;
+        //private PerfCounterHD perfCountObj;
         private Timer timer;
         private DataTable tempRecordTable;
         private Stopwatch stopwatch;
@@ -28,6 +33,17 @@ namespace ACRMS.DISK
         public DiskPerformance()
         {
             InitializeComponent();
+            //w.CreateUniqueSession();
+            //System.Threading.Thread.Sleep(2000);
+            //w.DiskData += w_DiskData;
+        }
+
+        void w_DiskData(object sender, WebSocket4Net.MessageReceivedEventArgs e)
+        {
+            JSONResponse value = JsonConvert.DeserializeObject<JSONResponse>(e.Message);
+            Hashtable diskData = value.parameters["GetDiskUsage"];
+            diskDataValues = JsonConvert.DeserializeObject<DiskDataValues>(diskData["diskUsage"].ToString());
+            Disk_Response_Recieved = true;
         }
 
         // Initialize class variables and setup the window elements
@@ -48,8 +64,14 @@ namespace ACRMS.DISK
         //Start Monitoring
         private void btnStart_Click(object sender, EventArgs e)
         {
-            perfCountObj = new PerfCounterHD(hostListComboBox.SelectedItem.ToString());
-            diskDataValues.HostName = hostListComboBox.SelectedItem.ToString();
+            w = new websocket("localhost", "12001");
+            w.CreateUniqueSession();
+            System.Threading.Thread.Sleep(2000);
+            w.DiskData += w_DiskData;
+            getDiskData();
+            //perfCountObj = new PerfCounterHD(Environment.MachineName);
+            //perfCountObj = new PerfCounterHD(hostListComboBox.SelectedItem.ToString());
+            //diskDataValues.HostName = hostListComboBox.SelectedItem.ToString();
             btnStop.Enabled = true;
             btnStart.Enabled = false;
 
@@ -66,11 +88,19 @@ namespace ACRMS.DISK
         // Update Labels, the Graph at 1 Second Interval
         void t_Tick(object sender, EventArgs e)
         {
-            lblElapsedTime.Text = stopwatch.Elapsed.ToString().Substring(0, 8);
-            diskDataValues = perfCountObj.GetValues();
-            this.UpdateLables();
-            this.updateChart();
-            updateCount++;
+            if (Disk_Response_Recieved)
+            {
+                lblElapsedTime.Text = stopwatch.Elapsed.ToString().Substring(0, 8);
+                getDiskData();
+                this.UpdateLables();
+                this.updateChart();
+                updateCount++;
+            }
+        }
+
+        private void getDiskData()
+        {
+            w.getClientData("getDISKUsage");
         }
 
         //Stop Monitoring Destroy all the Counters to free Resources 
@@ -80,13 +110,14 @@ namespace ACRMS.DISK
             stopwatch.Stop();
             stopwatch.Reset();
 
-            perfCountObj.DestroyCounters();
+            //perfCountObj.DestroyCounters();
 
             btnStop.Enabled = false;
             btnStart.Enabled = true;
             this.enableButtons(false);
             
             timer.Dispose();
+            Disk_Response_Recieved = false;
         }
 
         private void btnIdleTime_Click(object sender, EventArgs e)

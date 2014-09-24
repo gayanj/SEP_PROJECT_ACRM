@@ -157,9 +157,8 @@ namespace RAM
             return sb.ToString();
         }
 
-        public static string ListAllApplications()
+        public static string ListAllApplications(MEMORYSTATUSEX m)
         {
-            MEMORYSTATUSEX m = new MEMORYSTATUSEX();
             StringBuilder sb = new StringBuilder();
             maxMemoryConsum = new double[1000];
             maxMemoryConsumApp = new string[1000];

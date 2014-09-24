@@ -1,12 +1,16 @@
 ﻿using ACRMS.CPU;
+using ACRMS_websockets.CPU_classes;
 using NativeWrapper.Data;
 using NativeWrapper.Handlers;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using WebSockets.Events;
 using WebSockets.Types;
 
@@ -22,13 +26,21 @@ namespace ACRMS_websockets
 
         private static NativeWrapperHandler responseHandler;
         private static NativeWebSocket nws;
+        private static CPUMonitoring cpum;
+        public static NotifyIcon notifyIcon1;
+        private static IContainer components;
         static void Main(string[] args)
         {
             try
             {
+                components = new System.ComponentModel.Container();
+                notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
+                notifyIcon1.Icon = new Icon("image.ico");
+                notifyIcon1.Visible = true;
                 createNativeWebsocketInstance(12001);
                 responseHandler = new NativeWrapperHandler();
                 tHandler = new TimeoutHandler(60);
+                cpum = new CPUMonitoring();
                 //tHandler.SessionTimeout += tHandler_SessionTimeout;
 
                 string Errormessage = string.Empty;
@@ -39,24 +51,12 @@ namespace ACRMS_websockets
                     Console.WriteLine(Errormessage);
 
                 nws.StartMonitoringMethodReceived += nws_StartMonitoring;
-                //nws.CreateMethodReceived += nws_CreateMethodRecieved;
-                //nws.ShowCalibrationDialogMethodReceived += nws_ShowCalibrationDialogMethodRecieved;
-                //nws.ShowHeadValidationDialogMethodReceived += nws_ShowHeadValidationDialogMethodRecieved;
-                //nws.StartRecordingMethodReceived += nws_StartRecordingMethodRecieved;
-                //nws.StopRecordingMethodReceived += nws_StopRecordingMethodRecieved;
-                //nws.CloseAndUploadMethodReceived += nws_CloseAndUploadMethodRecieved;
-                //nws.DestructMethodReceived += nws_DestructMethodRecieved;
-                //nws.GetUploadPercentMethodReceived += nws_GetUploadPercentMethodRecieved;
-                //nws.GetHeadPositionMethodReceived += nws_GetHeadPositionMethodRecieved;
-                //nws.IsCameraGoodEnoughMethodReceived += nws_IsCameraGoodEnoughMethodRecieved;
-                //nws.ValidateQualityMethodReceived += nws_ValidateQualityMethodRecieved;
-                //nws.UndefinedMethodReceived += nws_UndefinedMethodRecieved;
-                //nws.CheckSystemMethodReceived += nws_CheckSystemMethodRecieved;
-                //nws.ClosingMethodReceived += nws_ClosingMethodRecieved;
-                //nws.AboutMethodReceived += nws_AboutMethodRecieved;
+                nws.GetCpuUsageMethodReceived += nws_GetCpuUsageMethodReceived;
+                nws.GetRamUsageMethodReceived += nws_GetRamUsageMethodReceived;
+                nws.GetDiskUsageMethodReceived += nws_GetDiskUsageMethodReceived;
 
-                //ErrorCallbackPtr = new Common.ErrorCallback(SendError);
-                //Instance.RegisterErrorCallback(ErrorCallbackPtr);
+                cpum.StartPersistingData();
+                cpum.StartCPUMonitoring();
 
                 new ManualResetEvent(false).WaitOne();
             }
@@ -65,6 +65,51 @@ namespace ACRMS_websockets
                 //SendError(ex.Message + " Exception in Main() " + ex.StackTrace);
                 Console.WriteLine(ex.StackTrace);
                 Console.ReadLine();
+            }
+        }
+
+        static void nws_GetDiskUsageMethodReceived(object sender, MethodReceivedEventArgs args)
+        {
+            try
+            {
+                HandlerParameters parameter = new HandlerParameters(sender, Instance, args);
+
+                Thread thread = new Thread(new ParameterizedThreadStart(responseHandler.GetDiskUsage));
+                thread.Start(parameter);
+            }
+            catch (Exception ex)
+            {
+                //SendError(ex.Message + " Exception in ILETSNetLib.checkSystem() " + ex.StackTrace);
+            }
+        }
+
+        static void nws_GetRamUsageMethodReceived(object sender, MethodReceivedEventArgs args)
+        {
+            try
+            {
+                HandlerParameters parameter = new HandlerParameters(sender, Instance, args);
+
+                Thread thread = new Thread(new ParameterizedThreadStart(responseHandler.GetRamUsage));
+                thread.Start(parameter);
+            }
+            catch (Exception ex)
+            {
+                //SendError(ex.Message + " Exception in ILETSNetLib.checkSystem() " + ex.StackTrace);
+            }
+        }
+
+        static void nws_GetCpuUsageMethodReceived(object sender, MethodReceivedEventArgs args)
+        {
+            try
+            {
+                HandlerParameters parameter = new HandlerParameters(sender, Instance, args);
+
+                Thread thread = new Thread(new ParameterizedThreadStart(responseHandler.GetCpuUsage));
+                thread.Start(parameter);
+            }
+            catch (Exception ex)
+            {
+                //SendError(ex.Message + " Exception in ILETSNetLib.checkSystem() " + ex.StackTrace);
             }
         }
 

@@ -88,6 +88,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dlls\VirusTotal.NET.dll</HintPath>
     </Reference>
+    <Reference Include="WebSocket4Net">
+      <HintPath>..\dlls\WebSocket4Net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ACRMS_Main.cs">
@@ -101,6 +104,12 @@
     </Compile>
     <Compile Include="ACRM_MetroMain.Designer.cs">
       <DependentUpon>ACRM_MetroMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectToClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectToClient.Designer.cs">
+      <DependentUpon>ConnectToClient.cs</DependentUpon>
     </Compile>
     <Compile Include="CPU\CPU_classes\Browser_IE.cs" />
     <Compile Include="CPU\CPU_classes\DatabaseFactory.cs" />
@@ -129,6 +138,11 @@
     <Compile Include="CPU\loadingForm.Designer.cs">
       <DependentUpon>loadingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\JSONDataHandler.cs" />
+    <Compile Include="Data\JSONRequest.cs" />
+    <Compile Include="Data\JSONResponse.cs" />
+    <Compile Include="Data\Request.cs" />
+    <Compile Include="Data\Response.cs" />
     <Compile Include="DISK\DirSizeExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,11 +298,15 @@
       <DependentUpon>SystemMemoryInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="RAM\wmiMemory.cs" />
+    <Compile Include="Websoket\websocket.cs" />
     <EmbeddedResource Include="ACRMS_Main.resx">
       <DependentUpon>ACRMS_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ACRM_MetroMain.resx">
       <DependentUpon>ACRM_MetroMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectToClient.resx">
+      <DependentUpon>ConnectToClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CPU\CPU_classes\GraphForm.resx">
       <DependentUpon>GraphForm.cs</DependentUpon>

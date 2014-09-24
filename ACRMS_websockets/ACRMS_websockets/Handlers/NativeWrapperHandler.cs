@@ -10,6 +10,10 @@ using WebSockets.Data;
 using WebSockets.Types;
 using WebSockets.Logging;
 using System.Collections;
+using RAM;
+using ACRMS.DISK.DiskMonitorBundle;
+using System.Data;
+using ACRMS.DISK.DiskDataHandler;
 
 namespace NativeWrapper.Handlers
 {
@@ -18,8 +22,114 @@ namespace NativeWrapper.Handlers
     /// </summary>
     class NativeWrapperHandler
     {
+        #region Private Attributes
+        private MEMORYSTATUSEX statusEx = new MEMORYSTATUSEX();
+        private PerfCounterHD perfCountObj = new PerfCounterHD(Environment.MachineName);
+        private DiskDataValues diskDataValues = new DiskDataValues();
+        #endregion
         #region Event methods
 
+        /// <summary>
+        /// GetCpuUsage
+        /// </summary>
+        /// <param name="sender">Websocket object</param>
+        public void GetRamUsage(object sender)
+        {
+            HandlerParameters parameter = (HandlerParameters)sender;
+            try
+            {
+                //LogMessage("StartMonitoring Method Started.", ((NativeWebSocket)parameter.Sender));
+                statusEx.setValues();
+                //double data = Convert.ToDouble(MEMORYSTATUSEX.graphMemory);
+
+                Hashtable ramUsage = new Hashtable();
+
+                ramUsage.Add("ramUsage", statusEx);
+
+                Dictionary<string, Hashtable> response = new Dictionary<string, Hashtable>();
+
+                response.Add("GetRamUsage", ramUsage);
+
+                bool successMessage = false;
+                if (ramUsage.Count > 0)
+                {
+                    successMessage = true;
+                }
+                Response res = parameter.Args.RequestInfo.GenerateResponse(successMessage, response);
+                ((NativeWebSocket)parameter.Sender).SendResponse(res);
+            }
+            catch (Exception ex)
+            {
+                //LogMessage(ex.Message + " Exception in ILETSNetLib.validateQuality() " + ex.StackTrace, ((NativeWebSocket)parameter.Sender));
+            }
+        }
+        /// <summary>
+        /// GetCpuUsage
+        /// </summary>
+        /// <param name="sender">Websocket object</param>
+        public void GetCpuUsage(object sender)
+        {
+            HandlerParameters parameter = (HandlerParameters)sender;
+            try
+            {
+                //LogMessage("StartMonitoring Method Started.", ((NativeWebSocket)parameter.Sender));
+
+                int data = parameter.Instance.GetCpuUsage();
+
+                Hashtable cpuUsage = new Hashtable();
+
+                cpuUsage.Add("cpuUsage", data);
+
+                Dictionary<string, Hashtable> response = new Dictionary<string, Hashtable>();
+
+                response.Add("GetCpuUsage", cpuUsage);
+
+                bool successMessage = false;
+                if (cpuUsage.Count > 0)
+                {
+                    successMessage = true;
+                }
+                Response res = parameter.Args.RequestInfo.GenerateResponse(successMessage, response);
+                ((NativeWebSocket)parameter.Sender).SendResponse(res);
+            }
+            catch (Exception ex)
+            {
+                //LogMessage(ex.Message + " Exception in ILETSNetLib.validateQuality() " + ex.StackTrace, ((NativeWebSocket)parameter.Sender));
+            }
+        }
+        /// <summary>
+        /// GetDiskUsage
+        /// </summary>
+        /// <param name="sender">Websocket object</param>
+        public void GetDiskUsage(object sender)
+        {
+            HandlerParameters parameter = (HandlerParameters)sender;
+            try
+            {
+                //LogMessage("StartMonitoring Method Started.", ((NativeWebSocket)parameter.Sender));
+                diskDataValues = perfCountObj.GetValues();
+
+                Hashtable diskUsage = new Hashtable();
+
+                diskUsage.Add("diskUsage", diskDataValues);
+
+                Dictionary<string, Hashtable> response = new Dictionary<string, Hashtable>();
+
+                response.Add("GetDiskUsage", diskUsage);
+
+                bool successMessage = false;
+                if (diskUsage.Count > 0)
+                {
+                    successMessage = true;
+                }
+                Response res = parameter.Args.RequestInfo.GenerateResponse(successMessage, response);
+                ((NativeWebSocket)parameter.Sender).SendResponse(res);
+            }
+            catch (Exception ex)
+            {
+                //LogMessage(ex.Message + " Exception in ILETSNetLib.validateQuality() " + ex.StackTrace, ((NativeWebSocket)parameter.Sender));
+            }
+        }
         /// <summary>
         /// StartMonitoring
         /// </summary>

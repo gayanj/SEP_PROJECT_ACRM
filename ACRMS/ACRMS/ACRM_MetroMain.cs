@@ -16,6 +16,7 @@ namespace ACRMS
     public partial class ACRM_MetroMain : Form
     {
         public static CPU.loadingForm load;
+        public CPU.CPU_Main_Window c;
         public ACRM_MetroMain()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace ACRMS
             load = new CPU.loadingForm();
             load.Show();
             
-            CPU.CPU_Main_Window c = new CPU.CPU_Main_Window();
+            c = new CPU.CPU_Main_Window();
             c.ShowDialog();
         }
 

@@ -47,9 +47,21 @@ namespace ACRMS.CPU
             alProcesses = ProcessMethod.RunningProcesses(connectionScope);
             return alProcesses;
         }
+        public int GetCpuUsage()
+        {
+            return ProcessMethod.GetCpuUsage(connectionScope);
+        }
         public Hashtable ProcessMonitor(string processName)
         {
             return ProcessMethod.SystemMonitor(connectionScope);
+        }
+        /// <summary>
+        /// This method returns more detailed information about the processes which is used in the redis service
+        /// </summary>
+        /// <returns></returns>
+        public Hashtable ClientMonitor()
+        {
+            return ProcessMethod.PersistantMonitor(connectionScope);
         }
         public string CreateProcess(string processPath)
         {

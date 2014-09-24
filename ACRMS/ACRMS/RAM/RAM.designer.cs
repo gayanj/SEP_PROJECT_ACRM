@@ -500,10 +500,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 730);
+            this.ClientSize = new System.Drawing.Size(1284, 730);
             this.Controls.Add(this.metroPanel1);
             this.Name = "RAM";
             this.Text = "RAM";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RAM_FormClosed);
             this.Load += new System.EventHandler(this.RAM_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();

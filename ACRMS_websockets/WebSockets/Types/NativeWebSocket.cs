@@ -18,84 +18,21 @@ namespace WebSockets.Types
         #region Events
 
         /// <summary>
+        /// Occurs when Get Disk Usage method is called.
+        /// </summary>
+        public event MethodReceivedEventHandler GetDiskUsageMethodReceived;
+        /// <summary>
+        /// Occurs when Get Ram Usage method is called.
+        /// </summary>
+        public event MethodReceivedEventHandler GetRamUsageMethodReceived;
+        /// <summary>
+        /// Occurs when Get Cpu Usage method is called.
+        /// </summary>
+        public event MethodReceivedEventHandler GetCpuUsageMethodReceived;
+        /// <summary>
         /// Occurs when Start Monitoring method is called.
         /// </summary>
         public event MethodReceivedEventHandler StartMonitoringMethodReceived;
-
-        /// <summary>
-        /// Occurs when Create method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler CreateMethodReceived;
-
-        /// <summary>
-        /// Occurs when Check System method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler CheckSystemMethodReceived;
-
-        /// <summary>
-        /// Occurs when Close and Upload method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler CloseAndUploadMethodReceived;
-
-        /// <summary>
-        /// Occurs when Connect To Camera method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler ConnectToCameraMethodReceived;
-
-        /// <summary>
-        /// Occurs when Destruct method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler DestructMethodReceived;
-
-        /// <summary>
-        /// Occurs when Get Eye Track Location method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler GetEyeTrackLocationMethodReceived;
-
-        /// <summary>
-        /// Occurs when Get Frame Brightness method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler GetFrameBrightnessMethodReceived;
-
-        /// <summary>
-        /// Occurs when Get Head Position method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler GetHeadPositionMethodReceived;
-
-        /// <summary>
-        /// Occurs when Get Upload Percentage method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler GetUploadPercentMethodReceived;
-
-        /// <summary>
-        /// Occurs when Is Camera Good Enough method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler IsCameraGoodEnoughMethodReceived;
-
-        /// <summary>
-        /// Occurs when Show Calibration Dialog method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler ShowCalibrationDialogMethodReceived;
-
-        /// <summary>
-        /// Occurs when Show Head Validation method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler ShowHeadValidationDialogMethodReceived;
-
-        /// <summary>
-        /// Occurs when Start Recording method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler StartRecordingMethodReceived;
-
-        /// <summary>
-        /// Occurs when Stop Recording method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler StopRecordingMethodReceived;
-
-        /// <summary>
-        /// Occurs when Validate Quality method is called.
-        /// </summary>
-        public event MethodReceivedEventHandler ValidateQualityMethodReceived;
 
         /// <summary>
         /// Occurs when an Undefined method is called.
@@ -142,65 +79,25 @@ namespace WebSockets.Types
 
             switch (request.MethodName)
             {
+                case "getDISKUsage":
+                    FileLogger.Instance.LogMessage("getDISKUsage Method Recieved.");
+                    if (GetDiskUsageMethodReceived != null)
+                        GetDiskUsageMethodReceived(this, args);
+                    return true;
+                case "getRAMUsage":
+                    FileLogger.Instance.LogMessage("getRAMUsage Method Recieved.");
+                    if (GetRamUsageMethodReceived != null)
+                        GetRamUsageMethodReceived(this, args);
+                    return true;
+                case "getCPUUsage":
+                    FileLogger.Instance.LogMessage("getCPUUsage Method Recieved.");
+                    if (GetCpuUsageMethodReceived != null)
+                        GetCpuUsageMethodReceived(this, args);
+                    return true;
                 case "startMonitoring":
                     FileLogger.Instance.LogMessage("startMonitoring Method Recieved.");
                     if (StartMonitoringMethodReceived != null)
                         StartMonitoringMethodReceived(this, args);
-                    return true;
-                case "checkSystem":
-                    FileLogger.Instance.LogMessage("checkSystem Method Recieved.");
-                    if (CheckSystemMethodReceived != null)
-                        CheckSystemMethodReceived(this, args);
-                    return true;
-                case "create":
-                    FileLogger.Instance.LogMessage("create Method Recieved.");
-                    if (CreateMethodReceived != null)
-                        CreateMethodReceived(this, args);
-                    return true;
-                case "validateQuality":
-                    FileLogger.Instance.LogMessage("validateQuality Method Recieved.");
-                    if (ValidateQualityMethodReceived != null)
-                        ValidateQualityMethodReceived(this, args);
-                    return true;
-                case "showCalibrationDialog":
-                    FileLogger.Instance.LogMessage("showCalibrationDialog Method Recieved.");
-                    if (ShowCalibrationDialogMethodReceived != null)
-                        ShowCalibrationDialogMethodReceived(this, args);
-                    return true;
-                case "showHeadValidationDialog":
-                    FileLogger.Instance.LogMessage("showHeadValidationDialog Method Recieved.");
-                    if (ShowHeadValidationDialogMethodReceived != null)
-                        ShowHeadValidationDialogMethodReceived(this, args);
-                    return true;
-                case "startRecording":
-                    FileLogger.Instance.LogMessage("startRecording Method Recieved.");
-                    if (StartRecordingMethodReceived != null)
-                        StartRecordingMethodReceived(this, args);
-                    return true;
-                case "stopRecording":
-                    FileLogger.Instance.LogMessage("stopRecording Method Recieved.");
-                    if (StopRecordingMethodReceived != null)
-                        StopRecordingMethodReceived(this, args);
-                    return true;
-                case "closeAndUpload":
-                    FileLogger.Instance.LogMessage("closeAndUpload Method Recieved.");
-                    if (CloseAndUploadMethodReceived != null)
-                        CloseAndUploadMethodReceived(this, args);
-                    return true;
-                case "getUploadPercent":
-                    FileLogger.Instance.LogMessage("getUploadPercent Method Recieved.");
-                    if (GetUploadPercentMethodReceived != null)
-                        GetUploadPercentMethodReceived(this, args);
-                    return true;
-                case "destruct":
-                    FileLogger.Instance.LogMessage("destruct Method Recieved.");
-                    if (DestructMethodReceived != null)
-                        DestructMethodReceived(this, args);
-                    return true;
-                case "closeSession":
-                    FileLogger.Instance.LogMessage("closeSession Method Recieved.");
-                    if (ClosingMethodReceived != null)
-                        ClosingMethodReceived(this, args);
                     return true;
                 default:
                     FileLogger.Instance.LogMessage("Undefined Method Recieved.");
