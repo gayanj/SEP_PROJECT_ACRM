@@ -1,11 +1,8 @@
 var webSocketBase = (function () {
     var Nconn;
-    var startMonitoringResponse = false;
     var getCPUUsageResponse = false;
     var getRAMUsageResponse = false;
     var getDiskUsageResponse = false;
-    var rowNumber = 1;
-    var startMonitoringCount  = 0;
     var getCPUUsageCount  = 0;
     var getRAMUsageCount  = 0;
     var getDiskUsageCount  = 0;
@@ -54,9 +51,7 @@ var webSocketBase = (function () {
     function processResponse(message) {
         //convert to JSON format
         var json = JSON.parse(message);
-        if(json.response === 'startMonitoring'){
-            startMonitoringResponseHandler(message);
-        }else if(json.response === 'getCPUUsage'){
+        if(json.response === 'getCPUUsage'){
             getCPUUsageResponseHandler(message);
         }else if(json.response === 'getRAMUsage'){
             getRAMUsageResponseHandler(message);
@@ -110,36 +105,13 @@ var webSocketBase = (function () {
     function getRAMUsageResponseHandler(message){
         //convert to JSON format
         var json = JSON.parse(message);
-        ramPercentage = json.parameters.GetRamUsage.ramUsage;
+        ramPercentage = json.parameters.GetRamUsage.ramUsage.dwMemoryLoad;
         getRAMUsageResponse = true;
         if(getRAMUsageCount == 0){
             ramUsagegraph();
             getRAMUsageCount++;
             //console.log(json);
         }
-    }
-
-    function table(data){
-        var tableData = data;
-        $('#tableContainer')
-                .TidyTable({
-                    columnTitles : ['Process Name','Process ID','CPU Usage'],
-                    columnValues : tableData,
-                  postProcess : {
-                        column : getRowValue
-                    }
-                });
-    }
-
-    function getRowValue(col) {
-        col.on('click', function(col) {
-            console.log($(this).parent().index() + 1);
-            rowNumber = $(this).parent().index() + 1;
-        });
-    }
-
-    function startMonitoringData(){
-        return document.getElementById("tableContainer").getElementsByTagName("*")[0].rows[rowNumber].cells[2].attributes[0].value;
     }
 
     function cpuUsageData(){
@@ -152,87 +124,6 @@ var webSocketBase = (function () {
 
     function diskUsageData(){
         return diskPercentage;
-    }
-
-
-    function startMonitoringgraph(){
-        Highcharts.setOptions({
-                global: {
-                    useUTC: false
-                }
-            });
-
-            $('#startMonitoringGraph').highcharts({
-                chart: {
-                    type: 'spline',
-                    animation: Highcharts.svg, // don't animate in old IE
-                    marginRight: 10,
-                    events: {
-                        load: function () {
-
-                            // set up the updating of the chart each second
-                            var series = this.series[0];
-                            setInterval(function () {
-                                var x = (new Date()).getTime(), // current time
-                                    y = parseInt(startMonitoringData());
-                                series.addPoint([x, y], true, true);
-                            }, 1000);
-                        }
-                    }
-                },
-                title: {
-                    text: 'Process CPU Usage'
-                },
-                xAxis: {
-                    type: 'datetime',
-                    tickPixelInterval: 50,
-                    labels: {
-                        enabled: false
-                    }
-                },
-                yAxis: {
-                    floor: 0,
-                    ceiling: 100,
-                    title: {
-                        text: 'Process CPU %'
-                    },
-                    plotLines: [{
-                        value: 0,
-                        width: 1,
-                        color: '#808080'
-                    }]
-                },
-                tooltip: {
-                    formatter: function () {
-                        return '<b>' + this.series.name + '</b><br/>' +
-                            Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
-                            Highcharts.numberFormat(this.y, 2);
-                    }
-                },
-                legend: {
-                    enabled: false
-                },
-                exporting: {
-                    enabled: false
-                },
-                series: [{
-                    name: 'CPU Usage',
-                    data: (function () {
-                        // generate an array of random data
-                        var data = [],
-                            time = (new Date()).getTime(),
-                            i;
-
-                        for (i = -19; i <= 0; i += 1) {
-                            data.push({
-                                x: time + i * 1000,
-                                y: 0
-                            });
-                        }
-                        return data;
-                    }())
-                }]
-            });
     }
 
     function cpuUsagegraph(){
@@ -477,9 +368,6 @@ var webSocketBase = (function () {
     function _getCPUUsageResponseValue(){
         return getCPUUsageResponse;
     }
-    function _startMonitoringResponseValue(){
-        return startMonitoringResponse;
-    }
     function _getRAMUsageResponseValue(){
         return getRAMUsageResponse;
     }
@@ -491,7 +379,6 @@ var webSocketBase = (function () {
         getDISKUsageResponseValue: _getDISKUsageResponseValue,
         getRAMUsageResponseValue: _getRAMUsageResponseValue,
         getCPUUsageResponseValue: _getCPUUsageResponseValue,
-        startMonitoringResponseValue: _startMonitoringResponseValue,
         openConnection: _openNativeWrapperConnection,
         sendRequestNative: _sendRequestNative
     };

@@ -25,20 +25,19 @@
     <div id="tabs">
       <div class="navbar-collapse collapse templatemo-sidebar">
         <ul class="nav templatemo-sidebar-menu">
-          <li class="nav-one"><a href="#dashboard" class="current glyphicon glyphicon-dashboard"><span style="margin-left: 5px">Dashboard</span></a></li>
-          <li class="nav-two"><a href="#CPU" class="glyphicon glyphicon-qrcode"><span style="margin-left: 5px">CPU</span></a></li>
-          <li class="nav-three"><a href="#RAM" class="glyphicon glyphicon-th"><span style="margin-left: 5px">RAM</span></a></li>
-          <li class="nav-four"><a href="#Disk" class="glyphicon glyphicon-hdd"><span style="margin-left: 5px">Disk</span></a></li>
-          <li class="nav-five"><a href="#Network" class="glyphicon glyphicon-random"><span style="margin-left: 5px">Network</span></a></li>
-          <li class="nav-six last"><a href="#Power" class="glyphicon glyphicon-flash"><span style="margin-left: 5px">Power</span></a></li>
+          <li class="nav-one"><a href="#CPU" class="current glyphicon glyphicon-qrcode"><span style="margin-left: 5px">CPU</span></a></li>
+          <li class="nav-two"><a href="#RAM" class="glyphicon glyphicon-th"><span style="margin-left: 5px">RAM</span></a></li>
+          <li class="nav-three"><a href="#Disk" class="glyphicon glyphicon-hdd"><span style="margin-left: 5px">Disk</span></a></li>
+          <li class="nav-four"><a href="#Network" class="glyphicon glyphicon-random"><span style="margin-left: 5px">Network</span></a></li>
+          <li class="nav-five last"><a href="#Power" class="glyphicon glyphicon-flash"><span style="margin-left: 5px">Power</span></a></li>
         </ul>
       </div>
 
       <div class="list-wrap">
-        <!-- Dashboard Tab -->
-        <div id="dashboard" class="templatemo-content-wrapper">
+        <!-- CPU Tab -->
+        <div id="CPU" class="templatemo-content-wrapper">
           <div class="templatemo-content">
-            <h1>Dashboard</h1>
+            <h1>CPU</h1>
             <div class="margin-bottom-30" style="float:left;">
               <div class="row">
                 <div class="col-md-12">
@@ -48,43 +47,6 @@
                 </div>
               </div>
               <div id="getCPUUsageGraph" style="width:500px; height: 400px;float:left;"></div>
-            </div>
-            <div class="margin-bottom-30" style="float:left;">
-              <div class="row">
-                <div class="col-md-12">
-                  <ul class="nav nav-pills">
-                    <li class="label label-info">RAM Usage</li>
-                  </ul>          
-                </div>
-              </div>
-              <div id="getRAMUsageGraph" style="width:500px; height: 400px;float:left;"></div>
-            </div>
-            <div class="margin-bottom-30" style="float:left;">
-              <div class="row">
-                <div class="col-md-12">
-                  <ul class="nav nav-pills">
-                    <li class="label label-info">Disk Usage</li>
-                  </ul>          
-                </div>
-              </div>
-              <div id="getDISKUsageGraph" style="width:500px; height: 400px;float:left;"></div>
-            </div>
-          </div>
-        </div>
-        <!-- CPU Tab -->
-        <div id="CPU" class="templatemo-content-wrapper" style="display: none;">
-          <div class="templatemo-content">
-            <h1>CPU</h1>
-            <div class="margin-bottom-30" style="float:left;">
-              <div class="row">
-                <div class="col-md-12">
-                  <ul class="nav nav-pills">
-                    <li class="label label-info">Process CPU Usage</li>
-                  </ul>          
-                </div>
-              </div>
-              <div id="startMonitoringGraph" style="width:500px; height: 400px;float:left;"></div>
-              <div id="tableContainer" style='height:500px;overflow:scroll;float:left;'></div>
             </div>
           </div>
         </div>
@@ -96,11 +58,11 @@
               <div class="row">
                 <div class="col-md-12">
                   <ul class="nav nav-pills">
-                    <li class="label label-info">Process RAM Usage</li>
+                    <li class="label label-info">RAM Usage</li>
                   </ul>          
                 </div>
               </div>
-              <!-- Tables and graphs go here -->
+              <div id="getRAMUsageGraph" style="width:500px; height: 400px;float:left;"></div>
             </div>
           </div>
         </div>
@@ -116,7 +78,7 @@
                   </ul>          
                 </div>
               </div>
-              <!-- Tables and graphs go here -->
+              <div id="getDISKUsageGraph" style="width:500px; height: 400px;float:left;"></div>
             </div>
           </div>
         </div>
@@ -205,16 +167,6 @@
             if(webSocketBase.getRAMUsageResponseValue()){
               webSocketBase.sendRequestNative('getRAMUsage', null);
               console.log('getRAMUsage method sent to socket.');
-            }
-          }, 1000);
-        })();
-        (function startMonitoring() {
-          webSocketBase.sendRequestNative('startMonitoring', null);
-          console.log('Initial startMonitoring method sent to socket.');
-          timer = setInterval(function () {
-            if(webSocketBase.startMonitoringResponseValue()){
-              webSocketBase.sendRequestNative('startMonitoring', null);
-              console.log('startMonitoring method sent to socket.');
             }
           }, 1000);
         })();

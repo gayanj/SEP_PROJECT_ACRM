@@ -18,7 +18,7 @@ namespace DataWareHouse
         }
         public static SqlConnection NewCon;
 
-        public static string ConStr = "Data Source=GAYAN-PC;Initial Catalog=CPUDataWarehouse;Integrated Security=True";
+        public static string ConStr = "Data Source=GAYAN-J;Initial Catalog=CPUDataWareHouse;Integrated Security=True";
 
         public static SqlConnection GetConnection()
         {

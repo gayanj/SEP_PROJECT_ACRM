@@ -49,7 +49,7 @@ namespace ACRMS_websockets.CPU_classes
         public void MonitorCPUUsage(object sender, ElapsedEventArgs e)
         {
             int usage = pl.GetCpuUsage();
-            if (usage > 5)
+            if (usage > 90)
             {
                 //alert user
                 ACRMS.notifyIcon1.ShowBalloonTip(1000, "CPU Usage", "Your CPU Usage is " + usage, ToolTipIcon.Warning);
