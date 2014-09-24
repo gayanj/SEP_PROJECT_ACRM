@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width">        
   <link rel="stylesheet" href="css/templatemo_main.css">
   <link rel="stylesheet" type="text/css" href="js/public/jquery.tidy.table.min.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
 </head>
 <body>
   <div class="navbar navbar-inverse" role="navigation">
@@ -47,6 +48,10 @@
                 </div>
               </div>
               <div id="getCPUUsageGraph" style="width:500px; height: 400px;float:left;"></div>
+              <div>
+              <p>Select Alerts: From <input type="text" id="from"> To <input type="text" id="to"></p><p> <button onclick="getAlerts()" type="submit" class="btn btn-primary">Submit</button></p>
+              </div>
+              <div id="tableContainer" style='width:513px;height:500px;overflow:scroll;float:left;'></div>
             </div>
           </div>
         </div>
@@ -123,6 +128,7 @@
     </footer>
   </div>
   <script src="js/jquery-1.7.2.min.js"></script>
+  <script src="js/public/jquery-ui.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/templatemo_script.js"></script>
   <script type="text/javascript" src="js/ACRMS_WebsocketBase.js"></script>
@@ -171,7 +177,24 @@
           }, 1000);
         })();
       }, 3000);
+    $(function() {
+      $( "#from" ).datepicker();
+    });
+    $(function() {
+      $( "#to" ).datepicker();
+    });
 });
+
+function getAlerts(){
+  var from = document.getElementById("from").value;
+  var to = document.getElementById("to").value;
+  var parameters = {
+                    'from': from,
+                    'to': to
+                };
+  webSocketBase.sendRequestNative('getCpuAlerts', parameters);
+  console.log('getCpuAlerts method sent to socket.');
+}
 </script>
 </body>
 </html>

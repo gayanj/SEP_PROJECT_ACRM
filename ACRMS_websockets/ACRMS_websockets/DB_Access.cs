@@ -13,10 +13,12 @@ namespace DataWareHouse
     public class DB_Access
     {
         SqlConnection conn;
+        SqlConnection conn2;
 
         public DB_Access()
         {
             conn = DB_Connect.GetConnection();
+            conn2 = DB_Connect.GetConnection2();
         }
 
         //Get Date Key
@@ -105,7 +107,7 @@ namespace DataWareHouse
             dr.Close();
             return status;
         }
-        
+
         //Insert into Process Table
         public bool persistProcessName(string processName)
         {
@@ -128,6 +130,48 @@ namespace DataWareHouse
                 status = false;
             }
             return status;
+        }
+
+        //Insert into Process Table
+        public bool persistCPUAlert(string alert)
+        {
+            bool status = false;
+            if (conn2.State.ToString() == "Closed")
+            {
+                conn2.Open();
+            }
+            try
+            {
+                SqlCommand newCmd = conn2.CreateCommand();
+                newCmd.Connection = conn2;
+                newCmd.CommandType = CommandType.Text;
+                newCmd.CommandText = "INSERT INTO alerts(alert) VALUES('" + alert + "')";
+                newCmd.ExecuteNonQuery();
+                status = true;
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+            return status;
+        }
+
+        //Get User data
+        public DataSet getCPUAlerts(string from, string to)
+        {
+            if (conn2.State.ToString() == "Closed")
+            {
+                conn2.Open();
+            }
+            SqlCommand newCmd = conn2.CreateCommand();
+            newCmd.Connection = conn2;
+            newCmd.CommandType = CommandType.Text;
+            newCmd.CommandText = "select * from alerts where id between '" + from + "' and '" + to + "'";
+            SqlDataAdapter da = new SqlDataAdapter(newCmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "customer");
+            conn.Close();
+            return ds;
         }
 
         //Insert into Fact Table

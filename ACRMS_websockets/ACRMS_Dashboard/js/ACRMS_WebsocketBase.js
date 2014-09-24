@@ -57,7 +57,21 @@ var webSocketBase = (function () {
             getRAMUsageResponseHandler(message);
         }else if(json.response === 'getDISKUsage'){
             getDISKUsageResponseHandler(message);
+        }else if(json.response === 'getCpuAlerts'){
+            getCpuAlertsResponseHandler(message);
         }
+    }
+
+    function getCpuAlertsResponseHandler(message){
+        //convert to JSON format
+        var json = JSON.parse(message);
+        var data = json.parameters.GetCpuAlerts.cpuAlerts.customer;
+        var tableDataFromProcesses = [];
+        //table(json)
+        for (var key in data) {
+            tableDataFromProcesses.push([data[key]['id'].split('T')[0],data[key]['id'].split('T')[1],data[key]['alert']]);
+        }
+        table(tableDataFromProcesses);
     }
 
     function startMonitoringResponseHandler(message){
@@ -112,6 +126,15 @@ var webSocketBase = (function () {
             getRAMUsageCount++;
             //console.log(json);
         }
+    }
+
+    function table(data){
+        var tableData = data;
+        $('#tableContainer')
+                .TidyTable({
+                    columnTitles : ['Date','Time','Alert'],
+                    columnValues : tableData
+                });
     }
 
     function cpuUsageData(){

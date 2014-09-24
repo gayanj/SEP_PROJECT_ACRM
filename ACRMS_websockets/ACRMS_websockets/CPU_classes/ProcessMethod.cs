@@ -119,7 +119,7 @@ namespace ACRMS.CPU
             {
                 alProcesses.Add(item["Name"].ToString());
             }
-            
+
             return alProcesses;
         }
         public static string TranslateMemoryUsage(string workingSet)
@@ -232,6 +232,56 @@ namespace ACRMS.CPU
         {
             TimeSpan ts = TimeSpan.Parse(value.ToString("HH:mm:ss"));
             return ts.TotalSeconds.ToString();
+        }
+
+        /// <summary>
+        /// This method is used to retrieve information about a particular process
+        /// </summary>
+        /// <param name="connectionScope">Scope of the connection - Defines the scope in which the methods are being called</param>
+        /// <returns>Returns an ArrayList of the processes information</returns>
+        public static Hashtable GetTrackProcessData(ManagementScope connectionScope)
+        {
+            Hashtable processes = new Hashtable();
+            ArrayList arrprocesses;
+            SelectQuery systemMonitorQuery = new SelectQuery(
+                "SELECT Name,IDProcess,PercentProcessorTime FROM win32_PerfFormattedData_PerfProc_Process");
+            ManagementObjectSearcher searchProcedure = new ManagementObjectSearcher(connectionScope, systemMonitorQuery);
+            foreach (ManagementObject item in searchProcedure.Get())
+            {
+                arrprocesses = new ArrayList();
+                arrprocesses.Add(item.Properties["Name"].Value);
+                arrprocesses.Add(item.Properties["IDProcess"].Value);
+                arrprocesses.Add(item.Properties["PercentProcessorTime"].Value);
+                processes.Add(item["Name"].ToString(), arrprocesses);
+
+                item.Dispose();
+            }
+            searchProcedure.Dispose();
+            return processes;
+        }
+
+        public static float GetProcessData(ManagementScope connectionScope, string pname)
+        {
+            //System.Collections.Generic.List<PerformanceCounter> counters = new System.Collections.Generic.List<PerformanceCounter>();
+            //foreach (Process process in Process.GetProcesses())
+            //{
+                    PerformanceCounter processorTimeCounter = new PerformanceCounter(
+                        "Process",
+                        "% Processor Time",
+                        pname);
+                    processorTimeCounter.NextValue();
+                    //counters.Add(processorTimeCounter);
+            //}
+
+            System.Threading.Thread.Sleep(1000);
+
+            float usage = 0;
+            //foreach (PerformanceCounter processorCounter in counters)
+            //{
+            usage = processorTimeCounter.NextValue();
+            //}
+
+            return usage;
         }
     }
 }

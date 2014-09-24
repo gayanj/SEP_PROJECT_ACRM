@@ -17,13 +17,22 @@ namespace DataWareHouse
 
         }
         public static SqlConnection NewCon;
+        public static SqlConnection NewCon2;
 
-        public static string ConStr = "Data Source=GAYAN-J;Initial Catalog=CPUDataWareHouse;Integrated Security=True";
+        public static string ConStr = "Data Source=GAYAN-PC;Initial Catalog=CPUDataWarehouse;Integrated Security=True";
+
+        public static string ConStr2 = "Data Source=GAYAN-PC;Initial Catalog=CPUData;Integrated Security=True";
 
         public static SqlConnection GetConnection()
         {
             NewCon = new SqlConnection(ConStr);
             return NewCon;
+        }
+
+        public static SqlConnection GetConnection2()
+        {
+            NewCon2 = new SqlConnection(ConStr2);
+            return NewCon2;
         }
     }
 }

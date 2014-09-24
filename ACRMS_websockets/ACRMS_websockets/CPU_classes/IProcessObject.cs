@@ -11,6 +11,8 @@ namespace ACRMS.CPU
     {
         ArrayList RunningProcesses();
         int GetCpuUsage();
+        Hashtable GetTrackProcessData();
+        float GetProcessData(string pname);
         Hashtable ProcessMonitor();
         Hashtable ClientMonitor();
         string CreateProcess(string processPath);

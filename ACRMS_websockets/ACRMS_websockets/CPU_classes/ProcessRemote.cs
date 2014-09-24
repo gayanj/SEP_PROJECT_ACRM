@@ -51,6 +51,14 @@ namespace ACRMS.CPU
         {
             return ProcessMethod.GetCpuUsage(connectionScope);
         }
+        public Hashtable GetTrackProcessData()
+        {
+            return ProcessMethod.GetTrackProcessData(connectionScope);
+        }
+        public float GetProcessData(string pname)
+        {
+            return ProcessMethod.GetProcessData(connectionScope, pname);
+        }
         public Hashtable ProcessMonitor(string processName)
         {
             return ProcessMethod.SystemMonitor(connectionScope);

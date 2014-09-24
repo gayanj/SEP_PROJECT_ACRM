@@ -1,5 +1,6 @@
 ﻿using ACRMS.CPU;
 using ACRMS.CPU.CPU_classes;
+using DataWareHouse;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace ACRMS_websockets.CPU_classes
 {
     public class CPUMonitoring
     {
+        bool previousUsage = false;
+        DB_Access sqldb = new DB_Access();
         System.Timers.Timer t1;
         System.Timers.Timer t2;
         ProcessLocal pl = new ProcessLocal();
@@ -51,9 +54,18 @@ namespace ACRMS_websockets.CPU_classes
             int usage = pl.GetCpuUsage();
             if (usage > 90)
             {
-                //alert user
-                ACRMS.notifyIcon1.ShowBalloonTip(1000, "CPU Usage", "Your CPU Usage is " + usage, ToolTipIcon.Warning);
-                //query database to predict if the crash is going to happen and give appropriate suggestions.
+                if (!previousUsage)
+                {
+                    //alert user
+                    ACRMS.notifyIcon1.ShowBalloonTip(1000, "CPU Usage", "Your CPU Usage is " + usage, ToolTipIcon.Warning);
+                    previousUsage = true;
+                    sqldb.persistCPUAlert("Your CPU Usage exceeded " + usage + "%");
+                    //query database to predict if the crash is going to happen and give appropriate suggestions.
+                }
+            }
+            else
+            {
+                previousUsage = false;
             }
         }
 

@@ -35,6 +35,14 @@ namespace ACRMS.CPU
         {
             return ProcessMethod.GetCpuUsage(connectionScope);
         }
+        public Hashtable GetTrackProcessData()
+        {
+            return ProcessMethod.GetTrackProcessData(connectionScope);
+        }
+        public float GetProcessData(string pname)
+        {
+            return ProcessMethod.GetProcessData(connectionScope,pname);
+        }
         /// <summary>
         /// This method calls the SystemMonitor method in the ProcessMethod class and returns a data table with the process information
         /// </summary>

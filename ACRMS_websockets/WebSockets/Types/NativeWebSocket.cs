@@ -20,6 +20,10 @@ namespace WebSockets.Types
         /// <summary>
         /// Occurs when Get Disk Usage method is called.
         /// </summary>
+        public event MethodReceivedEventHandler GetCpuAlertsMethodReceived;
+        /// <summary>
+        /// Occurs when Get Disk Usage method is called.
+        /// </summary>
         public event MethodReceivedEventHandler GetDiskUsageMethodReceived;
         /// <summary>
         /// Occurs when Get Ram Usage method is called.
@@ -79,6 +83,11 @@ namespace WebSockets.Types
 
             switch (request.MethodName)
             {
+                case "getCpuAlerts":
+                    FileLogger.Instance.LogMessage("getCpuAlerts Method Recieved.");
+                    if (GetCpuAlertsMethodReceived != null)
+                        GetCpuAlertsMethodReceived(this, args);
+                    return true;
                 case "getDISKUsage":
                     FileLogger.Instance.LogMessage("getDISKUsage Method Recieved.");
                     if (GetDiskUsageMethodReceived != null)
@@ -112,11 +121,11 @@ namespace WebSockets.Types
             FileLogger.Instance.LogMessage("Client Disconnected. IP " + session.RemoteEndPoint.Address + " Port " + session.RemoteEndPoint.Port.ToString());
             FileLogger.Instance.LogMessage("Reason " + value);
             FileLogger.Instance.LogMessage("Web Socket Check Status " + wsCheckComplete);
-            
+
             if (wsCheckComplete)
-            {                
+            {
                 if (ClosingMethodReceived != null)
-                    ClosingMethodReceived(this, MethodReceivedEventArgs.Empty);         
+                    ClosingMethodReceived(this, MethodReceivedEventArgs.Empty);
             }
 
             // The first connection to the socket will be always from the Launcher.
