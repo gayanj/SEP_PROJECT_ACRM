@@ -133,7 +133,7 @@ namespace DataWareHouse
         }
 
         //Insert into Process Table
-        public bool persistCPUAlert(string alert)
+        public bool persistCPUAlert(string alert,string pname)
         {
             bool status = false;
             if (conn2.State.ToString() == "Closed")
@@ -145,7 +145,7 @@ namespace DataWareHouse
                 SqlCommand newCmd = conn2.CreateCommand();
                 newCmd.Connection = conn2;
                 newCmd.CommandType = CommandType.Text;
-                newCmd.CommandText = "INSERT INTO alerts(alert) VALUES('" + alert + "')";
+                newCmd.CommandText = "INSERT INTO alerts(alert,pname) VALUES('" + alert + "','" + pname + "')";
                 newCmd.ExecuteNonQuery();
                 status = true;
             }
@@ -169,7 +169,7 @@ namespace DataWareHouse
             newCmd.CommandText = "select * from alerts where id between '" + from + "' and '" + to + "'";
             SqlDataAdapter da = new SqlDataAdapter(newCmd);
             DataSet ds = new DataSet();
-            da.Fill(ds, "customer");
+            da.Fill(ds, "cpualerts");
             conn.Close();
             return ds;
         }

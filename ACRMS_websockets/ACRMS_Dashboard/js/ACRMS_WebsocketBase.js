@@ -65,11 +65,11 @@ var webSocketBase = (function () {
     function getCpuAlertsResponseHandler(message){
         //convert to JSON format
         var json = JSON.parse(message);
-        var data = json.parameters.GetCpuAlerts.cpuAlerts.customer;
+        var data = json.parameters.GetCpuAlerts.cpuAlerts.cpualerts;
         var tableDataFromProcesses = [];
         //table(json)
         for (var key in data) {
-            tableDataFromProcesses.push([data[key]['id'].split('T')[0],data[key]['id'].split('T')[1],data[key]['alert']]);
+            tableDataFromProcesses.push([data[key]['id'].split('T')[0],data[key]['id'].split('T')[1],data[key]['pname'],data[key]['alert']]);
         }
         table(tableDataFromProcesses);
     }
@@ -132,7 +132,7 @@ var webSocketBase = (function () {
         var tableData = data;
         $('#tableContainer')
                 .TidyTable({
-                    columnTitles : ['Date','Time','Alert'],
+                    columnTitles : ['Date','Time','Process Name','Alert'],
                     columnValues : tableData
                 });
     }

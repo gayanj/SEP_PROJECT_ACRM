@@ -262,26 +262,41 @@ namespace ACRMS.CPU
 
         public static float GetProcessData(ManagementScope connectionScope, string pname)
         {
-            //System.Collections.Generic.List<PerformanceCounter> counters = new System.Collections.Generic.List<PerformanceCounter>();
-            //foreach (Process process in Process.GetProcesses())
-            //{
-                    PerformanceCounter processorTimeCounter = new PerformanceCounter(
-                        "Process",
-                        "% Processor Time",
-                        pname);
-                    processorTimeCounter.NextValue();
-                    //counters.Add(processorTimeCounter);
-            //}
+            //        PerformanceCounter processorTimeCounter = new PerformanceCounter(
+            //            "Process",
+            //            "% Processor Time",
+            //            pname);
+            //        processorTimeCounter.NextValue();
 
-            System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(1000);
 
-            float usage = 0;
-            //foreach (PerformanceCounter processorCounter in counters)
-            //{
-            usage = processorTimeCounter.NextValue();
-            //}
+            //float usage = 0;
+            //usage = processorTimeCounter.NextValue();
 
-            return usage;
+            //return usage;
+            try
+            {
+                PerformanceCounter cpuUsage = new PerformanceCounter("Process", "% Processor Time", "_Total");
+                PerformanceCounter pcProcess = new PerformanceCounter("Process", "% Processor Time", pname);
+                // Prime the Performance Counters
+                pcProcess.NextValue();
+                cpuUsage.NextValue();
+                System.Threading.Thread.Sleep(100);
+
+                double cpuUse = Math.Round(pcProcess.NextValue() / cpuUsage.NextValue() * 100, 2);
+
+                // Check for Not-A-Number (Division by Zero)
+                if (Double.IsNaN(cpuUse))
+                    cpuUse = 0;
+
+                //Get CPU Usage
+                Console.ForegroundColor = ConsoleColor.Red;
+                return Convert.ToInt32(cpuUse);
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
         }
     }
 }
