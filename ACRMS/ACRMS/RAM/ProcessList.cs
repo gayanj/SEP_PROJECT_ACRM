@@ -32,34 +32,6 @@ namespace RAM
 
         void tick_Tick2(object sender, EventArgs e)
         {
-            if (CheckForProcessByName(Settings.processExists))
-            {
-                processExistAlert = Settings.processExists + " is running.";
-
-                if (Settings.killProcess)
-                {
-                    Process[] p = Process.GetProcessesByName(Settings.processExists);
-                    Process p2 = p[0];
-                    p2.Kill();
-
-                }
-
-                try
-                {
-                    myConnection.Open();
-                    string query2 = "INSERT INTO Alerts(AgentID,dTime,message)" + "VALUES(1,'" + DateTime.Now.ToString() + "','" + processExistAlert + "')";
-
-                    SqlCommand insertQuery = new SqlCommand(query2, myConnection);
-                    insertQuery.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("cannot open SQL connection " + ex);
-                }
-                myConnection.Close();
-
-            }
-
             Console.WriteLine(processExistAlert);
 
             StringBuilder sb = new StringBuilder();
@@ -106,14 +78,6 @@ namespace RAM
 
                         Double x = Double.Parse(m.convertToBytes((ulong)p.PrivateMemorySize64).ToString().Trim());
 
-                        if (x > Convert.ToDouble(Settings.runningApplicationThreshold))
-                        {
-                            appMemoryAlert = p.MainWindowTitle.ToString() + " has exceeded" + Settings.runningApplicationThreshold + ". Current value is " + m.convertToBytes((ulong)p.PrivateMemorySize64).ToString();
-
-                            string query2 = "INSERT INTO Alerts(AgentID,dTime,message)" + "VALUES(1,'" + DateTime.Now.ToString() + "','" + appMemoryAlert + "')";
-                            SqlCommand insertQuery = new SqlCommand(query2, myConnection);
-                            insertQuery.ExecuteNonQuery();
-                        }
                         Console.WriteLine(appMemoryAlert);
 
                         try

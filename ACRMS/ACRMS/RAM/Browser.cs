@@ -91,9 +91,6 @@ namespace SEPMetro
                             tabHandle = GetWindow(tabHandle, GetWindow_Cmd.GW_HWNDNEXT);
                         }
 
-                        if (Int32.Parse(memory) > Settings.IEMemoryUsage)
-                            alertMessageIE = "Internet Explorer tab " + title + " has exceeded " + Settings.IEMemoryUsage + ". Current value is " + memory + "MB.";
-
                         try
                         {
                             myConnection.Open();
@@ -124,9 +121,7 @@ namespace SEPMetro
                             {
                                 if (p.MainWindowTitle.Length > 0)
                                 {
-                                    if (Int32.Parse(p.PrivateMemorySize64.ToString()) > Settings.chromeMemoryUsage)
-                                        alertMessageChrome = "Chrome tab " + p.MainWindowTitle.ToString() + " has exceeded " + Settings.chromeMemoryUsage + ". Current value is " + p.PrivateMemorySize64.ToString() + "Bytes.";
-
+                                    
                                     try
                                     {
                                         myConnection.Open();
@@ -192,8 +187,7 @@ namespace SEPMetro
                     tabHandle = GetWindow(tabHandle, GetWindow_Cmd.GW_HWNDNEXT);
                 }
 
-                if (Int32.Parse(memory) > Settings.IEMemoryUsage)
-                    alertMessageIE = "Internet Explorer tab " + title + " has exceeded " + Settings.IEMemoryUsage + ". Current value is " + memory + "MB.";
+              
             }
             catch (Exception ex)
             {
@@ -318,8 +312,7 @@ namespace SEPMetro
                     tabHandle = GetWindow(tabHandle, GetWindow_Cmd.GW_HWNDNEXT);
                 }
 
-                if (Int32.Parse(memory) > Settings.IEMemoryUsage)
-                    alertMessageIE = "Internet Explorer tab " + title + " has exceeded " + Settings.IEMemoryUsage + ". Current value is " + memory + "MB.";
+              
 
                 try
                 {
@@ -353,9 +346,6 @@ namespace SEPMetro
                     {
                         if (p.MainWindowTitle.Length > 0)
                         {
-                            if (Int32.Parse(p.PrivateMemorySize64.ToString()) > Settings.chromeMemoryUsage)
-                                alertMessageChrome = "Chrome tab " + p.MainWindowTitle.ToString() + " has exceeded " + Settings.chromeMemoryUsage + ". Current value is " + p.PrivateMemorySize64.ToString() + "Bytes.";
-
                             try
                             {
                                 myConnection.Open();

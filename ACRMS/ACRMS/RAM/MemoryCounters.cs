@@ -48,23 +48,6 @@ namespace SEPMetro
         void tick_Tick2(object sender, EventArgs e)
         {
 
-            if (Settings.committedBytealert && Int32.Parse(val7) > Int32.Parse(val6))
-            {
-                committedMemoryAlert = "Committed memory has exceeded the commit limit";
-                try
-                {
-                    myConnection.Open();
-                    string query2 = "INSERT INTO Alerts(AgentID,dTime,message)" + "VALUES(1,'" + DateTime.Now.ToString() + "','" + committedMemoryAlert + "')";
-                    SqlCommand insertQuery = new SqlCommand(query2, myConnection);
-                    insertQuery.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("cannot open SQL connection " + ex);
-                }
-                myConnection.Close();
-            }
-
             try
             {
                 myConnection.Open();

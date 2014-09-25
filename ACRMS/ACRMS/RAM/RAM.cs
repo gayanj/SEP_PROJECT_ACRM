@@ -385,14 +385,10 @@ namespace SEPMetro
         private void metroButton3_Click(object sender, EventArgs e)
         {
 
-            Settings s = new Settings();
-            s.ShowDialog();
         }
 
         private void metroButton4_Click(object sender, EventArgs e)
         {
-            AlertsViewer v = new AlertsViewer();
-            v.ShowDialog();
 
         }
 

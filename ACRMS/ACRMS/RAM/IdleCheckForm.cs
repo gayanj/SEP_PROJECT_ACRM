@@ -101,44 +101,6 @@ namespace SEPMetro
 
             Double x = Double.Parse(ApplicationIdleTimer.CurrentGUIActivity.ToString("#0.0").Trim());
 
-            if (x > Settings.guiActivityThreshold)
-            {
-                alertMessageGuiActivity = "Current GUI Activity has exceeded " + Settings.guiActivityThreshold + ". Current value is " + ApplicationIdleTimer.CurrentGUIActivity.ToString("#0.0");
-
-                try
-                {
-                    myConnection.Open();
-                    string query2 = "INSERT INTO Alerts(AgentID,dTime,message)" + "VALUES(1,'" + DateTime.Now.ToString() + "','" + alertMessageGuiActivity + "')";
-                    SqlCommand insertQuery2 = new SqlCommand(query2, myConnection);
-                    insertQuery2.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("cannot open SQL connection " + ex);
-                }
-                myConnection.Close();
-
-            }
-
-            if (Settings.guistate && this.ram_status.Text == "Busy")
-            {
-                alertMessageidleState = "GUI is found to be idle";
-
-                try
-                {
-                    myConnection.Open();
-                    string query3 = "INSERT INTO Alerts(AgentID,dTime,message)" + "VALUES(1,'" + DateTime.Now.ToString() + "','" + alertMessageidleState + "')";
-                    SqlCommand insertQuery3 = new SqlCommand(query3, myConnection);
-                    insertQuery3.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("cannot open SQL connection " + ex);
-                }
-                myConnection.Close();
-
-            }
-
             Console.WriteLine(alertMessageGuiActivity + Environment.NewLine + alertMessageidleState);
 
             try

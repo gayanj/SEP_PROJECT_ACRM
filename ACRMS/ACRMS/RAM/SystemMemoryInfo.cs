@@ -63,24 +63,6 @@ namespace SEPMetro
             val6 = statusEx.convertToBytes(statusEx.ullTotalVirtual).ToString("0.00");
             val7 = statusEx.convertToBytes(statusEx.ullAvailVirtual).ToString("0.00");
 
-            if (Int32.Parse(statusEx.dwMemoryLoad.ToString()) > Settings.ramPercentageAlert)
-            {
-                ramPercentageAlert = "RAM usage exceeded " + Settings.ramPercentageAlert + ". Current value is " + Int32.Parse(statusEx.dwMemoryLoad.ToString()) + " %.";
-
-                try
-                {
-                    myConnection.Open();
-                    string query2 = "INSERT INTO Alerts(AgentID,dTime,message)" + "VALUES(1,'" + DateTime.Now.ToString() + "','" + ramPercentageAlert + "')";
-                    SqlCommand insertQuery = new SqlCommand(query2, myConnection);
-                    insertQuery.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("cannot open SQL connection " + ex);
-                }
-                myConnection.Close();
-            }
-
             try
             {
                 myConnection.Open();
