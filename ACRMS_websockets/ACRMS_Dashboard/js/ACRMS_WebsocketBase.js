@@ -1,12 +1,15 @@
 var webSocketBase = (function () {
     var Nconn;
     var getCPUUsageResponse = false;
+    var getNETWORKUsageResponse = false;
     var getRAMUsageResponse = false;
     var getDiskUsageResponse = false;
     var getCPUUsageCount  = 0;
+    var getNETWORKUsageCount = 0;
     var getRAMUsageCount  = 0;
     var getDiskUsageCount  = 0;
     var cpuPercentage = 0;
+    var networkPercentage = 0;
     var ramPercentage = 0.0;
     var diskPercentage = 0.0;
 
@@ -59,6 +62,8 @@ var webSocketBase = (function () {
             getDISKUsageResponseHandler(message);
         }else if(json.response === 'getCpuAlerts'){
             getCpuAlertsResponseHandler(message);
+        }else if(json.response === 'getNETWORKUsage'){
+            getNETWORKUsageResponseHandler(message);
         }
     }
 
@@ -72,6 +77,18 @@ var webSocketBase = (function () {
             tableDataFromProcesses.push([data[key]['id'].split('T')[0],data[key]['id'].split('T')[1],data[key]['pname'],data[key]['alert']]);
         }
         table(tableDataFromProcesses);
+    }
+
+    function getNETWORKUsageResponseHandler(message){
+        //convert to JSON format
+        var json = JSON.parse(message);
+        networkPercentage = json.parameters.GetNetworkUsage;
+        getNETWORKUsageResponse = true;
+        if(getNETWORKUsageCount == 0){
+            networkUsagegraph();
+            getNETWORKUsageCount++;
+            //console.log(json);
+        }
     }
 
     function startMonitoringResponseHandler(message){
@@ -139,6 +156,10 @@ var webSocketBase = (function () {
 
     function cpuUsageData(){
         return cpuPercentage;
+    }
+
+    function networkUsageData(){
+        return networkPercentage;
     }
 
     function ramUsageData(){
@@ -387,9 +408,90 @@ var webSocketBase = (function () {
                 }]
             });
     }
+    
+    function networkUsagegraph(){
+        Highcharts.setOptions({
+                global: {
+                    useUTC: false
+                }
+            });
 
+            $('#getNETWORKUsageGraph').highcharts({
+                chart: {
+                    type: 'spline',
+                    animation: Highcharts.svg, // don't animate in old IE
+                    marginRight: 10,
+                    events: {
+                        load: function () {
+
+                            // set up the updating of the chart each second
+                            var series = this.series[0];
+                            setInterval(function () {
+                                var x = (new Date()).getTime(), // current time
+                                    y = parseInt(networkUsageData());
+                                series.addPoint([x, y], true, true);
+                            }, 1000);
+                        }
+                    }
+                },
+                title: {
+                    text: 'Network Percentage'
+                },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 50,
+                    labels: {
+                        enabled: false
+                    }
+                },
+                yAxis: {
+                    floor: 0,
+                    title: {
+                        text: 'NETWORK %'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' +
+                            Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                            Highcharts.numberFormat(this.y, 2);
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'NETWORK Usage',
+                    data: (function () {
+                        // generate an array of random data
+                        var data = [],
+                            time = (new Date()).getTime(),
+                            i;
+
+                        for (i = -19; i <= 0; i += 1) {
+                            data.push({
+                                x: time + i * 1000,
+                                y: 0
+                            });
+                        }
+                        return data;
+                    }())
+                }]
+            });
+    }
     function _getCPUUsageResponseValue(){
         return getCPUUsageResponse;
+    }
+    function _getNETWORKUsageResponseValue(){
+        return getNETWORKUsageResponse;
     }
     function _getRAMUsageResponseValue(){
         return getRAMUsageResponse;
@@ -400,6 +502,7 @@ var webSocketBase = (function () {
     //Public methods which are exposed
     return {
         getDISKUsageResponseValue: _getDISKUsageResponseValue,
+        getNETWORKUsageResponseValue: _getNETWORKUsageResponseValue,
         getRAMUsageResponseValue: _getRAMUsageResponseValue,
         getCPUUsageResponseValue: _getCPUUsageResponseValue,
         openConnection: _openNativeWrapperConnection,

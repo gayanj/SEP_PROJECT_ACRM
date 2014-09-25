@@ -99,7 +99,7 @@
                   </ul>          
                 </div>
               </div>
-              <!-- Tables and graphs go here -->
+              <div id="getNETWORKUsageGraph" style="width:500px; height: 400px;float:left;"></div>
             </div>
           </div>
         </div>
@@ -172,6 +172,16 @@
           timer = setInterval(function () {
             if(webSocketBase.getRAMUsageResponseValue()){
               webSocketBase.sendRequestNative('getRAMUsage', null);
+              console.log('getRAMUsage method sent to socket.');
+            }
+          }, 1000);
+        })();
+        (function getNETWORKUsage() {
+          webSocketBase.sendRequestNative('getNETWORKUsage', null);
+          console.log('Initial getNETWORKUsage method sent to socket.');
+          timer = setInterval(function () {
+            if(webSocketBase.getNETWORKUsageResponse()){
+              webSocketBase.sendRequestNative('getNETWORKUsage', null);
               console.log('getRAMUsage method sent to socket.');
             }
           }, 1000);
