@@ -180,7 +180,7 @@
           webSocketBase.sendRequestNative('getNETWORKUsage', null);
           console.log('Initial getNETWORKUsage method sent to socket.');
           timer = setInterval(function () {
-            if(webSocketBase.getNETWORKUsageResponse()){
+            if(webSocketBase.getNETWORKUsageResponseValue()){
               webSocketBase.sendRequestNative('getNETWORKUsage', null);
               console.log('getRAMUsage method sent to socket.');
             }

@@ -82,7 +82,7 @@ var webSocketBase = (function () {
     function getNETWORKUsageResponseHandler(message){
         //convert to JSON format
         var json = JSON.parse(message);
-        networkPercentage = json.parameters.GetNetworkUsage;
+        networkPercentage = json.parameters.GetNetworkUsage.networkUsage;
         getNETWORKUsageResponse = true;
         if(getNETWORKUsageCount == 0){
             networkUsagegraph();
